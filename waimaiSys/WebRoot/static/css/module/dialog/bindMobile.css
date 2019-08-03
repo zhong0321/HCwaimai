@@ -1,0 +1,40 @@
+/**
+ * 绑定手机号的弹出框组件样式。  
+ * 
+ * @author xukai@meituan.com
+ * @date 2014-03-08 星期六
+ */
+
+.dialog-bindmobile input {
+  width: 283px;
+  height: 19px;
+  line-height: 19px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.dialog-bindmobile .item {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.dialog-bindmobile .get-verify,
+.dialog-bindmobile .bind-btn {
+  margin-left: 48px;
+}
+
+.dialog-bindmobile .error-item {
+  margin-top: 3px;
+  padding-left: 96px
+}
+
+.dialog-bindmobile .bind-error-item {
+  margin-top: 3px;
+  padding-left: 68px;
+}
+
+.dialog-bindmobile .tip {
+  padding: 5px 20px;
+  font-size: 14px;
+  padding-bottom: 1px;
+}

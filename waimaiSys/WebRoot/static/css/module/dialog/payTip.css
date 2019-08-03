@@ -1,0 +1,91 @@
+/**
+ * 支付页面，点击去付款后弹出此弹框
+ *
+ * @author chenli08@meituan.com
+ * @date 2014-07-07 星期一
+ */
+
+.dialog-paytip {
+  color: #434343;
+}
+
+.dialog-paytip .tips {
+  padding: 23px 20px 10px;
+}
+
+.dialog-paytip .tips .icon {
+  margin: 5px 0 0 5px;
+}
+
+.dialog-paytip .desc {
+  margin-left: 65px;
+  padding-top: 2px
+}
+
+.dialog-paytip .desc-line2 {
+  margin: 8px 0;
+}
+
+.dialog-paytip .desc strong {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dialog-paytip .desc em {
+  color: #ff9f00;
+  font-style: normal;
+}
+
+.dialog-paytip input {
+  width: 132px;
+  height: 27px;
+  line-height: 27px;
+  float: left;
+}
+
+.dialog-paytip .field {
+  margin-top: 13px;
+  padding-left: 85px;
+}
+
+.dialog-paytip .verify-field {
+  margin-top: 10px;
+}
+
+.dialog-paytip .field label {
+  float: left;
+  font-size: 14px;
+  width: 52px;
+  padding-top: 8px;
+}
+
+.dialog-paytip .field .mobile {
+  padding-top: 7px;
+  font-size: 14px;
+}
+
+.dialog-paytip .commit-order {
+  margin-right: 12px;
+}
+
+.dialog-paytip .simple-dialog .content {
+  padding-bottom: 35px;
+}
+
+.dialog-paytip .error-tips,
+.dialog-paytip .normal-tips {
+  margin-left: 12px;
+  padding-top: 8px;
+}
+
+.dialog-paytip .normal-tips {
+  color: #434343;
+}
+
+.dialog-paytip .choose-other {
+  color: #fe4d3d;
+}
+
+.dialog-paytip .soldout-op {
+  margin: 30px 0;
+}

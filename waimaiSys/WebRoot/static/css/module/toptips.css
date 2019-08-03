@@ -1,0 +1,23 @@
+.top-tips {
+  width: 100%;
+  height: 40px;
+  background-color: #fff6db;
+}
+
+.top-tips-content {
+  text-align: center;
+  line-height: 40px;
+  font-size: 14px;
+}
+
+.top-tips-content a {
+  color: #fe4d3d;
+}
+
+.top-tips-close {
+  display: block;
+  width: 13px;
+  height: 13px;
+  margin: 13px;
+  float: right;
+}

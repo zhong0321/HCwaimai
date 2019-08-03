@@ -1,0 +1,100 @@
+/**
+ * 餐厅页面右侧widgets样式
+ *
+ * @author moumingyi@meituan.com
+ * @date 2014.12.25
+ */
+
+.page-wrap .inner-wrap {
+  padding-top: 0;
+}
+
+.widgets {
+  margin-top: 10px;
+}
+
+.widgets .widget {
+  width: 250px;
+  margin-bottom: 10px;
+  background-color: #FFFFFF;
+}
+
+.broadcaster-fixed {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  left: 50%;
+  margin-left: 240px;
+  _position: absolute;
+  _top: expression(eval(document.documentElement.scrollTop));
+}
+
+.broadcaster .title {
+  height: 40px;
+  background-color: #ffd161;
+  color: #333;
+  line-height: 40px;
+  padding-left: 12px;
+}
+
+.broadcaster .content {
+  border: 1px solid #ebebeb;
+  border-top: 0;
+  padding: 12px;
+  line-height: 21px;
+  word-wrap: break-word;
+  font-size: 14px;
+  color: #ffa735;
+}
+
+.broadcaster .content .loading {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  background: url(/static/img/loading2.gif);
+}
+
+.widgets .discount {
+  border: 1px solid #ebebeb;
+  padding: 10px;
+  width: 228px;
+}
+
+.widgets .discount .icon {
+  vertical-align: text-bottom;
+  float: left;
+}
+
+.widgets .discount .i-ph17x17 {
+  float: left;
+}
+
+.widgets .discount p {
+  margin-bottom: 10px;
+  color: #535353;
+}
+
+.widgets .discount .delivery-min-fee,
+.widgets .discount .delivery-fee {
+  color: #898989;
+  font-size: 14px;
+}
+
+.widgets .discount .i-pay {
+  margin-right: 6px;
+}
+
+.widgets .discount .discount-desc {
+  margin-left: 24px;
+  display: block;
+}
+
+.discount .i-ph17x17 {
+  vertical-align: text-bottom;
+  display: inline-block;
+}
+
+.discount-desc .special{
+  color: #ff2e41;
+}
+

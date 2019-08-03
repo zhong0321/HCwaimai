@@ -1,0 +1,27 @@
+/**
+ * 表格样式。
+ *
+ *
+ */
+
+.standard-table, td, tr, th {
+  font-size: 12px;
+  border-collapse: collapse;
+}
+
+.standard-table th, .standard-table td {
+  border-collapse: collapse;
+  border: #dcdcdc solid 1px;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+}
+
+.standard-table .th-inner,
+.standard-table .td-inner {
+  padding: 6px 15px;
+}
+
+.standard-table {
+  width: 100%;
+}

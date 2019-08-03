@@ -1,0 +1,130 @@
+/**
+ * 页面上主要基调的颜色 ，最大程度上的消除冗余代码，实现代码的重用。
+ * 目前有三种命名空间：
+ * color-common(cc) —— 通用颜色分类，比如说背景色，按钮颜色等等，颜色过于混杂的情况下，则不必细分，列出大致主色调即可。
+ * color-alink(ca)  —— a标签链接颜色。
+ * color-text(ct)   —— 用于表示文字的颜色。
+ * 
+ * @author XU Kai(xukai@meituan.com)
+ * @date 2014.01.06
+ */
+
+.cc-yellow{
+  color: #FF6900;
+}
+
+.cc-oriange {
+  color: #FF6900;
+}
+
+.cc-syellow {
+  color: #ED9400;
+}
+
+.cc-dyellow {
+  color: #E28D00;
+}
+
+.cc-darkgrey {
+  color: #535353;
+}
+
+.cc-red {
+  color: red;
+}
+
+.cc-lightred {
+  color: #FF6900;
+}
+
+.cc-deepred {
+  color: #EB6100;
+}
+
+a.ca-lightgrey {
+  color: #898989;
+}
+
+a.ca-darkgrey {
+  color: #3E4545;
+}
+
+a.ca-black {
+  color: #000000;
+}
+
+a.ca-deepgrey {
+  color: #434343;
+}
+
+a.ca-brown {
+  color: #444444;
+}
+
+.ct-white {
+  color: #FFFFFF;
+}
+
+.ct-lightgreen {
+  color: #E8FABF;
+}
+
+.ct-black {
+  color: #000000;
+}
+
+.ct-gray {
+  color: #A0A0A0;
+}
+
+.ct-green {
+  color: #8FC31F;  
+}
+
+.ct-darkgreen {
+  color: #96BD38;
+}
+
+.ct-lightwhite {
+  color: #D3D3D3;
+}
+
+.ct-lightgrey {
+  color: #898989;
+}
+
+.ct-middlegrey {
+  color: #686868;
+}
+
+.ct-deepgrey {
+  color: #535353;
+}
+
+.ct-red {
+  color: #E64B2C;
+}
+
+.ct-lightred {
+  color: #FF6900;
+}
+
+.ct-darkgrey {
+  color: #3E4545;
+}
+
+.ct-b5gray {
+  color: #b5b5b5;
+}
+
+.ct-66gray {
+  color: #666666;
+}
+
+.cc-lightred-new {
+  color: #ffa735;
+}
+
+.ct-commonblack{
+  color: #313131;
+}

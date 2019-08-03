@@ -1,0 +1,46 @@
+/**
+ * 在线支付优惠信息的标签
+ *
+ * @date 2014-11-05 星期三
+ */
+
+.online-pricetag .mon {
+  width: 14px;
+  height: 16px;
+  background-position: 0 -62px;
+}
+
+.online-pricetag .txt {
+  height: 16px;
+  line-height: 16px;
+  background-color: #448ed5;
+  padding: 0 5px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.online-pricetag .arr {
+  width: 6px;
+  height: 16px;
+  background-position: 0 -81px;
+}
+
+.online-pricetag .computer {
+  width: 21px;
+  height: 18px;
+  background-position: 0 -38px;
+}
+
+.online-pricetag .tp-mon {
+  margin-left: 4px;
+  margin-top: 1px;
+}
+
+.online-pricetag .tp-txt {
+  margin-top: 1px;
+}
+
+.online-pricetag .tp-arr {
+  margin-top: 1px;
+}

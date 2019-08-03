@@ -1,0 +1,67 @@
+/**
+ * 边缘带了指针的，带透明边框的对话框的样式类型。
+ *
+ * @author xukai@meituan.com
+ * @date 2014-01-24 星期五
+ */
+
+.tips-dialog {
+  border-collapse: collapse;
+  border-spacing: 0;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.tips-dialog .dialog-main {
+  padding: 10px;
+  background-color: #FFFFFF;
+}
+
+.tips-dialog tr,
+.tips-dialog td {
+  margin: 0;
+  padding: 0;
+}
+
+.tips-dialog .top-left, 
+.tips-dialog .top-center, 
+.tips-dialog .top-right, 
+.tips-dialog .middle-left, 
+.tips-dialog .middle-right, 
+.tips-dialog .bottom-left, 
+.tips-dialog .bottom-center, 
+.tips-dialog .bottom-right {
+  background: transparent url('//s3plus.sankuai.com/v1/mss_3bdfec648fc242aa88aace768b85ae32/waimai-web/tips-border.png') no-repeat left top;
+}
+
+.tips-dialog .top-left,
+.tips-dialog .top-right,
+.tips-dialog .bottom-left,
+.tips-dialog .bottom-right {
+  background-repeat: no-repeat;
+  height: 5px;
+  width: 5px;
+}
+
+.tips-dialog .top-center,
+.tips-dialog .bottom-center {
+  background-repeat: repeat-x;
+}
+
+.tips-dialog .middle-left,
+.tips-dialog .middle-right {
+  background-repeat: repeat-y;
+}
+
+.tips-dialog .i-tipsdialog-arrowup {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  margin-left: -8px;
+}
+  
+
+

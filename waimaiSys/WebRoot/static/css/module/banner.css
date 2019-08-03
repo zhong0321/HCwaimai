@@ -1,0 +1,91 @@
+/**
+ * 首页页面顶部的banner滚动。  
+ * 
+ * @author xukai@meituan.com
+ * @date 2014-06-17 星期二
+ */
+
+.notice {
+  width: 960px;
+  height: 80px;
+  position: relative;
+}
+
+.notice .shown {
+  position: relative;
+}
+
+.notice .shown li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+.notice .shown .current {
+  display: list-item;
+}
+
+.notice .shown a,
+.notice .shown img {
+  display: block;
+}
+
+.notice .btns {
+  height: 8px;
+  padding: 2px 9px 2px 5px;
+  background-color: #000000;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  border-radius: 6px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  margin-top: -16px;
+}
+
+.notice .btns a {
+  width: 8px;
+  height: 8px;
+  margin-left: 4px;
+  display: block;
+  overflow: hidden;
+}
+
+.notice .btns a.active {
+  background-position: -495px -47px;
+}
+
+.notice .prev,
+.notice .next {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  display: none;
+  top: 25px;
+  background-color: #000000;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  z-index: 99;
+}
+
+.notice.moveIn .prev,
+.notice.moveIn .next {
+  display: block;
+}
+
+.notice .prev:hover ,
+.notice .next:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.notice .next {
+  right:0;
+}
+
+.notice .next i,
+.notice .prev i {
+  margin: 6px 8px;
+}

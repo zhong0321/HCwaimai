@@ -1,0 +1,65 @@
+/**
+ * 滚动条组件样式。
+ * 
+ * @author xukai@meituan.com
+ * @date 2014-03-21 星期五
+ */
+
+.scrollbar {
+  display: inline-block;
+  position: relative;
+}
+
+.scrollbar {
+  *display: inline;
+}
+
+.scrollbar .inner {
+  width: 228px;
+  height: 11px;
+  cursor: pointer;
+  background: url(/static/img/scrollbar/unselected_n.png) repeat-x;
+}
+
+.scrollbar .inner-bg {
+  background: url(/static/img/scrollbar/selected_n_2.png) repeat-x;
+  width: 0%;
+  height: 11px;
+}
+
+.scrollbar .slider {
+  width: 24px;
+  height: 24px;
+  background-color: #333333;
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  background: url(/static/img/scrollbar/slider_n.png) no-repeat;
+  
+  _background: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/static/img/scrollbar/slider_n.png',sizingMethod='scale');
+  top: -5px;
+  left: -13px;
+}
+
+.scrollbar .left {
+  width: 2px;
+  height: 11px;
+  background: url(/static/img/scrollbar/left_n_2.png) no-repeat;
+  
+  _background: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/static/img/scrollbar/left_n_2.png',sizingMethod='scale');
+}
+
+.scrollbar .right {
+  width: 2px;
+  height: 11px;
+  background: url(/static/img/scrollbar/right_n.png) no-repeat;
+}
+
+
+
+
+
+
+

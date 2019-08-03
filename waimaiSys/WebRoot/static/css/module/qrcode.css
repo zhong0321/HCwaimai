@@ -1,0 +1,40 @@
+/**
+ * 页面上所有的二维码相关内容  
+ * 
+ * @author xukai@meituan.com
+ * @date 2014-04-10 星期四
+ */
+
+.stick-qrcode .index-xiaomei {
+  display: block;
+  width: 90px;
+  height: 195px;
+  background-position: 0 -890px;
+  position: relative;  
+  _position: relative; /*ie6 and above*/
+  margin-bottom: 20px;
+  /*_top: expression(eval(document.documentElement.scrollTop + 200));*/
+}
+
+.stick-qrcode .i-qrcode-cross {
+  position: absolute;
+  top: 170px;
+  right: 7px;
+  cursor: pointer;
+}
+
+.stick-qrcode .code {
+  display: inline-block;
+  width: 78px;
+  height: 78px;
+  background-position: 0 -252px;
+  position: absolute;
+  top: 77px;
+  left: 7px;
+  background-repeat: no-repeat;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter:alpha(opacity=60);
+  -moz-opacity:0.6;
+  -khtml-opacity: 0.6;
+  opacity: 0.6;
+}

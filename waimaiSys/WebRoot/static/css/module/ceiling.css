@@ -1,0 +1,47 @@
+/**
+ * 页面吸顶 搜索条样式文件。
+ *
+ * @author moumingyi@meituan.com
+ * @date 2014.11.25
+ */
+
+.ceiling-search {
+  position: fixed;
+  top: -80px;
+  height: 80px;
+  width: 100%;
+  background-color: #fff;
+  display: none;
+  z-index: 9999;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  _position: absolute; /*这么写ie6还是不work，但避免出现在不该出现的位置*/
+}
+
+.ceiling-search .ceiling-inner {
+  margin: 0 auto;
+  width: 980px;
+}
+
+.ceiling-search .ceiling-logo {
+  margin-top: 16px;
+}
+
+.ceiling-search .ceiling-logo img {
+  width: 163px;
+  height: 48px;
+}
+
+.ceiling-search .search-box {
+  width: 298px;
+  height: 38px;
+  margin-top: 20px;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.ceiling-search .header-search,
+.ceiling-search .focus .header-search {
+  color: #333;
+}

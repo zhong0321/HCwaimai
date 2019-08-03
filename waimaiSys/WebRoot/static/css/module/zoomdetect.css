@@ -1,0 +1,23 @@
+.zoom-detect {
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  width: 100%;
+  background: #7C8994;
+  text-align: center;
+  opacity: .85;
+  filter: alpha(Opacity=85);
+  z-index: 999;
+}
+
+.zoom-detect .content {
+  margin-right: 10px;
+  font-size: 16px;
+  color: #FFF;
+}
+
+.zoom-detect .ignore {
+  font-size: 12px;
+  text-decoration: underline;
+  color: #FFF;
+}

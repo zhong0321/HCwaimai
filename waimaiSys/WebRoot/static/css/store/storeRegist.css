@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    height: 50px;
+    background: #08C1AE;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 30px;
+
+}
+.content{
+    margin: 10px auto;
+    width: 70%;
+}
+.titleDiv{
+    margin: 20px 0px;
+    color: grey;
+    font-size: 14px;
+}
+.navDiv{
+    width: 100%;
+}
+.navDiv div{
+    display: inline-block;
+    margin: 10px 0px 20px 0px;
+    color: white;
+    font-size: 14px;
+    width: 33%;
+    background: #08C1AE;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+}
+.navDiv div:first-child{
+    background: #08C1AE;
+}
+.navDiv div:nth-child(2),.navDiv div:nth-child(3),.navDiv div:nth-child(4){
+    background: #CCCCCC;
+}
+.content .storeInfo{
+    width: 90%;
+    margin: 0px auto;
+
+}
+.content .storeInfo p{
+    color: grey;
+    font-size: 13px;
+    margin: 10px 0px;
+}
+.xing{
+    color: red;
+}
+.content .storeInfo table tr td{
+    padding-bottom: 20px;
+    font-size: 14px;
+
+}
+.content .storeInfo table tr .tishi{
+    text-align: right;
+    padding-right: 18px;
+}
+input,select{
+    height: 20px;
+}
+.buttonTr td{
+    padding-top: 30px;
+}
+.buttonTr td:first-child{
+    width: 150px;
+
+}
+.buttonTr td span{
+    padding: 0px 70px;
+}
+.buttonTr td span button{
+    width: 90px;
+    height: 40px;
+    background: #CCCCCC;
+    color: white;
+    border: none;
+}

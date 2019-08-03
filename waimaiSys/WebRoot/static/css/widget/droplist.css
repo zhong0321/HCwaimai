@@ -1,0 +1,32 @@
+/**
+ * 下拉列表框样式文件。  
+ * 
+ * @author xukai@meituan.com
+ * @date 2014-06-27 星期五
+ */
+
+.drop-list {
+  position: absolute; 
+  border: 1px solid #DCDCDC;
+  background-color: #FFFFFF;
+  display: none;
+  z-index: 901;
+  
+  box-shadow: 0px 2px 5px #CCCCCC;
+  -moz-box-shadow: 0px 2px 5px #CCCCCC;
+  -webkit-box-shadow: 0px 2px 5px #CCCCCC;
+  -ms-box-shadow: 0px 2px 5px #CCCCCC;
+  -o-box-shadow: 0px 2px 5px #CCCCCC;
+}
+
+.drop-list li a {
+  display: block;
+  height: 33px;
+  padding: 0 12px;
+  line-height: 33px;
+  color: #434343;
+}
+
+.drop-list li a.hover {
+  background-color: #EEEEEE;
+}

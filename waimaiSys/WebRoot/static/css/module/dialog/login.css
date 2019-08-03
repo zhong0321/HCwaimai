@@ -1,0 +1,24 @@
+/**
+ * 使用passport的登录框，这里只设一些外边距
+ * 
+ * @author xukai@meituan.com
+ * @date 2014-03-04 星期二
+ */
+
+.simple-login-form {
+  margin-top: 5px;
+}
+
+.dialog-login .simple-dialog {
+  width: 400px;
+}
+
+.dialog-login .loading {
+  position: absolute;
+  top: 46px;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  margin: 120px auto;
+  background: url(/static/img/loading2.gif) no-repeat center center;
+}

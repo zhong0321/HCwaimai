@@ -1,0 +1,47 @@
+/**
+ * 所有的CSS配置文件，包含了文件的引入顺序，目标CSS文件等等。
+ *
+ * @author xukai@meituan.com
+ * @date 2014-01-28 星期二
+ */
+
+/* 历史原因遗留的样式文件库 */
+
+/* @import url("basic/old/main-1.2.1.css");
+@import url("basic/old/magnific-popup.css");
+@import url("basic/old/paginate_style.css"); */
+
+/* 前端基本样式组件库  */
+
+@import url("basic/reset.css");
+@import url("basic/color.css");
+@import url("basic/css3.css");
+@import url("basic/icon.css");
+@import url("basic/common.css");
+/* 各个不同模块的样式文件 */
+
+@import url("widget/table.css");
+@import url("widget/pager.css");
+@import url("widget/scrollbar.css");
+@import url("widget/filter-scrollbar.css");
+@import url("widget/dialog/simple.css");
+@import url("widget/dialog/tips.css");
+@import url("widget/dialog/hover.css");
+@import url("widget/droplist.css");
+/* 重要: 由于历史遗留原因，需要手动添加版本号, 请全局搜索版本号并替换 */
+@import url("module/header.css?v=1.07");
+@import url("module/footer.css?v=1.07");
+/* @import url("module/triffle.css"); */
+@import url("module/sidebar.css?v=1.07");
+@import url("module/qrcode.css?v=1.07");
+@import url("module/banner.css");
+@import url("module/breadcrumb.css");
+@import url("module/account/nav.css");
+@import url("module/shopping/cart.css");
+@import url("module/order/tags.css");
+@import url("module/showimg.css");
+@import url("module/dialog/alldialog.css");
+/*头顶黄条*/
+
+@import url("module/toptips.css");
+@import url("module/zoomdetect.css");

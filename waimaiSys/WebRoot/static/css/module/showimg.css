@@ -1,0 +1,43 @@
+/**
+ * 图片展示模板的样式文件
+ *
+ * @author Mou mingyi (moumingyi@meituan.com)
+ * @date 2014.12.16
+ */
+
+.img-show-wrapper {
+  width: 960px;
+  height: 610px;
+  position: absolute;
+  display: none;
+  z-index: 1001;
+  opacity: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+
+.img-show-wrapper .img-show-close{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.img-show-wrapper .img-show-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -330px;
+  margin-top: -241px;
+  width: 660px;
+  height: 482px;
+}
+
+.img-show-wrapper img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.img-show-mask {
+  opacity:0.8;
+  filter:Alpha(opacity=80);
+}

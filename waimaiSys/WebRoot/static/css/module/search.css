@@ -1,0 +1,168 @@
+/**
+ * 页面头部的搜索组件样式表文件。
+ *
+ * @author Mou mingyi (moumingyi@meituan.com)
+ * @date 2014.11.06
+ */
+
+
+.search-box {
+  position: absolute;
+  z-index: 9;
+  right: 0;
+  top: 20px;
+  border: 1px solid #e5e5e5;
+}
+
+.page-header .search-box {
+  width: 298px;
+  height: 38px;
+  margin-top: 20px;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  /*background:url(/static/img/search-input.png) 100% no-repeat;*/
+}
+ 
+.search-box .header-search {
+  display: block;
+  width: 234px;
+  height: 14px;
+  padding: 7px 0;
+  font-size: 12px;
+  color: #535353;
+  border: none;
+  background: none;
+  margin: 5px 0 5px 10px;
+  _display: inline; /*解决ie6的双边距浮动bug*/
+}
+
+.search-box .focus .header-search {
+  color: #434343;
+}
+
+.search-box .doSearch {
+  width: 48px;
+  height: 38px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("/static/img/new/search.png");
+  background-image: url("/static/img/new/search.svg"), none;
+  -webkit-background-size: 17px 19px;
+  -moz-background-size: 17px 19px;
+  background-size: 17px 19px;
+  border-left: 1px solid #e5e5e5;
+}
+
+.search-box .icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.search-box .result-box {
+  width: 300px;
+  position: absolute;
+  top: 44px;
+  left: 0;
+  border: 1px solid #ebebeb;
+  background-color: #eeeeee;
+  display: none;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+.search-box .result-left {
+  width: 28px;
+  padding: 10px 10px 0 10px;
+}
+
+.search-box  .result-left div {
+  width: 28px;
+  text-align: center;
+  height: 32px;
+  line-height: 32px;
+  display: none;
+}
+
+.search-box  .result-right {
+  width: 252px;
+  background-color: #fff;
+  line-height: 32px;
+}
+
+.search-box  .result-right li {
+  zoom: 1;
+}
+
+.search-box  .rest-lists,
+.search-box  .food-lists {
+  padding: 5px 0;
+}
+
+.search-box  .line {
+  display: none;
+  width: 242px;
+  height: 0;
+  overflow: hidden;
+  margin: 0 5px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.search-box  .rest-list,
+.search-box  .food-list {
+  display: block;
+  width: 242px;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 5px;
+  margin: 5px 0 0 0;
+  border: none;
+  color: #000;
+  background-color: #ffffff;
+}
+
+.search-box  .result-box .cur a {
+  background-color: #fffdf0;
+}
+
+.search-box  .result-right img {
+  float: left;
+  width: 28px;
+  height: 28px;
+  margin: 2px 5px 0 0;
+}
+
+.search-box  .result-right .name,
+.search-box  .result-right .food-name {
+  height: 28px;
+  color: #000000;
+  font-size: 14px;
+  max-width: 168px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-box  .no-result {
+  display: none;
+  width: 280px;
+  height: 40px;
+  font-size: 12px;
+  line-height: 40px;
+  padding: 0 10px;
+  position: absolute;
+  top: 44px;
+  left: 0;
+  border: 1px solid #ebebeb;
+  border-top: none;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  color: #434343;
+}
+
+.search-box .price {
+  width: 42px;
+  text-align: right;
+  overflow: hidden;
+}

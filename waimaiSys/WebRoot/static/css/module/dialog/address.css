@@ -1,0 +1,267 @@
+/**
+ * µØÖ·µ¯¿ò
+ * 
+ * @author xukai@meituan.com
+ * @date 2014-03-18 ÐÇÆÚ¶þ
+ */
+
+.dialog-address {
+  margin-top: 20px;
+}
+
+.addr-em,
+.addr-em-hidden {
+  color: #eb6100;
+  font-style: normal;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.addr-em-hidden {
+  visibility: hidden;
+}
+
+.dialog-address .simple-dialog {
+  width: 560px;
+}
+
+.dialog-address .simple-dialog .content {
+  padding: 10px 0 30px 30px;
+}
+
+.addr-line {
+  margin-top: 20px;
+}
+
+.addr-line-label {
+  width: 90px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 14px;
+  float: left;
+  display: block;
+  clear: left;
+}
+
+.addr-line-content {
+  float: left;
+  position: relative;
+}
+
+.dialog-address .item {
+  color: #434343;
+  padding-left: 10px;
+  overflow: hidden;
+  height: 17px;
+}
+
+.dialog-address .address-wrap {
+  height: 16px;
+  padding: 9px 10px 9px 0;
+  margin-left: 10px;
+  overflow: hidden;
+}
+
+.dialog-address .address-wrap .address {
+  width: 244px;
+}
+
+.dialog-address .address-wrap .phone {
+  width: 105px;
+}
+
+.dialog-address .address-wrap .name {
+  width: 92px;
+}
+
+.dialog-address .address-wrap .cornet {
+  width: 88px;
+  _width: 66px;
+}
+
+.dialog-address .modify {
+  visibility: hidden;
+}
+
+.dialog-address .delete {
+  margin-left: 13px;
+  visibility: hidden;
+}
+
+.dialog-address .selected .delete,
+.dialog-address .selected .modify {
+  visibility: visible;
+}
+
+.dialog-address .selected .address-wrap,
+.dialog-address .hover .address-wrap {
+  background-color: #EEEEEE;
+}
+
+.dialog-address .add {
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 20px;
+}
+
+.dialog-address .add-address {
+  height: 32px;
+  display: block;
+  font-size: 14px;
+  line-height: 32px;
+  text-align: center;
+  color: #8fc31f;
+  background-color: #f5ffe1;
+  border: 1px solid #e0f3ba;
+}
+
+.dialog-address .btns {
+  padding-top: 30px;
+}
+.dialog-address .btns > .s-btn{
+  width: 100px;
+  text-align: center;
+}
+
+.dialog-address .tip-wrap {
+  position: relative;
+}
+
+.addr-line-content input {
+  height: 32px;
+  line-height: 32px;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+
+.addr-line-content .i-user-pos {
+  position: absolute;
+  top: 9px;
+  left: 11px;
+}
+
+.dialog-address .user-input {
+  width: 200px;
+  margin-right: 31px;
+  margin-bottom: 14px;
+}
+
+.dialog-address .gender-input {
+  margin-right: 6px;
+  height: auto;
+}
+
+.dialog-address .gender2-input {
+  margin-left: 18px;
+}
+
+.dialog-address .mobile-input,
+.dialog-address .address-detail-input {
+  width: 386px;
+}
+
+.dialog-address .address-input {
+  width: 361px;
+  padding-left: 35px;
+}
+
+.dialog-address .addr-address-tip {
+  display: none;
+  font-size: 12px;
+  color: #ffa735;
+  margin: -16px 0 0 90px;
+}
+
+.address-suggestion {
+  border: 1px solid #dedede;
+  border-top: none;
+  position: absolute;
+  background-color: #ffffff;
+  width: 396px;
+  *height: 150px;
+  max-height: 152px;
+  overflow: auto;
+  z-index: 1;
+}
+
+.address-suggestion-item {
+  height: 40px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #313131;
+  padding: 5px 0 5px 35px;
+  position: relative;
+}
+
+.address-sug-detail {
+  color: #898989;
+}
+
+.address-suggestion .sug-chosen {
+  background-color: #fffdf0;
+}
+
+.address-suggestion .noaddress {
+  padding: 25px 0 22px 35px;
+  color: #898989;
+  font-size: 14px;
+  display: block;
+  -webkit-box-shadow: 1px 1px 4px #dedede;
+  box-shadow: 1px 1px 4px #dedede;
+}
+
+.addr-btn-wrap {
+  width: 241px;
+  margin: 30px auto 0;
+}
+
+.dialog-address .save,
+.dialog-address .cancel{
+  display: block;
+  width: 110px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+  float: left;
+}
+
+.dialog-address .save {
+  color: #333;
+  background-color: #ffd161;
+}
+
+.dialog-address .cancel {
+  margin-left: 21px;
+  background-color: #a0a0a0;
+}
+
+.dialog-address .i-hook-20 {
+  margin: 7px 0px;
+  visibility: hidden;
+}
+
+.dialog-address .selected .i-hook-20 {
+  visibility: visible;
+}
+
+.dialog-address .addr-tip {
+  font-size: 12px;
+  color: #ffa735;
+  margin: 14px 0 0 90px;
+  visibility: hidden;
+}
+
+.dialog-address .addr-tip-show {
+  visibility: visible;
+}
+
+
+
+
+
+
+
+

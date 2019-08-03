@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zx.mapper.StoreTypesMapper">
+    <!-- 当数据库中的字段信息与对象的属性不一致时需要通过resultMap来映射 -->
+   	<!--  <resultMap type="User" id="userList">
+        <result property="userRoleName" column="roleName" />
+    </resultMap> -->
+    
+     <!-- 查询所有的商家的分类 -->
+    <select id="findStoreTypes" resultType="StoreTypes" >
+    	select * from store_types
+    </select>
+</mapper>

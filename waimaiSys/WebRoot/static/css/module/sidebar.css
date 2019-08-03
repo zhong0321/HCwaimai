@@ -1,0 +1,96 @@
+.sidebar-container {
+  position: fixed;
+  right: -64px;
+  font-size: 12px;
+  z-index: 999999999999;
+  bottom: 30px;
+  cursor: pointer;
+}
+
+.sidebar {
+    width: 124px;
+    height: 257px;
+    background: #fff;
+    box-shadow: 0 1px 8px 0 rgba(0,0,0,0.06);
+    box-sizing: border-box;
+    padding-top: 14px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.sidebar .top {
+    cursor: pointer;
+    width: 28px;
+    margin: 0 auto;
+}
+
+.sidebar .top i {
+    display: block;
+    width: 10px;
+    height: 8px;
+    background: url(/static/img/new2018/go-top.png) no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+
+.sidebar .top p {
+    text-align: center;
+    width: 28px;
+    margin: 4px auto 0;
+    color: #999;
+    font-size: 12px;
+}
+
+.sidebar .top:hover i {
+    background: url(/static/img/new2018/go-top-hover.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.sidebar .top:hover p {
+    color: #FFB40A;
+}
+
+
+/*
+.sidebar .top:hover .sidebar .top i {
+    background: url(/static/img/new2018/go-top-hover.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.sidebar .top:hover  .sidebar .top p {
+    color: #FFB40A;
+}
+*/
+
+.sidebar .wm,
+.sidebar .wx {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.sidebar .wm p,
+.sidebar .wx p {
+    margin-bottom: 6px;
+    text-align: center;
+    color: #000;
+}
+
+.sidebar .wx {
+    margin-top: 16px;
+}
+
+.sidebar .wm .wm-app {
+    width: 64px;
+    height: 64px;
+    background: url(/static/img/new2018/sidebar-wm-app.png) no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+
+.sidebar .wx .wx-app {
+    width: 64px;
+    height: 64px;
+    background: url(/static/img/new2018/sidebar-wx-app.png) no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}

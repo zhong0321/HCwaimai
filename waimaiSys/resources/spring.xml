@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- 注解扫描器 -->
+	<context:component-scan base-package="cn.zx.service"/>
+	<!-- 加载属性文件 -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:database.properties"></property>
+	</bean>
+	<!-- <context:property-placeholder location="classpath:database.properties"/> -->
+	
+	<!-- DispatcherServlet with name 'springmvc' processing POST request for [/waimaiSys/index/findStore] -->
+	<bean id="handlerAdapter" class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="alwaysUseFullPath" value="true"/>
+	</bean>
+	
+	<!-- 定义数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driver}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
+	<!-- 配置SqlSessionFactoryBean -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 引用数据源组件 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 引用MyBatis配置文件中的配置 -->
+		<property name="configLocation">
+			<value>classpath:mybatis-config.xml</value>
+		</property> 
+		<!-- 配置SQL映射文件信息 -->
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:cn/zx/mapper/*.xml</value>
+			</list>
+		</property>
+		<!-- 分页插件 -->
+		<property name="plugins">
+			<array>
+     		 <bean class="com.github.pagehelper.PageInterceptor">
+		       		<property name="properties">
+		              <value>
+		                helperDialect=mysql
+		              </value>
+		            </property>
+	     	 </bean>
+	    </array>
+		</property>
+	</bean>
+
+	<!-- mapper实例 -->
+	 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	 	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+	 	<property name="basePackage" value="cn.zx.mapper"></property>
+	 </bean>
+	 
+	 <import resource="spring-tran.xml"/>
+</beans>    

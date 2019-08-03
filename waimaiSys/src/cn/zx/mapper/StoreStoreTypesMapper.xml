@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zx.mapper.StoreStoreTypesMapper">
+	<insert id="addStoreStoreTypes" parameterType="StoreStoreTypes">
+		INSERT INTO `waimai`.`store_storetypes` (`storeId`, `storeTypeId`) 
+		VALUES
+		  (#{storeId}, #{storeTypeId}) ;
+	</insert>     
+</mapper>

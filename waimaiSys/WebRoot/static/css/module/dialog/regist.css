@@ -1,0 +1,32 @@
+/**
+ * 注册弹出框样式组件
+ * 
+ * @author xukai@meituan.com
+ * @date 2014-03-04 星期二
+ */
+
+.dialog-regist label {
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+}
+
+.dialog-regist input {
+  width: 222px;
+  height: 27px;
+  line-height: 27px;
+}
+
+.dialog-regist .item {
+  margin-top: 18px;
+}
+
+.dialog-regist .sns-verify,
+.dialog-regist .regist-btn {
+  margin-left: 90px;
+}
+
+.dialog-regist .agreement {
+  margin-top: 4px;
+  padding-left: 88px;
+}

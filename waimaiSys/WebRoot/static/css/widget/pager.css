@@ -1,0 +1,60 @@
+/**
+ * ??????css?????????HTML??demo???deomo/compnents/pager.html
+ *
+ * @author From ???????
+ * @date 2014.01.06
+ */
+ .page-navbar{
+     text-align: center;
+     height: 70px;
+     line-height: 82px;
+     font-size: 14px;
+ }
+ .page-navbar form{
+     display: inline-block;
+ }
+ .page-navbar .page-nav-wrapper{
+     display: inline-block;
+ }
+ .page-navbar a, .page-navbar span {
+   margin-left: 15px;
+   border-radius: 1px;
+   text-decoration: none;
+   text-align: center;
+   color: #666;
+   display: block;
+   float: left;
+   line-height: 24px;
+   padding: 0 9px;
+   white-space: nowrap;
+ }
+ .page-navbar .previous{
+   margin-left: 0;
+ }
+ .page-navbar .previous i{
+     margin-right: 2px;
+ }
+ .page-navbar .next i{
+     margin-left: 2px;
+ }
+
+ .page-navbar a:hover {
+   background-color: #333;
+   color: #fff;
+   border-color: #333;
+ }
+
+ .page-navbar span {
+   color: #cccccc;
+ }
+ .page-navbar .first-page,
+ .page-navbar .last-page{
+     display: none;
+ }
+ .page-navbar span.current {
+   background-color: #333;
+   border-color: #333;
+   font-weight: bold;
+   color: #ffffff;
+   border-radius: 2px;
+ }

@@ -1,0 +1,123 @@
+/**
+ * 普通的弹框（带了透明阴影的弹框），用来提示错误，正确，操作成功等等信息。
+ *
+ * @author xukai@meituan.com
+ * @date 2014-01-24 星期五
+ */
+
+.dialog {
+  display: none;
+}
+
+.simple-dialog {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 450px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.simple-dialog .dialog-main {
+  background-color: #FFFFFF;
+  border: 1px solid #C6C6C6;
+}
+
+.simple-dialog tr,
+.simple-dialog td {
+  margin: 0;
+  padding: 0;
+}
+
+.simple-dialog .top-left,
+.simple-dialog .top-center,
+.simple-dialog .top-right,
+.simple-dialog .middle-left,
+.simple-dialog .middle-right,
+.simple-dialog .bottom-left,
+.simple-dialog .bottom-center,
+.simple-dialog .bottom-right {
+  background: transparent url('//s3plus.sankuai.com/v1/mss_3bdfec648fc242aa88aace768b85ae32/waimai-web/simple-border.png') no-repeat left top;
+}
+
+.simple-dialog .top-left,
+.simple-dialog .top-right,
+.simple-dialog .bottom-left,
+.simple-dialog .bottom-right {
+  background-repeat: no-repeat;
+  height: 6px;
+  width: 6px;
+}
+
+.simple-dialog .top-center,
+.simple-dialog .bottom-center {
+  background-repeat: repeat-x;
+}
+
+.simple-dialog .middle-left,
+.simple-dialog .middle-right {
+  background-repeat: repeat-y;
+}
+
+.simple-dialog .title {
+  padding: 10px 15px;
+  height: 20px;
+  background-color: #F8F8F8;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  color: #666666;
+}
+
+.simple-dialog .notitle-close {
+  margin: 10px 10px 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+.simple-dialog .content {
+  padding:13px;
+  position: relative;
+}
+
+/* 事先预留了几种simple dialog的样式 */
+.dialog-success,
+.dialog-failed {
+  text-align: center;
+}
+
+.dialog-success .content,
+.dialog-failed .content {
+  padding-bottom: 40px;
+}
+
+.dialog-success .tips,
+.dialog-failed .tips {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.dialog-success .i-dialog-right,
+.dialog-failed .i-dialog-wrong {
+  position: relative;
+  top: 7px;
+}
+
+.mask {
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index:999;
+  background-color:black;
+  opacity:0.3;
+  filter:Alpha(opacity=30);
+
+  /*以下为兼容ie6的样式*/
+  _position:absolute;
+  _width : 100%;
+  _height : expression(document.body.clientHeight);
+}

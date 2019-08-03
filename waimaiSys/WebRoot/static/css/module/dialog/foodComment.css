@@ -1,0 +1,175 @@
+/**
+ * 食物评价的对话框样式
+ *
+ * @author XU Kai(xukai@meituan.com)
+ * @date 2014-05-28 星期三
+ */
+
+.dialog-foodcnt .content {
+  padding: 0;
+}
+
+.dialog-foodcnt .error-barcont {
+  padding: 0 23px;
+  margin-top: 15px;
+}
+
+.dialog-foodcnt .error-bar {
+  border: 1px solid #FFAA1E;
+  background-color: #FFF5E4;
+  padding: 10px;
+}
+
+.dialog-foodcnt .error-bar span {
+  margin-left: 10px;
+  line-height: 17px;
+}
+
+.dialog-foodcnt .speed {
+  margin-top: 18px;
+}
+
+.dialog-foodcnt .stars-rank {
+  margin-left: 19px;
+}
+
+.dialog-foodcnt .rank-txt {
+  margin-left: 10px;
+  color: #fe4d3d;
+}
+
+.dialog-foodcnt .stars-rank .icon {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.dialog-foodcnt .total-rank {
+  margin-top: 25px;
+}
+
+.dialog-foodcnt .total-rank .txt {
+  margin-left: 5px;
+}
+
+.dialog-foodcnt .speed .txt {
+  margin-left: 5px;
+}
+
+.dialog-foodcnt .scrollbar {
+  margin-left: 18px;
+  margin-top: 3px;
+}
+
+.dialog-foodcnt .time {
+  margin-left: 20px;
+  margin-top: 2px;
+  color: #fe4d3d;
+}
+
+.dialog-foodcnt .feeling {
+  margin-top: 24px;
+}
+
+.dialog-foodcnt .feeling .feel-context {
+  width: 314px;
+  height: 55px;
+  resize: none;
+  border: 1px solid #DDDDDD;
+  margin-left: 18px;
+  display: block;
+  float: left;
+}
+
+.dialog-foodcnt .taste .bold, .dialog-foodcnt .feeling .bold {
+  margin-left: 21px;
+}
+
+.dialog-foodcnt .taste .list-all {
+  display: block;
+  margin: 0 0 0 91px;
+}
+
+.dialog-foodcnt .taste {
+  margin-top: 26px;
+  
+  /* TODO 其实我也不知道为什么清除浮动的这个地方会出来个高度 */
+  overflow: hidden;
+  *zoom: 1;
+}
+
+.dialog-foodcnt .taste .rank {
+  color: #888888;
+  cursor: pointer;
+}
+
+.dialog-foodcnt .taste ul {
+  margin-left: 17px;
+  color: #424242;
+}
+
+.dialog-foodcnt .taste ul li {
+  margin-bottom: 7px;
+  width: 321px;
+}
+
+.dialog-foodcnt .btns {
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+
+.dialog-foodcnt .btns .submit-comment {
+  margin-left: 87px;
+}
+
+.dialog-foodcnt .btns .tip {
+  color: #666666;
+}
+
+.dialog-foodcnt .error-tips {
+  margin-left: 92px;
+  color: #EB6100;
+  padding-top: 6px;
+  display: block;
+}
+
+.dialog-foodcnt .btns .tip {
+  margin-left: 10px;
+}
+
+.dialog-foodcnt .timer-bar {
+  margin-top: 9px;
+  border-bottom: 1px solid #DCDCDC;
+  padding-bottom: 17px;
+  padding-right: 111px;
+}
+
+.dialog-foodcnt .timer-bar .start {
+  color: #C6C6C6;
+  margin-left: 92px;
+}
+
+.dialog-foodcnt .timer-bar .end {
+  color: #C6C6C6;
+}
+
+.dialog-foodcnt .red-star {
+  color: #E60012;
+  margin-left: 12px;
+}
+
+.dialog-foodcnt .rank {
+  margin-right: 67px;
+}
+
+.dialog-foodcnt .i-zan,
+.dialog-foodcnt .i-cai {
+  vertical-align: text-bottom;
+  margin-right: 9px;
+}
+
+
+
+
+
+
+

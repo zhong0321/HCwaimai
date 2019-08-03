@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zx.mapper.AuditMapper">
+	<!-- 添加审核记录 -->
+	<insert id="addAudit" parameterType="audit">
+		INSERT INTO `waimai`.`audit` (
+		  `storeId`,
+		  `auditState`,
+		  `auditTime`,
+		  `auditComment`
+		) 
+		VALUES
+		  (
+		    #{storeId},
+		    #{auditState},
+		    now(),
+		    #{auditComment}
+		  ) ;
+	</insert>     
+	
+	<!-- 修改审核记录 -->
+	<update id="updateAudit" parameterType="audit">
+		UPDATE 
+		  `waimai`.`audit` 
+		SET
+		  `storeId` = #{storeId},
+		  `auditState` = #{auditState},
+		  `auditComment` = #{auditComment}
+		WHERE `id` = #{id} ;
+	</update>
+	
+	<!-- 查询审核记录 -->
+	<select id="">
+	
+	</select>
+</mapper>

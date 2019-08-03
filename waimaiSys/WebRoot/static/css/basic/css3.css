@@ -1,0 +1,22 @@
+/**
+ * CSS3样式文件存放地点。
+ *   
+ * @author XU Kai(xukai@meituan.com)
+ * @date 2014.01.06
+ */
+
+::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+:-moz-placeholder {
+    color: #ccc;
+}
+
+::-moz-placeholder {
+    color: #ccc;
+}
+
+:-ms-input-placeholder {
+    color: #ccc;
+}

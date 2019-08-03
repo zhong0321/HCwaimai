@@ -1,0 +1,376 @@
+/**
+ * 评论、餐厅页面公用头部
+ *
+ * @author tracyqiu(heyanqiu@meituan.com)
+ * @date 2014-06-30
+ */
+
+.rest-info {
+  width: 865px;
+  height: 120px;
+  border-right: 1px dashed #e5e5e5;
+  background-color: #fff;
+  position: relative;
+  zoom: 1;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+.rest-info .details {
+  min-width: 330px;
+  max-width:52%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-right: 10px;
+  overflow: hidden;
+  _width: 350px;
+  _padding-right: 0px;
+  _display: inline;
+}
+
+.rest-info .red-text{
+  position: relative;
+  padding-left: 12px;
+  color: #ffa735;
+}
+
+.rest-info .red-text .i-arrsmallup{
+  position: absolute;
+  top: 5px;
+  left: 0px;
+}
+
+.rest-info .over {
+  left: -1px;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  border-top: 0;
+  overflow: visible;
+  box-shadow: 1px 1px 5px #ccc;
+  -moz-box-shadow: 1px 1px 5px #ccc;
+  -webkit-box-shadow: 1px 1px 5px #ccc;
+  -ms-box-shadow: 1px 1px 5px #ccc;
+  -o-box-shadow: 1px 1px 5px #ccc;
+}
+
+.rest-info .details .list {
+  float: left;
+}
+
+.rest-info .rest-info-down-wrap {
+
+  display: none;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #666;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  -ms-opacity: 0;
+  -o-opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.rest-info .over .rest-info-down-wrap {
+  display: block;
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  -ms-opacity: 1;
+  -o-opacity: 1;
+  filter: alpha(opacity=100);
+
+  -webkit-transition: opacity .6s ease;
+  -moz-transition: opacity .6s ease;
+  -ms-transition: opacity .6s ease;
+  -o-transition: opacity .6s ease;
+  transition: opacity .6s ease;
+}
+.rest-info .rest-info-down-wrap svg{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+.rest-info-down-wrap .sale-time{
+    margin-left: 20px;
+    font-size: 0;
+}
+.rest-info-down-wrap .poi-detail-left{
+    display: inline-block;
+    width: 22%;
+    font-size: 12px;
+}
+.rest-info-down-wrap .poi-detail-right{
+    display: inline-block;
+    width: 78%;
+    font-size: 12px;
+    vertical-align: top;
+    line-height: 15px;
+}
+.rest-info .rest-info-down-wrap .info-detail {
+  width: 70%;
+  overflow: hidden;
+  font-weight: normal;
+}
+
+.rest-info .avatar {
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 106px;
+  height: 80px;
+  line-height: 88px;
+  text-align: center;
+  border: 1px solid #eee;
+  overflow:hidden;
+  box-sizing: border-box;
+}
+
+.rest-info .avatar img {
+  /*vertical-align: middle;*/
+}
+
+.rest-info .na {
+  width: 270px;
+  margin-left: 16px;
+  padding-top: 38px;
+  line-height: 1;
+}
+
+.rest-info .na span {
+  font-size: 14px;
+  color: #333;
+  display: inline-block;
+  max-width: 270px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.rest-info .stars {
+  margin-left: 16px;
+  margin-top: 14px;
+}
+
+.rest-info .star-ranking,
+.rest-info .star-score {
+  display: inline-block;
+  width: 75px;
+  height: 12px;
+  line-height: 12px;
+  overflow: hidden;
+  background-image: url('/static/img/restaurant/star-yellow.svg');
+  background-repeat: repeat-x;
+  background-size: 15px 12px;
+  _background-image: url('/static/img/yellow-star.png');
+}
+
+.rest-info .star-ranking {
+  margin-top: 1px;
+  background-image: url('/static/img/restaurant/star-gray.svg');
+  _background-image: url('/static/img/grey-star.png');
+}
+
+.rest-info .stars .mark {
+  margin-left: 9px;
+}
+.rest-info .right-bar{
+  color: #666;
+}
+.rest-info-thirdpart {
+  margin-left: 20px;
+  margin-top: 15px;
+  font-size: 0;
+}
+
+.rest-info-thirdpart-pic {
+  height: 12px;
+  vertical-align: text-top;
+}
+
+.rest-info .na .i-triangle-dn {
+  background-image: url('/static/img/restaurant/tri-up-tip.svg');
+  transform: rotate(180deg);
+  margin-left: 10px;
+  vertical-align: 3px;
+  background-position: 0 0;
+}
+
+.rest-info .over .i-triangle-dn,
+.rest-info .tip-box-over .i-triangle-dn {
+  transform: rotate(0deg);
+}
+
+.rest-info .location,
+.rest-info .delivery-time,
+.rest-info .telephone {
+  margin-top: 15px;
+  margin-left: 20px;
+  font-size: 0;
+}
+
+.rest-info .delivery-time span,
+.rest-info .location span,
+.rest-info .telephone span {
+  font-weight: bold;
+  color: #434343;
+}
+
+.rest-info .right-bar {
+  padding-top: 31px;
+}
+
+.rest-info .tipbox {
+  line-height: 22px;
+  position: absolute;
+  background-color: #FFFFFF;
+  border: 1px solid #ebebeb;
+  width: 180px;
+  text-align: left;
+  padding: 12px 14px;
+  top: 105px;
+  left: -54px;
+  overflow: hidden;
+  zoom: 1;
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  -ms-opacity: 0;
+  -o-opacity: 0;
+  filter: alpha(opacity=0);
+
+  box-shadow: 0px 1px 9px #ccc;
+  -moz-box-shadow: 0px 1px 9px #ccc;
+  -webkit-box-shadow: 0px 1px 9px #ccc;
+  -ms-box-shadow: 0px 1px 9px #ccc;
+  -o-box-shadow: 0px 1px 9px #ccc;
+  -webkit-transition: all .6s ease-in-out;
+  -moz-transition: all .6s ease-in-out;
+  -ms-transition: all .6s ease-in-out;
+  -o-transition: all .6s ease-in-out;
+  transition: all .6s ease-in-out;
+}
+
+.tipbox p {
+  display: none;
+}
+
+.rest-info .tip-box-over .tipbox {
+  opacity: 1;
+  overflow: visible;
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  -ms-opacity: 1;
+  -o-opacity: 1;
+  filter: alpha(opacity=100);
+
+}
+
+.tip-box-over .tipbox p {
+  display: block;
+}
+
+.rest-info .tipbox .i-tagtop {
+  position: absolute;
+  top: -9px;
+  left: 101px;
+}
+
+.rest-info .average-speed,
+.rest-info .ack-ti,
+.rest-info .in-ti {
+  text-align: left;
+  position: relative;
+  margin-right: 70px;
+  z-index: 1;
+  _overflow: visible;
+}
+
+/*.rest-info .average-speed,
+.rest-info .ack-ti {
+  background: url(/static/img/spliter.png) no-repeat 100% 19px;
+}*/
+
+.rest-info .right-bar .nu {
+  font-size: 12px;
+  margin-top: 10px;
+  color: #4a4a4a;
+}
+
+.rest-info .right-bar strong {
+  margin-right: 3px;
+  font-family: microsoft yahei;
+  font-size: 28px;
+  font-weight: 900;
+  vertical-align: sub;
+}
+
+.rest-info .right-bar .desc {
+  font-size: 12px;
+  color: #6a6a6a;
+}
+
+.rest-info .up10px {
+  position: relative;
+  top: -4px;
+  left: 5px;
+}
+
+.rest-info .no-at-time{
+  padding-bottom: 8px;
+  display: block;
+  padding-top: 14px;
+  font-size: 18px;
+}
+
+.rest-info .fold-3d {
+  position: absolute;
+  right: -14px;
+  width: 14px;
+  height: 121px;
+  background: url(/static/img/fold-3d.png) no-repeat;
+}
+
+.rest-info .save-up-wrapper {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  right: -121px;
+  top: 0;
+  text-align: center;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.rest-info .save-up {
+  display: block;
+  margin-top: 31px;
+}
+.rest-info .j-save-up-people{
+    display: none;
+}
+.rest-info .save-up .i-heart-22{
+  background-image: url("/static/img/restaurant/favorite-grey.svg");
+  background-position: 0 0;
+  background-size: 100% 100%;
+}
+.rest-info .save-up p{
+  font-size: 12px;
+  color: #6A6A6A;
+}
+.rest-info .save-up i{
+  margin-top: 17px;
+}
+.rest-info .save-up:hover .i-heart-22 {
+  background-image: url("/static/img/restaurant/favorite-red.svg");
+}
+
+.rest-info .favorite .i-heart-22 {
+  background-image: url("/static/img/restaurant/favorite-red.svg");
+}

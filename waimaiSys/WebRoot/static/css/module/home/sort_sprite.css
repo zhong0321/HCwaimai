@@ -1,0 +1,114 @@
+/**
+ * 首页品类筛选icon。
+ *
+ * @author Mou mingyi(moumingyi@meituan.com)
+ * @date 2014.11.10
+ */
+
+
+.icon-sort {
+
+  background-image: url(/static/img/sprite/icon-sort.png);
+  _background-image: url(/static/img/sprite/_icon-sort.png);
+  background-repeat: no-repeat;
+  image-rendering: -webkit-optimize-contrast;/*解决在chrome下小图标的问题*/
+  display: inline-block;
+  width: 58px;
+  height: 58px;
+  transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+}
+
+/*分类排序的icon 用icon-s开头*/
+
+.icon-cate_all {
+  background-position: -5px -78px;
+}
+
+.hover .icon-cate_all,
+.selected .icon-cate_all {
+  background-position: -5px -10px;
+}
+
+.icon-cate_1 {
+  background-position: -68px -78px;
+}
+
+.hover .icon-cate_1,
+.selected .icon-cate_1 {
+  background-position: -68px -10px;
+}
+
+.icon-cate_2 {
+  background-position: -131px -78px;
+}
+
+.hover .icon-cate_2,
+.selected .icon-cate_2 {
+  background-position: -131px -10px;
+}
+
+.icon-cate_3 {
+  background-position: -194px -78px;
+}
+
+.hover .icon-cate_3,
+.selected .icon-cate_3 {
+  background-position: -194px -10px;
+}
+
+.icon-cate_4 {
+  background-position: -257px -78px;
+}
+
+.hover .icon-cate_4,
+.selected .icon-cate_4 {
+  background-position: -257px -10px;
+}
+
+.icon-cate_5 {
+  background-position: -320px -78px;
+}
+
+.hover .icon-cate_5,
+.selected .icon-cate_5 {
+  background-position: -320px -10px;
+}
+
+.icon-cate_6 {
+  background-position: -383px -78px;
+}
+
+.hover .icon-cate_6,
+.selected .icon-cate_6 {
+  background-position: -383px -10px;
+}
+
+.icon-cate_7 {
+  background-position: -446px -78px;
+}
+
+.hover .icon-cate_7,
+.selected .icon-cate_7 {
+  background-position: -446px -10px;
+}
+
+.icon-cate_8 {
+  background-position: -509px -78px;
+}
+
+.hover .icon-cate_8,
+.selected .icon-cate_8 {
+  background-position: -509px -10px;
+}
+
+.icon-cate_9{
+  background-position: -572px -78px;
+}
+
+.hover .icon-cate_9,
+.selected .icon-cate_9 {
+  background-position: -572px -10px;
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zx.mapper.UserInfoMapper">
+   	<!--  <resultMap type="User" id="userList">
+        <result property="userRoleName" column="roleName" />
+    </resultMap> -->
+    <!-- 手机号登录 -->
+    <select id="findUserPhoneLogin" resultType="user">
+		select * from user where userPhone=#{phone}
+    </select>
+	<!-- 账号密码登录 -->
+    <select id="findUserpwLogin" resultType="user">
+		select * from user where userPhone=#{phone} and userPassword=#{userPassword}
+    </select>
+	<!-- 注册 -->
+    <insert id="addUser">
+			INSERT INTO `user`(`userPhone`,`userPassword`)VALUES(#{userPhone},#{userPassword})
+	</insert>
+	
+    <insert id="addUserInfo" parameterType="String">
+		INSERT INTO `user` (
+			  `userPhone`
+			) 
+			VALUES
+			  (
+			    #{phone}
+			  ) 
+	</insert>
+
+	<update id="updatapw">
+			UPDATE USER SET	userPassword=#{Password} WHERE userPhone=#{phone}
+	</update>
+</mapper>

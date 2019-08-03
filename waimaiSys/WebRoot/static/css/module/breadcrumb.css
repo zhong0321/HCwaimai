@@ -1,0 +1,30 @@
+/**
+ * 面包屑导航页面。  
+ * 
+ * @author xukai@meituan.com
+ * @date 2014-01-24 星期五
+ */
+
+.breadcrumb {
+  border-left: 5px solid #333;
+  color: #444444;
+  padding-left: 13px;
+}
+
+.breadcrumb span,
+.breadcrumb a {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.breadcrumb a:hover {
+    color:#333;
+}
+
+.breadcrumb a {
+  font-weight: normal;
+}
+
+.breadcrumb i {
+  margin: 0 5px;
+}

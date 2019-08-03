@@ -1,0 +1,81 @@
+/**
+ * 账号管理中，左侧的菜单列表，包括在如下url中：
+ * customer/order/uncplist
+ * customer/order/uncomment
+ * customer/coupon/package
+ * customer/order/cplist
+ * account/setting
+ *
+ * @author xukai@meiuan.com
+ * @date 2014-01-26 星期日
+ */
+
+.orders-tab {
+  padding: 15px 0;
+  width: 170px;
+}
+
+.orders-tab .tab {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+
+.orders-tab li i{
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    margin-right: 14px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.order-today i{
+    background-image: url("/static/img/order/order-tip.svg");
+}
+.order-today:hover i,
+.order-today.active i{
+    background-image: url("/static/img/order/order-tip-active.svg");
+}
+.my-favorite i{
+    background-image: url("/static/img/order/collect-tip.svg");
+}
+.my-favorite:hover i,
+.my-favorite.active i{
+    background-image: url("/static/img/order/collect-tip-active.svg");
+}
+.my-account i{
+    background-image: url("/static/img/order/account-tip.svg");
+}
+.my-account:hover i,
+.my-account.active i{
+    background-image: url("/static/img/order/account-tip-active.svg");
+}
+.orders-tab li a {
+  font-weight: normal;
+  font-size: 14px;
+  display: block;
+  color: #333;
+  line-height: 56px;
+  padding-left: 20px;
+
+  -webkit-transition: background-color .15s linear;
+  -moz-transition: background-color .15s linear;
+  transition: background-color .15s linear;
+}
+
+.orders-tab li a:hover,
+.orders-tab li a.active {
+  background-color: #fafafa;
+  color: #333;
+}
+
+.orders-tab .title {
+  padding-left: 25px;
+}
+
+.orders-tab .active-tab {
+  background-color: #fe4d3d;
+  color: #fff;
+}

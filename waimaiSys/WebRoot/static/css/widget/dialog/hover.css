@@ -1,0 +1,31 @@
+/**
+ * 边缘带了指针的，不带透明边框的，黑色半透明的弹框。
+ *
+ * @author xukai@meituan.com
+ * @date 2014-03-24 星期一
+ */
+
+.hover-dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.hover-dialog .i-triangle-up {
+  position: absolute;
+  top: -12px;
+  left: 71px;
+}
+
+.hover-dialog span {
+  padding: 5px;
+  background-color: #737373;
+  width: 136px;
+  text-align: center;
+  display: block;
+}
+
+.hover-dialog .content {
+  color: #FFFFFF;
+}

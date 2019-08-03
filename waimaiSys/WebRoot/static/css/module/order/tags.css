@@ -1,0 +1,44 @@
+/**
+ * 购物车相关文件夹：用户下单时填写标签相关内容  
+ * 
+ * @author xukai@meituan.com
+ * @date 2014-05-08 星期四
+ */
+
+.order-tags {
+  position: absolute;
+  background-color: #FAFAFA;
+  border: 1px solid #DCDCDC;
+  padding: 9px 0;
+  z-index: 901;
+}
+
+.order-tags ul {
+  _display: inline;
+}
+
+.order-tags li {
+  float: left;
+}
+
+.order-tags li a {
+  color: #434343;
+  display: inline-block;
+  padding: 0 10px;
+  border-right: 1px dashed #DBDBDB;
+}
+
+.order-tags li.last a {
+  border-right: 0;
+}
+
+.order-tags li a:hover {
+  color: #ffa735;
+}
+
+.order-tags .i-tagarr {
+  position: absolute;
+  bottom: -8px;
+  left: 9px;
+  overflow: hidden;
+}

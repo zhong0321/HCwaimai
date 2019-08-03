@@ -1,0 +1,706 @@
+/**
+ * 鏌愪釜闂ㄥ簵鐨勮彍鍝佸垪琛ㄩ〉闈㈢殑鏍峰紡缁撴瀯銆�
+ *
+ * @author XU Kai(xukai@meituan.com)
+ * @date 2014.01.09 鍒濆鍖�
+ *       2014-04-02 鏄熸湡涓�瀵逛唬鐮佽繘琛岄噸鏋�
+ */
+
+@import url("../global.css");
+@import url("../module/restaurant/banner.css");
+@import url("../module/tabnav.css");
+@import url("../module/paytags.css");
+@import url("../module/restaurant/widgets.css");
+@import url("../module/dialog/FoodSkuDialog.css");
+.page-wrap .inner-wrap {
+    padding-top: 0;
+}
+
+.cate-tab-area {
+    background-color: #ffffff;
+}
+
+.food-list {
+    margin-top: 14px;
+    width: 660px;
+}
+
+.food-list .i-addcart {
+    width: 24px;
+    height: 24px;
+    background: url("/static/img/restaurant/add-cart.svg") 100% no-repeat;
+}
+
+.food-list .i-addcart .i-addcart-plus {
+    width: 0;
+    height: 0;
+    background: none;
+}
+
+.food-list .informer {
+    background-color: #FFFBCC;
+    border: 1px solid #ebebeb;
+    border-bottom: none;
+    color: #EB6100;
+    padding: 9px 13px;
+}
+
+.foodtype-nav {
+    background-color: #FFFFFF;
+    padding: 15px;
+    border: 1px solid #ebebeb;
+    width: 688px;
+    position: absolute;
+    z-index: 10;
+    box-shadow: 0 -1px 9px #CCC;
+    -moz-box-shadow: 0 -1px 9px #CCC;
+    -webkit-box-shadow: 0 -1px 9px #CCC;
+    -ms-box-shadow: 0 -1px 9px #CCC;
+    -o-box-shadow: 0 -1px 9px #CCC;
+}
+
+.foodtype-nav .i-tagtop {
+    position: absolute;
+    top: -9px;
+    left: 428px;
+}
+
+.foodtype-nav .name .i-ph15x15 {
+    margin-right: 3px;
+}
+
+.nav-fixed {
+    width: 718px;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    _position: static;
+    box-shadow: 0 1px 5px #ccc;
+    -moz-box-shadow: 0 1px 5px #ccc;
+    -webkit-box-shadow: 0 1px 5px #ccc;
+    -ms-box-shadow: 0 1px 5px #ccc;
+    -o-box-shadow: 0 1px 5px #ccc;
+}
+
+.foodtype-nav .title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 18px;
+    margin-top: 4px;
+}
+
+.foodtype-nav ul li {
+    float: left;
+    margin-right: 4px;
+    margin-bottom: 3px;
+}
+
+.foodtype-nav .type {
+    display: block;
+    padding: 5px 6px;
+    width: 120px;
+    color: #434343;
+}
+
+.foodtype-nav .active .type {
+    background-color: #fe4d3d;
+    color: #FFFFFF;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -ms-boder-radius: 3px;
+    -o-boder-radius: 3px;
+}
+
+.food-nav .category {
+    margin-top: 14px;
+    background: #fff;
+}
+
+.food-nav .actions {
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: -4px;
+}
+
+.food-nav .actions .icon {
+    vertical-align: -1px;
+    margin-left: 5px;
+    *vertical-align: 2px;
+    _vertical-align: -2px;
+}
+
+.food-nav .actions a {
+    width: 65px;
+    height: 25px;
+    margin-right: 8px;
+    float: left;
+    color: #535353;
+    text-align: center;
+    line-height: 25px;
+    border-width: 1px;
+    _padding-top: 6px;
+    _height: 19px;
+    _line-height: 19px;
+}
+
+.food-nav .actions a.classic {
+    margin-right: 20px;
+}
+
+.food-nav a.active,
+.food-nav a.over {
+    color: #333;
+}
+
+.food-nav a.active .i-orderdown,
+.food-nav a.over .i-orderdown {
+    background-position: -410px -47px;
+}
+
+.food-nav a.active .i-orderup,
+.food-nav a.over .i-orderup {
+    background-position: -384px -47px;
+}
+
+.food-nav .actions a.active {
+    border: 1px solid #c1b29a;
+    background-color: #ffffff;
+}
+
+.food-nav .actions .sales {
+    border-left: 1px solid #ebebeb;
+}
+
+.food-nav .actions .price {
+    border-left: 1px solid #ebebeb;
+}
+
+.food-nav .title,
+.food-nav .title-blank {
+    height: 35px;
+    font-size: 16px;
+    padding-left: 19px;
+    padding-top: 15px;
+    background-color: #fff;
+}
+
+.food-nav .title {
+    border-bottom: 1px solid #e5e5e5;
+    color: #333;
+}
+
+.title-blank {
+    top: 0;
+    z-index: 1;
+    width: 641px;
+    position: fixed;
+    border-bottom: 1px solid #ebebeb;
+    color: #333;
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop));
+}
+
+.title .tag-na,
+.title-blank .tag-na {
+    font-weight: normal;
+}
+
+.food-nav .title .i-ph17x17,
+.food-nav .title-blank .i-ph17x17 {
+    margin-right: 5px;
+}
+
+.food-nav .title .online-pricetag,
+.food-nav .title-blank .online-pricetag {
+    margin-right: 5px;
+}
+
+.food-cate-desc {
+    background-color: #fff9da;
+    color: #686868;
+    font-size: 12px;
+    padding: 13px 22px;
+    border-top: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.text-food-cont .over {
+    background-color: #fffdf0;
+}
+
+.text-food-cont .i-addcart {
+    border-radius: 50%;
+}
+
+.i-addcart-plus {
+    -webkit-transform: rotate(0deg);
+    -webkit-transition: -webkit-transform 0.2s;
+    -moz-transform: rotate(0deg);
+    -moz-transition: -webkit-transform 0.2s;
+    transform: rotate(0deg);
+    transition: transform 0.2s;
+}
+
+.addcart-expand .i-addcart-plus {
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    /* for IE */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    transform: rotate(-135deg);
+}
+
+.text-food {
+    height: 69px;
+    border-bottom: 1px solid #ebebeb;
+    cursor: pointer
+}
+
+.text-food .description {
+    overflow: hidden;
+    padding-left: 30px
+}
+
+.text-food .description .na {
+    font-size: 14px;
+    margin-top: 15px;
+    color: #333;
+}
+
+.text-food .description .na img {
+    vertical-align: text-bottom;
+}
+
+.text-food .description .nodesc {
+    margin-top: 25px
+}
+
+.text-food .description .desc {
+    margin-top: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-food .unit-price {
+    font-size: 14px;
+    margin-right: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.text-food .unit-price .only {
+    line-height: 70px;
+}
+
+.text-food .unit-price .origin {
+    font-size: 10px;
+    color: #A0A0A0;
+    text-decoration: line-through;
+    -webkit-transform: scale(0.9);
+    text-line-through-color: #fe4d3d;
+    margin-top: 16px;
+}
+
+.text-food .unit-price .latest {
+    margin-top: 1px;
+}
+
+.text-food .add {
+    margin-right: 25px;
+    padding-top: 22px;
+}
+
+.text-food .add .tips {
+    display: inline-block;
+    line-height: 25px;
+    width: 60px;
+    height: 25px;
+    text-align: center;
+    background-color: #b5b5b5;
+    color: #fff;
+}
+
+.text-food .sold {
+    width: 70px;
+    height: 100%
+}
+
+.text-food .fleft {
+    width: 38px;
+    height: 69px;
+    background: url(/static/img/foodleft.png) no-repeat;
+}
+
+.text-food .fleft .txt {
+    color: #434343;
+    padding-left: 9px;
+    margin-top: 18px;
+}
+
+.text-food .fleft .count {
+    color: #E15F00;
+    font-weight: bold;
+    padding-left: 5px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.text-food .nofleft {
+    background: none;
+}
+
+.text-food .zan-rank {
+    margin-top: 16px
+}
+
+.text-food .zan-rank .i-zan {
+    vertical-align: text-bottom;
+}
+
+.text-food .sold .count {
+    margin-top: 3px
+}
+
+.text-food .sold .no-zan,
+.text-food .no-salednum {
+    margin-top: 27px;
+}
+
+.pic-food-cont {
+    border-bottom: 1px solid #ebebeb;
+    overflow: hidden;
+}
+
+.pic-food-cont .over {
+    background-color: #fafafa;
+    border-right: none;
+    border-bottom: none;
+    padding: 0 1px 1px 0;
+}
+
+.pic-food {
+    float: left;
+    width: 219px;
+    height: 251px;
+    border-right: 1px dashed #e5e5e5;
+    border-bottom: 1px dashed #e5e5e5;
+    overflow: hidden;
+}
+
+.pic-food .price .only {
+    font-size: 14px;
+    color: #ff5a5a;
+    font-weight: bold;
+}
+
+.pic-food .price .origin {
+    font-size: 10px;
+    color: #A0A0A0;
+    text-decoration: line-through;
+    -webkit-transform: scale(0.9);
+    text-line-through-color: #fe4d3d;
+}
+
+.pic-food .price .latest {
+    margin-top: 1px;
+    font-size: 14px;
+}
+
+.pic-food-col2 {
+    border-right: none;
+    padding-right: 1px;
+}
+
+.pic-food-cont .pic-food-rowlast.over {
+    padding-bottom: 0;
+}
+
+.pic-food-rowlast {
+    border-bottom: 0;
+    border-bottom: none;
+}
+
+.pic-food .avatar,
+.pic-food .op,
+.pic-food .sale-info,
+.pic-food .np,
+.pic-food .labels {
+    width: 170px;
+}
+
+.pic-food .labels .i-addcart {
+    border-radius: 50%;
+}
+
+.pic-food .avatar {
+    position: relative;
+    height: 127px;
+    margin: 20px auto 0;
+}
+
+.pic-food .avatar .description {
+    width: 150px;
+    bottom: 0;
+    padding: 10px;
+    background-color: #333;
+    position: absolute;
+    color: #fff;
+    font-size: 12px;
+    line-height: 16px;
+    left: 0;
+    display: none;
+    -ms-filter: "alpha(Opacity=40)";
+    filter: alpha(opacity=40);
+    -moz-opacity: .4;
+    -khtml-opacity: .4;
+    opacity: .4;
+}
+
+.pic-food .avatar .food-tag {
+    position: absolute;
+    height: 17px;
+    top: 5px;
+    left: 5px;
+}
+
+.pic-food-cont .over .description {
+    /*display: block;*/
+}
+
+.pic-food .avatar img.food-shape {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pic-food .np {
+    margin: 12px auto 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+.pic-food .np .name {
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.pic-food .sale-info {
+    margin: 14px auto 0;
+    margin-top: 5px;
+    height: 16px;
+    font-size: 12px;
+    color: #999;
+}
+
+.pic-food .sale-info .counter {
+    color: #fe4d3d;
+    font-weight: bold;
+}
+
+.pic-food .sale-info .sold-count {
+    color: #999;
+    float: left;
+}
+
+.pic-food .sale-info .zan-count {
+    float: left;
+    color: #999;
+    margin-left: 10px;
+}
+
+.pic-food .sale-info .i-zan {
+    vertical-align: text-bottom;
+}
+
+.pic-food .op {
+    margin: 5px auto 0;
+}
+
+.pic-food .labels {
+    margin: 8px auto 0;
+}
+
+.pic-food .labels .price {
+    margin-top: 3px;
+}
+
+.pic-food .labels img {
+    float: left;
+    margin-right: 5px;
+}
+
+.pic-food .labels .tip {
+    display: block;
+    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    background-color: #b5b5b5;
+    color: #fff;
+}
+
+.pic-food .op .add {
+    height: 26px;
+    margin-top: 5px;
+}
+
+.pic-food .op .sold-count {
+    margin-top: 3px;
+}
+
+.pic-food-cart-num,
+.text-food-cart-num {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background: url(http://localhost:8080/waimaiSys/static/files/icon-blockffd705.png);
+    color: #333;
+    text-align: center;
+}
+
+.pic-food-cart-num {
+    margin: 2px 8px 0 0;
+}
+
+.text-food-cart-num {
+    margin: 24px 12px 0 0;
+}
+
+.triffle {
+    margin-left: 530px;
+}
+
+.ori-foodtype-nav {
+    padding: 25px 20px 12px;
+}
+
+.ori-foodtype-nav .title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 18px;
+    margin-top: 4px;
+}
+
+.ori-foodtype-nav ul {}
+
+.ori-foodtype-nav ul li {
+    float: left;
+    width: 118px;
+    height: 24px;
+    line-height: 24px;
+    margin-right: 5px;
+    margin-bottom: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ori-foodtype-nav .active .type,
+.ori-foodtype-nav .type:hover {
+    color: #ffa735;
+    /*text-decoration: underline;*/
+}
+
+.ori-foodtype-nav .type {
+    padding: 5px 5px;
+    color: #535353;
+    height: 14px;
+    position: relative;
+    font-size: 14px;
+    line-height: 14px;
+    *float: left;
+}
+
+.ori-foodtype-nav .name .i-ph15x15 {
+    position: absolute;
+    top: 5px;
+    left: -18px;
+    padding-right: 3px;
+}
+
+.stick-qrcode .index-xiaomei .qrcode {
+    /*background-position: -6px -1234px;*/
+    background-position: -2px -1540px;
+}
+
+.cart-ball {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffd161;
+    position: fixed;
+    z-index: 9999;
+}
+
+.i-shopping-cart {
+    transform: scale(0.9);
+}
+
+
+
+.scale {
+    -webkit-animation: shake 0.4s;
+    -moz-animation: shake 0.4s;
+    -o-animation: shake 0.4s;
+    animation: shake 0.4s;
+}
+
+@keyframes shake {
+    0% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+@-webkit-keyframes shake {
+    0% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+@-o-keyframes shake {
+    0% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+@-moz-keyframes shake {
+    0% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+.dialog .icon {
+    margin-left: 20px;
+}
+
+.dialog .desc {
+    font-size: 16px;
+    margin-left: 75px;
+}
+
+.dialog .btn-group {
+    margin-top: 20px;
+}
+
+.dialog .btn-group a {
+    margin-left: 75px;
+}

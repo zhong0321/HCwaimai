@@ -1,0 +1,64 @@
+/**
+ * 首页和热卖美食头部的banner样式（餐厅和热卖美食）
+ *
+ * @date 2014-08-29 星期五 初始化样式
+ */
+
+.page-wrap .inner-wrap {
+  position: relative;
+  padding-top: 10px;
+  background-color: #FFFFFF;
+}
+
+.top-tools {
+    background: #F5F5F5;
+    margin-top: -10px;
+    height: 30px;
+    line-height: 30px;
+    padding-top: 48px;
+    padding-bottom: 20px;
+}
+
+.address-icon {
+    display: block;
+    width: 14px;
+    height: 30px;
+    background: url(/static/img/new2018/address-icon.png) no-repeat 0 6px;
+    background-size: 14px 18px;
+}
+
+.current-city {
+    margin-left: 8px;
+    margin-right: 5px;
+}
+
+.current-county {
+    margin-right: 10px;
+}
+
+.top-tools .change-position {
+    color: #ffa735;
+    background: url(/static/img/new2018/top-tools-arrow.png) no-repeat right;
+    background-size: 10px 5px;
+    padding-right: 15px;
+}
+
+.notice {
+  width: 960px;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto 10px;
+}
+
+.rest-banner {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.rest-banner a.hot-food .i-new {
+  position: absolute;
+  top: -3px;
+  right: -10px;
+}
+

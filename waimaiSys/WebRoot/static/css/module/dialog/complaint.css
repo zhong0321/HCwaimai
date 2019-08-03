@@ -1,0 +1,68 @@
+/**
+ * 订单投诉的提示框  
+ * 
+ * @author xukai@meituan.com
+ * @date 2014-07-09 星期三
+ */
+
+.dialog-complaint {
+  color: #434343;
+}
+
+.dialog-complaint .tips {
+  margin: 5px auto 0;
+  border: 1px solid #FFAA1E;
+  background-color: #FFF5E4;
+  padding: 10px;
+}
+
+.dialog-complaint .tips-inner {
+  padding-top: 1px;
+  margin-left: 9px;
+}
+
+.dialog-complaint .words {
+  margin-top: 12px;
+}
+
+.dialog-complaint .content {
+  padding: 10px 24px;
+  padding-bottom: 30px;
+}
+
+.dialog-complaint .input textarea {
+  width: 381px;
+  height: 113px;
+  margin: 0;
+  padding: 3px;
+  resize: vertical;
+  display: block;
+  overflow: auto;
+}
+
+.dialog-complaint .input {
+  margin-top: 10px;
+}
+
+.dialog-complaint .btn-group {
+  margin-top: 15px;
+}
+
+.dialog-complaint .verify {
+  margin-top: 15px;
+}
+
+.dialog-complaint .verify input {
+  width: 114px;
+  height: 22px;
+}
+
+.dialog-complaint .change-verify,
+.dialog-complaint img {
+  margin-left: 13px;
+}
+
+.dialog-complaint .change-verify {
+  color: #898989;
+  line-height: 14px;
+}

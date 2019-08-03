@@ -1,0 +1,121 @@
+/*sku选择弹框*/
+.choosespec-dlg {
+  position: absolute;
+  width: 225px;
+  padding: 2px 0 12px 15px;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 5px #ccc;
+  -moz-box-shadow: 1px 1px 5px #ccc;
+  -webkit-box-shadow: 1px 1px 5px #ccc;
+  -ms-box-shadow: 1px 1px 5px #ccc;
+  -o-box-shadow: 1px 1px 5px #ccc;
+  border: 1px solid #ebebeb;
+  border-top: 2px solid #ffd161;
+  z-index: 9;
+}
+
+.choosespec-label,
+.choosespec-label2,
+.choosespec-li-label {
+  float: left;
+  width: 36px;
+  color: #898989;
+}
+
+.choosespec-label2 {
+  width: 60px;
+}
+
+.choosespec-items-label {
+  margin-top: 10px;
+  line-height: 20px;
+}
+
+.choosespec-li-label {
+  line-height: 22px;
+}
+
+.choosespec-li {
+  margin-top: 8px;
+  height: 22px;
+  line-height: 22px;
+}
+
+.choosespec-field {
+  float: left;
+  width: 183px;
+}
+
+.choosespec-field2 {
+  float: left;
+  width: 159px;
+}
+
+.choosespec-item {
+  float: left;
+  line-height: 20px;
+  min-width: 56px;
+  _width: 56px;
+  text-align: center;
+  background-color: #f5f5f5;
+  color: #898989;
+  margin-top: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+
+.choosespec-item:hover,
+.choosespec-item-chosen {
+  background-color: #ffd161;
+  color: #333;
+}
+
+.choosespec-price {
+  margin-left: 5px;
+  width: 59px;
+  float: left;
+  color: #434343;
+}
+
+.choosespec-residual {
+  color: #898989;
+}
+
+.choosespec-minus,
+.choosespec-plus {
+  float: left;
+  cursor: pointer;
+}
+
+.choosespec-minus {
+  margin-left: 3px;
+}
+
+.choosespec-num {
+  width: 40px;
+  text-align: center;
+  color: #434343;
+  float: left;
+}
+
+.choosespec-btn {
+  display: block;
+  margin-top: 12px;
+  width: 210px;
+  line-height: 34px;
+  font-size: 14px;
+  color: #333;
+  background-color: #ffd161;
+  text-align: center;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  cursor: pointer;
+}
+
+.choosespec-btn-disable {
+  background-color: #dddddd;
+  color: #434343;
+  cursor: default;
+}
