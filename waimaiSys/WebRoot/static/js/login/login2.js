@@ -146,9 +146,9 @@ $(function(){
 							url: '../login',
 							type: 'post',
 							async: true,
-							data: {userPhone:inp,userPassword:pass,logintype:logintype},
-							contentType : 'application/json;charset=UTF-8',
+							data: {"userPhone":inp,"userPassword":pass,"loginType":logintype},
 							success:function(data){
+								console.info(data);
 								if (data == '1') {
 									if(logintype==1){
 										location.href="../getAddress.jsp";
@@ -192,7 +192,7 @@ $(function(){
 			                    status = false;
 			                } else {
 			                    $('.num2-err').addClass('hide');
-			                    alert("登陆成功");
+			                    location.href="../getAddress.jsp";
 								status = true;
 			                }
 			            }

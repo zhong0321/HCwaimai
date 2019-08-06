@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zx.mapper.OrderDetailMapper">
+	<!-- 添加订单明细 -->
+	<insert id="addOrderDetail" parameterType="orderDetail">
+		INSERT INTO `waimai`.`order_detail` (
+		  `orderId`,
+		  `foodId`,
+		  `count`,
+		  `cost`
+		) 
+		VALUES
+		  (
+		    #{orderId},
+		    #{foodId},
+		    #{count},
+		    #{cost}
+		  ) ;
+	</insert>     
+	
+	<!-- 查询订单明细 -->
+	<select id="findOrderDetail" resultType="orderDetail" parameterType="orderDetail">
+		select * from order_detail where orderId=#{orderId}
+	</select>
+</mapper>

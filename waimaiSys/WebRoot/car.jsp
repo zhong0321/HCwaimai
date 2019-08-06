@@ -160,7 +160,7 @@
 								<label class="addressInfo" onclick="labelClick($(this));">
 									<input type="hidden" id="addressId" value="${address.id}"/>
 									<input type="hidden" class="isDefault" value="${address.isDefault}"/> 
-									<input type="radio" name="address" class="addressRadio" <c:if test="${address.isDefault==1}">checked="checked"</c:if> />
+									<input type="radio" name="userAddress" class="addressRadio" value="${address.id}" <c:if test="${address.isDefault==1}">checked="checked"</c:if> />
 									<span class="user-address">
 										<span>${address.contactName}</span>
 										<em>${address.contactPhone}</em>
@@ -212,7 +212,7 @@
 					</div>
 				</div>
 				<div>
-					<button class="btn-stress btn-lg ng-binding ng-isolate-scope">确认下单</button>
+					<button class="btn-stress btn-lg ng-binding ng-isolate-scope" onclick="sureOrders();">确认下单</button>
 				</div>
 			</div>
 		</div>
@@ -245,15 +245,15 @@
 	    		<div class="addressformfield sexfield">
 	    			<label>性别</label>
 	    			<div>
-	    				<input id="sexfield-1-male" name="gender" type="radio" value="1" checked="checked">
+	    				<input id="sexfield-1-male" name="gender" type="radio" value="1" checked="checked"/>
 	    				<label for="sexfield-1-male">先生</label>
-	    				<input id="sexfield-1-female" type="radio" name="gender" value="2">
+	    				<input id="sexfield-1-female" type="radio" name="gender" value="2"/>
 	    				<label for="sexfield-1-female">女士</label>
 	    			</div>
 	    			<div class="addressformfield-hint"><span></span></div>
 	    		</div>
 	    		<input id="city" value="${city}" type="hidden">
-	    		<input id="userId" name="userId" value="${user.id}" type="hidden">
+	    		<input id="userId" name="userId" value="${user.id}" type="text">
 	    		<input id="storeCoordinate" name="storeCoordinate" value="${store.coordinate}" type="hidden">
 	    		<div class="addressformfield addressfield">
 	    			<label>位置</label>
@@ -289,7 +289,7 @@
    </div>
    </span>
    
-   <!-- 修改地址 -->
+   <%-- <!-- 修改地址 -->
 	<span id="updateAddressDiv" style="display: none;">
 	<div style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.5; background: rgb(0, 0, 0) none repeat scroll 0% 0%; z-index: 1006;"></div>
     <div class="addressdialog" style="z-index: 1007; left: 460px; top: 150px;">
@@ -349,7 +349,7 @@
 	    </div>
 	   </div>
    </div>
-   </span>
+   </span> --%>
 <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=c3d2b1786038ce4ac5ba21d7be2ec631&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
 <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
 	<div class="csr-footer-container">

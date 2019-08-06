@@ -4,7 +4,7 @@ public class Car {
 	private Integer foodId;
 	private String foodName;
 	private Integer storeId;
-	private double price;
+	private double price;//小计
 	private Integer count;
 	public Integer getCount() {
 		return count;

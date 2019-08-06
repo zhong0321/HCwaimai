@@ -41,6 +41,7 @@ strict.dtd">
                         <li data-index="1"><a href="https://i.waimai.meituan.com/node/csr/joinin">商家入驻</a></li>
                         <li data-index="4"><a href="https://waimai.meituan.com/new/waimaiIndex" class="active">点外卖</a></li>
                         <li data-index="5"><a href="https://waimai.meituan.com/mobile/download/default">后台管理</a></li>
+                        用户：${user}
                     </ul>
                 </div>
             </div>

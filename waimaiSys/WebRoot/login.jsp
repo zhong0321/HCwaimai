@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </p>
                 <p class="p-input pos">
                     <label for="pass">请输入密码</label>
-                    <input type="text" name="code" id="logintype" value="${code}" style="display:none"/>
+                    <input type="hidden" name="code" id="logintype" value="${code}" />
                     <input type="password" id="pass" autocomplete="new-password">
                     <span class="tel-warn pass-err hide"><em class="pwerre">账号或密码错误，请重新输入</em><i class="icon-warn"></i></span>
                 </p>

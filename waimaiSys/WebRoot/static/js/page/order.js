@@ -132,7 +132,7 @@ function btnPlus(e){
 //添加地址按钮
 function addAddress(){
 	$("#panel").css("display","none");
-	$(".addressformfield input").val("");
+	//$(".addressformfield input").val("");
 	$(".addressformfield input").next().css("color","#b5b5b5");
 	$("#addAddressDiv").css("display","block");
 	
@@ -258,9 +258,9 @@ function saveAddress(){
 		var userId=$("#userId").val();
 		var contactAddress=$("#xiangxiAddress").val()+$("#menpaihao").val();
 		var contactPhone=$("#contactPhone").val();
-		var gender = $("input[name='gender']:checked").val();
-		alert(contactPhone);
-		alert(gender);
+		var gender = $(".addressdialog-content .addressform .sexfield div").find("input[name='gender']:checked").val();
+		//alert("sex:"+gender);
+		//alert("id:"+userId);
 		$.ajax({
 			   type: "POST",
 			   url: "/waimaiSys/car/addUserAddress",
@@ -332,15 +332,24 @@ function setDefault(e){
 }
 
 
-
-
-
 //选中地址
 function labelClick(e){
 	$(".modify").css("display","none");
 	$(".checkout-address-list li").css({"background":"white","border":"1px solid white"});
 	$(e).next().css("display","inline");
 	$(e).parent().css({"background":"#fff0e8","border":"1px solid #f79b3d"});
+}
+
+
+//确认下单
+function sureOrders(){
+	var userAddressId=$(".checkout-address-list li").find("input[name='userAddress']:checked").val();
+	var remarks=$(".checkout-select .checkout-info .checkout-input").val();
+	if(userAddressId!=null && userAddressId!=undefined){
+		location.href="/waimaiSys/car/sureOrders/"+userAddressId+"/"+remarks;
+	}else{
+		alert("请添加或选择一个地址！");
+	}
 }
 
 

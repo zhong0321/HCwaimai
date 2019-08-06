@@ -42,9 +42,8 @@ public class LoginController {
      *@return 1登陆成功，2登陆失败
      */
     @RequestMapping(value="/login")
-    @ResponseBody
-    public String accountPasswordLogin(String userPhone,String userPassword,Integer loginType ,Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
-    	response.setContentType("text/html;charset=utf-8");
+    
+    public  @ResponseBody String accountPasswordLogin(String userPhone,String userPassword,Integer loginType ,Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
     	if(null!=userPhone && null!=userPassword){
             if(loginType==1){
             	User user=userInfoService.findUserpwLogin(userPhone,userPassword);
@@ -82,12 +81,13 @@ public class LoginController {
 
     @RequestMapping(value="/checkPhone/{logintype}")
     @ResponseBody
-    public String checkPhone(String phone,@PathVariable Integer logintype){
+    public String checkPhone(HttpServletRequest request,String phone,@PathVariable Integer logintype){
     	if(logintype==1){
     		User user = userInfoService.findUserPhoneLogin(phone,logintype);
             if(user==null){
                 return "0";
             }
+            request.getSession().setAttribute("user", user);
             return "1";
     	}else{
     		Store store=storeService.storePhoneLogin(phone);
