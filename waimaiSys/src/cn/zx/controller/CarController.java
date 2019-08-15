@@ -51,11 +51,11 @@ public class CarController {
 	@ResponseBody
 	public List<UserAddress> addUserAddress(String contactName,Integer userId,String contactAddress,String contactPhone,Integer gender){
 		UserAddress userAddress= new UserAddress();
-		userAddress.setUserId(1);
+		userAddress.setUserId(userId);
 		userAddress.setContactAddress(contactAddress);
 		userAddress.setContactName(contactName);
 		userAddress.setContactPhone(contactPhone);
-		userAddress.setGender(1);
+		userAddress.setGender(gender);
 		userAddressService.addUserAddress(userAddress);
 		List<UserAddress> list = userAddressService.findUserAddress(userAddress);
 		return list;
@@ -75,7 +75,7 @@ public class CarController {
 	public String showCar(HttpServletRequest request,@PathVariable(value="id") Integer storeId,Model model){
 		User user=(User)request.getSession().getAttribute("user");
 		UserAddress userAddress=new UserAddress();
-		userAddress.setUserId(1);
+		userAddress.setUserId(user.getId());
 		//地址
 		List<UserAddress> userAddressList = userAddressService.findUserAddress(userAddress);
 		model.addAttribute("userAddressList", userAddressList);
@@ -102,7 +102,7 @@ public class CarController {
 	public List<UserAddress> setDefaultAddress(Integer addressId,Integer userId){
 		UserAddress userAddress=new UserAddress();
 		userAddress.setIsDefault(1);
-		userAddress.setUserId(1);
+		userAddress.setUserId(userId);
 		List<UserAddress> list = userAddressService.findUserAddress(userAddress);//查询默认的地址
 		UserAddress ua = list.get(0);
 		ua.setIsDefault(0);
@@ -118,7 +118,6 @@ public class CarController {
 		userAddress2.setIsDefault(1);
 		userAddressService.updateUserAddress(userAddress2);
 		UserAddress userAddress3=new UserAddress();
-		userId=1;
 		userAddress3.setUserId(userId);
 		List<UserAddress> list1 = userAddressService.findUserAddress(userAddress3);
 		return list1;
@@ -141,7 +140,6 @@ public class CarController {
 			orderAddress=userAddress.getContactName()+"(先生)  "+userAddress.getContactPhone()+"  "+userAddress.getContactAddress();
 		}
 		User user = (User)request.getSession().getAttribute("user");//获取会话中的用户信息
-		user.setId(1);
 		String uuid = UUID.randomUUID().toString().trim();//生成16位随机数
 		String orderNumber=uuid+user.getId();//订单号，为确保高并发下订单的唯一性，加入用户id
 		@SuppressWarnings("unchecked")
@@ -159,6 +157,7 @@ public class CarController {
 		order.setOrderNumber(orderNumber);
 		order.setTotalMoney(totalMoney);
 		order.setStoreId(storeId);
+		order.setOrderRemarks(remarks);
 		orderService.addOrder(order);
 		Order order2 = orderService.findByOrderNumber(order);
 		//添加订单明细
@@ -170,6 +169,7 @@ public class CarController {
 			orderDetail.setOrderId(order2.getId());
 			orderDetailService.addOrderDetail(orderDetail);
 		}
+		request.getSession().removeAttribute("carList");//清除购物车session
 		return "redirect:/ali/"+orderNumber+"/"+totalMoney;
 	}
 }

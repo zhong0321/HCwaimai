@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+
+}
+li{
+    list-style-type: none;
+}
+.right .order_nav{
+    height: 70px;
+    line-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px lightgrey;
+}
+.right .order_nav ul li{
+    display: inline-block;
+    margin: 0px 25px;
+    font-size: 15px;
+
+}
+.right .order_nav ul li a{
+    color: grey;
+}
+.right .order_nav ul li:hover{
+    color: #464759;
+    border-bottom: #464759 3px solid;
+}
+.right .order_nav ul li:hover a{
+    color: #464759;
+}
+.right .order_content ul{
+    padding-left: 0px;
+    padding-top: 5px;
+}
+.right .order_content{
+    padding: 0px 40px;
+}
+.right .order_content ul li{
+    border-bottom: solid 1px lightgrey;
+    font-size: 13px;
+    height: 40px;
+    line-height: 40px;
+
+}
+.right .order_content ul li .orderTitle{
+    padding: 0px 20px;
+    //background-color: #FFFBF0;
+    display: flex;
+    justify-content: space-between;
+}
+.right .order_content ul li .orderTitle:hover{
+    background: #F7F7FA;
+}
+.right .order_content ul li .hiddenContent{
+    float: right;
+    font-size: 13px;
+    color: #464759;
+    border: solid 1px lightgrey;
+    padding: 3px 0px 6px 0px;
+    z-index: 10;
+    background-color: #FFFBF0;
+    position: absolute;
+    right:45px;
+    width: 350px;
+
+}
+
+.right .order_content ul li .hiddenContent .addressInfo, .qishouInfo{
+    border-top: solid 1px lightgrey;
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 15px;
+}
+.right .order_content ul li .hiddenContent .orderDetail ul li{
+	display: flex;
+    justify-content: space-between;
+    padding: 2px 15px;
+    border: none;
+}
+.right .order_content ul li .hiddenContent .addressInfo span:last-child{
+    width: 75%;
+    height: 22px;
+    line-height: 22px;
+
+}
+.right .order_content ul li .hiddenContent .orderDetail div{
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    line-height: 40px;
+}
+.right .order_content ul li .hiddenContent .orderDetail{
+    padding: 5px 0px;
+}
+
+
+

@@ -1,0 +1,357 @@
+/**
+ * æŸä¸ªé—¨åº—çš„èœå“åˆ—è¡¨é¡µé¢çš„æ ·å¼ç»“æž„ã€‚
+ *
+ * @author XU Kai(xukai@meituan.com)
+ * @date 2014.01.09 åˆå§‹åŒ–
+ *       2014-04-02 æ˜ŸæœŸä¸‰ å¯¹ä»£ç è¿›è¡Œé‡æž„
+ */
+
+@import url("../global.css");
+@import url("../module/tabnav.css");
+@import url("../module/restaurant/banner.css");
+
+.page-wrap .inner-wrap {
+  padding-top: 0;
+}
+
+.comments {
+  width: 660px;
+  margin-top: 14px;
+  background-color: #ffffff;
+}
+
+.comments .title {
+  margin: 30px 20px 0;
+  height: 22px;
+  line-height: 22px;
+  color: #434343;
+}
+.comments .title .ct-lightgrey{
+    color: #333;
+}
+.comments .title input {
+  margin: 0;
+  border: none;
+  padding:0;
+}
+
+.comments .title label span {
+  margin-left: 10px;
+}
+
+/*è¯„è®ºç­›é€‰å™¨*/
+
+.comments .filters label {
+  margin-right: 12px;
+  padding-right: 15px;
+  height: 22px;
+  cursor: pointer;
+  color: #333;
+}
+
+.comments .filters .hover {
+  color: #ffa735;
+  /*text-decoration: underline;*/
+}
+
+.comments .filters .hover em{
+  color: #ffa735;
+}
+
+.comments .filters .last-label {
+  border: none;
+}
+
+.comments .filters em {
+  font-style: normal;
+  color: #333;
+}
+
+.comments .filters .chose span,
+.comments .filters .chose em{
+  color: #ffa735;
+}
+
+/*è¯„è®ºç­›é€‰å™¨*/
+
+.comments .page-navbar {
+  font-size: 14px;
+  text-align: center;
+}
+
+.comments .list {
+  position: relative;
+  min-height: 200px;
+  _height: 200px;
+  _overflow: visible;
+}
+
+.comments .list .loading {
+  width: 48px;
+  height: 48px;
+  background: url(/static/img/loading2.gif) no-repeat;
+  display: none;
+  position: absolute;
+  left: 351px;
+  top: 100px;
+}
+
+.comments .none {
+  padding: 100px 0;
+  line-height: 30px;
+  color: #808080;
+  text-align: center;
+  font-size: 17px;
+}
+
+.comments .has-cont {
+  border: 0;
+}
+
+.comment {
+  padding: 20px;
+  border-bottom: 1px dashed #ebebeb;
+}
+
+.comment .cont {
+  font-size: 14px;
+  margin-top: 10px;
+  word-break: break-all;
+}
+
+.comment .biz-reply {
+  color: #C58A53;
+  font-size: 14px;
+  margin-top: 9px;
+}
+
+.comment .details {
+  background-color: #F4F4F4;
+  margin-left: 50px;
+  padding: 10px;
+  margin-top: 5px;
+  padding-bottom: 5px;
+}
+
+.comment .details p {
+  color: #434343;
+  margin-bottom: 5px;
+}
+
+.rank {
+  width: 306px;
+  background-color: #fff;
+  color: #4a4a4a;
+  margin-top: 14px;
+}
+
+.rank .title {
+  font-size: 16px;
+  color: #2a2a2a;
+  line-height: 49px;
+  height: 49px;
+  padding-left: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.rank .count {
+  margin-top: 5px;
+}
+
+.rank .head {
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.rank .head strong {
+  font-size: 26px;
+  font-weight: bold;
+  color: #4a4a4a;
+  line-height: 35px;
+}
+.rank .detail {
+  padding: 5px 20px 20px;
+}
+
+.rank .star-ranking,
+.rank .star-score {
+  display: inline-block;
+  width: 150px;
+  height: 20px;
+  line-height: 20px;
+  background-size: 30px 20px;
+  overflow: hidden;
+  background-image: url('/static/img/restaurant/star-yellow.svg');
+  background-repeat: repeat-x;
+  _background-image: url('/static/img/bigstar-yellow.png');
+}
+
+.rank .star-ranking {
+  margin: 6px 0 0 15px;
+  background-image: url('/static/img/restaurant/star-gray.svg');
+  _background-image: url('/static/img/bigstar-grey.png');
+}
+
+.rank .field {
+  margin-top: 15px;
+}
+
+.rank .field .bar {
+  display: inline-block;
+  width: 191px;
+  position: relative;
+  background-color: #f5f5f5;
+  height: 4px;
+  margin: 5px 0 0 10px;
+}
+.rank .field .bar i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  height: 4px;
+  background: #ffd161;
+}
+.rank .field .percent {
+  float: right;
+}
+
+.rank .field .icon {
+  float: left;
+  margin-right: 3px;
+}
+
+.reply-field {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 25px 20px;
+}
+
+.reply-field .info,
+.reply-field .time {
+  height: 15px;
+  line-height: 15px;
+  color: #999;
+  vertical-align: top;
+}
+.reply-field .info {
+  margin-left: 60px;
+  margin-top: 11px;
+}
+.reply-field .name {
+  font-size: 14px;
+  margin-right: 16px;
+  color: #333;
+  font-weight: bold;
+}
+
+.reply-field .recommended-dishes {
+  margin-top: 18px;
+  line-height: 24px;
+  margin-left: 60px;
+  color: #666;
+}
+
+.reply-field .recommended-head {
+  margin-right: 13px;
+}
+
+.reply-field .recommended-body {
+  width: 580px;
+}
+
+.reply-field .dishes {
+  padding: 4px 5px;
+  height: 12px;
+  line-height: 12px;
+  margin-top: 2px;
+  margin-right: 9px;
+  background-color: #fff4d8;
+  display: inline-block;
+}
+
+.reply-field .user-reply-empty {
+  margin-top: 10px;
+  margin-left: 60px;
+  font-size: 14px;
+  line-height: 25px;
+  word-wrap: break-word;
+}
+
+.reply-field .info .speed {
+  display: inline-block;
+  width: 112px;
+  margin-left: 30px;
+}
+
+
+.reply-field .star-ranking,
+.reply-field .star-score {
+  display: inline-block;
+  width: 72px;
+  height: 12px;
+  line-height: 12px;
+  overflow: hidden;
+  background-image: url('/static/img/restaurant/star-yellow.svg');
+  background-size: 14px 12px;
+  _background-image: url('/static/img/yellow-star.png');
+  _vertical-align: top;
+}
+
+.reply-field .star-ranking {
+  margin-top: 1px;
+  background-image: url('/static/img/restaurant/star-gray.svg');
+  _background-image: url('/static/img/grey-star.png');
+  _vertical-align: top;
+}
+
+.reply-field .info .feel {
+  margin-left: 10px;
+}
+
+.reply-field .user-reply {
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 60px;
+  line-height: 25px;
+  color: #666;
+  word-wrap: break-word;
+
+}
+
+.reply-field .bizz-reply {
+  color: #FFA735;
+  font-size: 14px;
+  word-break: break-all;
+  margin-left: 60px;
+  margin-top: 16px;
+  padding-top: 15px;
+  border-top: 1px dashed #e5e5e5;
+}
+.bizz-replay-title{
+    float: left;
+    line-height: 25px;
+}
+.bizz-replay-content{
+    margin-left: 70px;
+    color: #333;
+    line-height: 25px;
+}
+.reply-user-avatar{
+    width: 40px;
+    height: 40px;
+    float: left;
+    border-radius: 50%;
+    background-image: url('/static/img/user-default.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.reply-user-avatar img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.stick-qrcode .index-xiaomei .qrcode {
+  /*background-position: -6px -1234px;*/
+  background-position: -2px -1540px;
+}

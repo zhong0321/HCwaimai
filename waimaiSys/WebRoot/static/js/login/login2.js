@@ -153,7 +153,7 @@ $(function(){
 									if(logintype==1){
 										location.href="../getAddress.jsp";
 									}else{
-										alert("商家登陆成功!");
+										location.href="../storeOrder/showStoreOrder/99";
 									}
 								} else if(data== '0') {
 									if(logintype==1){

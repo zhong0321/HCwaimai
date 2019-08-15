@@ -6,8 +6,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <c:set var="cp" value="<%=basePath%>" /><!-- 获取项目访问路径http://localhost:8080/waimaiSys/ -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Stict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Stict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang = "zh-CN">
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -37,11 +36,10 @@ strict.dtd">
                 </a>
                 <div id="right">
                     <ul id="links">
-                        <li data-index="0"><a href="https://waimai.meituan.com/">首页</a></li>
-                        <li data-index="1"><a href="https://i.waimai.meituan.com/node/csr/joinin">商家入驻</a></li>
-                        <li data-index="4"><a href="https://waimai.meituan.com/new/waimaiIndex" class="active">点外卖</a></li>
-                        <li data-index="5"><a href="https://waimai.meituan.com/mobile/download/default">后台管理</a></li>
-                        用户：${user}
+                        <li data-index="0"><a href="">首页</a></li>
+                        <li data-index="1"><a href="">商家入驻</a></li>
+                        <li data-index="4"><a href="" class="active">点外卖</a></li>
+                        <li data-index="5"><a href="">后台管理</a></li>
                     </ul>
                 </div>
             </div>

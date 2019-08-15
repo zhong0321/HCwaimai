@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+}
+body{
+    background: #f6f6f6;
+    padding: 0px;
+}
+a{
+    text-decoration: none;
+}
+header,.left,.right{
+    background: white;
+}
+
+.bottom{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+header{
+    height: 50px;
+    margin: 0px 0px 5px 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 30px;
+}
+header .storeName,header .storeInfo{
+    margin: 0px 20px;
+    color: grey;
+    font-size: 15px;
+}
+.left{
+    height: 660px;
+    width: 12%;
+    float: left;
+    margin: 5px;
+    overflow: auto;
+    font-size: 14px;
+}
+.right{
+    height: 660px;
+    width: 87%;
+    float: right;
+    margin: 5px;
+    overflow: auto;
+}
+.left .listAll .listTitle{
+    display: flex;
+    align-items: flex-end;
+    margin:18px 10px;
+
+
+    /*border: solid 1px red;*/
+}
+.left .listAll .listTitle img{
+    margin: 3px 12px 0px 15px;
+}
+.left .listAll .listContext{
+    margin: 13px 56px;
+    font-size: 13px;
+}
+.left .listAll .listContext a{
+    color: grey;
+}
+
+.left .listAll .listContext a:hover{
+    color: #ff9c00;
+}
+.right .newFoodTitle{
+    padding: 20px;
+    font-size: 14px;
+}
+.right .newFoodTitle .title_storeManager{
+    color: gray;
+}
+.right .foodInfoDiv{
+    width: 90%;
+    margin: 0px auto;
+}
+.right .foodInfoDiv h3{
+    margin: 20px 0px;
+}
+.right .foodInfoDiv table tr td{
+    padding: 20px 0px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+.right .foodInfoDiv table tr{
+    display: flex;
+    align-items: center;
+}
+.right .foodInfoDiv table tr .tishi .xing{
+    color: red;
+}
+.right .foodInfoDiv table tr .tishi{
+    padding-right: 15px;
+}
+.right .foodInfoDiv table tr td button, select{
+    height: 30px;
+    background: white;
+    border: solid 1px darkgray;
+}
+.right .foodInfoDiv table tr td button:hover{
+    background: #FFC424;
+    border: none;
+}
+.right .foodInfoDiv table tr td input{
+    height: 24px;
+    width: 320px;
+}

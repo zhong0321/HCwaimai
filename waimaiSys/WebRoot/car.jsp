@@ -247,13 +247,13 @@
 	    			<div>
 	    				<input id="sexfield-1-male" name="gender" type="radio" value="1" checked="checked"/>
 	    				<label for="sexfield-1-male">先生</label>
-	    				<input id="sexfield-1-female" type="radio" name="gender" value="2"/>
+	    				<input id="sexfield-1-female" type="radio" name="gender" value="0"/>
 	    				<label for="sexfield-1-female">女士</label>
 	    			</div>
 	    			<div class="addressformfield-hint"><span></span></div>
 	    		</div>
 	    		<input id="city" value="${city}" type="hidden">
-	    		<input id="userId" name="userId" value="${user.id}" type="text">
+	    		<input id="userId" name="userId" value="${user.id}" type="hidden">
 	    		<input id="storeCoordinate" name="storeCoordinate" value="${store.coordinate}" type="hidden">
 	    		<div class="addressformfield addressfield">
 	    			<label>位置</label>
@@ -289,67 +289,6 @@
    </div>
    </span>
    
-   <%-- <!-- 修改地址 -->
-	<span id="updateAddressDiv" style="display: none;">
-	<div style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.5; background: rgb(0, 0, 0) none repeat scroll 0% 0%; z-index: 1006;"></div>
-    <div class="addressdialog" style="z-index: 1007; left: 460px; top: 150px;">
-    	<div class="addressdialog-close" onclick="closeDiv();"></div>
-    	<div class="addressdialog-header">修改地址</div>
-    	<div class="addressdialog-content">
-    		<div class="addressform">
-	    		<form id="addressForm" method="post" action="">
-	    		<div class="addressformfield">
-	    			<label>姓名</label>
-	    			<input placeholder="请输入您的姓名" onblur="inputBlur($(this));" id="contactName" name="contactName">
-	    			<span class="addressformfield-hint-span">(请输入您的姓名)</span>
-	    			<div class="addressformfield-hint"><span></span></div>
-	    		</div>
-	    		<div class="addressformfield sexfield">
-	    			<label>性别</label>
-	    			<div>
-	    				<input id="sexfield-1-male" name="gender" type="radio" value="1" checked="checked">
-	    				<label for="sexfield-1-male">先生</label>
-	    				<input id="sexfield-1-female" type="radio" name="gender" value="2">
-	    				<label for="sexfield-1-female">女士</label>
-	    			</div>
-	    			<div class="addressformfield-hint"><span></span></div>
-	    		</div>
-	    		<input id="city" value="${city}" type="hidden">
-	    		<input id="userId" name="userId" value="${user.id}" type="hidden">
-	    		<input id="storeCoordinate" name="storeCoordinate" value="${store.coordinate}" type="hidden">
-	    		<div class="addressformfield addressfield">
-	    			<label>位置</label>
-	    			<img src="${cp}static/files/zuobiao8451285.png" width="20px;" height="20px;">
-	    			<input id="tipinput" placeholder="请输入小区、大厦或学校" oninput="addressChange();" onblur="inputBlur($(this));">
-	    			<span class="addressformfield-hint-span">(请输入小区、大厦或学校)</span>
-	    			<input id="xiangxiAddress" name="xiangxiAddress" value="" type="hidden">
-	    			<div id="panel"></div>
-	    			<div class="addressformfield-hint"><span></span></div>
-	    			<div class="addressform-tip" style="display: none;">
-	    				<p><span>没找到你的地址？</span><a style="display: none;">去地图看看吧！</a></p>
-	    				<p>请尝试只输入小区、大厦或学校看看。</p>
-	    				<div class="arrow"></div>
-	    			</div>
-	    		</div>
-	    		<div class="addressformfield">
-	    			<label>详细地址</label>
-	    			<input placeholder="单元、门牌号" id="menpaihao" name="menpaihao" onblur="inputBlur();"><span class="addressformfield-hint-span">(请输入单元、门牌号)</span>
-	    			<div class="addressformfield-hint"><span></span></div>
-	    		</div>
-	    		<div class="addressformfield phonefield">
-	    			<label>手机号</label>
-	    			<input id="contactPhone" name="contactPhone" placeholder="请输入您的手机号" onblur="checkPhone($(this));"><span class="addressformfield-hint-span">(请输入您的手机号)</span>
-	    			<div class="addressformfield-hint"><span></span></div>
-	    		</div>
-	    	</form>
-	    	<div class="addressform-buttons">
-	    		<button onclick="updateAddress();">保存</button>
-	    		<button onclick="closeDiv();">取消</button>
-	    	</div>
-	    </div>
-	   </div>
-   </div>
-   </span> --%>
 <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=c3d2b1786038ce4ac5ba21d7be2ec631&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
 <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
 	<div class="csr-footer-container">
@@ -401,4 +340,5 @@
 	</div>
 
 </body>
+
 </html>
