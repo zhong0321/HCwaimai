@@ -105,11 +105,11 @@ strict.dtd">
 			<div class="food-list fl">
 				<div class="cate-tab-area">
 					<div class="tab-link">
-						<div class="tab-link-inner clearfix">
-							<a href="" class="tab-item  active">菜单</a> 
-							<a href="" class="tab-item ">评价</a> 
-							<a href="" class="tab-item ">食品安全档案</a>
-						</div>
+    <div class="tab-link-inner clearfix">
+      <a href="restaurant/findAll/${store.id }" class="tab-item active">菜单</a>
+      <a href="../../findStor/${store.id }" class="tab-item ">评价</a>
+        <a href="../../findanqian/${store.id }" class="tab-item  ">食品安全档案</a>
+    </div>
 					</div>
 
 					<!-- 菜品分类 -->
@@ -140,17 +140,14 @@ strict.dtd">
 							</h3>
 							<div class="pic-food-cont clearfix">
 								<c:forEach items="${food}" var="food">
-
-									<div class="j-pic-food pic-food" id="1336169296" <c:if test="${food.foodTypeId!=storeFoodTypes.foodTypeId}">style="display: none"</c:if> >
-										<div class="avatar">
+									<div class="j-pic-food pic-food" id="1336169296"  <c:if test="${food.foodTypeId!=storeFoodTypes.foodTypeId}">style="display: none"</c:if> >
+										<div class="avatar" id="gao${food.id}" name="gao${food.id}">
 											<img src="${cp}static/images/${food.foodImage}" class="food-shape scroll-loading">
 											<div class="description"></div>
 										</div>
-
 										<div class="np clearfix">
 											<span class="name fl" title="${food.foodName}">${food.foodName}</span>
 										</div>
-
 										<div class="sale-info clearfix">
 											<div class="sold-count ct-lightgrey"></div>
 										</div>
@@ -489,8 +486,7 @@ strict.dtd">
 			</div>
 		</form>
 	</div>
-	
-	<div class="csr-footer-container">
+	<div class="csr-footer-container" name="fffffffff">
 		<div class="middle-line"></div>
 		<div class="csr-footer">
 			<div class="footer-content">
@@ -537,6 +533,5 @@ strict.dtd">
 			</div>
 		</div>
 	</div>
-	
 </body>
 </html>

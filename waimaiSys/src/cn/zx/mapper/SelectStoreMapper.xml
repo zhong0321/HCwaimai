@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zx.mapper.SelectStoreMapper">
+    
+
+    <select id="selectstore" resultType="Store_Comment" >
+    	<if test="vl!=null">
+		SELECT st.id,st.storeName,st.distributionMoney,st.coordinate,st.startMoney,AVG(co.commentlv)AS commentlv FROM `store` st
+		LEFT JOIN COMMENT co ON st.id=co.storeId
+		WHERE st.storeName LIKE CONCAT('%',#{vl},'%') GROUP BY st.storeName ORDER BY commentlv DESC
+		</if>
+		<if test="vl==null">
+			SELECT st.id,st.storeName,st.distributionMoney,st.coordinate,st.startMoney,AVG(co.commentlv)AS commentlv FROM `store` st
+		LEFT JOIN COMMENT co ON st.id=co.storeId
+		 GROUP BY st.storeName ORDER BY commentlv DESC
+		</if>
+    </select>
+    
+    
+    <select id="selectMs" resultType="Food">
+    <if test="vl==null">
+    SELECT 	id, 
+		storeId, 
+		foodTypeId, 
+		foodName, 
+		price, 
+		foodImage
+	FROM 
+		waimai.food 
+    </if>
+    <if test="vl!=null">
+    SELECT 	id, 
+		storeId, 
+		foodTypeId, 
+		foodName, 
+		price, 
+		foodImage
+	FROM 
+		waimai.food 
+	WHERE foodName  LIKE CONCAT('%',#{vl},'%')
+    </if>
+	
+    </select>
+    
+    
+    <select id="selectstores" resultType="Store_Comment" >
+    	    	SELECT st.storeImg,st.id,st.storeName,st.distributionMoney,st.coordinate,st.startMoney,AVG(co.commentlv)AS commentlv FROM `store` st
+			LEFT JOIN COMMENT co ON st.id=co.storeId
+				 WHERE st.id=#{id}
+		 GROUP BY st.storeName ORDER BY commentlv DESC
+    </select>
+    
+    <!-- 全部评价 -->
+    <select id="selectComment" resultType="Comment_User">
+    	SELECT co.id,co.description,co.commentTime,co.commentlv,us.userName,us.image FROM COMMENT co
+		JOIN store st ON co.storeId=st.id
+			JOIN USER us ON co.userId=us.id
+			WHERE co.storeId=#{id} <if test="nulls!=0">and description!= ""</if>
+			ORDER BY CONVERT(description USING gbk) DESC 
+    </select>
+	
+    <select id="selectstoreByMs" resultType="Store_Comment" >
+    	SELECT st.id,
+	    	st.storeName,
+	    	st.distributionMoney,
+	    	st.coordinate,
+	    	st.startMoney,
+	    	AVG(co.commentlv)AS commentlv 
+	    FROM `store` st
+		LEFT JOIN COMMENT co ON st.id=co.storeId
+			WHERE st.id IN(
+		SELECT storeId
+		FROM 
+			waimai.food 
+			WHERE foodName  LIKE CONCAT('%',#{ll},'%'))
+			GROUP BY st.storeName ORDER BY commentlv DESC
+	</select>
+	
+	<!-- 差评 -->
+	<select id="selectBadComment" resultType="Comment_User">
+		SELECT co.id,co.description,co.commentTime,co.commentlv,us.userName,us.image FROM COMMENT co
+		JOIN store st ON co.storeId=st.id
+			JOIN USER us ON co.userId=us.id
+			WHERE co.storeId=#{id} AND commentlv  &lt;= '5' <if test="nulls!=0">and description!= ""</if>
+			ORDER BY CONVERT(description USING gbk) DESC 
+			
+	</select>
+	<!-- 好评-->
+		<select id="selectFineComment" resultType="Comment_User">
+	SELECT co.id,co.description,co.commentTime,co.commentlv,us.userName,us.image FROM COMMENT co
+		JOIN store st ON co.storeId=st.id
+			JOIN USER us ON co.userId=us.id
+			WHERE co.storeId=#{id} AND commentlv &gt; '5' <if test="nulls!=0">and description!= ""</if>
+			ORDER BY CONVERT(description USING gbk) DESC 
+	</select>
+	<!-- 差评个数 -->
+	<select id="findBadComment" resultType="int">
+		SELECT COUNT(1) FROM COMMENT WHERE storeId=#{id} AND commentlv &lt;= 5
+	</select>
+		<!-- 好评个数 -->
+		<select id="findFineComment" resultType="int">
+		SELECT COUNT(1) FROM COMMENT WHERE storeId=#{id} AND commentlv &gt; 5
+	</select>
+	
+	<select id="findStoreAptitude" resultType="StoreAptitude">
+		SELECT 	id, 
+	storeId, 
+	linkmanName, 
+	linkmanPhone, 
+	legalRepresentative, 
+	IDCard, 
+	IDCardImg, 
+	bankCard, 
+	shopCard, 
+	shopCardImg, 
+	foodLicenceImg
+	FROM 
+	waimai.storeaptitude 
+	WHERE id=#{id}
+	</select>
+	
+</mapper>

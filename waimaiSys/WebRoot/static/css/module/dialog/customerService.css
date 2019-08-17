@@ -1,0 +1,28 @@
+/*申请客服退款弹框*/
+.apply-dlg-content {
+  padding: 25px 37px 0;
+  font-size: 14px;
+}
+
+.apply-dlg-title {
+  font-size: 16px;
+  line-height: 26px;
+  color: #555555;
+  font-weight: bold;
+  margin-bottom: 9px;
+}
+
+.apply-dlg-sub {
+  line-height: 23px;
+  color: #898989;
+}
+
+.apply-dlg-sub em {
+  color: #fe4d3d;
+  font-style: normal;
+}
+
+.apply-dlg-btns {
+  padding: 25px 0 40px;
+  text-align: center;
+}

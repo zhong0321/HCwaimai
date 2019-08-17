@@ -17,6 +17,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="../static/css/login/reg.css" type="text/css"></link>
 	<script type="text/javascript" src="../static/js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="../static/js/login/getpw.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#pc_tel").val("");
+		});
+	</script>
 </head>
 <body>
 <div id="ajax-hook"></div>
@@ -28,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <p class="right_now">已有账号，<a href="../gologin/${code}">马上登录</a></p>
             <p class="p-input pos">
                 <label for="pc_tel">手机号</label>
-                <input type="text" id="pc_tel">
+                <input type="text" autocomplete="fd" id="pc_tel">
                 <input type="text" style="display: none" id="logintype"value="${code}">
                 <span class="tel-warn pc_tel-err hide"><em>手机号格式错误</em><i class="icon-warn"></i></span>
             </p>

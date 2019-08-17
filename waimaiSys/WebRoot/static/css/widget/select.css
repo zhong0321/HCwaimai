@@ -1,0 +1,77 @@
+/**
+ * 下拉列表框样式文件。
+ *
+ * @author xukai@meituan.com
+ * @date 2014-06-27 星期五
+ */
+.select-input {
+  color: #000000;
+  width: 78px;
+  height: 24px;
+  line-height: 24px;
+  border: 1px solid #E1E1E1;
+  padding-left: 12px;
+  display: inline-block;
+  background-color: #FFFFFF;
+  position: relative;
+
+}
+
+.select-input span {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.select-input i {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 10px;
+  height: 6px;
+  margin-left: 5px;
+  background-position: -514px -5px;
+}
+.slide-down {
+  position: absolute;
+  border: 1px solid #DCDCDC;
+  background-color: #FFFFFF;
+  display: none;
+  z-index: 901;
+
+  box-shadow: 0px 2px 5px #CCCCCC;
+  -moz-box-shadow: 0px 2px 5px #CCCCCC;
+  -webkit-box-shadow: 0px 2px 5px #CCCCCC;
+  -ms-box-shadow: 0px 2px 5px #CCCCCC;
+  -o-box-shadow: 0px 2px 5px #CCCCCC;
+}
+
+.slide-down li a {
+  display: block;
+  height: 30px;
+  padding: 0 12px;
+  line-height: 30px;
+  color: #434343;
+}
+
+.slide-down li.selected {
+  background-color: #eee;
+}
+
+.slide-down li.hover {
+  background-color: #D2D2D2;
+}
+
+.slide-down span.del {
+  display: none;;
+  height: 10px;
+  width: 10px;
+  background-position: -22px -256px;
+  margin-top: 12px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.slide-down li.hover span.del {
+  display: block;
+}

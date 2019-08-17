@@ -19,6 +19,14 @@
     margin: 0;
 }
 
+.sss{
+	display:inline-block;
+	width: 100%;
+	height: 100%;
+	background-color: #fab27b;
+	text-align:center;
+	line-height:38px;
+}
 .announcement-banner {
     background: #ffffff;
     width: 980px;

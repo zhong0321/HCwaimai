@@ -11,21 +11,19 @@ strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang = "zh-CN">
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>豪吃外卖</title>    
+    <title>豪吃外卖</title>
     <link rel="stylesheet" href="${cp}static/css/page/home.css">
 	<script type="text/javascript" src="${cp}static/js/lib/jquery.js"></script>
-	</head>
+	<script type="text/javascript" src="static/js/index/sousuo.js"></script></head>
 	<body>
-	<div id="container"></div>
+	<div id="container"><span class="Verification">${user}</span> </div>
 	<div id="panel"></div>
-            
 	  <div class="triffle" id="triffle"></div>
 	  <div class="wrapper">
 	      <div id="top-tips" class="top-tips" style="display: none;">
 	        <a class="j-top-tips-close top-tips-close" href="javascript:;"><i class="icon i-top-tips-close"></i></a>
 	        <div class="j-top-tips-content top-tips-content" data-id=""></div>
 	      </div>
-
         <div class="csr-header">
             <div class="header-content">
                 <a id="left" href="https://waimai.meituan.com/">
@@ -54,14 +52,11 @@ strict.dtd">
 		    Rohr_Opt.Flag = 100007;
 		    Rohr_Opt.LogVal = 'rohrdata';
 		</script>
-
 <script id="page-data-template" type="text/template">
   {"page":  "home"
   }
 </script>
-
 <div class="inner-bg">
-
     <div class="top-tools clearfix">
         <div class="fl" style="position: relative;">
             <a href="https://waimai.meituan.com/new/waimaiIndex/?stay=1"><i class="fl address-icon"> </i></a>
@@ -96,10 +91,9 @@ strict.dtd">
             </li>
           </c:forEach>
         </ul>
-
         <div class="search-box fr" id="searchBox">
             <input type="text" id="header-search" class="header-search fl" placeholder="搜索商家，美食">
-            <a href="javascript:;" class="doSearch fr"></a>
+            <a href="javascript:;" class="doSearch fr"><span class="sss" id="sousuo">搜索</span> </a>
             <div class="result-box" style="display: none;">
               <div class="result-left fl">
                 <div class="rest-words ct-black">商家</div>
@@ -146,7 +140,7 @@ strict.dtd">
 		              </div>
 		                <div class="rank clearfix">
 		                  <!-- <span class="star-ranking fl">
-		                    5颗星60px长度，算此时星级的长度
+		                    5颗星72px长度，算此时星级的长度
 		                    算出空白填充的部分长度
 		                    <span class="star-score" style="width: 66px"></span>
 		                  </span>
