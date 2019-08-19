@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.github.pagehelper.PageInfo;
 
+import cn.zx.entity.CommentLv;
 import cn.zx.entity.Comment_User;
 import cn.zx.entity.Food;
 import cn.zx.entity.StoreAptitude;
@@ -81,4 +82,12 @@ public interface SelectStoreService {
 	public int findFineComment(int id);
 	
 	public StoreAptitude findStoreAptitude(int id);
+	
+	
+	/**
+	 * 查询分数
+	 * @param id
+	 * @return
+	 */
+	public List<CommentLv> findComment(int id);
 }

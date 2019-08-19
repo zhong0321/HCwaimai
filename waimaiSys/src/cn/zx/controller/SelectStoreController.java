@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
 
+import cn.zx.entity.CommentLv;
 import cn.zx.entity.Comment_User;
 import cn.zx.entity.Food;
 import cn.zx.entity.StoreAptitude;
@@ -73,6 +74,8 @@ public class SelectStoreController {
 		Store_Comment store_Comment=selectStoreService.selectstores(id);
 		int bad=selectStoreService.findBadComment(id);
 		int fine=selectStoreService.findFineComment(id);
+		List<CommentLv> list=selectStoreService.findComment(id);
+		model.addAttribute("list", list);
 		model.addAttribute("store_comment", store_Comment);
 		model.addAttribute("bad", bad);
 		model.addAttribute("fine", fine);

@@ -58,14 +58,13 @@ public class RestaurantController {
 		model.addAttribute("food", food);
 		return "restaurant";
 	}
-	
+/*	
 	@RequestMapping(value="findinfo/{name}")
 	public String findinfo(@PathVariable(value="name") String name,Model model){
 		//商家信息
 		selectStoreService.selectstores(name);
-		
 		return "pinglun";
-	}
+	}*/
 	/**
 	 * 添加菜品到购物车
 	 * @author ZX 

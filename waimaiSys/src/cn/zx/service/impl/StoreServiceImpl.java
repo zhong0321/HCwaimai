@@ -29,7 +29,7 @@ public class StoreServiceImpl implements StoreService {
 		Store stores = storeMapper.phonePwdLogin(store);
 		return stores;
 	}
-
+	
 	@Override
 	public Store storePhoneLogin(String phone) {
 		Store store=storeMapper.storePhoneLogin(phone);

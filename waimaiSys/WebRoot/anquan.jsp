@@ -116,18 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <img src="./美团外卖_外卖网_网上订餐网_美团网_files/ef7bb43c85318acc97217af11f7867d717567.jpg">
                 </div>
             <div class="zizhi-info">
-                    <p>场所等级：
-                            <span>优秀</span>
-                    </p>
-
-                    <p>管理等级：
-                            <span>优秀</span>
-                    </p>
-                    <p>检查日期：2017-01-05</p>
-
                     <p>单位名称：北京观音寺大鸭梨餐饮有限公司</p>
-
-
                     <p>法定代表人（负责人）：沈立志</p>
 
                     <p>经营地址：北京市大兴区黄村镇观音寺小区1号楼2层</p>

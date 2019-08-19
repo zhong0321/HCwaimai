@@ -105,19 +105,28 @@
 	
 	<select id="findStoreAptitude" resultType="StoreAptitude">
 		SELECT 	id, 
-	storeId, 
-	linkmanName, 
-	linkmanPhone, 
-	legalRepresentative, 
-	IDCard, 
-	IDCardImg, 
-	bankCard, 
-	shopCard, 
-	shopCardImg, 
-	foodLicenceImg
-	FROM 
-	waimai.storeaptitude 
-	WHERE id=#{id}
+		storeId, 
+		linkmanName, 
+		linkmanPhone, 
+		legalRepresentative, 
+		IDCard, 
+		IDCardImg, 
+		bankCard, 
+		shopCard, 
+		shopCardImg, 
+		foodLicenceImg
+		FROM 
+		waimai.storeaptitude 
+		WHERE id=#{id}
 	</select>
+	
+	
+	<select id="findComment" resultType="CommentLv">
+				 SELECT co.commentlv, COUNT(commentlv)  AS commentnum
+		 FROM COMMENT co 
+		 WHERE co.storeId=#{id}
+		 GROUP BY co.commentlv
+	</select>
+	
 	
 </mapper>

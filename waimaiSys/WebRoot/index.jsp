@@ -13,8 +13,10 @@ strict.dtd">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>豪吃外卖</title>
     <link rel="stylesheet" href="${cp}static/css/page/home.css">
+	<link rel="stylesheet" href="static/css/page/index.glh.css" type="text/css"></link>
 	<script type="text/javascript" src="${cp}static/js/lib/jquery.js"></script>
-	<script type="text/javascript" src="static/js/index/sousuo.js"></script></head>
+	<script type="text/javascript" src="static/js/index/sousuo.js"></script>
+	</head>
 	<body>
 	<div id="container"><span class="Verification">${user}</span> </div>
 	<div id="panel"></div>
@@ -112,15 +114,18 @@ strict.dtd">
             </div>
         </div>
       </div>
-      
-        <div class="rest-filter clearfix" style="border: none;">
-        </div>
-      <div class="divider"></div>
     </div>
     
     
-    
-  	<div id="announcement-area"><div><div class="divider"></div></div></div>
+  	<div id="announcement-area">
+ 		<ul class="com-sel">
+	 		<li class="com-opt">默认<div class="bg"></div></li>
+	 		<li class="com-opt">距离<div class="bg"></div></li>
+	 		<li class="com-opt">评分<div class="bg"></div></li>
+	 		<li class="com-opt">订单数量<div class="bg"></div></li>
+	 		<li class="com-opt">配送时间<div class="bg"></div></li>
+ 		</ul>
+  	</div>
   	<div class="rest-list">
     <ul class="list clearfix">
     <c:forEach items="${storeByAddress}" var="store">
@@ -151,7 +156,7 @@ strict.dtd">
 		              <div class="price">
 		                <span class="start-price mtsi-num">起送:￥${store.startMoney}</span>
 		                <span class="send-price mtsi-num">配送费:￥${store.distributionMoney}</span>
-		                <span class="send-time mtsi-num"><i class="icon i-poi-timer"></i>分钟</span>
+		                <span class="send-time mtsi-num"></span>
 		              </div>
 		            </div>
 		            <div class="clear"></div>
@@ -169,7 +174,6 @@ strict.dtd">
 	<script type="text/javascript" src="${cp}static/js/jquery-1.8.2.min.js"></script>
 	<script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
 	<script type="text/javascript" charset="utf-8" src="${cp}static/js/page/home.js"></script>
-	
 	<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=c3d2b1786038ce4ac5ba21d7be2ec631&plugin=AMap.Riding"></script>
 	<script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
 	<script type="text/javascript">
@@ -187,26 +191,24 @@ strict.dtd">
 		}); 
 		
 		$(".point").each(function(index,dom){
-				var lnglat=($("#lnglat").val()).split(",");
-				var point=($(dom).val()).split(",");
-		    	var p1 = new AMap.LngLat(lnglat[0],lnglat[1]);
-				var p2 = new AMap.LngLat(point[0],point[1]);
-				riding.search([lnglat[0],lnglat[1]],[point[0],point[1]], function(status, result) {
-				   	// result即是对应的骑行路线数据信息
-				   	distance=result.routes[0].distance;//获取骑行路线的距离
-				   	time=result.routes[0].time;//获取骑行时间
-				   	var seconds = Math.ceil(time/60)+15;
-				   	$(dom).next().val(distance); 
-				   //	alert("time"+time);
-				   //$(dom).parent().next().children(".send-time").children(".i-poi-timer").html(seconds);
-				   	$(dom).parent().next().find(".i-poi-timer").html(seconds);
-					if(dis>5000){
-						$(dom).parents(".rest-li").css("display", "none");
-					}
-				});
+			var lnglat=($("#lnglat").val()).split(",");
+			var point=($(dom).val()).split(",");
+		    var p1 = new AMap.LngLat(lnglat[0],lnglat[1]);
+			var p2 = new AMap.LngLat(point[0],point[1]);
+			riding.search([lnglat[0],lnglat[1]],[point[0],point[1]], function(status, result) {
+			   	// result即是对应的骑行路线数据信息
+			   	distance=result.routes[0].distance;//获取骑行路线的距离
+			   	time=result.routes[0].time;//获取骑行时间
+			   	var seconds = Math.ceil(time/60)+15;
+			   	$(dom).next().val(distance); 
+			   //	alert("time"+time);
+			   //$(dom).parent().next().children(".send-time").children(".i-poi-timer").html(seconds);
+			   	$(dom).parent().next().find(".send-time").html(seconds+"分钟");
+				if(distance>5000){
+					$(dom).parents(".rest-li").css("display", "none");
+				}
+			});
 		});
-				
-				
     </script>
 	
       <!-- <li class="rest-separate j-rest-separate loading" id="loading">

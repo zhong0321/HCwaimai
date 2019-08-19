@@ -5,13 +5,13 @@ var xia=$(".next");
 var dangqian=$(".current");
 var jian=$("#jian");
 var jia=$("#jia");
-var getPageNum=$("#getPageNum").val();
+var getPageNum=parseInt($("#getPageNum").val()/10)+1;
 $(function (){
 	var first=$(".first-page");
 	var id=$("#store_comment").val();
 	var dq=parseInt($(".current").text());
-	pinlun(dq);
-	zt(dq);
+	pinlun(1);
+	zt();
 	$(xia).click(function (){
 		var dq=parseInt($(dangqian).text());
 		$(dangqian).text(dq+1);
@@ -86,7 +86,7 @@ function zt(){
 }
 
 $("#quanbu").click(function (){
-	getPageNum=$("#getPageNum").val();
+	getPageNum=parseInt($("#getPageNum").val()/10)+1;
 	pinlun(1);
 	$(".current").text(1);
 	zt();
@@ -145,10 +145,15 @@ function pinlun(num){
 		url:url,
 		dataType:"json",
 		success:function(data){
+			var aaa=$(".comment-list-wrapper");
 			if(data.length==0){
-				alert("没有数据");
+				var tis='<div class="comment-list-wrapper"> <div class="none">尚无此类评价。</div></div>';
+				aaa.html(tis);
 				return;
+			}else{
+				aaa.html('<ul id="ul"></ul>');
 			}
+			ul=$("#ul");
            for ( var int = 0; int < data.length; int++) {
 			var aa = data[int];
 			var uls=$("#ul").html();
@@ -158,7 +163,12 @@ function pinlun(num){
 			}else{
 				description=aa.description;
 			}
-			var pl='<li class="reply-field"> <div class="reply-user-avatar"> <img class="user-avatar-img" src="static/images/'+aa.image+'"> </div> <div class="info clearfix"> <span class="fr time">'+aa.commentTime+'</span> <span class="name">'+aa.userName+'</span>  <span class="star-ranking">	<span class="star-score" style="width: 75px"></span>   </span>      <span class="feel">好评</span> 	</div> <div class="user-reply-empty ct-lightgrey">'+description+'</div>  </li>';
+			if(aa.commentlv<=5){
+				con="差评";
+			}else{
+				con="好评";
+			}
+			var pl='<li class="reply-field"> <div class="reply-user-avatar"> <img class="user-avatar-img" src="static/images/'+aa.image+'"> </div> <div class="info clearfix"> <span class="fr time">'+aa.commentTime+'</span> <span class="name">'+aa.userName+'</span>  <span class="star-ranking">	<span class="star-score" style="width: 75px"></span>   </span>      <span class="feel">'+con+'</span> 	</div> <div class="user-reply-empty ct-lightgrey">'+description+'</div>  </li>';
 			ul.html(uls+pl);
            }
         }

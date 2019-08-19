@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import cn.glh.tools.MapHelper;
+import cn.zx.entity.CommentLv;
 import cn.zx.entity.Comment_User;
 import cn.zx.entity.Food;
 import cn.zx.entity.StoreAptitude;
@@ -116,5 +117,11 @@ public class SelectStoreServiceImpl implements SelectStoreService {
 	@Override
 	public StoreAptitude findStoreAptitude(int id) {
 		return selectStoreMapper.findStoreAptitude(id);
+	}
+
+	@Override
+	public List<CommentLv> findComment(int id) {
+		// TODO Auto-generated method stub
+		return selectStoreMapper.findComment(id);
 	}
 }

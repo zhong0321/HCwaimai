@@ -1,9 +1,11 @@
 package cn.zx.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+import cn.zx.entity.CommentLv;
 import cn.zx.entity.Comment_User;
 import cn.zx.entity.Food;
 import cn.zx.entity.StoreAptitude;
@@ -73,6 +75,17 @@ public interface SelectStoreMapper {
 	 */
 	public int findFineComment(@Param("id")int id);
 	
+	/**
+	 * 查询店铺安全信息
+	 * @param id
+	 * @return
+	 */
 	public StoreAptitude findStoreAptitude(@Param("id")int id);
 	
+	/**
+	 * 查询分数
+	 * @param id
+	 * @return
+	 */
+	public List<CommentLv> findComment(@Param("id")int id);
 }

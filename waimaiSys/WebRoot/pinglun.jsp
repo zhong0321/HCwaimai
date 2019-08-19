@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <img class="scroll-loading" src="../static/images/${store_comment.storeImg}" data-src="https://p1.meituan.net/120.0/waimaipoi/9f995ce46e7f2a12533cd7a89073f77b9585.jpg" data-max-width="106" data-max-height="80" style="width: 106px; height: 79.5px;">
       </div>
       <input type="hidden" id="store_comment" value="${store_comment.id }">
-      <input type="hidden" value="${pageinfo.getPages() }" id="getPageNum">
+      <input type="hidden" value="${all }" id="getPageNum">
        <input type="hidden" value="${bad}" id="bad">
        <input type="hidden" value="${fine}" id="fine">
       <div class="list">
@@ -162,46 +162,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	</span>
   </div>
   <div class="detail">
+  <c:forEach items="list" var="li">
       <div class="field clearfix">
         <span class="fl score-num">
-            5分
+            ${li.commentlv }分
         </span>
         <span class="fl bar"><i style="width: 90%;"></i></span>
         <span class="fr percent">90%</span>
       </div>
-      <div class="field clearfix">
-        <span class="fl score-num">
-            4分
-        </span>
-        <span class="fl bar"><i style="width: 5%;"></i></span>
-        <span class="fr percent">5%</span>
-      </div>
-      <div class="field clearfix">
-        <span class="fl score-num">
-            3分
-        </span>
-        <span class="fl bar"><i style="width: 3%;"></i></span>
-        <span class="fr percent">3%</span>
-      </div>
-      <div class="field clearfix">
-        <span class="fl score-num">
-            2分
-        </span>
-        <span class="fl bar"><i style="width: 0%;"></i></span>
-        <span class="fr percent">0</span>
-      </div>
-      <div class="field clearfix">
-        <span class="fl score-num">
-            1分
-        </span>
-        <span class="fl bar"><i style="width: 2%;"></i></span>
-        <span class="fr percent">2%</span>
-      </div>
+      </c:forEach>
   </div>
 </div>
 
 <div class="clear"></div>
-
       </div>
     </div>
     <div class="csr-footer-container">
