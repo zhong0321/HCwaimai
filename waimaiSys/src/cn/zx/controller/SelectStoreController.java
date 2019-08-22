@@ -63,7 +63,7 @@ public class SelectStoreController {
 	}
 	
 	/**
-	 * 
+	 * 店铺评论
 	 * @param id 
 	 * @param model
 	 * @param request
@@ -84,7 +84,7 @@ public class SelectStoreController {
 	}
 	
 	/**
-	 * 
+	 * 店铺安全信息
 	 * @param id 
 	 * @param model
 	 * @param request
@@ -99,6 +99,7 @@ public class SelectStoreController {
 		return "anquan";
 	}
 	/**
+	 * 
 	 * @param id 店铺id
 	 * @param num 当前页数
 	 * @param request
@@ -144,4 +145,6 @@ public class SelectStoreController {
 		request.getSession().setAttribute("fine", pageInfo.getPages());
 		return list;
 	}
+	
+	
 }

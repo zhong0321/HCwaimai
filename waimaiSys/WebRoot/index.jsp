@@ -18,6 +18,8 @@ strict.dtd">
 	<script type="text/javascript" src="static/js/index/sousuo.js"></script>
 	</head>
 	<body>
+	<input type="hidden" value="${max }" id="max">
+	
 	<div id="container"><span class="Verification">${user}</span> </div>
 	<div id="panel"></div>
 	  <div class="triffle" id="triffle"></div>
@@ -82,13 +84,14 @@ strict.dtd">
         <span class="imgsort-filter-split">|</span>
         <ul class="clearfix imgsort-content">
           <li class="fl">
-            <a href="${cp}index/findByStoreTypes/0" class="imgsort-list" title="全部">
-              <span class="imgsort-info">全部</span>
+            <a href="javascript:void(0)" class="imgsort-list" title="全部">
+              <span class="imgsort-info" data-id="0">全部</span>
             </a>
+            </li>
           <c:forEach items="${storeTypes}" var="st">
           	<li class="fl">
-              <a class="imgsort-list" href="${cp}index/findByStoreTypes/${st.id}">
-                <span class="imgsort-info">${st.storeType}</span>
+              <a class="imgsort-list" href="javascript:void(0)">
+                <span class="imgsort-info" data-id="${st.id }">${st.storeType}</span>
               </a>
             </li>
           </c:forEach>
@@ -119,11 +122,11 @@ strict.dtd">
     
   	<div id="announcement-area">
  		<ul class="com-sel">
-	 		<li class="com-opt">默认<div class="bg"></div></li>
-	 		<li class="com-opt">距离<div class="bg"></div></li>
-	 		<li class="com-opt">评分<div class="bg"></div></li>
-	 		<li class="com-opt">订单数量<div class="bg"></div></li>
-	 		<li class="com-opt">配送时间<div class="bg"></div></li>
+	 		<li class="com-opt" data-type="1">距离<div class="bg"></div></li>
+	 		<li class="com-opt" data-type="2">评分<div class="bg"></div></li>
+	 		<li class="com-opt" data-type="3">订单数量<div class="bg"></div></li>
+	 		<li class="com-opt" data-type="4">配送费<div class="bg"></div></li>
+	 		<li class="com-opt" data-type="5">开店时间<div class="bg"></div></li>
  		</ul>
   	</div>
   	<div class="rest-list">
@@ -144,12 +147,12 @@ strict.dtd">
 		                <span title="${store.storeName}">${store.storeName}</span>
 		              </div>
 		                <div class="rank clearfix">
-		                  <!-- <span class="star-ranking fl">
+		                 <span class="star-ranking fl"><!-- 
 		                    5颗星72px长度，算此时星级的长度
-		                    算出空白填充的部分长度
+		                    算出空白填充的部分长度 -->
 		                    <span class="star-score" style="width: 66px"></span>
 		                  </span>
-		                  <span class="score-num fl">4.5分</span> -->
+		                  <span class="score-num fl">4.5分</span> 
 		                  <input type="hidden" class="point" value="${store.coordinate}"/>
 		                  <input type="hidden" class="getDis"/>
 		                </div>
@@ -168,7 +171,6 @@ strict.dtd">
 		      </div>
 		    </div>
 		</li>
-	
     </c:forEach>
 	
 	<script type="text/javascript" src="${cp}static/js/jquery-1.8.2.min.js"></script>
@@ -268,5 +270,6 @@ strict.dtd">
     </div>
 
 </div>
+	<script type="text/javascript" src="static/js/index/index.js"></script>
 </body>
 </html>

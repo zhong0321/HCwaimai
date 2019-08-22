@@ -449,7 +449,6 @@
 
 .restaurant .rest-atag {
     display: block;
-    height: 100%;
     position: relative;
     *zoom: 1;
 }
@@ -1000,10 +999,10 @@
 .favorite i,
 .un-favorite:active i {
     background: url(/static/img/icon-new-heart.png) 100% no-repeat;
-    /*background-position: -369px -311px;*/
-}
+    /*background-position: -369px -311px;
+}*/
 
-.imgsort-wrapper {
+.imgsort-wrapper{
     padding: 22.5px 0 22.5px 0;
     margin: 0 10px;
     position: relative;

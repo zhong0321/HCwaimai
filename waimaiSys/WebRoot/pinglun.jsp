@@ -162,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	</span>
   </div>
   <div class="detail">
-  <c:forEach items="list" var="li">
+  <c:forEach items="${list}" var="li">
       <div class="field clearfix">
         <span class="fl score-num">
             ${li.commentlv }分
