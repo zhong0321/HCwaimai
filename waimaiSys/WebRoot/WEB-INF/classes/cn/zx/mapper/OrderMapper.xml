@@ -12,7 +12,8 @@
 		  `orderAddress`,
 		  `totalMoney`,
 		  `orderState`,
-		  `isComment`
+		  `isComment`,
+		  `orderRemarks`
 		) 
 		VALUES
 		  (
@@ -23,7 +24,8 @@
 		    #{orderAddress},
 		    #{totalMoney},
 		    #{orderState},
-		    #{isComment}
+		    #{isComment},
+		    #{orderRemarks}
 		  ) ;
 	</insert>     
 	
@@ -38,7 +40,21 @@
 	
 	<!-- 查询订单 -->
 	<select id="findOrder" resultType="order" parameterType="order">
-		select * from `order` order by orderTime desc
+		SELECT o.*,u.`userName`,s.`storeName`,s.`storeImg`,s.`distributionMoney`,s.`storePhone`,dm.`dmName` FROM `order` o 
+		INNER JOIN `user` u ON o.`userId`=u.`id`
+		INNER JOIN store s ON o.`storeId`=s.`id`
+		LEFT JOIN deliveryMan dm ON dm.`id`=o.`deliveryManId`
+		WHERE 1=1
+		<if test="storeId!=null">
+    		and o.`storeId`=#{storeId}
+    	</if>
+    	<if test="userId!=null">
+    		and o.`userId`=#{userId}
+    	</if>
+		<if test="orderState!=null">
+    		and o.`orderState`=#{orderState}
+    	</if>
+		ORDER BY o.`orderTime` DESC
 	</select>
 	
 	<!-- 根据订单号查询订单 -->

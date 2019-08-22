@@ -94,6 +94,7 @@ public class LoginController {
     		if(store==null){
                 return "0";
             }
+    		request.getSession().setAttribute("store", store);
             return "1";
     	}
     }

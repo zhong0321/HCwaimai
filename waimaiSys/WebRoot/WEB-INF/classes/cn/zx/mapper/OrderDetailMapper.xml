@@ -21,6 +21,6 @@
 	
 	<!-- 查询订单明细 -->
 	<select id="findOrderDetail" resultType="orderDetail" parameterType="orderDetail">
-		select * from order_detail where orderId=#{orderId}
+		SELECT d.`cost`,d.`count`,d.`foodId`,d.`id`,d.`orderId`,f.`foodName` FROM order_detail d INNER JOIN food f ON d.`foodId`=f.`id` WHERE d.`orderId`=#{orderId}
 	</select>
 </mapper>

@@ -1,6 +1,10 @@
 package cn.zx.entity;
 
-import net.sf.jsqlparser.expression.DateTimeLiteralExpression.DateTime;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+
 
 public class Order {
 	private Integer id;
@@ -11,7 +15,65 @@ public class Order {
 	private String orderNumber;
 	private String orderAddress;
 	private double totalMoney;
-	private DateTime orderdTime;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date orderTime;
+	private String orderRemarks;
+	private Integer deliveryManId;
+	
+	private String userName;
+	private String storeName;
+	private String storeImg;
+	private String dmName;
+	private double distributionMoney;
+	private String storePhone;
+	public Integer getDeliveryManId() {
+		return deliveryManId;
+	}
+	public void setDeliveryManId(Integer deliveryManId) {
+		this.deliveryManId = deliveryManId;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getStoreName() {
+		return storeName;
+	}
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+	public String getStoreImg() {
+		return storeImg;
+	}
+	public void setStoreImg(String storeImg) {
+		this.storeImg = storeImg;
+	}
+	public String getDmName() {
+		return dmName;
+	}
+	public void setDmName(String dmName) {
+		this.dmName = dmName;
+	}
+	public double getDistributionMoney() {
+		return distributionMoney;
+	}
+	public void setDistributionMoney(double distributionMoney) {
+		this.distributionMoney = distributionMoney;
+	}
+	public String getStorePhone() {
+		return storePhone;
+	}
+	public void setStorePhone(String storePhone) {
+		this.storePhone = storePhone;
+	}
+	public String getOrderRemarks() {
+		return orderRemarks;
+	}
+	public void setOrderRemarks(String orderRemarks) {
+		this.orderRemarks = orderRemarks;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -60,10 +122,11 @@ public class Order {
 	public void setTotalMoney(double totalMoney) {
 		this.totalMoney = totalMoney;
 	}
-	public DateTime getOrderdTime() {
-		return orderdTime;
+	public Date getOrderTime() {
+		return orderTime;
 	}
-	public void setOrderdTime(DateTime orderdTime) {
-		this.orderdTime = orderdTime;
+	public void setOrderTime(Date orderTime) {
+		this.orderTime = orderTime;
 	}
+	
 }

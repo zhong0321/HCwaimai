@@ -6,6 +6,13 @@ public class OrderDetail {
 	private Integer foodId;
 	private Integer count;
 	private double cost;
+	private String foodName;
+	public String getFoodName() {
+		return foodName;
+	}
+	public void setFoodName(String foodName) {
+		this.foodName = foodName;
+	}
 	public Integer getId() {
 		return id;
 	}

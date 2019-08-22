@@ -260,7 +260,7 @@ function saveAddress(){
 		var contactPhone=$("#contactPhone").val();
 		var gender = $(".addressdialog-content .addressform .sexfield div").find("input[name='gender']:checked").val();
 		//alert("sex:"+gender);
-		//alert("id:"+userId);
+		alert("id:"+userId);
 		$.ajax({
 			   type: "POST",
 			   url: "/waimaiSys/car/addUserAddress",
@@ -345,6 +345,9 @@ function labelClick(e){
 function sureOrders(){
 	var userAddressId=$(".checkout-address-list li").find("input[name='userAddress']:checked").val();
 	var remarks=$(".checkout-select .checkout-info .checkout-input").val();
+	if(remarks==null || remarks==""){
+		remarks="无";
+	}
 	if(userAddressId!=null && userAddressId!=undefined){
 		location.href="/waimaiSys/car/sureOrders/"+userAddressId+"/"+remarks;
 	}else{

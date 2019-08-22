@@ -64,5 +64,6 @@
 	 	<property name="basePackage" value="cn.zx.mapper"></property>
 	 </bean>
 	 
+	 
 	 <import resource="spring-tran.xml"/>
 </beans>    
