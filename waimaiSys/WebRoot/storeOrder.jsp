@@ -10,6 +10,11 @@ strict.dtd">
     <link rel="stylesheet" href="/waimaiSys/static/css/store/storeOrder.css">
 	<script type="text/javascript" src="/waimaiSys/static/js/lib/jquery.js"></script>
 	<script type="text/javascript" src="/waimaiSys/static/js/store/storeOrder.js"></script>
+	<style type="text/css">
+		.now{
+		border-bottom:#464759 3px solid;
+		}
+	</style>
 </head>
 <body>
     <header>
@@ -21,12 +26,11 @@ strict.dtd">
         <div class="right">
 			<div class="order_nav">
                 <ul>
-                    <li style="border-bottom: #464759 3px solid;"><a href="../showStoreOrder/99">全部订单</a></li>
-                    <li><a href="../showStoreOrder/3" onclick="navStyle($(this))">待接单</a></li>
-                    <li><a href="../showStoreOrder/4" onclick="navStyle($(this))">未送出</a></li>
-                    <li><a href="../showStoreOrder/5" onclick="navStyle($(this))">未送达</a></li>
-                    <li><a href="../showStoreOrder/7" onclick="navStyle($(this))">已完成</a></li>
-                    <li><a href="../showStoreOrder/9" onclick="navStyle($(this))">已退款</a></li>
+                
+                    <li <c:if test="${empty now}">class="now"</c:if> ><a href="../showStoreOrder/99">全部订单</a></li>
+                    <li <c:if test="${now==1}">class="now"</c:if>  ><a href="../showStoreOrder/3" >新订单</a></li>
+                    <li <c:if test="${now==5}">class="now"</c:if> ><a href="../showStoreOrder/5" >已完成</a></li>
+                    <li <c:if test="${now==13}">class="now"</c:if> ><a href="../showStoreOrder/13" >已退款</a></li>
                 </ul>
             </div>
             <div class="order_content">
@@ -36,12 +40,16 @@ strict.dtd">
                             <div class="orderTitle">
                                 <span>订单号：${order.orderNumber}</span>
                                 <span>￥${order.totalMoney}</span>
-                                <c:if test="${order.orderState==3}"><span>未接单</span></c:if>
-                                <c:if test="${order.orderState==4}"><span>未送出</span></c:if>
-                                <c:if test="${order.orderState==5}"><span>未送达</span></c:if>
-                                <c:if test="${order.orderState==7}"><span>已完成</span></c:if>
-                                <c:if test="${order.orderState==9}"><span>已退款</span></c:if>
-                                <c:if test="${order.orderState==3}"><a href="../sureOrder/${order.id}">确认接单</a></c:if>
+                                <c:if test="${order.orderState==1}"><span>未接单</span></c:if>
+                                <c:if test="${order.orderState==2}"><span>等待外卖员接单</span></c:if>
+                                <c:if test="${order.orderState==3}"><span>等待外卖员上门取餐</span></c:if>
+                                <c:if test="${order.orderState==4}"><span>已送出</span></c:if>
+                                <c:if test="${order.orderState==5}"><span>已完成</span></c:if>
+                                <c:if test="${order.orderState==13}"><span>已退款</span></c:if>
+                                <c:if test="${order.orderState==1}">
+                                	<a href="../sureOrder/${order.id}">确认接单</a>
+                                	<a href="javascript:void(0)" onclick="refuseOrder('${order.id}','${order.storeId}');">拒单</a>
+                                </c:if>
                                 <span>下单时间:${order.orderTime}</span>
                                 <a href="#" onclick="showOrderDetails('${order.id}',$(this));" id="xiangqing">详情</a>
                                 <a href="#" onclick="closeOrderDetails($(this));" id="shouqi" style="display: none;" >收起</a>
@@ -50,22 +58,12 @@ strict.dtd">
                                 <div class="orderDetail">
                                 	<ul>
                                 		<li>
-                                			<span>红烧狮子头</span>
-	                                        <span>1</span>
-	                                        <span>￥21</span>
+                                			
                                 		</li>
                                 	</ul>
-                                    <!-- <div class="caipinInfo">
-                                        
-                                    </div>
-                                    <div class="caipinInfo">
-                                        <span>红烧狮子头</span>
-                                        <span>1</span>
-                                        <span>￥21</span>
-                                    </div> -->
                                     <div class="peisongInfo">
                                         <span>配送费</span>
-                                        <span>￥${order.distributionMoney}</span>
+                                        <span>￥${order.disMoney}</span>
                                     </div>
                                     <div class="totalCost">
                                         <span>总价</span>
@@ -89,5 +87,6 @@ strict.dtd">
             </div>
 		</div>
     </div>
+    
 </body>
 </html>

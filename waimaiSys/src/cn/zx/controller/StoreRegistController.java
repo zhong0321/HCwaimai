@@ -2,7 +2,6 @@ package cn.zx.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Random;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -21,7 +20,6 @@ import cn.zx.service.AuditService;
 import cn.zx.service.StoreAptitudeService;
 import cn.zx.service.StoreService;
 import cn.zx.service.StoreStoreTypesService;
-import cn.zx.service.StoreTypesService;
 
 @Controller
 @RequestMapping("storeRegist")

@@ -56,4 +56,31 @@ public interface OrderService {
 	 * @date 2019-8-5下午2:48:34
 	 */
 	public void deleteOrder(Order order);
+	/**
+	 * 外卖员根据坐标查询待抢订单
+	 * @param district
+	 * @return 
+	 * List<Order>  
+	 * @author ZX 
+	 * @date 2019-8-21下午5:28:17
+	 */
+	public List<Order> findOrderByStoreAddress(String district);
+	/**
+	 * 查询订单是否在配送区域内
+	 * @param id
+	 * @param district
+	 * @return 
+	 * Order  
+	 * @author ZX 
+	 * @date 2019-8-23上午11:32:13
+	 */
+	public Order findDmOrderDis(Integer id, String district);
+	/**
+	 * 修改订单
+	 * @param order 
+	 * void  
+	 * @author ZX 
+	 * @date 2019-8-24上午11:16:33
+	 */
+	public void updateOrder(Order order);
 }

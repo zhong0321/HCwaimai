@@ -7,6 +7,20 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 public class Order {
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", userId=" + userId + ", storeId="
+				+ storeId + ", orderState=" + orderState + ", isComment="
+				+ isComment + ", orderNumber=" + orderNumber
+				+ ", orderAddress=" + orderAddress + ", totalMoney="
+				+ totalMoney + ", orderTime=" + orderTime + ", orderRemarks="
+				+ orderRemarks + ", deliveryManId=" + deliveryManId
+				+ ", disMoney=" + disMoney + ", userName=" + userName
+				+ ", storeName=" + storeName + ", storeImg=" + storeImg
+				+ ", dmName=" + dmName + ", storePhone=" + storePhone
+				+ ", coordinate=" + coordinate + ", storeAddress="
+				+ storeAddress + "]";
+	}
 	private Integer id;
 	private Integer userId;
 	private Integer storeId;
@@ -19,13 +33,28 @@ public class Order {
 	private Date orderTime;
 	private String orderRemarks;
 	private Integer deliveryManId;
+	private double disMoney;//配送费
 	
 	private String userName;
 	private String storeName;
 	private String storeImg;
 	private String dmName;
-	private double distributionMoney;
+	
 	private String storePhone;
+	private String coordinate;
+	private String storeAddress;
+	public String getStoreAddress() {
+		return storeAddress;
+	}
+	public void setStoreAddress(String storeAddress) {
+		this.storeAddress = storeAddress;
+	}
+	public String getCoordinate() {
+		return coordinate;
+	}
+	public void setCoordinate(String coordinate) {
+		this.coordinate = coordinate;
+	}
 	public Integer getDeliveryManId() {
 		return deliveryManId;
 	}
@@ -56,11 +85,12 @@ public class Order {
 	public void setDmName(String dmName) {
 		this.dmName = dmName;
 	}
-	public double getDistributionMoney() {
-		return distributionMoney;
+	
+	public double getDisMoney() {
+		return disMoney;
 	}
-	public void setDistributionMoney(double distributionMoney) {
-		this.distributionMoney = distributionMoney;
+	public void setDisMoney(double disMoney) {
+		this.disMoney = disMoney;
 	}
 	public String getStorePhone() {
 		return storePhone;

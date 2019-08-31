@@ -11,4 +11,7 @@ public interface OrderMapper {
 	public Order findByOrderNumber(Order order);
 	public void updateOrderState(Order order);
 	public void deleteOrder(Order order);
+	public List<Order> findOrderByStoreAddress(String district);
+	public Order findDmOrderDis(Integer id, String district);
+	public void updateOrder(Order order);
 }

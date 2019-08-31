@@ -13,7 +13,8 @@
 		  `totalMoney`,
 		  `orderState`,
 		  `isComment`,
-		  `orderRemarks`
+		  `orderRemarks`,
+		  `disMoney`
 		) 
 		VALUES
 		  (
@@ -25,7 +26,8 @@
 		    #{totalMoney},
 		    #{orderState},
 		    #{isComment},
-		    #{orderRemarks}
+		    #{orderRemarks},
+		    #{disMoney}
 		  ) ;
 	</insert>     
 	
@@ -38,9 +40,28 @@
 		WHERE `id` = #{id} ;
 	</update>
 	
+	<!-- 修改订单 -->
+	<update id="updateOrder" parameterType="order">
+		UPDATE 
+		  `waimai`.`order` 
+		SET
+		  `userId` = #{userId},
+		  `storeId` = #{storeId},
+		  `orderNumber` = #{orderNumber},
+		  `orderTime` = #{orderTime},
+		  `orderAddress` = #{orderAddress},
+		  `totalMoney` = #{totalMoney},
+		  `orderState` = #{orderState},
+		  `isComment` = #{isComment},
+		  `orderRemarks` = #{orderRemarks},
+		  `deliveryManId` = #{deliveryManId},
+		  `disMoney` = #{disMoney}
+		WHERE `id` = #{id};
+	</update>
+	
 	<!-- 查询订单 -->
 	<select id="findOrder" resultType="order" parameterType="order">
-		SELECT o.*,u.`userName`,s.`storeName`,s.`storeImg`,s.`distributionMoney`,s.`storePhone`,dm.`dmName` FROM `order` o 
+		SELECT o.*,u.`userName`,s.`storeName`,s.`storeImg`,s.`storeAddress`,s.`coordinate`,s.`storePhone`,dm.`dmName` FROM `order` o 
 		INNER JOIN `user` u ON o.`userId`=u.`id`
 		INNER JOIN store s ON o.`storeId`=s.`id`
 		LEFT JOIN deliveryMan dm ON dm.`id`=o.`deliveryManId`
@@ -54,7 +75,17 @@
 		<if test="orderState!=null">
     		and o.`orderState`=#{orderState}
     	</if>
+    	<if test="deliveryManId!=null">
+    		and o.`deliveryManId`=#{deliveryManId}
+    	</if>
 		ORDER BY o.`orderTime` DESC
+	</select>
+	
+	<!-- 外卖员根据坐标查询待抢订单 -->
+	<select id="findOrderByStoreAddress" resultType="order" parameterType="String">
+		SELECT o.*,s.`storeName`,s.`storeAddress`,s.`coordinate` FROM `order` o
+		INNER JOIN store s ON o.`storeId`=s.`id`
+		WHERE s.`area`=#{district} AND o.`orderState`=2
 	</select>
 	
 	<!-- 根据订单号查询订单 -->
@@ -64,13 +95,22 @@
 	
 	<!-- 根据订单id查询订单 -->
 	<select id="findById" resultType="order" parameterType="Integer">
-		select * from `order` where id=#{id}
+		SELECT o.*,s.`storeName`,s.`storeAddress`,s.`coordinate` FROM `order` o
+		INNER JOIN store s ON o.`storeId`=s.`id`
+		where o.id=#{id}
 	</select>
 	
 	<!-- 删除订单 -->
 	<delete id="deleteOrder">
 	
 	</delete>
+	
+	<!-- 查询订单是否在配送区域内 -->
+	<select id="findDmOrderDis" resultType="order" parameterType="Object">
+		SELECT o.*,s.`storeName`,s.`storeAddress`,s.`coordinate` FROM `order` o
+		INNER JOIN store s ON o.`storeId`=s.`id`
+		WHERE s.`area`=#{district} AND o.`id`=#{id}
+	</select>
 	
 	
 </mapper>

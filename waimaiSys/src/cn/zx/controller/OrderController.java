@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.zx.entity.Order;
@@ -27,12 +26,21 @@ public class OrderController {
 	@Resource
 	private StoreService storeService;
 	
+	/**
+	 * 用户查询当前订单详情
+	 * @param model
+	 * @param request
+	 * @return 
+	 * String  
+	 * @author ZX 
+	 * @date 2019-8-28下午2:49:35
+	 */
 	@RequestMapping("/showOrder")
 	public String showOrder(Model model,HttpServletRequest request){
 		Integer orderID = (Integer)request.getSession().getAttribute("orderID");
 		Order order = orderService.findById(orderID);
 		model.addAttribute("order", order);
-		Store store = storeService.findStoreById(orderID);
+		Store store = storeService.findStoreById(order.getStoreId());
 		model.addAttribute("store", store);
 		OrderDetail orderDetail=new OrderDetail();
 		orderDetail.setOrderId(orderID);

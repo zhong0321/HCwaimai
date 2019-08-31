@@ -1,0 +1,125 @@
+
+li{
+    list-style-type: none;
+}
+.right .foodStateType{
+    height: 70px;
+    line-height: 70px;
+}
+.right .foodStateType ul li{
+    display: inline-block;
+    margin: 0px 20px;
+    font-size: 15px;
+    color: grey;
+}
+.right .foodStateType ul li:hover{
+    color: #464759;
+    border-bottom: #464759 1px solid;
+}
+.right .foodStateType{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px lightgrey;
+}
+.right .foodStateType button{
+    margin: 15px 150px;
+    height: 40px;
+    width: 90px;
+    background: #464759;
+    border: none;
+    color: white;
+}
+.right .bottomAllFood .leftFoodType{
+    width: 20%;
+    float: left;
+
+}
+.right .bottomAllFood .rightFoodInfo{
+    width: 80%;
+    float: right;
+}
+
+.right .bottomAllFood .leftFoodType div{
+    height: 70px;
+    line-height: 70px;
+    margin: 0px auto;
+    border-right: solid 1px lightgrey;
+}
+.right .bottomAllFood .leftFoodType div button{
+    width: 120px;
+    height: 40px;
+    margin-left: 40px;
+    background: white;
+    border: solid 1px grey;
+}
+
+.right .bottomAllFood .leftFoodType ul{
+    padding: 0px;
+    border-right: solid 1px lightgrey;
+}
+.right .bottomAllFood .leftFoodType ul li{
+    padding-left: 40px;
+    height: 100px;
+    line-height: 100px;
+    color: #464759;
+}
+.right .bottomAllFood .leftFoodType ul li:hover{
+    background: #F8F8F8;
+    border-left: solid 4px #464759;
+}
+.right .bottomAllFood .leftFoodType ul li span{
+    color: darkgrey;
+}
+.right .bottomAllFood .rightFoodInfo ul{
+    padding: 0px;
+}
+.right .bottomAllFood .rightFoodInfo ul li{
+    padding:  25px;
+    background: #FFFBF0;
+    display: flex;
+    align-content: center;
+    border-bottom: solid 1px gainsboro;
+}
+.right .bottomAllFood .rightFoodInfo ul li div{
+    display: inline-block;
+}
+.right .rightFoodInfo_center .foodName{
+    height: 20px;
+    width: 350px;
+    display: block;
+    margin: 0px 0px 20px 15px;
+    background:  #FFFBF0;
+    border: solid 1px gainsboro;
+}
+.right .rightFoodInfo_center span{
+    display: block;
+    margin: 20px 0px 0px 15px;
+}
+.right .rightFoodInfo_center span .shouqing{
+    margin-left: 50px;
+    background: white;
+    border: solid 1px #ff9c00;
+    color: #ff9c00;
+
+}
+.right .rightFoodInfo_center span .foodPrice{
+    width: 50px;
+    height: 20px;
+}
+.right .rightFoodInfo_last div{
+    position: relative;
+    left: 350px;
+    display: block;
+}
+.right .rightFoodInfo_last .xiajia{
+    width: 130px;
+    height: 35px;
+    background: white;
+    border: solid 1px grey;
+    display: block;
+}
+.right .rightFoodInfo_last .caozuo{
+    display: block;
+    margin: 15px 0px 0px 10px;
+    font-size: 14px;
+}

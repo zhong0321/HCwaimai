@@ -47,4 +47,22 @@ public class OrderServiceImpl implements OrderService {
 		orderMapper.updateOrderState(order);
 	}
 
+	@Override
+	public List<Order> findOrderByStoreAddress(String district) {
+		List<Order> list = orderMapper.findOrderByStoreAddress(district);
+		return list;
+	}
+
+	@Override
+	public Order findDmOrderDis(Integer id, String district) {
+		Order order = orderMapper.findDmOrderDis(id, district);
+		return order;
+	}
+
+	@Override
+	public void updateOrder(Order order) {
+		orderMapper.updateOrder(order);
+	}
+
+
 }

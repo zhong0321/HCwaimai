@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//WebRoot/dingwei.jsp=UTF-8
+encoding//WebRoot/dmOrder.jsp=UTF-8
+encoding//WebRoot/dmOrderDetail.jsp=UTF-8
 encoding//WebRoot/static/css/module/order/order_n.css=UTF-8
 encoding//WebRoot/static/js/page/restaurant.js=UTF-8
 encoding//WebRoot/storeRegist02.jsp=UTF-8

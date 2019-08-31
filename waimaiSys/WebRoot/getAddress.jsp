@@ -102,22 +102,22 @@
     
     //逆地理编码
     function getAddress(){
-    AMap.plugin('AMap.Geocoder', function() {
-	  var geocoder = new AMap.Geocoder({
-	    // city 指定进行编码查询的城市，支持传入城市名、adcode 和 citycode
-	    city: getCity 
-	  });
-	 
-	  var lnglat=$("#lnglat").val();
-	
-	  geocoder.getAddress(lnglat, function(status, result) {
-	    if (status === 'complete' && result.info === 'OK') {
-	        // result为对应的地理位置详细信息
-	        var address = result.regeocode.formattedAddress;
-            document.getElementById('address').value = address;
-	    }
-	  });
-	});
+	    AMap.plugin('AMap.Geocoder', function() {
+		  var geocoder = new AMap.Geocoder({
+		    // city 指定进行编码查询的城市，支持传入城市名、adcode 和 citycode
+		    city: getCity 
+		  });
+		 
+		  var lnglat=$("#lnglat").val();
+		
+		  geocoder.getAddress(lnglat, function(status, result) {
+		    if (status === 'complete' && result.info === 'OK') {
+		        // result为对应的地理位置详细信息
+		        var address = result.regeocode.formattedAddress;
+	            document.getElementById('address').value = address;
+		    }
+		  });
+		});
    }
     
     
