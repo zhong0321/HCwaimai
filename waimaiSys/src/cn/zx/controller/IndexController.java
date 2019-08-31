@@ -40,8 +40,8 @@ public class IndexController {
 		String district=address.substring(address.indexOf("市")+1, address.indexOf("区")+1);
 		store.setArea(district);
 		
-		List<Store> storeByAddress = storeService.findStoreByAddress(store);
-		request.getSession().setAttribute("storeByAddress", storeByAddress);
+		//List<Store> storeByAddress = storeService.findStoreByAddress(store);
+		//request.getSession().setAttribute("storeByAddress", storeByAddress);
 		
 		//将收获地址存入application
 		request.getSession().setAttribute("province", province);

@@ -136,6 +136,7 @@ $(function(){
 	// 登录点击事件
 	function sendBtn(){
 		if (tab == 'account_number'){
+			//账号密码的登陆
 			$(".log-btn").click(function(){
 				var inp = $.trim($('#num').val());
 				var pass = $.trim($('#pass').val());
@@ -176,6 +177,7 @@ $(function(){
 				}
 			});
 		} else {
+			//验证码登录
 			$(".log-btn").click(function(){
 				var phone = $.trim($('#num2').val());
 				var pcode = $.trim($('#veri-code').val());

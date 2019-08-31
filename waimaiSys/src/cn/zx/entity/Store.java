@@ -1,6 +1,9 @@
 package cn.zx.entity;
 
-public class Store {
+public class Store implements Comparable<Store>{
+	/**
+	 * 商家标识
+	 */
     private Integer id; 
 	private double distributionMoney;
 	private Integer startMoney;
@@ -10,6 +13,13 @@ public class Store {
 	private String storeImg;
 	private String storePhone;
 	private Integer registState;
+	private double juli;
+	public double getJuli() {
+		return juli;
+	}
+	public void setJuli(double juli) {
+		this.juli = juli;
+	}
 	public Integer getRegistState() {
 		return registState;
 	}
@@ -110,6 +120,12 @@ public class Store {
 				+ ", city=" + city + ", area=" + area + ", coordinate="
 				+ coordinate + ", storeTypeId=" + storeTypeId + "]";
 	}
-	
-	
+	@Override
+	public int compareTo(Store o) {
+		 //自定义比较方法，如果认为此实体本身大则返回1，否则返回-1
+		if(this.juli >= o.getJuli()){
+			return 1;
+		}
+		return -1;
+	}
 }

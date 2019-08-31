@@ -62,4 +62,52 @@
 		  `registState` = #{registState}
 		WHERE `id` = #{id};
     </update>
+    <select id="findStoreInfo" resultType="Store_Comment">
+		SELECT st.id,st.storeName,st.distributionMoney,st.coordinate,st.startMoney,st.storeImg,st.foundtime,AVG(co.commentlv)AS commentlv,st.ordrenum
+		FROM `store` st
+		LEFT JOIN COMMENT co ON st.id=co.storeId
+		LEFT JOIN store_storetypes sst ON st.id=sst.storeId
+		LEFT JOIN `order` AS `or` ON st.id=or.storeId
+		<if test="storeTypeId!=0">
+			WHERE sst.storeTypeId=#{storeTypeId}
+		</if>
+		 GROUP BY st.storeName 
+		 <if test="sorttype==2"><!-- 排序类型  评分-->
+		 	<if test="sortorder==1"><!-- 排序方式 -->
+		 		ORDER BY commentlv DESC
+		 	</if>
+		 	<if test="sortorder==2"><!-- 排序方式 -->
+		 		ORDER BY commentlv ASC
+		 	</if>
+		 </if>
+		 
+		 <if test="sorttype==3"><!-- 排序类型 订单数量-->
+		 	<if test="sortorder==1"><!-- 排序方式 -->
+		 		ORDER BY ordrenum DESC
+		 	</if>
+		 	<if test="sortorder==2"><!-- 排序方式 -->
+		 		ORDER BY ordrenum ASC
+		 	</if>
+		 </if>
+		 
+		 <if test="sorttype==4"><!-- 排序类型 配送费-->
+		 	<if test="sortorder==1"><!-- 排序方式 -->
+		 		ORDER BY distributionMoney DESC
+		 	</if>
+		 	<if test="sortorder==2"><!-- 排序方式 -->
+		 		ORDER BY distributionMoney ASC
+		 	</if>
+		 </if>
+		 
+		 <if test="sorttype==5"><!-- 排序类型 开店时间-->
+		 	<if test="sortorder==1"><!-- 排序方式 -->
+		 		ORDER BY foundtime DESC
+		 	</if>
+		 	<if test="sortorder==2"><!-- 排序方式 -->
+		 		ORDER BY foundtime ASC
+		 	</if>
+		 </if>
+    </select>
+    
+    
 </mapper>

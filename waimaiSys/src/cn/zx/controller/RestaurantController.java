@@ -19,6 +19,7 @@ import cn.zx.entity.Food;
 import cn.zx.entity.Store;
 import cn.zx.entity.StoreFoodTypes;
 import cn.zx.service.FoodService;
+import cn.zx.service.SelectStoreService;
 import cn.zx.service.StoreFoodTypesService;
 import cn.zx.service.StoreService;
 
@@ -32,6 +33,8 @@ import cn.zx.service.StoreService;
 public class RestaurantController {
 	@Resource
 	private StoreService storeService;
+	@Resource
+	private SelectStoreService selectStoreService;
 	@Resource
 	private StoreFoodTypesService storeFoodTypesService;
 	@Resource
@@ -53,10 +56,15 @@ public class RestaurantController {
 			System.out.println(food2.toString());
 		}
 		model.addAttribute("food", food);
-		
 		return "restaurant";
 	}
-	
+/*	
+	@RequestMapping(value="findinfo/{name}")
+	public String findinfo(@PathVariable(value="name") String name,Model model){
+		//商家信息
+		selectStoreService.selectstores(name);
+		return "pinglun";
+	}*/
 	/**
 	 * 添加菜品到购物车
 	 * @author ZX 

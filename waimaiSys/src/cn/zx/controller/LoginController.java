@@ -39,7 +39,6 @@ public class LoginController {
      *@return 1登陆成功，2登陆失败
      */
     @RequestMapping(value="/login")
-    
     public  @ResponseBody String accountPasswordLogin(String userPhone,String userPassword,Integer loginType ,Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
     	if(null!=userPhone && null!=userPassword){
             if(loginType==1){

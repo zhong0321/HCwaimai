@@ -9,6 +9,13 @@ public class Comment {
 	private Integer orderId;
 	private String description;
 	private DateTime commentTime;
+	private int commentlv;
+	public int getCommentlv() {
+		return commentlv;
+	}
+	public void setCommentlv(int commentlv) {
+		this.commentlv = commentlv;
+	}
 	public Integer getId() {
 		return id;
 	}
