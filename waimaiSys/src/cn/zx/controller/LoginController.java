@@ -1,6 +1,7 @@
 package cn.zx.controller;
 
 import cn.zx.entity.Admin;
+import cn.zx.entity.Audit;
 import cn.zx.entity.Store;
 import cn.zx.entity.StoreTypes;
 import cn.zx.entity.User;
@@ -13,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -56,7 +58,6 @@ public class LoginController {
             	Store stores=new Store();
             	stores.setStorePhone(userPhone);
             	stores.setStorePassword(userPassword);
-            	stores.setRegistState(1);
             	Store store = storeService.phonePwdLogin(stores);
             	if(null!=store){
                     request.getSession().setAttribute("store", store);
@@ -80,7 +81,7 @@ public class LoginController {
 
     @RequestMapping(value="/checkPhone/{logintype}")
     @ResponseBody
-    public String checkPhone(HttpServletRequest request,String phone,@PathVariable Integer logintype){
+    public String checkPhone(HttpServletRequest request,String phone,@PathVariable("logintype") Integer logintype){
     	if(logintype==1){
     		User user = userInfoService.findUserPhoneLogin(phone,logintype);
             if(user==null){
@@ -110,7 +111,6 @@ public class LoginController {
             	store.setStorePhone(userPhone);
             	store.setStorePassword(userPassWord);
             	storeService.addStore(store);
-            	store.setRegistState(0);
             	Store store2 = storeService.phonePwdLogin(store);
             	request.getSession().setAttribute("store", store2);
             	List<StoreTypes> storeTypes = storeTypesService.findStoreTypes();
@@ -134,4 +134,44 @@ public class LoginController {
         }
         return "1";
     }
+    
+    
+	@RequestMapping("/findstorePhone")
+	public String findstorePhone(String phone,HttpServletRequest request,Model model){
+		Store findStorePhone = userInfoService.findStorePhone(phone);
+		List<StoreTypes> storeTypes = storeTypesService.findStoreTypes();
+    	request.getSession().setAttribute("storeTypes", storeTypes);
+    	model.addAttribute("store", findStorePhone);
+    	switch (findStorePhone.getAudit().getAuditState()) {
+		case 0:
+			return "storeRegist1";
+		case 1:
+			return "storeRegist3";
+		case 2:
+			return "storeRegist3";
+		case 3:
+			return "redirect:storeOrder/showStoreOrder/99";
+		}
+		return "";
+	}
+    
+	@RequestMapping("/findstorebyPhone")
+	@ResponseBody
+	public int findstoreByPhone(String phone,HttpServletRequest request,Model model){
+		Store findStorePhone = userInfoService.findStorePhone(phone);
+		List<StoreTypes> storeTypes = storeTypesService.findStoreTypes();
+    	request.getSession().setAttribute("storeTypes", storeTypes);
+    	model.addAttribute("store", findStorePhone);
+		return findStorePhone.getAudit().getAuditState();
+	}
+	@RequestMapping("/deleteStoreinfo")
+	public String deleteStoreinfo(@RequestParam("storeId")Integer storeId,@RequestParam("registState")Integer registState){
+		if(registState!=null){
+			userInfoService.updateInfo(storeId, registState);
+		}
+		if(storeId!=null){
+			userInfoService.deleteInfo(storeId);
+		}
+		return "storeRegist1";
+	}
 }

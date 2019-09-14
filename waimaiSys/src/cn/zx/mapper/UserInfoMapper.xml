@@ -5,6 +5,28 @@
    	<!--  <resultMap type="User" id="userList">
         <result property="userRoleName" column="roleName" />
     </resultMap> -->
+    
+    <resultMap type="Store" id="Store-Audit">
+		<id column="id" jdbcType="BIGINT" property="id" />
+		<result column="aid" jdbcType="BIGINT" property="audit.audit_id" />
+		<result column="auditTime" jdbcType="VARCHAR" property="audit.auditTime" />
+		<result column="distributionMoney" jdbcType="BIGINT" property="distributionMoney" />
+		<result column="startMoney" jdbcType="BIGINT" property="startMoney" />
+		<result column="storeAddress" jdbcType="VARCHAR" property="storeAddress" />
+		<result column="storeName" jdbcType="VARCHAR" property="storeName" />
+		<result column="storePhone" jdbcType="VARCHAR" property="storePhone" />
+		<result column="storeImg" jdbcType="VARCHAR" property="storeImg" />
+		<result column="province" jdbcType="VARCHAR" property="province" />
+		<result column="city" jdbcType="VARCHAR" property="city" />
+		<result column="area" jdbcType="VARCHAR" property="area" />
+		<result column="coordinate" jdbcType="VARCHAR" property="coordinate" />
+		<result column="ordrenum" jdbcType="VARCHAR" property="ordrenum" />
+		<result column="foundtime" jdbcType="VARCHAR" property="foundtime" />
+		<result column="storeId" jdbcType="VARCHAR" property="audit.storeId" />
+		<result column="auditState" jdbcType="VARCHAR" property="audit.auditState" />
+		<result column="auditComment" jdbcType="VARCHAR" property="audit.auditComment" />
+	</resultMap>
+	
     <!-- 手机号登录 -->
     <select id="findUserPhoneLogin" resultType="user">
 		select * from user where userPhone=#{phone}
@@ -21,14 +43,47 @@
     <insert id="addUserInfo" parameterType="String">
 		INSERT INTO `user` (
 			  `userPhone`
-			) 
+			)
 			VALUES
 			  (
 			    #{phone}
-			  ) 
+			  )
 	</insert>
 
 	<update id="updatapw">
-			UPDATE USER SET	userPassword=#{Password} WHERE userPhone=#{phone}
+			UPDATE 
+			<if test="type==1">
+				USER SET userPassword=#{Password} WHERE userPhone=#{phone}
+			</if>
+			<if test="type==2">
+				store set storePassword=#{Password} WHERE storePhone=#{phone}
+			</if>
 	</update>
+	
+	<select id="findStorePhone" resultMap="Store-Audit">
+		SELECT * FROM store s INNER JOIN audit a ON s.id = a.storeid WHERE s.storephone=#{storePhone}
+	</select>
+	
+	
+	<select id="findStorebyPhone" resultType="Store">
+		SELECT * FROM store s WHERE s.storephone=#{storePhone}
+	</select>
+	
+	
+	
+	<update id="updateInfo">
+		UPDATE store 
+		SET
+		registState = #{registState}
+		WHERE
+		id = #{id} ;
+	</update>
+	
+	<delete id="deleteInfo">
+		DELETE FROM storeaptitude 
+		WHERE
+		storeId = #{storeId}
+	</delete>
+	
+	
 </mapper>

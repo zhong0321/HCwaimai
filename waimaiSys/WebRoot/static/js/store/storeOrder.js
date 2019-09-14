@@ -28,6 +28,5 @@ function closeOrderDetails(e){
 //导航栏样式
 function navStyle(e){
 	$(e).parent().css({"border-bottom":"#464759 3px solid"});
-	alert($(e).parent().html());
 	$(e).parent().siblings().css({"border-bottom":"none"});
 }

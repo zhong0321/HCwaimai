@@ -147,4 +147,13 @@ public class SelectStoreController {
 	}
 	
 	
+	@ResponseBody
+	@RequestMapping("/findStoreName")
+	public int findStoreName(HttpServletRequest request){
+		String StoreName=request.getParameter("StoreName");
+		String storePhone=request.getParameter("storePhone");
+		return selectStoreService.findStoreName(StoreName,storePhone);
+	}
+	
+	
 }

@@ -14,14 +14,13 @@ strict.dtd">
 <body>
     <header>
         <div class="storeName">${store.storeName} </div>
-        <div class="storeInfo">sidufisjf</div>
     </header>
     <div class="bottom">
         <%@include file="storeList.jsp" %>
-        <div class="right">
+        <div class="right"> 
 			<div class="order_nav">
                 <ul>
-                    <li style="border-bottom: #464759 3px solid;"><a href="../showStoreOrder/99">全部订单</a></li>
+                    <li><a href="../showStoreOrder/99">全部订单</a></li>
                     <li><a href="../showStoreOrder/3" onclick="navStyle($(this))">待接单</a></li>
                     <li><a href="../showStoreOrder/4" onclick="navStyle($(this))">未送出</a></li>
                     <li><a href="../showStoreOrder/5" onclick="navStyle($(this))">未送达</a></li>
@@ -30,18 +29,17 @@ strict.dtd">
                 </ul>
             </div>
             <div class="order_content">
-                    <ul>
+				<ul>
                     <c:forEach items="${order}" var="order">
                         <li>
                             <div class="orderTitle">
                                 <span>订单号：${order.orderNumber}</span>
                                 <span>￥${order.totalMoney}</span>
-                                <c:if test="${order.orderState==3}"><span>未接单</span></c:if>
-                                <c:if test="${order.orderState==4}"><span>未送出</span></c:if>
-                                <c:if test="${order.orderState==5}"><span>未送达</span></c:if>
-                                <c:if test="${order.orderState==7}"><span>已完成</span></c:if>
-                                <c:if test="${order.orderState==9}"><span>已退款</span></c:if>
-                                <c:if test="${order.orderState==3}"><a href="../sureOrder/${order.id}">确认接单</a></c:if>
+                                <c:if test="${order.orderState==3}"><span>未接单</span><a href="../sureOrder/${order.id}">确认接单</a></c:if>
+                                <c:if test="${order.orderState==4}"><span>未送出</span>正在取餐</c:if>
+                                <c:if test="${order.orderState==5}"><span>未送达</span>正在派送</c:if>
+                                <c:if test="${order.orderState==7}"><span>已完成</span>订单完成</c:if>
+                                <c:if test="${order.orderState==9}"><span>已退款</span>退款成功</c:if>
                                 <span>下单时间:${order.orderTime}</span>
                                 <a href="#" onclick="showOrderDetails('${order.id}',$(this));" id="xiangqing">详情</a>
                                 <a href="#" onclick="closeOrderDetails($(this));" id="shouqi" style="display: none;" >收起</a>
@@ -82,10 +80,7 @@ strict.dtd">
                             </div>
                         </li>
                     </c:forEach>
-                    </ul>
-            </div>
-            <div class="orderPages">
-
+               </ul>
             </div>
 		</div>
     </div>

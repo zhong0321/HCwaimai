@@ -135,7 +135,7 @@ $(function (){
 		}
 	}
 	
-
+	
 	//获取验证码事件
 		$(".form-data").delegate(".send","click",function () {
 			var phone = $.trim($('#tel').val());

@@ -124,4 +124,10 @@ public class SelectStoreServiceImpl implements SelectStoreService {
 		// TODO Auto-generated method stub
 		return selectStoreMapper.findComment(id);
 	}
+
+	@Override
+	public int findStoreName(String StoreName,String storePhone) {
+		
+		return selectStoreMapper.findStoreName(StoreName,storePhone);
+	}
 }

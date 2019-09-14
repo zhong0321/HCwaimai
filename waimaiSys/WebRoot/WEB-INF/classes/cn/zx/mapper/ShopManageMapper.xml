@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zx.mapper.StoreFoodTypesMapper">
+ 	
+	<select id="findStoreFoodStatusOne" resultType="FoodStatus">
+		SELECT f.storeId,fs.id,fs.foodstatus,COUNT(f.id) AS num FROM food f
+		LEFT JOIN foodstatus fs ON f.fsid=fs.id
+	 	WHERE f.storeId=#{storeId} AND fs.id=1
+	</select>
+	
+	<select id="findStoreFoodStatusTwo" resultType="FoodStatus">
+		SELECT f.storeId,fs.id,fs.foodstatus,COUNT(f.id) AS num FROM food f
+		LEFT JOIN foodstatus fs ON f.fsid=fs.id
+	 	WHERE f.storeId=#{storeId} AND fs.id=2
+	</select>
+	
+	<select id="findStoreFoodStatusThree" resultType="FoodStatus">
+		SELECT f.storeId,fs.id,fs.foodstatus,COUNT(f.id) AS num FROM food f
+		LEFT JOIN foodstatus fs ON f.fsid=fs.id
+	 	WHERE f.storeId=#{storeId} AND fs.id=3
+	</select>
+	
+	<select id="findFood" resultType="Food">
+		SELECT * FROM food WHERE storeId=#{storeid}
+		<if test="num!=0">
+			 AND fsid=#{num}
+		</if>
+		<if test="state!=0">
+			and foodTypeId=#{state}
+		</if>
+	</select>
+	<select id="findStoreFoodType" resultType="FoodTypeInfo">
+		SELECT sf.storeId,sf.foodTypeId,ft.foodType FROM store_foodtypes sf 
+		INNER JOIN food_types ft  ON sf.foodTypeId=ft.id 
+		WHERE sf.storeId=#{storeId}
+	</select>
+	<select id="findStoreFoodTypenum" resultType="FoodTypeInfo">
+		SELECT COUNT(*) as num FROM food WHERE foodTypeId =#{foodTypeId} AND storeId=#{storeId}
+		<if test="fsid!=0">
+		 AND fsid=#{fsid}
+		</if>
+	</select>
+	<select id="findfoodType" resultType="int">
+	SELECT COUNT(*) AS num FROM food_types ft
+	INNER JOIN store_foodtypes sf ON ft.id=sf.foodTypeId
+	WHERE sf.storeId=#{storeId} AND ft.id=#{foodTypeId}
+	</select>
+	
+	<select id="findAllFoodType" resultType="integer">
+		SELECT id FROM food_types WHERE foodType=#{foodType}
+	</select>
+	
+	<insert id="addFoodTypes">
+	INSERT INTO food_types 
+		(
+		foodType
+		)
+		VALUES
+		( 
+		#{foodType}
+		)
+	</insert>
+	<insert id="addStoreStoretypes">
+	INSERT INTO store_foodtypes (storeId, foodTypeId)
+	VALUES(#{storeId},#{storeTypeId})
+	</insert>
+	
+</mapper>

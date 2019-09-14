@@ -9,6 +9,20 @@ public class Food implements Serializable{
 	private String foodName;
 	private String foodImage;
 	private double price;
+	private int fsid;
+	private int salesvolume;
+	public int getFsid() {
+		return fsid;
+	}
+	public void setFsid(int fsid) {
+		this.fsid = fsid;
+	}
+	public int getSalesvolume() {
+		return salesvolume;
+	}
+	public void setSalesvolume(int salesvolume) {
+		this.salesvolume = salesvolume;
+	}
 	public Integer getId() {
 		return id;
 	}

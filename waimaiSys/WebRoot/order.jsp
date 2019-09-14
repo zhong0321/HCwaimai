@@ -162,12 +162,10 @@
 												<span class="fr t-3">2019-05-14 12:50</span>
 												<p class="bold">商家接单，制作中</p>
 											</div>
-
 											<div class="step-4 ">
 												<span class="fr t-delivery"></span>
 												<p class="bold">美食配送中</p>
 											</div>
-
 											<div class="step-finish">
 												<span class="fr t-finish">2019-05-14 13:03</span>
 												<p class="bold">订单完成</p>

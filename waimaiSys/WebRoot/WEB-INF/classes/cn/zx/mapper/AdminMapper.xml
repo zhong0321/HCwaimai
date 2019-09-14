@@ -2,10 +2,91 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zx.mapper.AdminMapper">
-    
-    <!-- 账号密码登录 -->
-    <select id="phonePwdLogin" parameterType="admin" resultType="admin" >
-    	SELECT * FROM store adminName=#{adminName} and adminPassword=#{adminPassword}
-    </select>
-    
+
+
+	<resultMap type="Store" id="Store-Audit">
+		<id column="id" jdbcType="BIGINT" property="id" />
+		<result column="aid" jdbcType="BIGINT" property="audit.audit_id" />
+		<result column="auditTime" jdbcType="VARCHAR" property="audit.auditTime" />
+		<result column="distributionMoney" jdbcType="BIGINT" property="distributionMoney" />
+		<result column="startMoney" jdbcType="BIGINT" property="startMoney" />
+		<result column="storeAddress" jdbcType="VARCHAR" property="storeAddress" />
+		<result column="storeName" jdbcType="VARCHAR" property="storeName" />
+		<result column="storePhone" jdbcType="VARCHAR" property="storePhone" />
+		<result column="storeImg" jdbcType="VARCHAR" property="storeImg" />
+		<result column="province" jdbcType="VARCHAR" property="province" />
+		<result column="city" jdbcType="VARCHAR" property="city" />
+		<result column="area" jdbcType="VARCHAR" property="area" />
+		<result column="coordinate" jdbcType="VARCHAR" property="coordinate" />
+		<result column="ordrenum" jdbcType="VARCHAR" property="ordrenum" />
+		<result column="foundtime" jdbcType="VARCHAR" property="foundtime" />
+		<result column="storeId" jdbcType="VARCHAR" property="audit.storeId" />
+		<result column="auditState" jdbcType="VARCHAR" property="audit.auditState" />
+		<result column="auditComment" jdbcType="VARCHAR" property="audit.auditComment" />
+	</resultMap>
+
+	<resultMap type="StoreAptitude" id="Store-StoreAptitude">
+		<id column="id" jdbcType="BIGINT" property="store.id" />
+		<result column="sa_id" jdbcType="BIGINT" property="id" />
+		<result column="storeId" jdbcType="BIGINT" property="storeId" />
+		<result column="linkmanName" jdbcType="VARCHAR" property="linkmanName" />
+		<result column="linkmanPhone" jdbcType="VARCHAR" property="linkmanPhone" />
+		<result column="legalRepresentative" jdbcType="VARCHAR"
+			property="legalRepresentative" />
+		<result column="IDCard" jdbcType="VARCHAR" property="IDCard" />
+		<result column="IDCardImg" jdbcType="VARCHAR" property="IDCardImg" />
+		<result column="bankCard" jdbcType="VARCHAR" property="bankCard" />
+		<result column="shopCard" jdbcType="VARCHAR" property="shopCard" />
+		<result column="shopCardImg" jdbcType="VARCHAR" property="shopCardImg" />
+		<result column="foodLicenceImg" jdbcType="VARCHAR" property="foodLicenceImg" />
+		<result column="distributionMoney" jdbcType="BIGINT"
+			property="store.distributionMoney" />
+		<result column="startMoney" jdbcType="BIGINT" property="store.startMoney" />
+		<result column="storeAddress" jdbcType="VARCHAR" property="store.storeAddress" />
+		<result column="storeName" jdbcType="VARCHAR" property="store.storeName" />
+		<result column="storePhone" jdbcType="VARCHAR" property="store.storePhone" />
+		<result column="storeImg" jdbcType="VARCHAR" property="store.storeImg" />
+		<result column="province" jdbcType="VARCHAR" property="store.province" />
+		<result column="city" jdbcType="VARCHAR" property="store.city" />
+		<result column="area" jdbcType="VARCHAR" property="store.area" />
+		<result column="coordinate" jdbcType="VARCHAR" property="store.coordinate" />
+		<result column="ordrenum" jdbcType="VARCHAR" property="store.ordrenum" />
+		<result column="foundtime" jdbcType="VARCHAR" property="store.foundtime" />
+
+	</resultMap>
+
+
+	<!-- 账号密码登录 -->
+	<select id="phonePwdLogin" parameterType="admin" resultType="admin">
+		SELECT * FROM admin WHERE adminName=#{adminName} and
+		adminPassword=#{adminPassword}
+	</select>
+
+	<select id="findexamine" resultMap="Store-Audit">
+		SELECT a.id aid,a.auditTime,store.* FROM audit a INNER JOIN store ON
+		a.storeId=store.id WHERE a.auditState= 1
+		ORDER BY auditTime ASC
+	</select>
+
+
+	<select id="findStoreAptitude" resultMap="Store-StoreAptitude">
+		SELECT * FROM store s INNER JOIN
+		storeaptitude sa ON s.id=sa.storeId WHERE s.id=#{id}
+	</select>
+
+	<select id="findStoreType" resultType="StoreTypes">
+		SELECT * FROM store_storetypes ss 
+		INNER JOIN store_types st 
+		ON ss.storeTypeid=st.id 
+		WHERE ss.storeid=#{id}
+	</select>
+
+	<update id="updateStoreRegistState">
+		UPDATE audit
+		SET
+		auditState = #{registState},
+		auditComment=#{text}
+		WHERE
+		storeid = #{id}
+	</update>
 </mapper>

@@ -8,10 +8,15 @@ import cn.zx.entity.Store;
 import cn.zx.entity.Store_Comment;
 
 public interface StoreMapper {
+	
 	public List<Store> findStoreByAddress(Store store);
+	
 	public Store findStoreById(Integer id);
+	
 	public Store phonePwdLogin(Store store);
+	
 	public Store storePhoneLogin(@Param(value = "phone")String phone);
+	
 	public void addStore(Store store);
 	
 	/**
@@ -33,4 +38,20 @@ public interface StoreMapper {
 	 */
 	public List<Store_Comment> findStoreInfo(@Param(value = "storeTypeId")int storeTypeId,@Param(value = "sorttype")int sorttype,@Param(value = "sortorder")int sortorder);
 	
+	/**
+	 * 添加Audit审核表
+	 * @param storeId
+	 * @param auditState
+	 * @param auditTime
+	 * @param auditComment
+	 */
+	public void addAudit(@Param(value = "storeId")int storeId,@Param(value = "auditState")int auditState,@Param(value = "auditTime")String auditTime, @Param(value = "auditComment")String auditComment);
+	
+	/**
+	 * 修改Audit审核表
+	 * @param auditState
+	 * @param auditTime
+	 * @param auditComment
+	 */
+	public void updateAudit(@Param(value = "storeId")int storeId,@Param(value = "auditState")Integer auditState,@Param(value = "auditTime")String auditTime, @Param(value = "auditComment")String auditComment);
 }
