@@ -1,0 +1,248 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+a{
+	text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+body{
+    background: #f3f0f7;
+}
+header{
+    background: #029ff9;
+    padding: 0.6rem 0rem;
+    position: fixed;
+    position: fixed;
+    right: 0rem;
+    top: 0rem;
+    margin: 0px;
+    width: 100%;
+}
+header div{
+    display: flex;
+    justify-content: space-between;
+    height: 2em;
+    line-height: 2em;
+    font-size: 1rem;
+    color: white;
+}
+header .dmTitle{
+    padding: 0em 1em;
+    font-size: 1.15rem;
+}
+header .dmNav{
+    display: flex;
+    justify-content: space-around;
+}
+header .dmNav a{
+    color:white;
+	
+}
+.dmContext_qingdan{
+	overflow: auto;
+	position: fixed;
+	top:5.5rem;
+	bottom: 3.55rem;
+}
+.dmContext_qingdan ul li{
+    margin-top: 0.3em;
+    background: white;
+}
+.dmContext_qingdan ul li .qiangdan_title{
+    padding: 0rem 1rem;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: solid 0.4px #CCCCCC;
+}
+.dmContext_qingdan ul li .qiangdan_title .lefttitle, .righttitle{
+    padding: 1.3rem 0rem;
+}
+.dmContext_qingdan ul li .qiangdan_title .title_top{
+    color: #dab676;
+    font-size: 2rem;
+
+}
+.dmContext_qingdan ul li .qiangdan_title .title_bottom{
+    color: #CCCCCC;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+.dmContext_qingdan ul li .qiangdan_context div{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0.6rem;
+
+}
+.dmContext_qingdan ul li .qiangdan_context .leftContext, .centerContext, .rightContext{
+
+}
+.dmContext_qingdan ul li .qiangdan_context .centerContext{
+    display: block;
+    width: 70%;
+
+
+}
+.dmContext_qingdan ul li .qiangdan_context .rightContext{
+    font-size: 0.8rem;
+    width: 25%;
+
+}
+.dmContext_qingdan ul li .qiangdan_context .rightContext span{
+    color: #e9b65d;
+}
+.dmContext_qingdan ul li .qiangdan_context .centerContext p{
+
+
+}
+.dmContext_qingdan ul li .qiangdan_context .centerContext .add2{
+    color: #a4a4a4;
+    margin-top: 0.5rem;
+}
+.dmContext_qingdan ul li .qiangdan_context button{
+    color: white;
+
+    border: none;
+    background: #029ff9;
+    width: 20rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    margin: 0.5rem 2rem;
+    border-radius: 80px 80px;
+}
+footer{
+    background: white;
+    position: fixed;
+    right: 0rem;
+    bottom: 0rem;
+    margin: 0px;
+    width: 100%;
+}
+footer button{
+    color: black;
+    border: solid 1.1px #CCCCCC;
+    background: white;
+    width: 20rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    margin: 0.5rem 2rem;
+    border-radius: 80px 80px;
+}
+
+
+/*取餐----------开始*/
+.dmContext_qucan{
+	overflow: auto;
+	position: fixed;
+	top:5.5rem;
+	bottom: 3.55rem;
+}
+.qixingluxian{
+	padding: 1rem 0.4rem;
+	position: fixed;
+	z-index: 100;
+}
+.qixingluxian h4{
+	margin: 0.5rem 1rem;
+	display: inline-block;
+}
+.qixingluxian img{
+	position: absolute;
+	right: 20px;	
+}
+.dmContext_qucan ul li{
+    margin-top: 0.3em;
+    background: white;
+}
+.dmContext_qucan ul li .qucan_context div{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0.5rem;
+}
+
+.dmContext_qucan ul li .qucan_context .centerContext{
+    display: block;
+    width: 80%;
+}
+.dmContext_qucan ul li .qucan_context .rightContext{
+    font-size: 0.8rem;
+    width: 15%;
+}
+
+.dmContext_qucan ul li .qucan_context .rightContext img{
+    text-align: center;
+}
+.dmContext_qucan ul li .qucan_context .centerContext .add2{
+    color: #a4a4a4;
+    margin-top: 0.5rem;
+}
+.dmContext_qucan ul li .qucan_context button{
+    color: white;
+    border: none;
+    background: #029ff9;
+    width: 20rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    margin: 0.5rem 2rem;
+    border-radius: 80px 80px;
+}
+/*取餐----------结束*/
+
+
+/*送餐----------开始*/
+.dmContext_songcan{
+	overflow: auto;
+	position: fixed;
+	top:5.5rem;
+	bottom: 3.55rem;
+}
+.dmContext_songcan ul li{
+    margin-top: 0.3em;
+    background: white;
+}
+.dmContext_songcan ul li .songcan_context div{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0.5rem;
+}
+
+.dmContext_songcan ul li .songcan_context .centerContext{
+    display: block;
+    width: 80%;
+}
+.dmContext_songcan ul li .songcan_context .rightContext{
+    font-size: 0.8rem;
+    width: 15%;
+}
+.dmContext_songcan ul li .songcan_context .rightContext span{
+    color: #e9b65d;
+}
+.dmContext_songcan ul li .songcan_context .centerContext .add2{
+    color: #a4a4a4;
+    margin-top: 0.5rem;
+}
+.dmContext_songcan ul li .songcan_context button{
+    color: white;
+    border: none;
+    background: #029ff9;
+    width: 20rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    margin: 0.5rem 2rem;
+    border-radius: 80px 80px;
+}
+/*送餐----------结束*/
+
+.noOrders{
+	width: 100%;
+	
+}
+.noOrders p{
+    text-align: center;
+}
+.noOrders img{
+    margin: 70px 50px 0px 90px;
+}

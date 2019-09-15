@@ -87,7 +87,7 @@
 									</div>
 									<div class="rest-detail">
 										<span class="order-total">${order.totalMoney}</span> 
-										<span class="order-id">订单号：${order.orderNumber}</span>
+										<span class="order-id" style="width: 320px;">订单号：${order.orderNumber}</span>
 									</div>
 								</div>
 							</div>
@@ -121,7 +121,7 @@
 											</div> -->
 											<div class="field clearfix">
 												<span class="fl classify">配送费：</span> <span
-													class="fr delivery-cost">¥ ${store.distributionMoney}</span>
+													class="fr delivery-cost">¥ ${order.disMoney}</span>
 											</div>
 										</div>
 										<div class="food-total-info">
@@ -143,49 +143,87 @@
 									<div class="procedure">
 										<div class="pro-order-status">订单状态</div>
 										<div class="fl process-bar">
-											<i class="icon i-orderok"></i> <i class="i-orderarrow"></i> 
-											<i class="icon i-orderok"></i> <i class="i-orderarrow"></i> 
-											<i class="icon i-orderok"></i> <i class="i-orderarrow"></i> 
-											<i class="icon i-orderok"></i> <i class="i-orderarrow"></i> 
-											<i class="icon i-orderok"></i>
+											<c:if test="${order.orderState>0 && order.orderState<14}">
+												<i class="icon i-orderok"></i> 
+											</c:if>
+											<c:if test="${order.orderState>1 && order.orderState<6}">
+												<i class="i-orderarrow"></i> <i class="icon i-orderok"></i> 
+											</c:if>
+											<c:if test="${order.orderState>2 && order.orderState<6}">
+												<i class="i-orderarrow"></i> <i class="icon i-orderok"></i> 
+											</c:if>
+											<c:if test="${order.orderState>3 && order.orderState<6}">
+												<i class="i-orderarrow"></i> <i class="icon i-orderok"></i> 
+											</c:if>
+											<c:if test="${order.orderState==5}">
+												<i class="i-orderarrow"></i> <i class="icon i-orderok"></i> 
+											</c:if>
+											<c:if test="${order.orderState>=12 && order.orderState<=13}">
+												<i class="i-orderarrow"></i> <i class="icon i-orderok"></i> 
+											</c:if>
+											<c:if test="${order.orderState==13}">
+												<i class="i-orderarrow"></i> <i class="icon i-orderok"></i> 
+											</c:if>
 										</div>
 										<div class="fl tips">
-											<div class="step-1 ">
-												<span class="fr t-1">2019-05-14 12:50</span>
-												<p class="bold">订单提交成功，等待付款</p>
-											</div>
-											<div class="step-2 ">
-												<span class="fr t-2">2019-05-14 12:50</span>
-												<p class="bold">支付成功，等待商家接单</p>
-											</div>
-											<div class="step-3 ">
-												<span class="fr t-3">2019-05-14 12:50</span>
-												<p class="bold">商家接单，制作中</p>
-											</div>
-											<div class="step-4 ">
-												<span class="fr t-delivery"></span>
-												<p class="bold">美食配送中</p>
-											</div>
-											<div class="step-finish">
-												<span class="fr t-finish">2019-05-14 13:03</span>
-												<p class="bold">订单完成</p>
-												<p class="sub">订单完成超过一周，评价已关闭，下次请记得早点评价哦～</p>
-											</div>
+<<<<<<< HEAD
+											
+=======
+											<c:if test="${order.orderState>=1 && order.orderState<=13}">
+												<div class="step-2">
+													<!-- <span class="fr t-2">2019-05-14 12:50</span> -->
+													<p class="bold">支付成功，等待商家接单</p>
+												</div>
+											</c:if>
+											<c:if test="${order.orderState>1 && order.orderState<6}">
+												<div class="step-3 ">
+													<!-- <span class="fr t-3">2019-05-14 12:50</span> -->
+													<p class="bold">商家接单制作中，等待外卖员抢单</p>
+												</div>
+											</c:if>
+											<c:if test="${order.orderState>2 && order.orderState<6}">
+												<div class="step-4 ">
+													<span class="fr t-delivery"></span>
+													<p class="bold">外卖员正在取餐</p>
+												</div>
+											</c:if>
+											<c:if test="${order.orderState>3 && order.orderState<6}">
+												<div class="step-1 ">
+													<!-- <span class="fr t-1">2019-05-14 12:50</span> -->
+													<p class="bold">外卖员正在送餐</p>
+												</div>
+											</c:if>
+											<c:if test="${order.orderState==5}">
+												<div class="step-finish">
+													<!-- <span class="fr t-finish"><a>去评价</a></span> -->
+													<p class="bold">订单完成</p>
+													<p class="sub"><a>去评价</a></p>
+													<p class="sub">订单完成超过一周，评价已关闭，下次请记得早点评价哦～</p>
+												</div>
+											</c:if>
+											<c:if test="${order.orderState>=12 && order.orderState<=13}">
+												<div class="step-1 ">
+													<!-- <span class="fr t-1">2019-05-14 12:50</span> -->
+													<p class="bold">商家已拒单</p>
+												</div>
+											</c:if>
+											<c:if test="${order.orderState==13}">
+												<div class="step-1 ">
+													<!-- <span class="fr t-1">2019-05-14 12:50</span> -->
+													<p class="bold">退款成功</p>
+												</div>
+											</c:if>
+>>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 										</div>
 
 									</div>
 								</div>
 							</div>
 						</div>
-
-
-
 					</div>
 				</div>
 				<div id="anti_token"
 					data-token="MfyoYCwPbTi3t8oSypDcXzm82YHr07h7h3POp1KfHHkIL3rbR4rugHois+00gVju"></div>
-
-
 			</div>
 		</div>
 		<div class="csr-footer-container">
@@ -246,39 +284,6 @@
 				</div>
 			</div>
 		</div>
-
-
-		<script type="text/javascript">
-			// 全局违禁词规定: xdd, pmm
-			var forbiddenWords = [ "%E4%B9%A0%E5%A4%A7%E5%A4%A7",
-					"%E4%B9%A0%E8%BF%91%E5%B9%B3",
-					"%E4%B9%A0%E5%93%92%E5%93%92",
-					"%E4%B9%A0%E8%BE%BE%E8%BE%BE",
-					"%E5%BD%AD%E5%A6%88%E5%A6%88",
-					"%E5%BD%AD%E9%BA%BB%E9%BA%BB" ];
-			// SEO: 开店申请
-			var kdHrefs = document.getElementsByName('kd-href');
-			if (kdHrefs) {
-				for ( var i = 0, l = kdHrefs.length; i < l; i++) {
-					kdHrefs[i].onclick = function() {
-						window.open(this.href + '?source=1');
-						return false;
-					};
-				}
-			}
-		</script>
-
-		<script type="text/javascript">
-			/* 重要: 由于历史遗留原因，需要手动添加版本号, 请全局搜索版本号并替换 */
-			var require = {
-				urlArgs : "v=1.07",
-			};
-		</script>
-
-		<script type="text/javascript"
-			data-main="/static/js/page/customer/order_n"
-			src="./order_files/r.js.下载"></script>
-
 
 	</div>
 </body>

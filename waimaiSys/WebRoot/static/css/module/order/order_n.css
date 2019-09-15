@@ -145,11 +145,15 @@
 .order-v .order-total {
   font-size: 14px;
   color: #333;
-  margin-left: 14px;
+<<<<<<< HEAD
+
+=======
+  margin-left: 30px;
 }
 .order-v .rest-name .order-total{
     display: inline-block;
-    width: 200px;
+    width: 180px;
+>>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
     line-height: 36px;
     font-size: 12px;
 }

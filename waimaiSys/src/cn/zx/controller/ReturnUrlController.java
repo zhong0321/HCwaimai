@@ -1,9 +1,7 @@
 package cn.zx.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -16,23 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.glh.config.AlipayConfig2;
 import cn.zx.websocket.MyWebSocket;
 import cn.zx.entity.Order;
-import cn.zx.entity.OrderDetail;
-import cn.zx.entity.Store;
-import cn.zx.service.OrderDetailService;
 import cn.zx.service.OrderService;
-import cn.zx.service.StoreService;
 
-import com.alipay.api.AlipayApiException;
 import com.alipay.api.internal.util.AlipaySignature;
 
 @Controller
 public class ReturnUrlController {
 	@Resource
 	private OrderService orderService;
-	@Resource
-	private OrderDetailService orderDetailService;
-	@Resource
-	private StoreService storeService;
+	
 	//@Resource
 	private MyWebSocket socket=new MyWebSocket();
 	
@@ -85,7 +75,7 @@ public class ReturnUrlController {
 			order.setOrderNumber(out_trade_no);
 			Order o = orderService.findByOrderNumber(order);//根据订单号查询订单
 			order.setId(o.getId());
-			order.setOrderState(3);//支付尚未接单
+			order.setOrderState(1);//支付尚未接单
 			orderService.updateOrderState(order);//修改订单状态为已付款
 			request.getSession().setAttribute("orderID", o.getId());
 			

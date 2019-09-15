@@ -45,6 +45,8 @@
 			</table>
 		</form>
 	</div>
+
 	<script type="text/javascript" src="static/js/getAddress/index.js"></script>
+
 </body>
 </html>

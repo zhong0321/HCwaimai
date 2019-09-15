@@ -104,9 +104,11 @@ public class CarController {
 		userAddress.setIsDefault(1);
 		userAddress.setUserId(userId);
 		List<UserAddress> list = userAddressService.findUserAddress(userAddress);//查询默认的地址
-		UserAddress ua = list.get(0);
-		ua.setIsDefault(0);
-		userAddressService.updateUserAddress(ua);
+		if(list.size()!=0){//如果有默认地址，将默认地址状态改变
+			UserAddress ua = list.get(0);
+			ua.setIsDefault(0);
+			userAddressService.updateUserAddress(ua);
+		}
 		/*Iterator it = list.iterator();
 		while(it.hasNext()){
 			UserAddress ua = (UserAddress) it.next();
@@ -150,6 +152,8 @@ public class CarController {
 			totalMoney=totalMoney+car.getPrice();
 			storeId=car.getStoreId();
 		}
+		Store store = storeService.findStoreById(storeId);
+		totalMoney=totalMoney+store.getDistributionMoney();
 		//添加订单
 		Order order=new Order();
 		order.setOrderAddress(orderAddress);
@@ -158,6 +162,7 @@ public class CarController {
 		order.setTotalMoney(totalMoney);
 		order.setStoreId(storeId);
 		order.setOrderRemarks(remarks);
+		order.setDisMoney(store.getDistributionMoney());
 		orderService.addOrder(order);
 		Order order2 = orderService.findByOrderNumber(order);
 		//添加订单明细

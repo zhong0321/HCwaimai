@@ -15,7 +15,7 @@ strict.dtd">
     <script type="text/javascript" src="${cp}static/js/lib/jquery.js"></script>
     
     <audio id="notice" loop="loop">
-	    <source src="${cp}static/mp3/song.mp3" type="audio/mpeg" />
+	    <source src="${cp}static/mp3/newOrder.mp3" type="audio/mpeg" />
 	</audio>
     <script type="text/javascript">
     
@@ -37,7 +37,8 @@ strict.dtd">
     websocket.onmessage = function (event) {
         console.log('收到消息:' + event.data);
 	        document.getElementById('notice').play();
-     alert(event.data);
+     		alert(event.data);
+     		location.reload();
         	/* $(function(){
            		ShowDiv_1('MyDiv1','fade1','您有新订单了！');
            		$("#queding").click(function(){
