@@ -88,4 +88,11 @@ public interface SelectStoreMapper {
 	 * @return
 	 */
 	public List<CommentLv> findComment(@Param("id")int id);
+	
+	/**
+	 * 根据商店名称查询商店是否存在
+	 * @param StoreName
+	 * @return
+	 */
+	public int findStoreName(@Param("StoreName")String StoreName,@Param("storePhone")String storePhone);
 }

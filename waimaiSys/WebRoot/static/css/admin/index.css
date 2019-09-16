@@ -1,0 +1,88 @@
+.logo,.nav-header-img{
+    height: 30px;
+    border-radius: 5px
+}
+.navbar{
+    padding: 0 50px;
+    min-height:50px ;
+}
+.nav a{
+    line-height: 30px;
+}
+.Nickname{
+    font-size: 14px;
+}
+ul li a{
+    height: 60px;
+    font-size: 16px;
+    text-align: center ;
+}
+.sidebar{
+    position:fixed;
+    top: 60px;
+}
+.sidebar h1{
+    font-size: 25px;
+}
+.main{
+    padding: 0px 40px;
+    margin-top: 10px;
+    overflow-y:scroll;
+    height: 700px;
+    display: none;
+}
+.mains{
+    padding: 0px 40px;
+    margin-top: 10px;
+    overflow-y:scroll;
+    height: 700px;
+}
+.menu-lefts{
+    border: 1px red solid;
+    height: 100%;
+    padding: 0;
+    background:#f5f5f5;
+}
+.row .ziji li{
+    font-size: 25px;
+    border-bottom: 1px red solid;
+    padding: 15px;
+    padding-left: 30px;
+}
+.row .ziji li:last-child{
+    border-bottom: none;
+}
+.ziji .activ{
+    background-color: rgb(158, 233, 233);
+}
+h1{
+    margin: 0;
+    padding: 0;
+}
+.page-hader{
+    padding:10px;
+    border-bottom: 1px red solid;
+}
+.placeholders{
+    text-align: center;
+}
+.table{
+    border:1px red solid;
+}
+tbody{
+    overflow-y:scroll;
+}
+.table th, .table td { 
+text-align: center;
+vertical-align: middle!important;
+}
+.mains img{
+	height: 40px;
+}
+.list-inline li{
+    display: block;
+    margin: 20px;
+}
+.list-inline li span{
+    margin-left: 20px;
+}

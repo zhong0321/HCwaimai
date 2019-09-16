@@ -4,15 +4,19 @@ import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import cn.glh.config.AlipayConfig2;
+
 import cn.zx.entity.Order;
 import cn.zx.service.OrderService;
+
 
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -20,6 +24,7 @@ import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradeRefundRequest;
 @Controller
 public class AlipayOutController {
+
 	@Resource
 	private OrderService orderService;
 	
@@ -57,10 +62,11 @@ public class AlipayOutController {
 					+ "\"refund_amount\":\""+ refund_amount +"\"," 
 					+ "\"refund_reason\":\""+ refund_reason +"\"," 
 					+ "\"out_request_no\":\""+ out_request_no +"\"}");
+
 			
 			//请求
 			result = alipayClient.execute(alipayRequest).getBody();
-			
+
 			//输出
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
@@ -70,6 +76,7 @@ public class AlipayOutController {
 			e.printStackTrace();
 		}
 		//输出
+
 		
 		Order order = new Order();
 		order.setId(id);
@@ -77,5 +84,6 @@ public class AlipayOutController {
 		orderService.updateOrderState(order);//修改订单状态为退款成功
 		
 		return "redirect:"+cp+"/storeOrder/showStoreOrder/99";
+
 	}
 }

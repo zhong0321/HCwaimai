@@ -8,6 +8,11 @@ strict.dtd">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>豪吃外卖</title> 
     <link rel="stylesheet" href="/waimaiSys/static/css/store/showFood.css">
+<<<<<<< HEAD
+    	<script type="text/javascript" src="/waimaiSys/static/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/waimaiSys/static/js/store/index.js"></script>
+=======
+>>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 </head>
 <body>
     <header>
@@ -17,43 +22,65 @@ strict.dtd">
     <div class="bottom">
         <%@include file="storeList.jsp" %>
         <div class="right">
+<<<<<<< HEAD
+        <input type="hidden" value="${id }" id="storeid">
             <div class="foodStateType">
                 <ul>
-                    <li>全部（0）</li>
-                    <li>售卖中（0）</li>
-                    <li>已售完（0）</li>
-                    <li>已下架（0）</li>
+                    <li><a href="../../${id }/0/0">全部（${num }）</a></li>
+                    <li> <a href="../../${id }/1/0">售卖中（${one }）</a></li>
+                    <li><a href="../../${id }/3/0">已售完（${two }）</a></li>
+                    <li><a href="../../${id }/2/0">已下架（${three }）</a></li>
+=======
+       
+>>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
                 </ul>
                 <button class="addFoodBtn">新建商品</button>
             </div>
             <div class="bottomAllFood">
                 <div class="leftFoodType">
                     <div>
-                        <button> <strong>十</strong> &nbsp;新建分类</button>
+<<<<<<< HEAD
+                        <button onclick="dianwo()" > <strong>十</strong> &nbsp;新建分类</button>
                     </div>
                     <ul>
-                        <li>本店热销 <span>（0）</span></li>
-                        <li>本店热销 <span>（0）</span></li>
-                        <li>本店热销 <span>（0）</span></li>
-                        <li>本店热销 <span>（0）</span></li>
+                    <c:forEach items="${findStoreFoodType }" var="list">
+                    	<li data-gao="${list.foodTypeId}"><a href="../../${id }/${nums }/${list.foodTypeId}">${list.foodType } <span>（${list.num }）</span></a></li>
+                    </c:forEach>
+=======
+                     
+>>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
                     </ul>
                 </div>
                 <div class="rightFoodInfo">
                     <ul>
+<<<<<<< HEAD
+                    <c:forEach var="list" items="${findFood }">
                         <li>
                             <div>
-                                <img src="images/26ab5b007f4dc408ad28a1cff42f9d5b329493.jpg" alt="" width="110px;" height="79px;"/>
+                                <img src="../../../static/images/${list.foodImage }" style="width: 110px;height: 75px"/>
                             </div>
                             <div class="rightFoodInfo_center">
-                                <input class="foodName" type="text"/>
+                                <input class="foodName" type="text" value="${list.foodName }"/>
                                 <span>
-                                    ￥ <input class="foodPrice" type="text"/>
+                                   	 ￥ <input class="foodPrice" type="text" value="${list.price }"/>
+=======
+                       
+>>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
                                     <button class="shouqing">售罄</button>
                                 </span>
                             </div>
                             <div class="rightFoodInfo_last">
                                 <div>
-                                    <button class="xiajia">下架</button>
+<<<<<<< HEAD
+	                                <c:if test="${list.fsid!=2 }">
+	                                	 <button class="xiajia">下架</button>
+	                                </c:if>
+	                                <c:if test="${list.fsid==2 }">
+	                                   	<button class="shangjia">上架</button>
+	                                </c:if>
+=======
+                                    
+>>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
                                 </div>
                                 <br/>
                                 <div class="caozuo">
@@ -66,10 +93,31 @@ strict.dtd">
                                 </div>
                             </div>
                         </li>
+<<<<<<< HEAD
+                    </c:forEach>
+=======
+>>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+    		
+		<div class="zhezhao" id='zhezhao'>
+			<div class="tankuang">
+				<div id="header">
+					<div id="header-right" onclick="hidder()">x</div>
+					<div class="context">
+							<span class="type">类型：</span>
+							<input type="text" class="text" placeholder="请输入食品类型">
+							<button class="button" onclick="addtype()">添加</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="zhe" id="zhe"></div>
+=======
+>>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 </body>
 </html>

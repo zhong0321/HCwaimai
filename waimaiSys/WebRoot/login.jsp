@@ -73,7 +73,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div> 
             <c:if test="${code!=3}">
                 <div class="r-forget cl">
-                
                     <a class="z" href="../goreg/${code}"><c:if test="${code!=2}">账号注册</c:if><c:if test="${code==2}">商家入驻</c:if></a>
                     <a href="../gogetpass/${code}" class="y">忘记密码</a>
                 </div>

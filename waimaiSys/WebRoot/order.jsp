@@ -186,6 +186,9 @@
 											</c:if>
 										</div>
 										<div class="fl tips">
+<<<<<<< HEAD
+											
+=======
 											<c:if test="${order.orderState>=1 && order.orderState<=13}">
 												<div class="step-2">
 													<!-- <span class="fr t-2">2019-05-14 12:50</span> -->
@@ -242,6 +245,7 @@
 													<p class="bold">退款成功</p>
 												</div>
 											</c:if>
+>>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 										</div>
 
 									</div>

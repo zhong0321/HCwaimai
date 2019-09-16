@@ -28,6 +28,9 @@ import cn.zx.service.StoreAptitudeService;
 import cn.zx.service.StoreService;
 import cn.zx.service.StoreStoreTypesService;
 
+import cn.zx.service.UserInfoService;
+
+
 @Controller
 @RequestMapping("storeRegist")
 public class StoreRegistController {
@@ -39,6 +42,8 @@ public class StoreRegistController {
 	private StoreAptitudeService storeAptitudeService;
 	@Resource
 	private AuditService auditService;
+	@Resource
+	private UserInfoService infoService;
 	
 	
 	@RequestMapping("/addStore")
@@ -52,32 +57,27 @@ public class StoreRegistController {
         File newFile=new File(path);
         //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
         file.transferTo(newFile);
-        
         //截取出行政区
       	String district=store.getStoreAddress().substring(store.getStoreAddress().indexOf("市")+1, store.getStoreAddress().indexOf("区")+1);
       	store.setArea(district);
         store.setStoreImg(fileName);
-        store.setRegistState(0);
+        store.setOrdrenum(0);
         storeService.updateStore(store);//添加商家
         //添加商家分类
         StoreStoreTypes storeStoreTypes=new StoreStoreTypes();
         storeStoreTypes.setStoreId(store.getId());
         storeStoreTypes.setStoreTypeId(Integer.parseInt(storeType));
         storeStoreTypesService.addStoreStoreTypes(storeStoreTypes);
-        
 		return "storeRegist02";
 	}
 	
 	@RequestMapping("/addStoreAptitude")
 	public String addStoreAptitude(@RequestParam("file") MultipartFile file[],StoreAptitude storeAptitude,HttpServletRequest request) throws IllegalStateException, IOException{
 		String fileName[] = new String [3];
-		System.out.println(fileName.length);				
 		for (int i = 0; i < file.length; i++) {
 			String uuid = UUID.randomUUID().toString().trim();
 	        String fileN=file[i].getOriginalFilename();
 	        int index=fileN.indexOf(".");
-	        System.out.println(fileN.substring(index));
-	        System.out.println(uuid+fileN.substring(index));
 	        fileName[i]=uuid+fileN.substring(index);
 	        String opath = request.getServletContext().getRealPath("static"+File.separator+"images");
 	        String path=opath+File.separator+fileName[i];
@@ -88,13 +88,16 @@ public class StoreRegistController {
 		storeAptitude.setShopCardImg(fileName[1]);
 		storeAptitude.setFoodLicenceImg(fileName[2]);
 		storeAptitudeService.addStoreAptitude(storeAptitude);//添加资质信息
-		//添加审核记录
+		//添加审核记录 
 		Audit audit =new Audit();
 		audit.setStoreId(storeAptitude.getStoreId());
 		audit.setAuditState(1);
-		auditService.addAudit(audit);
+		auditService.updateAudit(audit);
 		return "storeRegist3";
 	}
+	
+	
+	
 	
 	@RequestMapping("/gao")
 	public void test(){

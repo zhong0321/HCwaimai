@@ -24,14 +24,8 @@
 		UPDATE 
 		  `waimai`.`audit` 
 		SET
-		  `storeId` = #{storeId},
 		  `auditState` = #{auditState},
 		  `auditComment` = #{auditComment}
-		WHERE `id` = #{id} ;
+		WHERE `storeId` = #{storeId}
 	</update>
-	
-	<!-- 查询审核记录 -->
-	<select id="">
-	
-	</select>
 </mapper>

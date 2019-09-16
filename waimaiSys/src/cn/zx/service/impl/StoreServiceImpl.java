@@ -14,12 +14,15 @@ import cn.glh.tools.MapHelper;
 import cn.zx.entity.Store;
 import cn.zx.entity.Store_Comment;
 import cn.zx.mapper.StoreMapper;
+import cn.zx.mapper.UserInfoMapper;
 import cn.zx.service.StoreService;
 @Service
 public class StoreServiceImpl implements StoreService {
 	@Resource
 	private StoreMapper storeMapper;
 
+	@Resource
+	private UserInfoMapper infoMapper;
 	@Override
 	public List<Store> findStoreByAddress(Store store) {
 		return storeMapper.findStoreByAddress(store);
@@ -45,6 +48,8 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public void addStore(Store store) {
 		storeMapper.addStore(store);
+		Store findStorePhone = infoMapper.findStorebyPhone(store.getStorePhone());
+		storeMapper.addAudit(findStorePhone.getId(), 0, "2012-12-12", "");
 	}
 
 	@Override

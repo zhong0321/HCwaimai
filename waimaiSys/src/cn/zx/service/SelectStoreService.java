@@ -90,4 +90,12 @@ public interface SelectStoreService {
 	 * @return
 	 */
 	public List<CommentLv> findComment(int id);
+	
+	
+	/**
+	 * 根据商店名称查询商店是否存在
+	 * @param StoreName
+	 * @return
+	 */
+	public int findStoreName(String StoreName,String storePhone);
 }

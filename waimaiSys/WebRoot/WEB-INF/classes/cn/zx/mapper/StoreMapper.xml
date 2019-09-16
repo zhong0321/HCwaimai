@@ -2,70 +2,112 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zx.mapper.StoreMapper">
-    <!-- 当数据库中的字段信息与对象的属性不一致时需要通过resultMap来映射 -->
-   	<!--  <resultMap type="User" id="userList">
-        <result property="userRoleName" column="roleName" />
-    </resultMap> -->
-    
-     <!-- 查询所有商家 -->
-    <select id="findStoreByAddress" parameterType="store" resultType="store" >
-    	SELECT * FROM store s INNER JOIN store_storetypes sst ON s.id=sst.`storeId` where province=#{province} and  city=#{city} and area=#{area}
-    	<if test="storeTypeId!=null">
-    		and sst.`storeTypeId`=#{storeTypeId}
-    	</if>
-    </select>
-    
-    <!-- 根据id查询商家 -->
-    <select id="findStoreById" parameterType="Integer" resultType="store">
-    	select * from store where id=#{id}
-    </select>
-    
-    <!-- 账号密码登录 -->
-    <select id="phonePwdLogin" parameterType="store" resultType="store" >
-    	SELECT * FROM store where storePhone=#{storePhone} and storePassword=#{storePassword} and registState=#{registState}
-    </select>
-    
-    <!-- 手机号登录 -->
-    <select id="storePhoneLogin" resultType="store" >
-    	SELECT * FROM store where storePhone=#{phone} and registState=1
-    </select>
-    
-    <!-- 新增店铺 -->
-    <insert id="addStore" parameterType="store">
-    	INSERT INTO `waimai`.`store` (
-		  `storePhone`,
-		  `storePassword`
-		) 
+	<!-- 当数据库中的字段信息与对象的属性不一致时需要通过resultMap来映射 -->
+	<!-- <resultMap type="User" id="userList"> <result property="userRoleName" 
+		column="roleName" /> </resultMap> -->
+
+	<!-- 查询所有商家 -->
+	<select id="findStoreByAddress" parameterType="store"
+		resultType="store">
+		SELECT * FROM store s INNER JOIN store_storetypes sst ON
+		s.id=sst.`storeId` where province=#{province} and city=#{city} and
+		area=#{area}
+		<if test="storeTypeId!=null">
+			and sst.`storeTypeId`=#{storeTypeId}
+		</if>
+	</select>
+
+	<!-- 根据id查询商家 -->
+	<select id="findStoreById" parameterType="Integer" resultType="store">
+		select * from store where id=#{id}
+	</select>
+
+	<!-- 账号密码登录 -->
+	<select id="phonePwdLogin" parameterType="store" resultType="store">
+		SELECT * FROM store where storePhone=#{storePhone} and
+		storePassword=#{storePassword}
+	</select>
+
+	<!-- 手机号登录 -->
+	<select id="storePhoneLogin" resultType="store">
+		SELECT * FROM store where storePhone=#{phone}
+	</select>
+
+	<!-- 新增店铺 -->
+	<insert id="addStore" parameterType="store">
+		INSERT INTO `waimai`.`store` (
+		`storePhone`,
+		`storePassword`
+		)
 		VALUES
-		  (
-		    #{storePhone},
-		    #{storePassword}
-		   ) ;
-    </insert>
-    
-    <!-- 修改店铺 -->
-    <update id="updateStore" parameterType="store">
-    	UPDATE 
-		  `waimai`.`store` 
+		(
+		#{storePhone},
+		#{storePassword}
+		) ;
+	</insert>
+
+	<!-- 修改店铺 -->
+	<update id="updateStore" parameterType="store">
+		UPDATE
+		`waimai`.`store`
 		SET
-		  `distributionMoney` = #{distributionMoney},
-		  `startMoney` = #{startMoney},
-		  `storeAddress` = #{storeAddress},
-		  `storeName` = #{storeName},
-		  `storePhone` = #{storePhone},
-		  `storePassword` = #{storePassword},
-		  `storeImg` = #{storeImg},
-		  `province` = #{province},
-		  `city` = #{city},
-		  `area` = #{area},
-		  `coordinate` = #{coordinate},
-		  `registState` = #{registState}
+		`distributionMoney` = #{distributionMoney},
+		`startMoney` = #{startMoney},
+		`storeAddress` = #{storeAddress},
+		`storeName` = #{storeName},
+		`storePhone` = #{storePhone},
+		`storePassword` = #{storePassword},
+		`storeImg` = #{storeImg},
+		`province` = #{province},
+		`city` = #{city},
+		`area` = #{area},
+		`coordinate` = #{coordinate},
+		`ordrenum`=#{ordrenum}
+		
 		WHERE `id` = #{id};
-    </update>
-    <select id="findStoreInfo" resultType="Store_Comment">
-		SELECT st.id,st.storeName,st.distributionMoney,st.coordinate,st.startMoney,st.storeImg,st.foundtime,AVG(co.commentlv)AS commentlv,st.ordrenum
+	</update>
+
+	<insert id="addAudit">
+		INSERT INTO waimai.audit
+		(
+		storeId,
+		auditState,
+		auditTime,
+		auditComment
+		)
+		VALUES
+		(
+		#{storeId},
+		#{auditState},
+		#{auditTime},
+		#{auditComment}
+		);
+	</insert>
+
+	<update id="updateAudit">
+		UPDATE waimai.audit
+		<trim prefix="set" suffixOverrides=",">
+			<if test="auditState!=null">
+				auditState = #{auditState} ,
+			</if>
+			<if test="auditTime!=null">
+				auditTime = #{auditTime} ,
+			</if>
+			<if test="auditComment!=null">
+				auditComment = #{auditComment}
+			</if>
+		</trim>
+		WHERE
+		storeId = #{storeId}
+	</update>
+
+	<select id="findStoreInfo" resultType="Store_Comment">
+		SELECT
+		st.id,st.storeName,st.distributionMoney,st.coordinate,st.startMoney,st.storeImg,st.foundtime,AVG(co.commentlv)AS
+		commentlv,st.ordrenum
 		FROM `store` st
-		LEFT JOIN COMMENT co ON st.id=co.storeId
+		LEFT JOIN COMMENT co ON
+		st.id=co.storeId
 		LEFT JOIN store_storetypes sst ON st.id=sst.storeId
 		LEFT JOIN `order` AS `or` ON st.id=or.storeId
 		<if test="storeTypeId!=0">
@@ -80,7 +122,6 @@
 		 		ORDER BY commentlv ASC
 		 	</if>
 		 </if>
-		 
 		 <if test="sorttype==3"><!-- 排序类型 订单数量-->
 		 	<if test="sortorder==1"><!-- 排序方式 -->
 		 		ORDER BY ordrenum DESC
@@ -89,7 +130,6 @@
 		 		ORDER BY ordrenum ASC
 		 	</if>
 		 </if>
-		 
 		 <if test="sorttype==4"><!-- 排序类型 配送费-->
 		 	<if test="sortorder==1"><!-- 排序方式 -->
 		 		ORDER BY distributionMoney DESC
@@ -98,7 +138,6 @@
 		 		ORDER BY distributionMoney ASC
 		 	</if>
 		 </if>
-		 
 		 <if test="sorttype==5"><!-- 排序类型 开店时间-->
 		 	<if test="sortorder==1"><!-- 排序方式 -->
 		 		ORDER BY foundtime DESC
@@ -107,8 +146,6 @@
 		 		ORDER BY foundtime ASC
 		 	</if>
 		 </if>
+    </select> 
 
-    </select>
-    
-    
 </mapper>

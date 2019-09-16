@@ -12,6 +12,13 @@ public class StoreAptitude {
 	private String shopCard;
 	private String shopCardImg;
 	private String foodLicenceImg;
+	private Store store;
+	public Store getStore() {
+		return store;
+	}
+	public void setStore(Store store) {
+		this.store = store;
+	}
 	public Integer getId() {
 		return id;
 	}

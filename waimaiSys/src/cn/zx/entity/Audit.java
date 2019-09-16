@@ -3,16 +3,28 @@ package cn.zx.entity;
 import java.util.Date;
 
 public class Audit {
-	private Integer id;
+	
+	public static void main(String[] args) {
+		
+	}
+	private Integer audit_id;
 	private Integer storeId;
 	private Integer auditState;
 	private Date auditTime;
 	private String auditComment;
-	public Integer getId() {
-		return id;
+	private Store store;
+	public Store getStore() {
+		return store;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setStore(Store store) {
+		this.store = store;
+	}
+
+	public Integer getAudit_id() {
+		return audit_id;
+	}
+	public void setAudit_id(Integer audit_id) {
+		this.audit_id = audit_id;
 	}
 	public Integer getStoreId() {
 		return storeId;

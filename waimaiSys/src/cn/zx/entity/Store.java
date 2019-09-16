@@ -12,19 +12,38 @@ public class Store implements Comparable<Store>{
 	private String storePassword;
 	private String storeImg;
 	private String storePhone;
-	private Integer registState;
 	private double juli;
+	private String province;
+	private String city;
+	private String area;
+	private String coordinate;
+	private Integer storeTypeId;
+	private String foundtime;
+	private int ordrenum;
+	public int getOrdrenum() {
+		return ordrenum;
+	}
+	public void setOrdrenum(int ordrenum) {
+		this.ordrenum = ordrenum;
+	}
+	private Audit audit;
+	public Audit getAudit() {
+		return audit;
+	}
+	public void setAudit(Audit audit) {
+		this.audit = audit;
+	}
+	public String getFoundtime() {
+		return foundtime;
+	}
+	public void setFoundtime(String foundtime) {
+		this.foundtime = foundtime;
+	}
 	public double getJuli() {
 		return juli;
 	}
 	public void setJuli(double juli) {
 		this.juli = juli;
-	}
-	public Integer getRegistState() {
-		return registState;
-	}
-	public void setRegistState(Integer registState) {
-		this.registState = registState;
 	}
 	public String getStorePhone() {
 		return storePhone;
@@ -32,11 +51,7 @@ public class Store implements Comparable<Store>{
 	public void setStorePhone(String storePhone) {
 		this.storePhone = storePhone;
 	}
-	private String province;
-	private String city;
-	private String area;
-	private String coordinate;
-	private Integer storeTypeId;
+
 	
 	public Integer getStoreTypeId() {
 		return storeTypeId;

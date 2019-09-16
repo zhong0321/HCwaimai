@@ -149,12 +149,13 @@ $(function(){
 							async: true,
 							data: {"userPhone":inp,"userPassword":pass,"loginType":logintype},
 							success:function(data){
-								console.info(data);
 								if (data == '1') {
 									if(logintype==1){
 										location.href="../getAddress.jsp";
+									}else if(logintype==2){
+										location.href="../findstorePhone?phone="+inp;
 									}else{
-										location.href="../storeOrder/showStoreOrder/99";
+										location.href="../admins";
 									}
 								}else if(data == '9'){//订餐地址已存入session，直接进入点餐页面
 									if(logintype==1){
@@ -218,7 +219,6 @@ $(function(){
     		$('.log-btn').trigger('click');
     	}
     });
-
 //获取验证码事件
 	$(".form-data").delegate(".send","click",function () {
 		var phone = $.trim($('#num2').val());

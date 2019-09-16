@@ -57,8 +57,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <span>联系人姓名</span>
                             </td>
                             <td>
-                                <input name="linkmanName" size="60" type="text" placeholder="请输入联系人姓名"/>
-                                <input name="storeId" value="${store.id}" type="text"/>
+                                <input name="linkmanName" size="60" type="text" id="linkmanName" placeholder="请输入联系人姓名"/>
+                                <input name="storeId" value="${store.id}" type="hidden"/>
                             </td>
                         </tr>
                         <tr>
@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <span>联系人电话</span>
                             </td>
                             <td>
-                                <input size="60" name="linkmanPhone" type="text" placeholder="请输入联系人电话"/>
+                                <input size="60" name="linkmanPhone" id="linkmanPhone" type="text" placeholder="请输入联系人电话"/>
                             </td>
 
                         </tr>
@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <span>法定代表人</span>
                             </td>
                             <td>
-                                <input size="60" name="legalRepresentative" type="text" placeholder="请输入法定代表人姓名"/>
+                                <input size="60" name="legalRepresentative" id="legalRepresentative" type="text" placeholder="请输入法定代表人姓名"/>
                             </td>
                         </tr>
                         <tr>
@@ -86,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <span>身份证号</span>
                             </td>
                             <td>
-                                <input size="60" name="IDCard" type="text" placeholder="请输入法定代表人身份证号"/>
+                                <input size="60" name="IDCard" id="IDCard" type="text" placeholder="请输入法定代表人身份证号"/>
                             </td>
 
                         </tr>
@@ -96,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <span>银行账号</span>
                             </td>
                             <td>
-                                <input size="60" name="bankCard" type="text" placeholder="请输入银行账号"/>
+                                <input size="60" name="bankCard" id="bankCard" type="text" placeholder="请输入银行账号"/>
                             </td>
 
                         </tr>
@@ -106,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <span>营业执照号</span>
                             </td>
                             <td>
-                                <input size="60" name="shopCard" type="text" placeholder="请输入营业执照号"/>
+                                <input size="60" name="shopCard" id="shopCard" type="text" placeholder="请输入营业执照号"/>
                             </td>
                         </tr>
                         <tr>
@@ -115,7 +115,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <span>手持身份证照片</span>
                             </td>
                             <td>
-                                <input size="60" type="file" class="fileUpload" name="file"/>
+                                <input size="60" type="file" id="aa" class="fileUpload" name="file"/>
                             </td>
                         </tr>
                         <tr>
@@ -124,7 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <span>营业执照照片</span>
                             </td>
                             <td>
-                                <input size="60" type="file" class="fileUpload" name="file"/>
+                                <input size="60" type="file" id="ab" class="fileUpload" name="file"/>
                             </td>
                         </tr>
                         <tr>
@@ -133,16 +133,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <span>餐饮服务许可证</span>
                             </td>
                             <td>
-                                <input size="60" type="file" class="fileUpload" name="file"/>
+                                <input size="60" type="file" id="ac" class="fileUpload" name="file"/>
                             </td>
                         </tr>
                         <tr class="buttonTr">
                             <td></td>
                             <td>
-                                <span><button>上一步</button></span>
-                                <span><button style="background: #08C1AE;">下一步</button></span>
+								<!-- <span><button>上一步</button></span> -->
+                                <span><button type="button" id="button" style="background: #08C1AE;">下一步</button></span>
                             </td>
-
                         </tr>
                     </table>
                 </form>
@@ -150,48 +149,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
     <script type="text/javascript" src="${cp}static/js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="${cp}static/js/store/filesUpload.js"></script>
-    <script type="text/javascript">
-    	//提交表单之前判断是否为空
-		function checkNotNull(){
-			var linkmanName=$("input[name='linkmanName']").val();
-			var linkmanPhone=$("input[name='linkmanPhone']").val();
-			var legalRepresentative=$("input[name='legalRepresentative']").val();
-			var IDCard=$("input[name='IDCard']").val();
-			var bankCard=$("input[name='bankCard']").val();
-			var shopCard=$("input[name='shopCard']").val();
-			var fileUpload=$(".fileUpload").val();
-			if(linkmanName!=null && linkmanName!="" && linkmanPhone!=null && linkmanPhone!="" &&legalRepresentative!=null && legalRepresentative!="" 
-			&&IDCard!=null && IDCard!="" &&bankCard!=null && bankCard!="" &&shopCard!=null && shopCard!="" &&fileUpload!=null && fileUpload!="" ){
-				return true;
-			}else{
-				//ShowDiv_1('MyDiv1','fade1','除了商品描述以外的，其他均为必填项<br/>请填写完整的商品信息');
-				return false;
-			}
-		}
-		
-		function checkPhone(){
-			var linkmanPhone=$("input[name='linkmanPhone']").val();
-			var ref="/^1[3456789]\d{9}$/";
-			if(ref.test(linkmanPhone)){
-				return true;
-			}else{
-				return false;
-			}
-		}
-		
-		function formSubmit(){
-			if(checkNotNull()){
-				if(checkPhone()){
-					$("#storeAptitudeForm").submit();
-				}else{
-					alert("手机号格式错误！");
-				}
-			}else{
-				alert("请填写完整的信息！");
-			}
-		}
-    
-    </script>
+    <script type="text/javascript" src="${cp}static/js/store/filesUpload2.js"></script>
   </body>
 </html>
