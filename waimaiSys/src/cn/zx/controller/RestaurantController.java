@@ -83,7 +83,7 @@ public class RestaurantController {
 			list = new ArrayList<Car>();
 		}
 		for (Car car : list) {
-			if(car.getFoodId()==foodId){
+			if(car.getFoodId().equals(foodId)){
 				car.setCount(car.getCount()+1);
 				flag = true;
 				break;
@@ -126,7 +126,8 @@ public class RestaurantController {
 	public List<Car> countChange(HttpServletRequest request,Integer foodId,Integer count){
 		List<Car> list = (List)request.getSession().getAttribute("carList");
 		for (Car car : list) {
-			if(car.getFoodId()==foodId){
+			System.out.println(car);
+			if(car.getFoodId().equals(foodId)){
 				if(count==0){
 					list.remove(car); 
 				}else{

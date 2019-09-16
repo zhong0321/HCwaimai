@@ -36,4 +36,10 @@ public class UserAddressServiceImpl implements UserAddressService {
 		return userAddress;
 	}
 
+	@Override
+	public void deleteUserAddress(Integer id) {
+		userAddressMapper.deleteUserAddress(id);
+		
+	}
+
 }

@@ -83,4 +83,13 @@ public interface OrderService {
 	 * @date 2019-8-24上午11:16:33
 	 */
 	public void updateOrder(Order order);
+	/**
+	 * 查询用户未完成订单
+	 * @param userId
+	 * @return 
+	 * List<Order>  
+	 * @author ZX 
+	 * @date 2019-9-3上午9:05:51
+	 */
+	public List<Order> findOrderIncomplete(Integer userId);
 }

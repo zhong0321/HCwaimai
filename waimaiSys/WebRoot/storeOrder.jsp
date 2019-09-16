@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Stict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
 strict.dtd">
@@ -36,10 +37,12 @@ strict.dtd">
             <div class="order_content">
                     <ul>
                     <c:forEach items="${order}" var="order">
-                        <li>
+                        <li <c:if test="${order.orderState==0}">style="display: none;"</c:if> >
                             <div class="orderTitle">
-                                <span>订单号：${order.orderNumber}</span>
-                                <span>￥${order.totalMoney}</span>
+                                <span style="width: 30%;">订单号：${order.orderNumber}</span>
+                                <span style="width: 5%;">￥${order.totalMoney}</span>
+                                <span>下单时间:<fmt:formatDate value="${order.orderTime}" type="BOTH" /></span>
+                                <span style="width: 300px; display: flex; justify-content: space-between;">
                                 <c:if test="${order.orderState==1}"><span>未接单</span></c:if>
                                 <c:if test="${order.orderState==2}"><span>等待外卖员接单</span></c:if>
                                 <c:if test="${order.orderState==3}"><span>等待外卖员上门取餐</span></c:if>
@@ -50,10 +53,11 @@ strict.dtd">
                                 	<a href="../sureOrder/${order.id}">确认接单</a>
                                 	<a href="javascript:void(0)" onclick="refuseOrder('${order.id}','${order.storeId}');">拒单</a>
                                 </c:if>
-                                <span>下单时间:${order.orderTime}</span>
+                                </span>
                                 <a href="#" onclick="showOrderDetails('${order.id}',$(this));" id="xiangqing">详情</a>
                                 <a href="#" onclick="closeOrderDetails($(this));" id="shouqi" style="display: none;" >收起</a>
                             </div>
+                            
                             <div class="hiddenContent" style="display: none;" >
                                 <div class="orderDetail">
                                 	<ul>

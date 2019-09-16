@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -15,56 +16,72 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>豪吃外卖</title>
 	<link rel="stylesheet" href="${cp}static/css/page/customer/order/list.css">
+	<link rel="stylesheet" href="${cp}static/css/module/order/order_n.css">
+	<link rel="stylesheet" href="${cp}static/css/module/order/vendor.css">
 	<script type="text/javascript" src="${cp}static/js/lib/jquery.js"></script>
 	<script type="text/javascript">
+		function userOrderDetail(id){
+			location.href="order/showOrderDetails/"+id;
+		}
 		
+		//保存评价
+		function saveComment(id,dom){
+			var commentlv=$(dom).parent().prev().find(".commentlv").val();
+			var description=$(dom).parent().prev().find("#description").val();
+			$.ajax({
+				   type: "POST",
+				   url: "/waimaiSys/order/addComment",
+				   data: {"id":id,"commentlv":commentlv,"description":description},
+				   success: function(obj){
+					   if(obj==1){
+					   		alert("评价成功");
+					   }else{
+					   		alert("订单完成超过一周，评价已关闭，下次请记得早点评价哦～");
+					   }
+					   $("#addCommentDiv").css({"display":"none"});
+					   location.reload();
+				   }
+			});
+			
+		}
+		
+		//点击去评价
+		function qupingjia(){
+			$("#addCommentDiv").css({"display":"block"});
+		}
+		
+		//关闭
+		function closeDiv(){
+			$("#addCommentDiv").css({"display":"none"});
+		}
 	</script>
 </head>
-<body style="">
+<body>
 	<div class="triffle" id="triffle"></div>
 	<div class="wrapper">
-		<div class="csr-header">
-			<div class="header-content">
-				<a id="left" href="https://waimai.meituan.com/">
-					<div class="logo-pic"></div>
-					<div class="waimai">
-						<div class="waimai-title"></div>
-						<div class="waimai-slogan"></div>
-					</div> </a>
-				<div id="right">
-					<ul id="links">
-						<li data-index="0"><a href="">首页</a></li>
-                        <li data-index="1"><a href="">商家入驻</a></li>
-                        <li data-index="4"><a href="" class="active">点外卖</a></li>
-                        <li data-index="5"><a href="">后台管理</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<c:import url="header.jsp"></c:import>
 		<div class="page-wrap">
 			<div class="inner-wrap">
 				<div class="orders-cont clearfix">
 					<div class="orders-tab fl">
 						<span href="javascript:;" class="tab">
-							<ul>
+							<ul <c:if test="${now!=0}">style="display: none;"</c:if> >
 								<li>
-									<a href="https://waimai.meituan.com/customer/order/list"
-									class="borderradius-1 order-today active"><i></i>三个月订单</a></li>
+									<a href="${cp}order/showOrder" 
+									class="borderradius-1 order-today active"><i></i>当前订单</a></li>
 							</ul> </span> <span href="javascript:;" class="tab">
-							<ul>
-								<li><a href="https://waimai.meituan.com/account/setting"
-									class="borderradius-1 my-account "><i></i>我的账号</a></li>
-								<li><a
-									href="https://waimai.meituan.com/favorite/restaurant"
-									class="borderradius-1 my-favorite "><i></i>我的收藏</a></li>
+							<ul <c:if test="${now!=0}">style="background: #fafafa;"</c:if> >
+								<li><a href="${cp}order/historyOrders"
+									class="borderradius-1 my-account "><i></i>历史订单</a></li>
+								
 							</ul> </span>
 					</div>
 
-					<div class="orders-list">
+					<div class="orders-list" <c:if test="${now==2}">style="display: none;"</c:if> >
 
-						<div class="order-header">
-							<span class="oh-content">订单内容</span><span class="oh-phone">商家电话</span><span
-								class="oh-money">支付金额</span><!-- <span class="oh-operate">操作</span> -->
+						<div class="order-header" style="display: inline-block; ">
+							<span class="oh-content" style="width: 480px;">订单内容</span><span class="oh-phone">商家电话</span><span
+								class="oh-money">支付金额</span>
 						</div>
 
 						<div data-sid="3" class="order-v" data-orderphone="18084842032"
@@ -86,7 +103,7 @@
 										<span class="order-money-num">¥ ${order.totalMoney}</span>
 									</div>
 									<div class="rest-detail">
-										<span class="order-total">${order.totalMoney}</span> 
+										<%-- <span class="order-total">${order.totalMoney}</span> --%> 
 										<span class="order-id" style="width: 320px;">订单号：${order.orderNumber}</span>
 									</div>
 								</div>
@@ -143,19 +160,22 @@
 									<div class="procedure">
 										<div class="pro-order-status">订单状态</div>
 										<div class="fl process-bar">
-											<c:if test="${order.orderState>0 && order.orderState<14}">
+											<c:if test="${order.orderState>=1 && order.orderState<=13}">
 												<i class="icon i-orderok"></i> 
 											</c:if>
-											<c:if test="${order.orderState>1 && order.orderState<6}">
+											<c:if test="${order.orderState>=2 && order.orderState<=7}">
 												<i class="i-orderarrow"></i> <i class="icon i-orderok"></i> 
 											</c:if>
-											<c:if test="${order.orderState>2 && order.orderState<6}">
+											<c:if test="${order.orderState>=3 && order.orderState<=7}">
 												<i class="i-orderarrow"></i> <i class="icon i-orderok"></i> 
 											</c:if>
-											<c:if test="${order.orderState>3 && order.orderState<6}">
+											<c:if test="${order.orderState>=4 && order.orderState<=7}">
 												<i class="i-orderarrow"></i> <i class="icon i-orderok"></i> 
 											</c:if>
-											<c:if test="${order.orderState==5}">
+											<c:if test="${order.orderState>=5 && order.orderState<=7}">
+												<i class="i-orderarrow"></i> <i class="icon i-orderok"></i> 
+											</c:if>
+											<c:if test="${order.orderState==6 && order.orderState==7}">
 												<i class="i-orderarrow"></i> <i class="icon i-orderok"></i> 
 											</c:if>
 											<c:if test="${order.orderState>=12 && order.orderState<=13}">
@@ -172,30 +192,42 @@
 													<p class="bold">支付成功，等待商家接单</p>
 												</div>
 											</c:if>
-											<c:if test="${order.orderState>1 && order.orderState<6}">
+											<c:if test="${order.orderState>=2 && order.orderState<=7}">
 												<div class="step-3 ">
 													<!-- <span class="fr t-3">2019-05-14 12:50</span> -->
 													<p class="bold">商家接单制作中，等待外卖员抢单</p>
 												</div>
 											</c:if>
-											<c:if test="${order.orderState>2 && order.orderState<6}">
+											<c:if test="${order.orderState>=3 && order.orderState<=7}">
 												<div class="step-4 ">
 													<span class="fr t-delivery"></span>
 													<p class="bold">外卖员正在取餐</p>
 												</div>
 											</c:if>
-											<c:if test="${order.orderState>3 && order.orderState<6}">
+											<c:if test="${order.orderState>=4 && order.orderState<=7}">
 												<div class="step-1 ">
 													<!-- <span class="fr t-1">2019-05-14 12:50</span> -->
 													<p class="bold">外卖员正在送餐</p>
 												</div>
 											</c:if>
-											<c:if test="${order.orderState==5}">
+											<c:if test="${order.orderState>=5 && order.orderState<=7}">
 												<div class="step-finish">
-													<!-- <span class="fr t-finish"><a>去评价</a></span> -->
+													<span class="fr t-finish" <c:if test="${order.orderState!=5}">style="display: none;"</c:if> ><a href="javascript:void(0);" onclick="qupingjia();">去评价</a></span>
 													<p class="bold">订单完成</p>
-													<p class="sub"><a>去评价</a></p>
-													<p class="sub">订单完成超过一周，评价已关闭，下次请记得早点评价哦～</p>
+													<%-- <p class="sub"><a href="${cp}">去评价</a></p> --%>
+													<!-- <p class="sub">订单完成超过一周，评价已关闭，下次请记得早点评价哦～</p> -->
+												</div>
+											</c:if>
+											<c:if test="${order.orderState==6}">
+												<div class="step-1 ">
+													<!-- <span class="fr t-1">2019-05-14 12:50</span> -->
+													<p class="sub">已评价</p>
+												</div>
+											</c:if>
+											<c:if test="${order.orderState==7}">
+												<div class="step-1 ">
+													<!-- <span class="fr t-1">2019-05-14 12:50</span> -->
+													<p class="sub" >订单完成超过一周，评价已关闭，下次请记得早点评价哦～</p>
 												</div>
 											</c:if>
 											<c:if test="${order.orderState>=12 && order.orderState<=13}">
@@ -217,69 +249,88 @@
 							</div>
 						</div>
 					</div>
+				
+				 
+					<div style="overflow: auto; height: 620px" class="orderListHistory" <c:if test="${now==1 || now==0}">style="display: none;"</c:if> >
+						<ul>
+							<c:forEach items="${orderList}" var="order">
+							<li onclick="userOrderDetail('${order.id}');">
+	                            <div class="orderTitle">
+	                            	<div class="orderTitle_left">
+	                            		<span><img src="${cp}static/images/${order.storeImg}" width="70" height="50"></span>
+	                            	</div>
+	                            	<div class="orderTitle_right">
+	                            		<div class="top">
+	                            			<a href="${cp}/restaurant/findAll/${order.storeId}" style="font-size: 17px;width: 30%">${order.storeName}  > </a>
+	                            			<span style="color: black;width: 30%">总价：￥${order.totalMoney}</span>
+	                            			<c:if test="${order.orderState==5}"><span>已完成</span></c:if>
+	                            			<c:if test="${order.orderState==6}"><span>已评价</span></c:if>
+	                            			<c:if test="${order.orderState==7}"><span>已自动评价</span></c:if>
+	                            			<c:if test="${order.orderState==13}"><span>已退款</span></c:if>
+	                            			<!-- <a href="">订单详情 </a> -->
+	                            		</div>
+	                            		<div class="bottom" >
+		                            		<span>
+		                            			<fmt:formatDate value="${order.orderTime}" type="BOTH" />
+		                            		</span>
+		                            		<span style="width: 60%">订单号：${order.orderNumber}</span>
+		                            		
+	                            		</div>
+	                            		
+	                            	</div>
+	                            </div>
+	                        </li>
+	                        </c:forEach>
+						</ul>
+					</div>
+					
 				</div>
 				<div id="anti_token"
 					data-token="MfyoYCwPbTi3t8oSypDcXzm82YHr07h7h3POp1KfHHkIL3rbR4rugHois+00gVju"></div>
 			</div>
 		</div>
-		<div class="csr-footer-container">
-			<div class="middle-line"></div>
-			<div class="csr-footer">
-				<div class="footer-content">
-					<div class="top">
-						<div class="left">
-							<ul class="col1">
-								<li><a target="_blank"
-									href="https://i.waimai.meituan.com/node/csr/openplatform">开放平台</a>
-								</li>
-								<li><a target="_blank"
-									href="https://waimai.meituan.com/story?next_step=/newhome/news/list">媒体报道</a>
-								</li>
-								<li><a target="_blank"
-									href="https://i.waimai.meituan.com/c/agreements/index.html">资质规则</a>
-								</li>
-								<li><a target="_blank"
-									href="https://i.waimai.meituan.com/node/csr/joinin">入驻加盟</a></li>
-							</ul>
-							<ul class="col2">
-								<li><a target="_blank"
-									href="https://waimai.meituan.com/help/faq">常见问题</a></li>
-								<li><a target="_blank"
-									href="https://waimai.meituan.com/help/feedback">用户反馈</a></li>
-								<li><a target="_blank"
-									href="https://waimai.meituan.com/help/inform">诚信举报</a></li>
-								<li><a target="_blank"
-									href="https://waimai.meituan.com/help/job">加入我们</a></li>
-							</ul>
-						</div>
-						<div class="middle">
-							<div class="cooperation">
-								<div class="title">品牌合作</div>
-								<div class="content">wpbg.marketing@meituan.com</div>
-							</div>
-							<div class="client-service">
-								<div class="title">客服 1010-9777</div>
-								<div class="content">
-									周一至周日 9:00~23:00<br>客服不受理商务合作
-								</div>
-							</div>
-						</div>
-						<div class="right">
-							<div class="right-title">更多商家，更多优惠</div>
-							<div class="QR-code">
-								<div class="QR-code1"></div>
-								<div class="QR-code2"></div>
-							</div>
-						</div>
-					</div>
-					<div class="bottom">
-						<span class="copyright">©️ meituan.com 京ICP证070791号 </span>
-						<div class="img"></div>
-						<span class="police">京公网安备11010502025545号</span>
-					</div>
-				</div>
-			</div>
-		</div>
+		
+		<!-- 评价 -->
+	<span id="addCommentDiv" style="display: none;" >
+	<div style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.5; background: rgb(0, 0, 0) none repeat scroll 0% 0%; z-index: 1006;"></div>
+    <div class="addressdialog" style="z-index: 1007; left: 460px; top: 150px; position: fixed;width: 50%; height: 50%;background:white;">
+    	<div class="addressdialog-close" onclick="closeDiv();"></div>
+    	<div class="addressdialog-header">添加评价</div>
+    	<div class="addressdialog-content">
+    		<div class="addressform" style="padding: 5px 20px;">
+	    		<form id="addressForm" method="post" action="">
+		    		<div class="addressformfield">
+		    			<label>评分</label>
+		    			<select name="commentlv" class="commentlv" style="width: 100px;">
+		    				<option value="10">10</option>
+		    				<option value="9">9</option>
+		    				<option value="8">8</option>
+		    				<option value="7">7</option>
+		    				<option value="6">6</option>
+		    				<option value="5">5</option>
+		    				<option value="4">4</option>
+		    				<option value="3">3</option>
+		    				<option value="2">2</option>
+		    				<option value="1">1</option>
+		    			</select>
+		    		</div>
+		    		<div class="addressformfield">
+		    			<label>评价内容</label>
+		    			<textarea rows="5" cols="70" id="description" name="description" style="overflow: auto;resize:none;"></textarea>
+		    		</div>
+		    		
+		    	</form>
+		    	<div class="addressform-buttons">
+		    		<button onclick="saveComment('${order.id}',$(this));">保存</button>
+		    		<button onclick="closeDiv();">取消</button>
+		    	</div>
+		    </div>
+	   </div>
+   </div>
+   </span>
+   
+   
+		<c:import url="footer.jsp"></c:import>
 
 	</div>
 </body>

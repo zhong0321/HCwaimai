@@ -28,12 +28,8 @@ public class SelectStoreController {
 	public String selectStore(HttpServletRequest request,Model model){
 		String add=null;
 		String vl=null;
-		try {
-			add = new String(request.getParameter("add").getBytes("iso-8859-1"), "utf-8");
-			vl=new String(request.getParameter("vl").getBytes("iso-8859-1"),"utf-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+		add = request.getParameter("add");
+		vl = request.getParameter("vl");
 		if(add!=null&&vl!=null&&add!=""&&vl!=""){
 			List<Store_Comment> list=selectStoreService.selectstore(add, vl);
 			model.addAttribute("list", list);
@@ -46,12 +42,8 @@ public class SelectStoreController {
 	public String selectMs( Model model,HttpServletRequest request){
 		String add=null;
 		String vl=null;
-		try {
-			add = new String(request.getParameter("add").getBytes("iso-8859-1"), "utf-8");
-			vl=new String(request.getParameter("vl").getBytes("iso-8859-1"),"utf-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+		add = request.getParameter("add");
+		vl = request.getParameter("vl");
 		if(add!=null&&vl!=null&&add!=""&&vl!=""){
 			List<Store_Comment> list2=selectStoreService.selectstoreByMs(vl, add);
 			List<Food> list1=selectStoreService.selectMs(vl);

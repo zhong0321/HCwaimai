@@ -14,4 +14,5 @@ public interface OrderMapper {
 	public List<Order> findOrderByStoreAddress(String district);
 	public Order findDmOrderDis(Integer id, String district);
 	public void updateOrder(Order order);
+	public List<Order> findOrderIncomplete(Integer userId);
 }

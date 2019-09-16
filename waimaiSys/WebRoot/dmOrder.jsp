@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -205,6 +206,17 @@ strict.dtd">
 		function onloadOrder(){
 			location.reload();
 		}
+		
+		//注销
+		function zhuxiao(){
+			$.ajax({
+				   type: "POST",
+				   url: "../zhuxiao",
+				   success: function(obj){
+					   	location.href="/waimaiSys/dmLogin.jsp";
+				   }
+			});
+		}
 	</script>
 	<style type="text/css">
 		.now{
@@ -236,11 +248,11 @@ strict.dtd">
 <body>
     <header>
         <div class="dmTitle">
-            <span>jh</span>
+            <span style="font-size: 0.8rem">${deliveryMan.dmName}</span>
             <span>
                 接单中
             </span>
-            <span></span>
+            <span style="font-size: 0.8rem" onclick="zhuxiao();">注销</span>
         </div>
         <div class="dmNav">
             <a id="qiangdan" href="${cp}dmOrder/qiangDan/2" <c:if test="${now==2}">class="now"</c:if> >新任务</a>
@@ -265,7 +277,9 @@ strict.dtd">
 	                    </div>
 	                    <img src="${cp}static/files/shuxian.png" alt="" width="2px" height="55px" style="margin-top: 30px"/>
 	                    <div class="righttitle">
-	                        <p class="title_top"><%-- ${order.orderTime} --%>12.45</p>
+	                        <p class="title_top">
+	                        	<fmt:formatDate value="${order.orderTime}" type="time" />
+	                        </p>
 	                        <p class="title_bottom">发单时间</p>
 	                    </div>
 	                </div>

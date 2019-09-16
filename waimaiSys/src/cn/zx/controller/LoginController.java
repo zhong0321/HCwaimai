@@ -45,7 +45,12 @@ public class LoginController {
             	User user=userInfoService.findUserpwLogin(userPhone,userPassword);
             	if(null!=user){
                     request.getSession().setAttribute("user", user);
-                    return "1";
+                    String address=(String)request.getSession().getAttribute("address");
+                    if(address!=null){
+                    	return "9";//订餐地址已存入session，直接进入点餐页面
+                    }else{
+                    	return "1";//订餐地址未存入session，进入订餐地址界面
+                    }
                 }else{
                     return "0";
                 }
@@ -82,9 +87,15 @@ public class LoginController {
     		User user = userInfoService.findUserPhoneLogin(phone,logintype);
             if(user==null){
                 return "0";
+            }else{
+            	request.getSession().setAttribute("user", user);
+            	String address=(String)request.getSession().getAttribute("address");
+                if(address!=null){
+                	return "9";//订餐地址已存入session，直接进入页面
+                }else{
+                	return "1";//订餐地址未存入session，进入订餐地址界面
+                }
             }
-            request.getSession().setAttribute("user", user);
-            return "1";
     	}else{
     		Store store=storeService.storePhoneLogin(phone);
     		if(store==null){

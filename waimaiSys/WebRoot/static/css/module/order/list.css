@@ -1,6 +1,5 @@
-/**
- * å¾…ç¡®è®¤æ”¶è´§è®¢å•é¡µé¢ã€‚
- *
+.orders-cont .orders-list/**
+ * 氓戮鈥γ÷っ︹�露猫麓搂猫庐垄氓聧鈥⒚┞÷得┞澛⒚ｂ偓鈥� *
  * @author XU Kai(xukai@meituan.com)
  * @date 2014.01.10
  */
@@ -55,11 +54,11 @@
 .orders-cont .orders-list {
   background-color: #ffffff;
   margin-left: 170px;
-  border-left: 14px solid #f5f5f5;
+  border-left: 1px solid #f5f5f5;
 
   overflow:hidden;
 }
-/* ç”¨æˆ·æé†’ */
+/* 莽鈥澛λ喡访β徛惷┾�鈥�*/
 .dialog-remind p {
   text-align: center;
   line-height: 25px;
@@ -74,7 +73,7 @@
   padding: 24px;
 }
 
-/* ä»£é‡‘åˆ¸å¼¹æ¡†éƒ¨åˆ† start */
+/* 盲禄拢茅鈥♀�氓藛赂氓录鹿忙隆鈥犆┢捖ニ嗏� start */
 .dialog-coupon .content {
   padding: 20px 0;
   padding-bottom: 30px;
@@ -130,7 +129,7 @@
   text-align: center;
   margin-left: 10px;
 }
-/* ä»£é‡‘åˆ¸å¼¹æ¡†éƒ¨åˆ† end */
+/* 盲禄拢茅鈥♀�氓藛赂氓录鹿忙隆鈥犆┢捖ニ嗏� end */
 
 .lottery-tips {
   height: 38px;

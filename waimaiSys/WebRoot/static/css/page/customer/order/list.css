@@ -1,5 +1,5 @@
 /**
- * 待确认收货订单页面。
+ * 寰呯‘璁ゆ敹璐ц鍗曢〉闈�
  *
  * @author XU Kai(xukai@meituan.com)
  * @date 2014.01.10
@@ -59,7 +59,7 @@
 
   overflow:hidden;
 }
-/* 用户提醒 */
+/* 鐢ㄦ埛鎻愰啋 */
 .dialog-remind p {
   text-align: center;
   line-height: 25px;
@@ -74,7 +74,7 @@
   padding: 24px;
 }
 
-/* 代金券弹框部分 start */
+/* 浠ｉ噾鍒稿脊妗嗛儴鍒�start */
 .dialog-coupon .content {
   padding: 20px 0;
   padding-bottom: 30px;
@@ -130,7 +130,7 @@
   text-align: center;
   margin-left: 10px;
 }
-/* 代金券弹框部分 end */
+/* 浠ｉ噾鍒稿脊妗嗛儴鍒�end */
 
 .lottery-tips {
   height: 38px;
@@ -223,3 +223,52 @@
   /*background-position: -6px -1424px;*/
   background-position: -2px -1540px;
 }
+
+
+
+
+/* zx */
+
+.orderListHistory{
+			width: 82.5%;
+			float: right;
+		}
+		.orderListHistory ul{
+			margin: 20px;
+		}
+		.orderListHistory li{
+			padding:10px 20px;
+			border-bottom: solid 1px lightgrey;
+		}
+		.orderListHistory li:HOVER{
+			background: #fafafa;
+		}
+		.orderTitle_left{
+			width: 15%;
+			display: inline-block;
+		}
+		.orderTitle_right{
+			width: 80%;
+			display: inline-block;
+			height: 34px;
+			line-height: 34px;
+		}
+		.orderTitle_right a{
+			color:black;
+			
+		}
+		.orderTitle_right .top, .bottom{
+			display: flex;
+    		justify-content: space-between;
+		}
+		.orderTitle_right .top span{
+			color:gray;
+		}
+		.orderTitle_right .top a:hover{
+			color:#ffbd27;
+			
+		}
+		.orderTitle_right .bottom span{
+			color:gray;
+			
+		}

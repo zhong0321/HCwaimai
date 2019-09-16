@@ -18,6 +18,7 @@
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
   
+
   <!-- 编码过滤器 -->
   <filter>
   	<filter-name>characterEncoding</filter-name>

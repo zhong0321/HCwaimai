@@ -47,7 +47,7 @@ public class CarController {
 	 * @author ZX 
 	 * @date 2019-8-5上午10:38:00
 	 */
-	@RequestMapping("addUserAddress")
+	@RequestMapping("/addUserAddress")
 	@ResponseBody
 	public List<UserAddress> addUserAddress(String contactName,Integer userId,String contactAddress,String contactPhone,Integer gender){
 		UserAddress userAddress= new UserAddress();
@@ -71,7 +71,7 @@ public class CarController {
 	 * @author ZX 
 	 * @date 2019-8-5上午10:37:44
 	 */
-	@RequestMapping("showCar/{id}")
+	@RequestMapping("/showCar/{id}")
 	public String showCar(HttpServletRequest request,@PathVariable(value="id") Integer storeId,Model model){
 		User user=(User)request.getSession().getAttribute("user");
 		UserAddress userAddress=new UserAddress();
@@ -97,7 +97,7 @@ public class CarController {
 	 * @author ZX 
 	 * @date 2019-8-5上午10:36:48
 	 */
-	@RequestMapping("setDefaultAddress")
+	@RequestMapping("/setDefaultAddress")
 	@ResponseBody
 	public List<UserAddress> setDefaultAddress(Integer addressId,Integer userId){
 		UserAddress userAddress=new UserAddress();
@@ -125,6 +125,13 @@ public class CarController {
 		return list1;
 	}
 	
+	@ResponseBody
+	@RequestMapping("/deleteAddress")
+	public String deleteAddress(Integer id){
+		userAddressService.deleteUserAddress(id);
+		return "1";
+	}
+	
 	/**
 	 * 确认下单
 	 * @return 
@@ -149,11 +156,16 @@ public class CarController {
 		double totalMoney=0;
 		Integer storeId=0;
 		for (Car car : cars) {
-			totalMoney=totalMoney+car.getPrice();
+			System.out.println(car);
+			totalMoney=totalMoney+(car.getPrice()*car.getCount());
 			storeId=car.getStoreId();
 		}
 		Store store = storeService.findStoreById(storeId);
 		totalMoney=totalMoney+store.getDistributionMoney();
+		double disMoney=store.getDistributionMoney();
+		if(disMoney<5){
+			disMoney=5;
+		}
 		//添加订单
 		Order order=new Order();
 		order.setOrderAddress(orderAddress);
@@ -162,13 +174,13 @@ public class CarController {
 		order.setTotalMoney(totalMoney);
 		order.setStoreId(storeId);
 		order.setOrderRemarks(remarks);
-		order.setDisMoney(store.getDistributionMoney());
+		order.setDisMoney(disMoney);
 		orderService.addOrder(order);
 		Order order2 = orderService.findByOrderNumber(order);
 		//添加订单明细
 		OrderDetail orderDetail =new OrderDetail();
 		for (Car car : cars) {
-			orderDetail.setCost(car.getPrice());
+			orderDetail.setCost(car.getPrice()*car.getCount());
 			orderDetail.setCount(car.getCount());
 			orderDetail.setFoodId(car.getFoodId());
 			orderDetail.setOrderId(order2.getId());

@@ -9,4 +9,5 @@ public interface UserAddressMapper {
 	public void addUserAddress(UserAddress userAddress);
 	public void updateUserAddress(UserAddress userAddress);
 	public UserAddress findById(Integer addressId);
+	public void deleteUserAddress(Integer id);
 }

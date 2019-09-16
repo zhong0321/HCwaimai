@@ -47,7 +47,7 @@ li{
 }
 .right .order_content ul li .orderTitle{
     padding: 0px 20px;
-    //background-color: #FFFBF0;
+    background-color: white;
     display: flex;
     justify-content: space-between;
 }

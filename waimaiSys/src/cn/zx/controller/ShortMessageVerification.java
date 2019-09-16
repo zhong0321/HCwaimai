@@ -33,7 +33,7 @@ public class ShortMessageVerification {
 	@RequestMapping("/Obtain")
 	@ResponseBody
 	public String getOk(String random,String phoneNumber){
-		if(/*null!=random&&phoneNumber!=null&&""!=random&&phoneNumber!=""*/false){
+		if(/*null!=random && phoneNumber!=null && ""!=random && phoneNumber!=""*/false){
 			String sid = "eec6cf06def8cf261e06f4544d1422a5";
 			String token = "660744f5b331d00e61b24ff493aa8aac";
 			String appid = "fba8417543f54d058fb802f1ce3b2b89";

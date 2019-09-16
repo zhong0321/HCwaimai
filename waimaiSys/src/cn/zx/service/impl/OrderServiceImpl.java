@@ -64,5 +64,11 @@ public class OrderServiceImpl implements OrderService {
 		orderMapper.updateOrder(order);
 	}
 
+	@Override
+	public List<Order> findOrderIncomplete(Integer userId) {
+		List<Order> list = orderMapper.findOrderIncomplete(userId);
+		return list;
+	}
+
 
 }
