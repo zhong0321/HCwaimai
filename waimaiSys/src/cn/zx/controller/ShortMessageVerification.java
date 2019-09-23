@@ -1,6 +1,7 @@
 package cn.zx.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -43,7 +44,13 @@ public class ShortMessageVerification {
 			String uid = "";
 			return testSendSms(sid, token, appid, templateid, param, mobile, uid);
 		}else{
-			return "000000";
+			return "hh()";
 		}
+	}
+	@CrossOrigin(origins = "*", maxAge = 3600)
+	@RequestMapping("/test")
+	@ResponseBody
+	public String test(){
+	return "{'message':[{'id':1,'name':'奥迪','ctime':'2012-12-12'},{'id':2,'name':'奔驰','ctime':'2012-12-12'},{'id':3,'name':'宝马','ctime':'2012-12-12'},{'id':4,'name':'兰博基尼','ctime':'2012-12-12'}]}";
 	}
 }

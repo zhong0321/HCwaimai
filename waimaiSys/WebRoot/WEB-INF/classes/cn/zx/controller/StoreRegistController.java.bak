@@ -2,7 +2,10 @@ package cn.zx.controller;
 
 import java.io.File;
 import java.io.IOException;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 import java.util.List;
 import java.util.UUID;
 
@@ -27,9 +30,10 @@ import cn.zx.service.AuditService;
 import cn.zx.service.StoreAptitudeService;
 import cn.zx.service.StoreService;
 import cn.zx.service.StoreStoreTypesService;
-
+<<<<<<< HEAD
 import cn.zx.service.UserInfoService;
-
+=======
+>>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 
 @Controller
 @RequestMapping("storeRegist")
@@ -57,7 +61,6 @@ public class StoreRegistController {
         File newFile=new File(path);
         //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
         file.transferTo(newFile);
-        
         //截取出行政区
       	String district=store.getStoreAddress().substring(store.getStoreAddress().indexOf("市")+1, store.getStoreAddress().indexOf("区")+1);
       	store.setArea(district);

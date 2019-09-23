@@ -48,7 +48,11 @@ public interface StoreFoodTypesService {
 	
 	/**
 	 * 添加食品类型
+	 * @param storeId 
 	 * @param foodType
+	 * @param imgName 
+	 * @param jiage 
+	 * @param foodtypeid 
 	 */
 	int addFoodTypes(String foodType);
 	
@@ -58,4 +62,70 @@ public interface StoreFoodTypesService {
 	 * @param storeTypeId
 	 */
 	int addStoreStoretypes(int storeId,int storeTypeId);
+	
+	/**
+	 * 查看店铺内是否存在商品
+	 * @param storeId
+	 * @param foodName
+	 * @return
+	 */
+	public int findFoodName(int storeId, String foodName);
+	
+	/**
+	 * 添加商品
+	 * @param storeId
+	 * @param foodName
+	 * @param foodtypeid
+	 * @param jiage
+	 * @param imgName
+	 * @return
+	 */
+	public int addFood(int storeId, String foodName, int foodtypeid,
+			double jiage, String imgName);
+	
+	/**
+	 * 修改商品上架下架状态
+	 * @param foodid
+	 * @param storeid
+	 */
+	public int updataFoodState(int foodid, int fsid);
+	
+	/**
+	 * 删除商品
+	 * @param foodid
+	 * @return
+	 */
+	public int deleteFood(int foodid);
+	
+	/**
+	 * 根据商品id查询商品信息
+	 * @param foodid
+	 * @return
+	 */
+	public Food findFoodInfo(int foodid);
+	
+	
+	public int findFoodNames(int storeId, String foodName, int foodid);
+	/**
+	 * 修改商品信息
+	 * @param food
+	 * @return
+	 */
+	public int updataFoodInfo(Food food);
+	
+	/**
+	 * 根据商品类型删除商品
+	 * @param storeId
+	 * @param typeid
+	 * @return
+	 */
+	public int deleteFoodByType(int storeId, int typeid);
+	
+	/**
+	 * 删除商品和类型的中间表
+	 * @param storeId
+	 * @param typeid
+	 * @return
+	 */
+	public int deleteFoodType(int storeId, int typeid);
 }

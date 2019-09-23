@@ -25,9 +25,6 @@ function closeOrderDetails(e){
    	$(e).parent().next().css({"display":"none"});
 }
 
-<<<<<<< HEAD
-
-=======
 //拒单事件
 function refuseOrder(id,storeId){
 	$.ajax({
@@ -42,7 +39,6 @@ function refuseOrder(id,storeId){
 			   	}
 		   }
 	});
->>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 }
 
 

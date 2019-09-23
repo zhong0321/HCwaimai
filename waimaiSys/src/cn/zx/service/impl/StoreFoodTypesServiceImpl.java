@@ -96,4 +96,87 @@ public class StoreFoodTypesServiceImpl implements StoreFoodTypesService {
 			return 0;
 		}
 	}
+
+	@Override
+	public int findFoodName(int storeId, String foodName) {
+		return storeFoodTypesMapper.findFoodName(storeId,foodName);
+	}
+
+	@Override
+	public int addFood(int storeId, String foodName, int foodtypeid,
+			double jiage, String imgName) {
+		int num = 0;
+		try {
+			storeFoodTypesMapper.addFood(storeId,foodName,foodtypeid,jiage,imgName);
+			num=1;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			num=0;
+		}
+		return num;
+	}
+	@Override
+	public int updataFoodState(int foodid, int fsid) {
+		try {
+			Food food = new Food();
+			food.setId(foodid);
+			food.setFsid(fsid);
+			storeFoodTypesMapper.updataFoodState(food);
+			return 1;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 0;
+		}
+		
+	}
+
+	@Override
+	public int deleteFood(int foodid) {
+		try {
+			storeFoodTypesMapper.deleteFood(foodid);
+			return 1;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
+	@Override
+	public Food findFoodInfo(int foodid) {
+		Food food = storeFoodTypesMapper.findFoodInfo(foodid);
+		return food;
+	}
+
+	@Override
+	public int findFoodNames(int storeId, String foodName, int foodid) {
+		return storeFoodTypesMapper.findFoodNames(storeId, foodName, foodid);
+	}
+
+	@Override
+	public int updataFoodInfo(Food food) {
+				try {
+					storeFoodTypesMapper.updataFoodState(food);
+					return 1;
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					return 0;
+				}
+
+	}
+
+	@Override
+	public int deleteFoodByType(int storeId, int typeid) {
+		storeFoodTypesMapper.deleteFoodByType(storeId,typeid);
+		return 0;
+	}
+
+	@Override
+	public int deleteFoodType(int storeId, int typeid) {
+		storeFoodTypesMapper.deleteFoodType(storeId,typeid);
+		return 0;
+	}
 }

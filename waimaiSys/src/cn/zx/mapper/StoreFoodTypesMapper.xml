@@ -2,10 +2,92 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zx.mapper.StoreFoodTypesMapper">
-    
-     <!-- 查询所有商家 -->
-    <select id="findStoreFoodTypes" parameterType="Integer" resultType="StoreFoodTypes" >
-    	SELECT * FROM store_foodtypes sf INNER JOIN food_types ft WHERE ft.`id`=sf.`foodTypeId` AND sf.`storeId`=#{storeId}
-    </select>
-    
+
+	<sql id="updata_foodstatus">
+		<if test="food.storeId != null">
+			storeId = #{food.storeId},
+		</if>
+		<if test="food.foodTypeId != null">
+			foodTypeId = #{food.foodTypeId},
+		</if>
+		<if test="food.foodName != null and food.foodName.length()>0">
+			foodName = #{food.foodName},
+		</if>
+		<if test="food.price != null">
+			price = #{food.price},
+		</if>
+		<if test="food.foodImage != null and food.foodImage.length()>0">
+			foodImage = #{food.foodImage},
+		</if>
+		<if test="food.fsid != null">
+			fsid = #{food.fsid}
+		</if>
+	</sql>
+
+	<!-- 查询所有商家 -->
+	<select id="findStoreFoodTypes" parameterType="Integer"
+		resultType="StoreFoodTypes">
+		SELECT * FROM store_foodtypes sf INNER JOIN food_types ft WHERE
+		ft.`id`=sf.`foodTypeId` AND sf.`storeId`=#{storeId}
+	</select>
+
+	<select id="findFoodName" resultType="int">
+		SELECT count(*) FROM food WHERE storeId=#{storeId} AND foodName=#{foodName}
+	</select>
+
+	<insert id="addFood">
+		INSERT INTO waimai.food
+		(
+		storeId,
+		foodTypeId,
+		foodName,
+		price,
+		foodImage,
+		fsid,
+		salesvolume
+		)
+		VALUES
+		(
+		#{storeId},
+		#{foodTypeId},
+		#{foodName},
+		#{price},
+		#{foodImage},
+		1,
+		0
+		);
+	</insert>
+
+	<update id="updataFoodState" parameterType="Food">
+		UPDATE food
+		<trim prefix="set" suffixOverrides=",">
+			<include refid="updata_foodstatus" />
+		</trim>
+		where id=#{food.id}
+	</update>
+
+	<delete id="deleteFood" parameterType="int">
+		DELETE FROM food
+		WHERE
+		id = #{id} ;
+	</delete>
+
+	<select id="findFoodInfo" parameterType="int" resultType="Food">
+		SELECT *
+		FROM
+		food
+		WHERE id=#{foodid}
+	</select>
+
+	<select id="findFoodNames" resultType="int">
+		SELECT count(*) FROM food WHERE storeId=#{storeId} AND foodName=#{foodName}
+		and id!=#{foodid}
+	</select>
+	
+	<delete id="deleteFoodByType">
+		DELETE FROM food WHERE storeId=#{storeId} AND foodTypeId=#{foodTypeId}
+	</delete>
+	<delete id="deleteFoodType">
+	DELETE FROM store_foodtypes WHERE storeId=#{storeId} AND foodTypeId=#{foodTypeId}
+	</delete>
 </mapper>
