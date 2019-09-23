@@ -23,4 +23,15 @@ public class DeliveryManServiceImpl implements DeliveryManService {
 		deliveryManMapper.updateDmIncome(deliveryMan);		
 	}
 
+	@Override
+	public DeliveryMan dmFindPhone(String dmPhone) {
+		DeliveryMan dm = deliveryManMapper.dmFindPhone(dmPhone);
+		return dm;
+	}
+
+	@Override
+	public void dmRegist(DeliveryMan dm) {
+		deliveryManMapper.dmRegist(dm);
+	}
+
 }

@@ -50,4 +50,8 @@
 		  `gender` = #{gender}
 		WHERE `id` = #{id} ;
 	</update>
+	
+	<delete id="deleteUserAddress">
+		delete from user_address where id=#{id}
+	</delete>
 </mapper>

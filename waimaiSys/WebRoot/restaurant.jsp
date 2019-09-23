@@ -16,7 +16,8 @@ strict.dtd">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>豪吃外卖</title>
 	<link rel="stylesheet" href="${cp}static/css/page/restaurant.css">
-	<script type="text/javascript" src="static/js/jquery-1.8.2.min.js"></script>
+	<link rel="stylesheet" href="${cp}static/css/module/shopping/cart.css">
+	<script type="text/javascript" src="${cp}static/js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="${cp}static/js/lib/jquery.js"></script>
 	<style type="text/css">
 		.order-list .total{
@@ -34,18 +35,7 @@ strict.dtd">
 <body>
 	
 	<div class="wrapper">
-		<div class="csr-header">
-			<div class="header-content">
-				<div id="right">
-					<ul id="links">
-						<li data-index="0"><a href="https://waimai.meituan.com/">首页</a></li>
-						<li data-index="1"><a href="https://i.waimai.meituan.com/node/csr/joinin">商家入驻</a></li>
-						<li data-index="4"><a href="https://waimai.meituan.com/new/waimaiIndex" class="active">点外卖</a></li>
-						<li data-index="5"><a href="https://waimai.meituan.com/mobile/download/default">后台管理</a>	</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<c:import url="header.jsp"></c:import>
 	</div>
 
 	<div class="page-wrap">
@@ -105,11 +95,11 @@ strict.dtd">
 			<div class="food-list fl">
 				<div class="cate-tab-area">
 					<div class="tab-link">
-    <div class="tab-link-inner clearfix">
-      <a href="restaurant/findAll/${store.id }" class="tab-item active">菜单</a>
-      <a href="../../findStor/${store.id }" class="tab-item ">评价</a>
-        <a href="../../findanqian/${store.id }" class="tab-item  ">食品安全档案</a>
-    </div>
+					    <div class="tab-link-inner clearfix">
+					      <a href="restaurant/findAll/${store.id }" class="tab-item active">菜单</a>
+					      <a href="../../findStor/${store.id }" class="tab-item ">评价</a>
+					        <a href="../../findanqian/${store.id }" class="tab-item  ">食品安全档案</a>
+					    </div>
 					</div>
 
 					<!-- 菜品分类 -->
@@ -140,7 +130,7 @@ strict.dtd">
 							</h3>
 							<div class="pic-food-cont clearfix">
 								<c:forEach items="${food}" var="food">
-									<div class="j-pic-food pic-food" id="1336169296"  <c:if test="${food.foodTypeId!=storeFoodTypes.foodTypeId}">style="display: none"</c:if> >
+									<div class="j-pic-food pic-food" id="1336169296"  <c:if test="${food.foodTypeId!=storeFoodTypes.foodTypeId}">style="display: none;"</c:if> >
 										<div class="avatar" id="gao${food.id}" name="gao${food.id}">
 											<img src="${cp}static/images/${food.foodImage}" class="food-shape scroll-loading">
 											<div class="description"></div>
@@ -153,9 +143,10 @@ strict.dtd">
 										</div>
 
 										<div class="labels clearfix">
-											<a onclick="addFood($(this),'${food.id}','${food.foodName}','${food.storeId}','${food.price}');" class="add fr icon i-addcart j-addcart">
+											<a onclick="addFood($(this),'${food.id}','${food.foodName}','${food.storeId}','${food.price}');" class="add fr icon i-addcart j-addcart" <c:if test="${empty user}">style="display: none;"</c:if> >
 												<img src="${cp}static/files/tianjiafood.png" style="height: 24px;width: 24px;" /> 
 											</a> 
+											<a href="javascript:if(confirm('您还未登录，请先登录！'))location='${cp}gologin/1'" class="add fr icon i-addcart j-addcart" <c:if test="${!empty user}">style="display: none;"</c:if> ><img src="${cp}static/files/tianjiahui86415.png" style="height: 24px;width: 24px;" /> </a>
 											<span id="food1336169296-cart-num" class="pic-food-cart-num fr" style="display:none;">0</span>
 											<div class="price fl">
 												<div class="only">¥${food.price}</div>
@@ -445,7 +436,7 @@ strict.dtd">
 							 <div class="fl modify clearfix">    
 							     <a onclick="minus($(this))" class="fl minus">-</a>    
 							     <input type="text" class="fl txt-count" value="${car.count}" maxlength="2" onchange="txtCount($(this))">    
-							     <a onclick="plus($(this))" class="fl plus">+</a>  
+							     <a onclick="plus($(this));" class="fl plus">+</a>  
 							     
 								 <div>
 								 	<input type="hidden" class="txt-foodId" value="${car.foodId}">
@@ -479,59 +470,14 @@ strict.dtd">
 					<span class="count"></span> <span  class="price"></span>
 				</div>
 				<div class="fr">
-					<a class="ready-pay borderradius-2" href="javascript:;">差<span data-left="0" class="margintominprice">0</span>元起送</a> 
+					<%-- <a <c:if test="${!empty user}">style="display: none;"</c:if> href="${cp}gologin/1">去登录</a> --%>
+					<a <c:if test="${empty user}">style="display: none;"</c:if> class="ready-pay borderradius-2" href="javascript:;">差<span data-left="0" class="margintominprice">0</span>元起送</a> 
 					<input class="go-pay borderradius-2" type="submit" value="立即下单">
 					<input type="hidden" value="" class="order-data" name="shop_cart">
 				</div>
 			</div>
 		</form>
 	</div>
-	<div class="csr-footer-container" name="fffffffff">
-		<div class="middle-line"></div>
-		<div class="csr-footer">
-			<div class="footer-content">
-				<div class="top">
-					<div class="left">
-						<ul class="col1">
-							<li>开放平台</li>
-							<li>媒体报道</li>
-							<li>资质规则</li>
-							<li>入驻加盟</li>
-						</ul>
-						<ul class="col2">
-							<li>常见问题</li>
-							<li>用户反馈</li>
-							<li>诚信举报</li>
-							<li>加入我们</li>
-						</ul>
-					</div>
-					<div class="middle">
-						<div class="cooperation">
-							<div class="title">品牌合作</div>
-							<div class="content">wpbg.marketing@haochi.com</div>
-						</div>
-						<div class="client-service">
-							<div class="title">客服 1010-9777</div>
-							<div class="content">
-								周一至周日 9:00~23:00<br>客服不受理商务合作
-							</div>
-						</div>
-					</div>
-					<div class="right">
-						<div class="right-title">更多商家，更多优惠</div>
-						<div class="QR-code">
-							<div class="QR-code1"></div>
-							<div class="QR-code2"></div>
-						</div>
-					</div>
-				</div>
-				<div class="bottom">
-					<span class="copyright">©️ haochi.com 京ICP证070791号 </span>
-					<div class="img"></div>
-					<span class="police">京公网安备11010502025545号</span>
-				</div>
-			</div>
-		</div>
-	</div>
+	<c:import url="footer.jsp"></c:import>
 </body>
 </html>

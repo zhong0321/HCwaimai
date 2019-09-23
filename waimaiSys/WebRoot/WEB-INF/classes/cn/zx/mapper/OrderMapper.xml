@@ -81,6 +81,16 @@
 		ORDER BY o.`orderTime` DESC
 	</select>
 	
+	<!-- 查询用户未完成订单 -->
+	<select id="findOrderIncomplete" resultType="order" parameterType="order">
+		SELECT o.*,u.`userName`,s.`storeName`,s.`storeImg`,s.`storeAddress`,s.`coordinate`,s.`storePhone`,dm.`dmName` FROM `order` o 
+		INNER JOIN `user` u ON o.`userId`=u.`id`
+		INNER JOIN store s ON o.`storeId`=s.`id`
+		LEFT JOIN deliveryMan dm ON dm.`id`=o.`deliveryManId`
+		WHERE o.`userId`=#{userId} and o.`orderState` IN (1,2,3,4)
+		ORDER BY o.`orderTime` DESC
+	</select>
+	
 	<!-- 外卖员根据坐标查询待抢订单 -->
 	<select id="findOrderByStoreAddress" resultType="order" parameterType="String">
 		SELECT o.*,s.`storeName`,s.`storeAddress`,s.`coordinate` FROM `order` o

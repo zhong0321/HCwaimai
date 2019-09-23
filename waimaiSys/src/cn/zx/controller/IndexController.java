@@ -22,12 +22,26 @@ public class IndexController {
 	@Resource
 	private StoreService storeService;
 	
+	@RequestMapping("/search")
+	public String search(HttpServletRequest request,String province,String city,String address,String lnglat){
+		//将收获地址存入application
+		request.getSession().setAttribute("province", province);
+		request.getSession().setAttribute("city", city);
+		request.getSession().setAttribute("address", address);
+		request.getSession().setAttribute("lnglat", lnglat);
+		return "redirect:/index/find";
+	}
+	
 	/**
 	 * 根据收货地址查询所有商家
 	 * ZX 2019-6-29上午9:22:44
 	 */
 	@RequestMapping(value="/find")
-	public String find(Model model,HttpServletRequest request,String province,String city,String address,String lnglat){
+	public String find(Model model,HttpServletRequest request){
+		String province=(String)request.getSession().getAttribute("province");
+		String city=(String)request.getSession().getAttribute("city");
+		String address=(String)request.getSession().getAttribute("address");
+		
 		//查询商家分类
 		List<StoreTypes> storeTypes = storeTypesService.findStoreTypes();
 		request.getSession().setAttribute("storeTypes", storeTypes);
@@ -43,13 +57,7 @@ public class IndexController {
 		//List<Store> storeByAddress = storeService.findStoreByAddress(store);
 		//request.getSession().setAttribute("storeByAddress", storeByAddress);
 		
-		//将收获地址存入application
-		request.getSession().setAttribute("province", province);
-		request.getSession().setAttribute("city", city);
-		request.getSession().setAttribute("address", address);
-		request.getSession().setAttribute("lnglat", lnglat);
-		
-		return "redirect:/index.jsp";
+		return "index";
 	}
 	
 	/**

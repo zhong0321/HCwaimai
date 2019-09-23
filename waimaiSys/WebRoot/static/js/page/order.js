@@ -146,6 +146,7 @@ var map = new AMap.Map("container", {
 function addressChange(){
 	$("#panel").css("display","block");
 	var input=$("#tipinput").val();
+	
     AMap.service(["AMap.PlaceSearch"], function() {
         //构造地点查询类
         var placeSearch = new AMap.PlaceSearch({ 
@@ -256,7 +257,7 @@ function saveAddress(){
 	if(checkPhone()==true){
 		var contactName=$("#contactName").val();
 		var userId=$("#userId").val();
-		var contactAddress=$("#xiangxiAddress").val()+$("#menpaihao").val();
+		var contactAddress=$("#xiangxiAddress").val();
 		var contactPhone=$("#contactPhone").val();
 		var gender = $(".addressdialog-content .addressform .sexfield div").find("input[name='gender']:checked").val();
 		//alert("sex:"+gender);
@@ -272,8 +273,8 @@ function saveAddress(){
 							   obj[i].id+"'/> <input type='hidden' class='isDefault' value='"+obj[i].isDefault+"'/>  <input type='radio' class='addressRadio' name='address'/> <span class='user-address'>	<span>"+
 							   obj[i].contactName+"</span>	<em>"+
 							   obj[i].contactPhone+"</em> <span>"+
-							   obj[i].contactAddress+"</span></span>  <em class='default' style='color: #b6b6b4;'>默认地址</em>  <a href='javascript:void(0);' class='set-default' onclick='setDefault($(this));'>设为默认地址</a> <span class='tips' style='display: none;'>	<i class='success success-icon'><img alt='' width='14px;' height='14px;' src='waimaiSys/static/files/chenggong.png'></i>	<span class='success success-tip'>设置成功！</span></span> 	 </label> <a class='modify' href='javascript:void(0);' style='display: none;' onclick='updateAddress('"+
-							   obj[i].id+"');'>修改本地址</a></li>");
+							   obj[i].contactAddress+"</span></span>  <em class='default' style='color: #b6b6b4;'>默认地址</em>  <a href='javascript:void(0);' class='set-default' onclick='setDefault($(this));'>设为默认地址</a> <span class='tips' style='display: none;'>	<i class='success success-icon'><img alt='' width='14px;' height='14px;' src='waimaiSys/static/files/chenggong.png'></i>	<span class='success success-tip'>设置成功！</span></span> 	 </label> <a class='modify' href='javascript:void(0);' style='display: none;' onclick='deleteAddress('"+
+							   obj[i].id+"',$(this));'>删除本地址</a></li>");
 				   }
 				   $(".checkout-address-list li label").each(function(i,dom){
 						var isDefault=$(dom).children(".isDefault").val();
@@ -342,7 +343,9 @@ function labelClick(e){
 
 //确认下单
 function sureOrders(){
+	alert("dfdfdf");
 	var userAddressId=$(".checkout-address-list li label").find("input[name='userAddress']:checked").val();
+	alert(userAddressId);
 	var remarks=$(".checkout-select .checkout-info .checkout-input").val();
 	if(remarks==null || remarks==""){
 		remarks="无";
@@ -354,7 +357,21 @@ function sureOrders(){
 	}
 }
 
+//删除地址
+function deleteAddress(id,dom){
+	$.ajax({
+		   type: "POST",
+		   url: "/waimaiSys/car/deleteAddress",
+		   data: {"id":id},
+		   success: function(obj){
+			   $(dom).parent().remove();
+		   }
+	});
+}
 
-
+//后退
+function backToStore(){
+	history.back();
+}
 
 

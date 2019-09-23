@@ -62,7 +62,7 @@
 		`city` = #{city},
 		`area` = #{area},
 		`coordinate` = #{coordinate},
-		ordrenum=#{ordrenum}
+		`ordrenum`=#{ordrenum}
 		
 		WHERE `id` = #{id};
 	</update>
@@ -113,41 +113,39 @@
 		<if test="storeTypeId!=0">
 			WHERE sst.storeTypeId=#{storeTypeId}
 		</if>
-		GROUP BY st.storeName
-		<if test="sorttype==2"><!-- 排序类型 评分 -->
-			<if test="sortorder==1"><!-- 排序方式 -->
-				ORDER BY commentlv DESC
-			</if>
-			<if test="sortorder==2"><!-- 排序方式 -->
-				ORDER BY commentlv ASC
-			</if>
-		</if>
+		 GROUP BY st.storeName 
+		 <if test="sorttype==2"><!-- 排序类型  评分-->
+		 	<if test="sortorder==1"><!-- 排序方式 -->
+		 		ORDER BY commentlv DESC
+		 	</if>
+		 	<if test="sortorder==2"><!-- 排序方式 -->
+		 		ORDER BY commentlv ASC
+		 	</if>
+		 </if>
+		 <if test="sorttype==3"><!-- 排序类型 订单数量-->
+		 	<if test="sortorder==1"><!-- 排序方式 -->
+		 		ORDER BY ordrenum DESC
+		 	</if>
+		 	<if test="sortorder==2"><!-- 排序方式 -->
+		 		ORDER BY ordrenum ASC
+		 	</if>
+		 </if>
+		 <if test="sorttype==4"><!-- 排序类型 配送费-->
+		 	<if test="sortorder==1"><!-- 排序方式 -->
+		 		ORDER BY distributionMoney DESC
+		 	</if>
+		 	<if test="sortorder==2"><!-- 排序方式 -->
+		 		ORDER BY distributionMoney ASC
+		 	</if>
+		 </if>
+		 <if test="sorttype==5"><!-- 排序类型 开店时间-->
+		 	<if test="sortorder==1"><!-- 排序方式 -->
+		 		ORDER BY foundtime DESC
+		 	</if>
+		 	<if test="sortorder==2"><!-- 排序方式 -->
+		 		ORDER BY foundtime ASC
+		 	</if>
+		 </if>
+    </select> 
 
-		<if test="sorttype==3"><!-- 排序类型 订单数量 -->
-			<if test="sortorder==1"><!-- 排序方式 -->
-				ORDER BY ordrenum DESC
-			</if>
-			<if test="sortorder==2"><!-- 排序方式 -->
-				ORDER BY ordrenum ASC
-			</if>
-		</if>
-
-		<if test="sorttype==4"><!-- 排序类型 配送费 -->
-			<if test="sortorder==1"><!-- 排序方式 -->
-				ORDER BY distributionMoney DESC
-			</if>
-			<if test="sortorder==2"><!-- 排序方式 -->
-				ORDER BY distributionMoney ASC
-			</if>
-		</if>
-
-		<if test="sorttype==5"><!-- 排序类型 开店时间 -->
-			<if test="sortorder==1"><!-- 排序方式 -->
-				ORDER BY foundtime DESC
-			</if>
-			<if test="sortorder==2"><!-- 排序方式 -->
-				ORDER BY foundtime ASC
-			</if>
-		</if>
-	</select>
 </mapper>

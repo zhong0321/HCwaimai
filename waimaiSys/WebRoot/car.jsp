@@ -18,7 +18,6 @@
 <title>豪吃外卖</title>
 <link rel="stylesheet" href="${cp}static/css/module/order/main.css">
 <link rel="stylesheet" href="${cp}static/css/module/order/vendor.css">
-<link rel="stylesheet" href="${cp}static/css/page/home.css">
 <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
 
 <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
@@ -50,41 +49,10 @@
 <body style="position: relative;" class="hidesidebar">
 	<div class="ng-isolate-scope">
 		<header class="carttopbar">
-		<div id="headerDiv" class="carttopbar-nav container clearfix">
-			<span class="carttopbar-nav-path">当前位置：
-				<a class="ng-binding" href="">${address}</a> 
-				<!-- <i class="icon-arrow-right"></i> 
-				<a class="inherit ng-binding" href="">庆丰包子铺(观音寺店)</a>
-				<i class="icon-arrow-right"></i> 订单信息 -->
-			</span>
-			<div id="right">
-				<ul id="links">
-					<li data-index="0"><a href="https://waimai.meituan.com/">首页</a></li>
-					<li data-index="1"><a href="https://i.waimai.meituan.com/node/csr/joinin">商家入驻</a></li>
-					<li data-index="4"><a href="https://waimai.meituan.com/new/waimaiIndex" class="active">点外卖</a></li>
-					<li data-index="5"><a href="https://waimai.meituan.com/mobile/download/default">后台管理</a>	</li>
-				</ul>
-				<div class="topbar-profilebox">
-					<span class="topbar-profilebox-avatar icon-profile ng-hide"></span> 
-					<!-- <span class="ng-hide">
-						<a href="https://h5.ele.me/login/#redirect=https%3A%2F%2Fwww.ele.me%2Fcart%2Fcheckout">登录/注册</a>
-					</span>  -->
-					<span class="topbar-profilebox-wrapper">
-						<span class="topbar-profilebox-username ng-binding">dea41bc2aa0</span> 
-						<span class="topbar-profilebox-btn icon-arrow-down ng-scope"></span>
-						<div class="dropbox topbar-profilebox-dropbox">
-							<a class="icon-profile" href="https://www.ele.me/profile">个人中心</a> 
-							<a class="icon-star" href="https://www.ele.me/profile/favor">我的收藏</a> 
-							<a class="icon-location" href="https://www.ele.me/profile/address" >我的地址</a> 
-							<a class="icon-setting" href="https://www.ele.me/profile/security">安全设置</a>
-							<a class="icon-logout" href="javascript:">退出登录</a>
-						</div>
-					</span>
-				</div>
-			</div>
-		</div>
+			<c:import url="header.jsp"></c:import>
 		</header>
 	</div>
+	<input type="hidden" value="${carList}" id="hiddenCarList"/>
 	<div class="importantnotification container"></div>
 	<div class="sidebar ng-hide">
 		<div class="sidebar-tabs">
@@ -110,7 +78,7 @@
 				<div class="checkoutcart-container">
 					<div class="checkoutcart-title">
 						<h2>订单详情</h2>
-						<a href="">&lt;返回商家修改</a>
+						<a href="backToStore();">&lt;返回商家修改</a>
 					</div>
 					<div class="checkoutcart-tablerow tablehead">
 						<div class="cell itemname">商品</div>
@@ -179,11 +147,9 @@
 										<span class="success success-tip">设置成功！</span>
 									</span>
 								</label>
-								<a class="modify" href="javascript:void(0);" style="display: none;" onclick="updateAddress('${address.id}');">修改本地址</a>
+								<a class="modify" href="javascript:void(0);" style="display: none;" onclick="deleteAddress('${address.id}',$(this));">删除本地址</a>
 							</li>
 						</c:forEach>
-						<!-- <a class="checout-showmoreaddress ng-hide" href="javascript:">显示更多地址<i class="icon-arrow-down"></i></a>
-						<a class="checout-showmoreaddress ng-hide" href="javascript:">收起<i class="icon-arrow-up"></i></a> -->
 					</ul>
 				</div>
 				<div class="checkout-select">
@@ -216,16 +182,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div class="checkout-quicksubmit ng-scope" ng-hide="checkout.submitVisable || nofood">
-			<div class="container">
-				<span class="quick-text">应付金额 <span class="yen">¥</span><span
-					class="total ng-binding" ng-bind="cartView.vm.total">21.5</span>
-				</span>
-				<button class="btn-stress btn-lg ng-binding"
-					ng-disabled="orderButton.disabled" ng-bind="orderButton.text"
-					ng-click="orderSubmit()">确认下单</button>
-			</div>
-		</div> -->
 	</div>
 	<!-- 添加地址 -->
 	<span id="addAddressDiv" style="display: none;">
@@ -260,18 +216,18 @@
 	    			<img src="${cp}static/files/zuobiao8451285.png" width="20px;" height="20px;">
 	    			<input id="tipinput" placeholder="请输入小区、大厦或学校" oninput="addressChange();" onblur="inputBlur($(this));">
 	    			<span class="addressformfield-hint-span">(请输入小区、大厦或学校)</span>
-	    			<input id="xiangxiAddress" name="xiangxiAddress" value="" type="hidden">
+	    			<!-- <input id="xiangxiAddress" name="xiangxiAddress" value="" type="text"> -->
 	    			<div id="panel"></div>
 	    			<div class="addressformfield-hint"><span></span></div>
-	    			<div class="addressform-tip" style="display: none;">
+	    			<!-- <div class="addressform-tip" style="display: none;">
 	    				<p><span>没找到你的地址？</span><a style="display: none;">去地图看看吧！</a></p>
 	    				<p>请尝试只输入小区、大厦或学校看看。</p>
 	    				<div class="arrow"></div>
-	    			</div>
+	    			</div> -->
 	    		</div>
 	    		<div class="addressformfield">
 	    			<label>详细地址</label>
-	    			<input placeholder="单元、门牌号" id="menpaihao" name="menpaihao" onblur="inputBlur();"><span class="addressformfield-hint-span">(请输入单元、门牌号)</span>
+	    			<input id="xiangxiAddress" name="xiangxiAddress"><!-- <span class="addressformfield-hint-span">(请输入单元、门牌号)</span> -->
 	    			<div class="addressformfield-hint"><span></span></div>
 	    		</div>
 	    		<div class="addressformfield phonefield">
@@ -289,55 +245,9 @@
    </div>
    </span>
    
-<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=c3d2b1786038ce4ac5ba21d7be2ec631&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
-<script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
-	<div class="csr-footer-container">
-		<div class="middle-line"></div>
-		<div class="csr-footer">
-			<div class="footer-content">
-				<div class="top">
-					<div class="left">
-						<ul class="col1">
-							<li>开放平台</li>
-							<li>媒体报道</li>
-							<li>资质规则</li>
-							<li>入驻加盟</li>
-						</ul>
-						<ul class="col2">
-							<li>常见问题</li>
-							<li>用户反馈</li>
-							<li>诚信举报</li>
-							<li>加入我们</li>
-						</ul>
-					</div>
-					<div class="middle">
-						<div class="cooperation">
-							<div class="title">品牌合作</div>
-							<div class="content">wpbg.marketing@haochi.com</div>
-						</div>
-						<div class="client-service">
-							<div class="title">客服 1010-9777</div>
-							<div class="content">
-								周一至周日 9:00~23:00<br>客服不受理商务合作
-							</div>
-						</div>
-					</div>
-					<div class="right">
-						<div class="right-title">更多商家，更多优惠</div>
-						<div class="QR-code">
-							<div class="QR-code1"></div>
-							<div class="QR-code2"></div>
-						</div>
-					</div>
-				</div>
-				<div class="bottom">
-					<span class="copyright">©️ haochi.com 京ICP证070791号 </span>
-					<div class="img"></div>
-					<span class="police">京公网安备11010502025545号</span>
-				</div>
-			</div>
-		</div>
-	</div>
+	<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=c3d2b1786038ce4ac5ba21d7be2ec631&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
+	<script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+	<c:import url="footer.jsp"></c:import>
 
 </body>
 

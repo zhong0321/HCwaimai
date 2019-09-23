@@ -15,22 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="triffle" id="triffle">
 		</div>
 		<div class="wrapper">
-        	<div class="csr-header">
-            	<div class="header-content">
-                	<a id="left" href="https://waimai.meituan.com/">
-                	</a>
-	                <div id="right">
-	                    <ul id="links">
-	                        <li data-index="0"><a href="https://waimai.meituan.com/">首页</a></li>
-	                        <li data-index="1"><a href="https://i.waimai.meituan.com/node/csr/joinin">入驻加盟</a></li>
-	                        <li data-index="2"><a href="https://i.waimai.meituan.com/node/csr/openplatform">开放平台</a></li>
-	                        <li data-index="3"><a href="https://i.meituan.com/csrpc/index.html">社会责任</a></li>
-	                        <li data-index="4"><a href="https://waimai.meituan.com/new/waimaiIndex">点外卖</a></li>
-	                        <li data-index="5"><a href="https://waimai.meituan.com/mobile/download/default">下载手机版</a></li>
-	                    </ul>
-	                </div>
-            	</div>
-        	</div>
+        	<c:import url="header.jsp"></c:import>
       		<div class="page-wrap">
 				<div class="inner-wrap">
 					<div class="result-wrap">
@@ -78,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</div>
 									    <div class="poi-status ct-b5gray  ">
 									    	<i class="icon i-pre-order "></i>
-									    	<p class="status-pre">接受预订<span>|</span><span class="cc-lightred-new">09:40 分开始送餐</span></p>
+									    	<!-- <p class="status-pre">接受预订<span>|</span><span class="cc-lightred-new">09:40 分开始送餐</span></p> -->
 									    </div>
 	    							</div>
 	    							
@@ -86,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    							<c:forEach items="${list1 }" var="list1" varStatus="vs">
 	    								<c:if test="${list1.storeId==li.id }">
 	          							<li class="clearfix" data-poiname="${li.storeName }" data-poiid="144903552466397991" data-foodid="237145005">
-	            							<a href="restaurant/findAll/${li.id}#gao${list1.id}" class="food fl" title="29超值全素套餐（送米饭1份）">
+	            							<a href="restaurant/findAll/${li.id}#gao${list1.id}" class="food fl">
 												<p class="details fl ">
 													<span class="food-name ">
 														${list1.foodName }
@@ -99,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<span class="food-good cc-lightred-new fl">
 													<i class="icon i-zan fl"></i>
 													<span class="zan fl">
-														(0)
+														<!-- (0) -->
 													</span>
 												</span>
 												<span class="buy fl">
@@ -117,52 +102,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
       </div>
     </div>
-    <div class="csr-footer-container">
-        <div class="middle-line"></div>
-        <div class="csr-footer">
-            <div class="footer-content">
-                <div class="top">
-                    <div class="left">
-                        <ul class="col1">
-                            <li><a target="_blank" href="https://i.waimai.meituan.com/node/csr/openplatform">开放平台</a></li>
-                            <li><a target="_blank" href="https://waimai.meituan.com/story?next_step=/newhome/news/list">媒体报道</a></li>
-                            <li><a target="_blank" href="https://i.waimai.meituan.com/c/agreements/index.html">资质规则</a></li>
-                            <li><a target="_blank" href="https://i.waimai.meituan.com/node/csr/joinin">入驻加盟</a></li>
-                        </ul>
-                        <ul class="col2">
-                            <li><a target="_blank" href="https://waimai.meituan.com/help/faq">常见问题</a></li>
-                            <li><a target="_blank" href="https://waimai.meituan.com/help/feedback">用户反馈</a></li>
-                            <li><a target="_blank" href="https://waimai.meituan.com/help/inform">诚信举报</a></li>
-                            <li><a target="_blank" href="https://waimai.meituan.com/help/job">加入我们</a></li>
-                        </ul>
-                    </div>
-                    <div class="middle">
-                        <div class="cooperation">
-                            <div class="title">品牌合作</div>
-                            <div class="content">wpbg.marketing@meituan.com</div>
-                        </div>
-                        <div class="client-service">
-                            <div class="title">客服 1010-9777</div>
-                            <div class="content">周一至周日 9:00~23:00<br>客服不受理商务合作</div>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="right-title">更多商家，更多优惠</div>
-                        <div class="QR-code">
-                            <div class="QR-code1"></div>
-                            <div class="QR-code2"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <div class="qualification-img"></div>
-                    <a class="police qualification-text" href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=11000020190617181155000003571695-SAIC_SHOW_10002020190618113213545&amp;signData=MEQCIKE43iS91r/0c+M9tsrGmifFpV/Jx8E6D0K4K7qMtEobAiBEHywkTc4tGkmCy/gdbi8CxUaltTHcCRW7cMHhZz2U1A" target="_blank">北京三快在线科技有限公司</a>
-                    <span class="copyright">©️ meituan.com 京ICP证070791号 </span>
-                    <div class="img"></div>
-                    <span class="police">京公网安备11010502025545号</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <c:import url="footer.jsp"></c:import>
 </div>
 </body></html>

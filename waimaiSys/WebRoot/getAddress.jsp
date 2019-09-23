@@ -27,7 +27,7 @@
 <body>
 	<div id="myPageTop"class="myPageTop">
 		<h1>地址:</h1>
-		<form id="searchForm" action="index/find" method="post">
+		<form id="searchForm" action="index/search" method="post">
 			<table>
 				<tr>
 					<td>

@@ -1,7 +1,7 @@
 /**
- * 璁㈠崟涓績浜や簰鐨勪紭鍖栦箣鍚庣殑椤甸潰鏍峰紡琛� *
+ * 鐠併垹宕熸稉顓炵妇娴溿倓绨伴惃鍕喘閸栨牔绠ｉ崥搴ｆ畱妞ょ敻娼伴弽宄扮础鐞涳拷 *
  * @author xukai@meituan.com
- * @date 2014-05-26 鏄熸湡涓� */
+ * @date 2014-05-26 閺勭喐婀℃稉锟�*/
 
 @import url("../../module/paytags.css");
 @import url("../../module/dialog/customerService.css");
@@ -737,7 +737,7 @@
 
 .order-v .procedure {
   padding:16px 20px 86px 37px;
-  /* TODO 鍏跺疄鎴戜篃涓嶇煡閬撲负浠�箞娓呴櫎娴姩鐨勮繖涓湴鏂逛細鍑烘潵涓珮搴�*/
+  /* TODO 閸忚泛鐤勯幋鎴滅瘍娑撳秶鐓￠柆鎾茶礋娴狅拷绠炲〒鍛存珟濞搭喖濮╅惃鍕箹娑擃亜婀撮弬閫涚窗閸戠儤娼垫稉顏堢彯鎼达拷*/
   overflow: hidden;
   *zoom: 1;
 }
@@ -1120,7 +1120,7 @@ a.s-btn-white span.s-btn-white{
   text-align: center;
 }
 
-/* 閫氱敤鐨勫彇娑堝脊妗�*/
+/* 闁氨鏁ら惃鍕絿濞戝牆鑴婂锟�/
 .cancel-nomal-dialog .cancel-title {
   font-size: 16px;
   text-align: center;
@@ -1192,7 +1192,7 @@ a.s-btn-white span.s-btn-white{
   text-align: center;
 }
 
-/* cancel-order-dialog2杩欑鍙栨秷璁㈠崟鐨勫脊妗嗘牱寮忓拰鍌崟寮规绫讳技锛屽叾瀹冨彇娑堣鍗曞脊妗嗚繕娌＄粺涓�*/
+/* cancel-order-dialog2鏉╂瑧顬岄崣鏍ㄧХ鐠併垹宕熼惃鍕剨濡楀棙鐗卞蹇撴嫲閸岊剙宕熷瑙勵攱缁鎶�敍灞藉従鐎瑰啫褰囧☉鍫ｎ吂閸楁洖鑴婂鍡氱箷濞岋紕绮烘稉锟�/
 .cancel-order-dialog2 .cancel-tip,
 .dialog-orderhurry .content-title {
   font-size: 16px;
@@ -1279,3 +1279,4 @@ a.s-btn-white span.s-btn-white{
 .order-header .oh-operate{
     margin-left: 20px;
 }
+

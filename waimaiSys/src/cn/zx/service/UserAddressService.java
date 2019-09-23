@@ -35,4 +35,12 @@ public interface UserAddressService {
 	 * @date 2019-7-16上午9:15:56
 	 */
 	public UserAddress findById(Integer addressId);
+	/**
+	 * 删除地址
+	 * @param id 
+	 * void  
+	 * @author ZX 
+	 * @date 2019-9-3下午2:34:01
+	 */
+	public void deleteUserAddress(Integer id);
 }

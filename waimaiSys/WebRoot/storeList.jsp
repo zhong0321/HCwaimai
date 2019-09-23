@@ -18,6 +18,7 @@ strict.dtd">
 	    <source src="${cp}static/mp3/newOrder.mp3" type="audio/mpeg" />
 	</audio>
     <script type="text/javascript">
+    var storeId=${store.id};
     
     var websocket = null;
     if('WebSocket' in window) {
@@ -34,11 +35,13 @@ strict.dtd">
         console.log('连接关闭');
     }
 
-    websocket.onmessage = function (event) {
-        console.log('收到消息:' + event.data);
+    websocket.onmessage = function (event) {//event为storeId
+        if(storeId==event){
 	        document.getElementById('notice').play();
-     		alert(event.data);
+     		alert("您有新订单了！");
      		location.reload();
+        
+        }
         	/* $(function(){
            		ShowDiv_1('MyDiv1','fade1','您有新订单了！');
            		$("#queding").click(function(){

@@ -79,7 +79,7 @@ public class ReturnUrlController {
 			orderService.updateOrderState(order);//修改订单状态为已付款
 			request.getSession().setAttribute("orderID", o.getId());
 			
-			socket.onMessage("有新订单", null);
+			socket.onMessage((o.getStoreId()+""), null);
 			
 			return "redirect:order/showOrder";
 		} else {

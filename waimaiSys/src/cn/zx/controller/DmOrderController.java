@@ -1,6 +1,10 @@
 package cn.zx.controller;
 
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cn.zx.entity.DeliveryMan;
 import cn.zx.entity.Order;
 import cn.zx.entity.OrderDetail;
+import cn.zx.service.CommentService;
 import cn.zx.service.DeliveryManService;
 import cn.zx.service.OrderDetailService;
 import cn.zx.service.OrderService;
@@ -27,7 +32,8 @@ public class DmOrderController {
 	private OrderService orderService;
 	@Resource
 	private OrderDetailService orderDetailService;
-	
+	@Resource
+	private CommentService commentService;
 	/**
 	 * 查询待抢订单
 	 * @param request
@@ -126,6 +132,15 @@ public class DmOrderController {
 			dm.setIncome(dm.getIncome()+disMoney);
 			deliveryManService.updateDmIncome(dm);
 		}
+		
+		//订单完成后24小时若未评价，执行自动评价
+		/**使用Executors工具快速构建对象*/
+        ScheduledExecutorService scheduledExecutorService =
+                Executors.newScheduledThreadPool(1);
+        System.out.println("3秒后开始执行计划线程池服务..." + new Date());
+        scheduledExecutorService.schedule(new MyThreadController(id,orderService,commentService), 3, TimeUnit.SECONDS);
+		
+		
 		return "1";
 	}
 	
@@ -148,5 +163,18 @@ public class DmOrderController {
 		return "dmOrderDetail";
 	}
 	
-	
+	/**
+	 * 注销
+	 * @param request
+	 * @return 
+	 * String  
+	 * @author ZX 
+	 * @date 2019-9-12上午10:08:21
+	 */
+	@ResponseBody
+	@RequestMapping("/zhuxiao")
+	public String zhuxiao(HttpServletRequest request){
+		request.getSession().removeAttribute("deliveryMan");
+		return "";
+	}
 }

@@ -8,6 +8,11 @@
     	SELECT * FROM `deliveryman` WHERE dmPhone=#{dmPhone} AND dmPassword=#{dmPassword}
     </select>
     
+    <!-- 账号密码登录 -->
+    <select id="dmFindPhone" parameterType="String" resultType="DeliveryMan" >
+    	SELECT * FROM `deliveryman` WHERE dmPhone=#{dmPhone}
+    </select>
+    
     <!-- 修改账户收益 -->
     <update id="updateDmIncome" parameterType="DeliveryMan">
 	    UPDATE 
@@ -17,4 +22,19 @@
 		WHERE `id` = #{id} ;
     </update>
     
+    <insert id="dmRegist" parameterType="DeliveryMan">
+    	INSERT INTO `waimai`.`deliveryman` (
+		  `dmName`,
+		  `dmPhone`,
+		  `dmPassword`,
+		  `commonlyAddress`
+		) 
+		VALUES
+		  (
+		    #{dmName},
+		    #{dmPhone},
+		    #{dmPassword},
+		    #{commonlyAddress}
+		  ) ;
+    </insert>
 </mapper>

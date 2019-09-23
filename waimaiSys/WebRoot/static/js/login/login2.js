@@ -157,7 +157,11 @@ $(function(){
 									}else{
 										location.href="../admins";
 									}
-								} else if(data== '0') {
+								}else if(data == '9'){//订餐地址已存入session，直接进入点餐页面
+									if(logintype==1){
+										location.href="../index/find";
+									}
+								}else if(data== '0') {
 									if(logintype==1){
 										$(".log-btn").off('click').addClass("off");
 										$('.pass-err').removeClass('hide').find('em').text("账号或密码错误！");

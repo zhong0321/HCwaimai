@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="../static/css/login/reg.css" type="text/css"></link>
 	<script type="text/javascript" src="../static/js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript">
-		Document().getElementById("num").value="";
+		document().getElementById("num").value="";
 		Document().getElementById("pass").value="";
 		Document().getElementById("num2").value="";
 		Document().getElementById("veri-code").value="";

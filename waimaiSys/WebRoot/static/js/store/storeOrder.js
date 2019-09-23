@@ -31,6 +31,7 @@ function refuseOrder(id,storeId){
 		   type: "POST",
 		   url: "../../storeOrder/findRefuseOrderNum",
 		   data: {"id":id,"storeId":storeId},
+		   async:false,
 		   success: function(obj){
 			   	if(obj==null){
 			   		alert("对不起，每日只有5次拒单机会，您的次数已达上限");
