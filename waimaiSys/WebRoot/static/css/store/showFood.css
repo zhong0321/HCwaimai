@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 		.zhe{
 			width:100%; 
 			height: 100%;
@@ -70,9 +69,6 @@ li{
 a{
 	color: black;
 }
-=======
-
->>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 .right .foodStateType{
     height: 70px;
     line-height: 70px;
@@ -87,7 +83,6 @@ a{
     color: #464759;
     border-bottom: #464759 1px solid;
 }
-<<<<<<< HEAD
 
 .selecttop{
 	 border-bottom: #464759 1px solid;
@@ -96,8 +91,6 @@ a{
 	  border-left: solid 4px #464759;
 }
 
-=======
->>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 .right .foodStateType{
     display: flex;
     justify-content: space-between;
@@ -117,12 +110,8 @@ a{
 
 }
 .right .bottomAllFood .rightFoodInfo{
-<<<<<<< HEAD
     width: 76%;
     float: left;
-=======
-   
->>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 }
 
 .right .bottomAllFood .leftFoodType div{
@@ -165,10 +154,7 @@ a{
     display: flex;
     align-content: center;
     border-bottom: solid 1px gainsboro;
-<<<<<<< HEAD
     width: 100%;
-=======
->>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 }
 .right .bottomAllFood .rightFoodInfo ul li div{
     display: inline-block;
@@ -190,33 +176,24 @@ a{
     background: white;
     border: solid 1px #ff9c00;
     color: #ff9c00;
-<<<<<<< HEAD
-=======
-
->>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 }
 .right .rightFoodInfo_center span .foodPrice{
     width: 50px;
     height: 20px;
 }
 .right .rightFoodInfo_last div{
-<<<<<<< HEAD
     display: block;
     position: relative;
     left: 350px;
     
 }
-.right .rightFoodInfo_last .xiajia,.shangjia{
-=======
-
->>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
+.right .rightFoodInfo_last .xiajia{
     width: 130px;
     height: 35px;
     background: white;
     border: solid 1px grey;
     display: block;
 }
-<<<<<<< HEAD
 
 .right .rightFoodInfo_last .xiajia:hover
 {
@@ -230,8 +207,6 @@ a{
 }
 
 
-=======
->>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 .right .rightFoodInfo_last .caozuo{
     display: block;
     margin: 15px 0px 0px 10px;

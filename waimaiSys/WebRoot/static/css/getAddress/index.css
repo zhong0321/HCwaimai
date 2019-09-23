@@ -6,32 +6,28 @@
     }
     body{
         min-height: 100vh;
-<<<<<<< HEAD
-        /* background-color:rgba(250,240,230,0.9); */
-		/* background: url("/waimaiSys/static/files/waimaiBackground_500950652.jpg");
-		background-size: cover; */
+        background-color:rgba(250,240,230,0.9);
+		background: url("/waimaiSys/static/files/waimaiBackground_500950652.jpg");
+		background-size: cover;
 		
     }
-    body::before{
+    /* body::before{
     	content:"";
     	background: url("/waimaiSys/static/files/waimaiBackground_500950652.jpg");
 		background-size: cover;
-        /*-webkit-filter: opacity(50%);  
-        filter: opacity(50%); */
+        -webkit-filter: opacity(50%);  
+        filter: opacity(50%);
         opacity:0.5;//透明度设置
         z-index:-1;
         position:absolute;
         //一定要设置position:absolute,这样才能设置z-index，让背景处于内容的下一层
         top:0px;
         left:0px;
-    }
+    } */
     
     .myPageTop{
         width: 720px;
         border: 1px solid black;
-=======
-        
->>>>>>> 809ad917c907406bd233b3dbbc7d0d195833928d 
         padding: 20px 20px;
         border-radius: 10px;
         position: absolute;
@@ -44,11 +40,7 @@
         display: inline-block;
         width: 140px;
         height: 40px;
-<<<<<<< HEAD
         border: black 1px solid;
-=======
-        
->>>>>>> 809ad917c907406bd233b3dbbc7d0d195833928d
         background: #ffe5d5;
         border-radius: 5px;
         font-size: 17px;
@@ -64,11 +56,7 @@
     .button{
         height: 40px;
         background:#ffe5d5 ;
-<<<<<<< HEAD
         border: 1px solid black;
-=======
-        
->>>>>>> 809ad917c907406bd233b3dbbc7d0d195833928d
         border-radius: 5px;
         padding: 0 10px;
         font-size:16px;

@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -93,10 +94,24 @@ public class StoreRegistController {
 		audit.setStoreId(storeAptitude.getStoreId());
 		audit.setAuditState(1);
 		auditService.updateAudit(audit);
-		return "storeRegist3";
+		return "redirect:/storeRegist/auditResult";
 	}
 	
-	
+	/**
+	 * 查询审核结果
+	 * @return 
+	 * String  
+	 * @author ZX 
+	 * @date 2019-9-17上午11:08:07
+	 */
+	@RequestMapping("/auditResult")
+	public String auditResult(HttpServletRequest request,Model model){
+		Store store = (Store)request.getSession().getAttribute("store");
+		Store sto = infoService.findStorePhone(store.getStorePhone());
+		
+		model.addAttribute("sto", sto);
+		return "storeRegist3";
+	}
 	
 	
 	@RequestMapping("/gao")

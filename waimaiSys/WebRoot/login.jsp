@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="wrap">
     <div class="wpn">
         <div class="form-data pos">
-            <span style='width:100px;display: block; font-size: 20px;margin: 20px auto'>${title}</span>
+            <span style='width:150px;display: block; font-size: 20px;margin: 20px auto'>${title}</span>
            <c:if test="${code!=3}">
 	           <div class="change-login">
 	               <p class="account_number on">账号登录</p><p class="message">短信登录</p>

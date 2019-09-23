@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             background: #f2f1f6;
             background: url("static/files/waimaiBackground_500950652.jpg") no-repeat;
             background-size: 100% auto;
-
+			overflow: hidden;
         }
         .regist{
             background: white;
@@ -25,7 +25,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             padding: 1.2rem;
             margin: 2rem auto;
             font-size: 1rem;
-
         }
         input{
             border: 0;
@@ -46,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             width: 20rem;
             height: 3rem;
             border-radius: 80px 80px;
-            margin: 1rem 1rem 0rem 0rem;
+            margin: 2rem 1rem 0rem 0rem;
         }
         .checkNum input{
             
@@ -63,6 +62,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             margin-bottom: 1rem;
             display: flex;
             justify-content: space-between;
+        }
+        .goLoginP{
+        	text-align: center;
+        	color: gray;
+        	font-size: 14px;
+        }
+        .goLoginP a {
+        	/* color: gray; */
+        }
+        .goLoginP a:hover{
+        	color: #e04b38;
         }
         .amap_lib_placeSearch_poi,.poi-img,.poi-title .poi-more,.poi-info .poi-tel,.amap_lib_placeSearch_page{
         	display: none;
@@ -82,12 +92,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		right:100px;
     		margin: 12px 300px 0px 0px;
 		}
+		
+		
     </style>
 	<script type="text/javascript" src="${cp}static/js/lib/jquery.js"></script>
 	<script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
 	<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=c3d2b1786038ce4ac5ba21d7be2ec631&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
 	<script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
 	<script type="text/javascript">
+	
 	//地图加载
 	var map = new AMap.Map("container", {
 	    resizeEnable: true
@@ -149,8 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 	var reg = /^[1][3,4,5,7,8][0-9]{9}$/;
 	 	var state;
 	    if (!reg.test(dmPhone)) {
-	    	alert("手机号格式有误！");
-	    	/* $(dmPhone).next().html("手机号格式有误！"); */
+	    	ShowDiv('MyDiv1','fade1','手机号格式有误！');
 	      	return false;
 	    } else {
 	    	$.ajax({
@@ -162,10 +174,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				   		state=obj;
 				   }
 			});
+			alert(state);
 			if(state==0){
 					return true;
-			}else{
-					alert("手机号已注册！");
+			}else if(state==1){
+					ShowDiv('MyDiv1','fade1','该手机号已被注册！');
 					return false;
 			}
 	    }
@@ -181,10 +194,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 	var dmPassword=$("#dmPassword").val();
 	 	var commonlyAddress=$("#commonlyAddress").val();
 	 	if(dmName==null || dmName=="" ||yanzhengma==null || yanzhengma=="" ||dmPassword==null || dmPassword=="" ||commonlyAddress==null || commonlyAddress==""){
-	 		alert("请完整填写信息");
+	 		ShowDiv('MyDiv1','fade1','请完整填写信息！');
 	 		return false;
 	 	}else if(!reg.test(dmPassword)){
-	 		alert("密码必须是8-20位的数字或字母！");
+	 		ShowDiv('MyDiv1','fade1','密码必须是8-20位的数字或字母！');
+	 		return false;
 	 	}else{
 	 		return true;
 	 	}
@@ -216,7 +230,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		 	var commonlyAddress=$("#xiangxi").val();
 		 	var maTrue=$("#maTrue").val();
 		 	if(maTrue!=yanzhengma){
-	 			alert("验证码输入错误！");
+	 			ShowDiv('MyDiv1','fade1','验证码输入错误！');
 	 		}else{
 		 		$.ajax({
 					type: "POST",
@@ -232,11 +246,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 	
 	 }
 	 
+	 //通用单选弹框
+		function ShowDiv(show_div,bg_div,str){
+			document.getElementById(show_div).style.display='block';
+			document.getElementById(bg_div).style.display='block' ;
+			document.getElementById("fm1").innerHTML = str;
+			var bgdiv = document.getElementById(bg_div);
+			bgdiv.style.width = document.body.scrollWidth;
+			$("#"+bg_div).height($(document).height());
+		};
+	 
+	 
 	
 	</script>
 </head>
 <body>
-    <div class="regist">
+    <div class="regist" style="height: 600px;">
         <header class="title">
             <span><img src="${cp}static/files/back357841524684.png" width="20px" height="20px" onclick="location.href='dmLogin.jsp'"/></span>
             <span>注册</span>
@@ -253,7 +278,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div class="checkNum">
         <img src="${cp}static/files/xiaohongdiantishi51545.png" width="15px" height="15px"/>
-             <input id="yanzhengma" name="yanzhengma" type="text" placeholder="验证码" autocomplete="new-password"/><button style="margin-left: 30px;" type="button" class="checkNumBtn" onclick="sendYanZhengMa();">获取验证码</button>
+             <input id="yanzhengma" name="yanzhengma" type="text" placeholder="验证码" autocomplete="new-password"/><button style="margin-left: 25px;" type="button" class="checkNumBtn" onclick="sendYanZhengMa();">获取验证码</button>
             <input type="hidden" id="maTrue" autocomplete="new-password" />
         </div>
         <div class="password">
@@ -265,10 +290,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <img src="${cp}static/files/xiaohongdiantishi51545.png" width="15px" height="15px"/>
            	 <input type="text" id="commonlyAddress" style="width: 90%;" oninput="addressChange();" placeholder="意向工作地点"/>
            	 <input type="hidden" id="xiangxi" name="commonlyAddress" />
-          	<div id="panel"></div>
         </div>
         <button class="registBtn" type="button" onclick="registEvent();">注册</button>
+        <p class="goLoginP">已有账号，马上<a href="${cp}dmLogin.jsp">登录</a> </p>
         </form>
     </div>
+    <%@include file="tyAlert.jsp" %>
+    
+    
 </body>
 </html>

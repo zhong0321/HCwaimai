@@ -19,14 +19,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             display: flex;
         }
         .storeInfo .shenheInfo div{
-            margin: 0px 10px;
+            margin: 10px 10px;
         }
         .button{
         	display:block;
-        	width: 200px;
-        	height: 20px;
-        	margin: 0 auto;
-        	background: red;
+        	width: 150px;
+        	height: 40px;
+        	margin: 10px auto;
+        	
         	opacity:0.5;
         }
     </style>
@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <header>
         <div class="logoDiv">dfd</div>
         <div class="username">
-            用户名
+            ${store.storePhone}
         </div>
     </header>
     <div class="bottom">
@@ -54,6 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </div>
                     <div>
                         <p id="tsss" style="font-size: 20px;color: dimgray;"></p>
+                        <p id="shenheResend" style="font-size: 14px;color: red;" <c:if test="${store.audit.auditComment ==null}">style="display: none;"</c:if> >审核意见：${store.audit.auditComment }</p>
                         <form action="deleteStoreinfo" method="post">
                         	<input type="hidden" name="storeId" value="${store.id }">
                         	<input type="hidden" name="registState" value="0">

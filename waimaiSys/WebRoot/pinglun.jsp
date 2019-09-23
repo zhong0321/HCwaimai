@@ -3,38 +3,20 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%><!DOCTYPE html>
+%>
+<c:set var="cp" value="<%=basePath%>" />
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>美团外卖_外卖网_网上订餐网_美团网</title>  
+    <title>豪吃外卖</title>  
      	<link rel="stylesheet" href="../static/css/page/comment.css" type="text/css"></link>
 <script type="text/javascript" src="../static/js/jquery-1.11.2.min.js"></script></head>
 	<body style="">
 	  <div class="triffle" id="triffle">
 	  </div>
 	  <div class="wrapper">
-        <div class="csr-header">
-            <div class="header-content">
-                <a id="left" href="https://waimai.meituan.com/">
-                    <div class="logo-pic"></div>
-                    <div class="waimai">
-                        <div class="waimai-title"></div>
-                        <div class="waimai-slogan"></div>
-                    </div>
-                </a>
-                <div id="right">
-                    <ul id="links">
-                        <li data-index="0"><a href="https://waimai.meituan.com/">首页</a></li>
-                        <li data-index="1"><a href="https://i.waimai.meituan.com/node/csr/joinin">入驻加盟</a></li>
-                        <li data-index="2"><a href="https://i.waimai.meituan.com/node/csr/openplatform">开放平台</a></li>
-                        <li data-index="3"><a href="https://i.meituan.com/csrpc/index.html">社会责任</a></li>
-                        <li data-index="4"><a href="https://waimai.meituan.com/new/waimaiIndex">点外卖</a></li>
-                        <li data-index="5"><a href="https://waimai.meituan.com/mobile/download/default">下载手机版</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <c:import url="header.jsp"></c:import>
       <div class="page-wrap">
 <div class="inner-wrap">
 <div class="rest-info">
@@ -57,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="details">
     <div class="up-wrap clearfix">
       <div class="avatar fl">
-        <img class="scroll-loading" src="../static/images/${store_comment.storeImg}" data-src="https://p1.meituan.net/120.0/waimaipoi/9f995ce46e7f2a12533cd7a89073f77b9585.jpg" data-max-width="106" data-max-height="80" style="width: 106px; height: 79.5px;">
+        <img class="scroll-loading" src="${cp }static/images/${store_comment.storeImg}"  data-max-width="106" data-max-height="80" style="width: 106px; height: 79.5px;">
       </div>
       <input type="hidden" id="store_comment" value="${store_comment.id }">
       <input type="hidden" value="${all }" id="getPageNum">
@@ -70,14 +52,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </a>
         </div>
         <div class="stars clearfix" style="margin-top:14px;">
-            <span class="star-ranking fl">
-                    <span class="star-score" style="width: 70px"></span>
-              </span>
-            <span class="fl mark ct-middlegrey">${store_comment.commentlv }</span> <br>
-        </div>
+			${store_comment.storeAddress} <br>
+		</div>
       </div>
     </div>
-    <div class="rest-info-down-wrap" style="">
+    <%-- <div class="rest-info-down-wrap" style="">
       <div class="clearfix sale-time">
         <p class="poi-detail-left"><svg class="icon-Combined-Shape"><use xlink:href="#icon-Combined-Shape"></use></svg><span>营业时间</span></p>
         <p class="poi-detail-right"><span class="info-detail">09:00-19:30</span></p>
@@ -86,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <p class="poi-detail-left"><svg class="icon-Shape-Copy"><use xlink:href="#icon-Shape-Copy"></use></svg><span class="poi-address-title">商家地址</span></p>
         <p class="poi-detail-right">${store_comment.storeAddress }</p>
         </div>
-    </div>
+    </div> --%>
   </div>
   <div class="save-up-wrapper">
     <a href="javascript:;" class="save-up j-save-up favorite" data-poiid="144895314720927658">
@@ -100,9 +79,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="comments fl" id="comments" data-pid="144895314720927658">
   <div class="tab-link">
     <div class="tab-link-inner clearfix">
-      <a href="../restaurant/findAll/${store_comment.id }" class="tab-item ">菜单</a>
-      <a href="findStor/${store_comment.id }" class="tab-item active">评价</a>
-        <a href="../findanqian/${store_comment.id }" class="tab-item  ">食品安全档案</a>
+      <a href="${cp}restaurant/findAll/${store_comment.id }" class="tab-item ">菜单</a>
+      <a href="${cp}findStor/${store_comment.id }" class="tab-item active">评价</a>
+        <%-- <a href="${cp}findanqian/${store_comment.id }" class="tab-item  ">食品安全档案</a> --%>
     </div>
   </div>
   <div class="title clearfix">
@@ -177,55 +156,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="clear"></div>
       </div>
     </div>
-    <div class="csr-footer-container">
-        <div class="middle-line"></div>
-        <div class="csr-footer">
-            <div class="footer-content">
-                <div class="top">
-                    <div class="left">
-                        <ul class="col1">
-                            <li><a target="_blank" href="https://i.waimai.meituan.com/node/csr/openplatform">开放平台</a></li>
-                            <li><a target="_blank" href="https://waimai.meituan.com/story?next_step=/newhome/news/list">媒体报道</a></li>
-                            <li><a target="_blank" href="https://i.waimai.meituan.com/c/agreements/index.html">资质规则</a></li>
-                            <li><a target="_blank" href="https://i.waimai.meituan.com/node/csr/joinin">入驻加盟</a></li>
-                        </ul>
-                        <ul class="col2">
-                            <li><a target="_blank" href="https://waimai.meituan.com/help/faq">常见问题</a></li>
-                            <li><a target="_blank" href="https://waimai.meituan.com/help/feedback">用户反馈</a></li>
-                            <li><a target="_blank" href="https://waimai.meituan.com/help/inform">诚信举报</a></li>
-                            <li><a target="_blank" href="https://waimai.meituan.com/help/job">加入我们</a></li>
-                        </ul>
-                    </div>
-                    <div class="middle">
-                        <div class="cooperation">
-                            <div class="title">品牌合作</div>
-                            <div class="content">wpbg.marketing@meituan.com</div>
-                        </div>
-                        <div class="client-service">
-                            <div class="title">客服 1010-9777</div>
-                            <div class="content">周一至周日 9:00~23:00<br>客服不受理商务合作</div>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="right-title">更多商家，更多优惠</div>
-                        <div class="QR-code">
-                            <div class="QR-code1"></div>
-                            <div class="QR-code2"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <div class="qualification-img"></div>
-                    <a class="police qualification-text" href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=11000020190617181155000003571695-SAIC_SHOW_10002020190618113213545&amp;signData=MEQCIKE43iS91r/0c+M9tsrGmifFpV/Jx8E6D0K4K7qMtEobAiBEHywkTc4tGkmCy/gdbi8CxUaltTHcCRW7cMHhZz2U1A" target="_blank">北京三快在线科技有限公司</a>
-                    <span class="copyright">©️ meituan.com 京ICP证070791号 </span>
-                    <div class="img"></div>
-                    <span class="police">京公网安备11010502025545号</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <c:import url="footer.jsp"></c:import>
 </div>
-<script type="text/javascript" src="../static/js/pinlun/pinlun.js"></script>
+<script type="text/javascript" src="${cp }static/js/pinlun/pinlun.js"></script>
 </body>
 
 </html>

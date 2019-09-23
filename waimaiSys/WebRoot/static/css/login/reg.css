@@ -1,13 +1,15 @@
 /****************************************************************
  *																*		
- * 						      浠ｇ爜搴�						*
+ * 						      娴狅絿鐖滄惔锟�					*
  *                        www.dmaku.com							*
- *       		  鍔姏鍒涘缓瀹屽杽銆佹寔缁洿鏂版彃浠朵互鍙婃ā鏉�		*
+ *       		  閸旑亜濮忛崚娑樼紦鐎瑰苯鏉介妴浣瑰瘮缂侇厽娲块弬鐗堝絻娴犳湹浜掗崣濠兡侀弶锟�	*
  * 																*
 ****************************************************************/
 @charset "utf-8";
 body{
-    background-color: #fff0e8;
+    background-color:rgba(250,240,230,0.9);
+		background: url("/waimaiSys/static/files/waimaiBackground_500950652.jpg");
+		background-size: cover;
 }
 .wrap{
     box-sizing: border-box;
@@ -88,7 +90,7 @@ body{
     z-index: 10;
 }
 .form-data .send:hover{
-    color: #fff0e8;
+    color: #d98244;
 }
 .form-data .time{
     color: #969696;
@@ -150,10 +152,10 @@ input[type=number]::-webkit-outer-spin-button {
     color: #9e9e9e;
 }
 .reg_checkboxline a:hover{
-    color: #fff0e8;
+    color: #e1884a;
 }
 .reg_checkboxline i.boxcol {
-    background: #fff0e8;
+    background: #d7844d;
     color: #fff;
 }
 .icon-ok-sign {
@@ -182,7 +184,7 @@ input[type=number]::-webkit-outer-spin-button {
     display: block;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #fff0e8;
+    background-color: #f0ac74;
 }
 .form-data .lang-btn.off{
     color: #a0a0a0;
@@ -197,7 +199,7 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
 }
 .bottom-info a{
-    color: #fff0e8;
+    color: #d7844d;
 }
 .form-data .error{
     color: #ea5d5f;
@@ -215,7 +217,7 @@ input[type=number]::-webkit-outer-spin-button {
     color: #8d8d8d;
 }
 .form-data .r-forget a:hover{
-    color: #fff0e8;
+    color: #d7844d;
 }
 .form-data .third-party{
     width: 400px;
@@ -230,7 +232,7 @@ input[type=number]::-webkit-outer-spin-button {
     vertical-align: middle;
 }
 .form-data .third-party .icon-qq-round:hover{
-    color: #fff0e8;
+    color: #d7844d;
 }
 .form-data .third-party .icon-weixin:hover{
     color: #0fccbc;
@@ -277,7 +279,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .find_password h4{
     font-size: 18px;
-    color: #fff0e8;
+    color: #d7844d;
     text-align: center;
     width: 400px;
     margin: 0 auto;
@@ -290,7 +292,7 @@ input[type=number]::-webkit-outer-spin-button {
     color: #cacaca;
 }
 .find_password .right_now a{
-    color: #fff0e8;
+    color: #d7844d;
 }
 .find_password .pc-very,.find_password .pc-code{
     display: none;
@@ -339,7 +341,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0 auto;
 }
 .find_password .again a{
-    color: #fff0e8;
+    color: #d7844d;
 }
 .wrap .right{
     position: absolute;

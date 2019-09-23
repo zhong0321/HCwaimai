@@ -29,7 +29,7 @@ public interface AdminService {
 	
 
 	/**
-	 * 修改商家审核状态
+	 * 修改商家状态（是否通过）
 	 * @param id
 	 * @param registState
 	 */
@@ -49,5 +49,7 @@ public interface AdminService {
 	 * @return
 	 */
 	public List<StoreTypes> findStoreType(int id);
+	
+	
 	
 }

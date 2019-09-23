@@ -136,6 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <span class="star-score" style="width: 66px"></span>
 		                  </span>
 		                  <span class="score-num fl">4.5分</span> 
+		                  <span class="start-price mtsi-num">销量:</span>
 		                  <input type="hidden" class="point" value="${store.coordinate}"/>
 		                  <input type="hidden" class="getDis"/>
 		                </div>

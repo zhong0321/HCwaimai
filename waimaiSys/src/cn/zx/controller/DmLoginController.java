@@ -28,6 +28,7 @@ public class DmLoginController {
 	@ResponseBody
 	@RequestMapping("/loginByPassword")
 	public String loginByPassword(DeliveryMan deliveryMan,HttpServletRequest request){
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+deliveryMan.getDmPhone()+"\t"+deliveryMan.getDmPassword());
 		DeliveryMan dm = deliveryManService.dmLoginByPass(deliveryMan);
 		if(dm!=null){
 			request.getSession().setAttribute("deliveryMan", dm);

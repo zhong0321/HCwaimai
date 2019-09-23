@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="initial-scale=1.0, user-scalable=no, width=device-width">
-<title>输入提示后查询</title>
+<title>豪吃外卖</title>
 <!-- <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css" /> -->
 <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=c3d2b1786038ce4ac5ba21d7be2ec631&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
 <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>

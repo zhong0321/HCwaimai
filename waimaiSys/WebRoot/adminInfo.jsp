@@ -109,8 +109,8 @@
 					<textarea rows="5" cols="20" id="text" style="width: 100%"></textarea>
 				</div>
 	            <div class="modal-footer">
-	                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	                <button type="button" class="btn btn-primary" onclick="butongguo()">提交更改</button>
+	                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	                <button type="button" class="btn btn-primary" onclick="butongguo()">确定</button>
 	            </div>
 	        </div><!-- /.modal-content -->
 	    </div><!-- /.modal-dialog -->

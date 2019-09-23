@@ -26,15 +26,10 @@ strict.dtd">
         <div class="right"> 
 			<div class="order_nav">
                 <ul>
-<<<<<<< HEAD
-                    
-=======
-                
                     <li <c:if test="${empty now}">class="now"</c:if> ><a href="../showStoreOrder/99">全部订单</a></li>
-                    <li <c:if test="${now==1}">class="now"</c:if>  ><a href="../showStoreOrder/3" >新订单</a></li>
+                    <li <c:if test="${now==1}">class="now"</c:if>  ><a href="../showStoreOrder/1" >新订单</a></li>
                     <li <c:if test="${now==5}">class="now"</c:if> ><a href="../showStoreOrder/5" >已完成</a></li>
                     <li <c:if test="${now==13}">class="now"</c:if> ><a href="../showStoreOrder/13" >已退款</a></li>
->>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
                 </ul>
             </div>
             <div class="order_content">
@@ -44,15 +39,15 @@ strict.dtd">
                             <div class="orderTitle">
                                 <span style="width: 30%;">订单号：${order.orderNumber}</span>
                                 <span style="width: 5%;">￥${order.totalMoney}</span>
-                                <span>下单时间:<fmt:formatDate value="${order.orderTime}" type="BOTH" /></span>
+                                <span>下单时间:  <fmt:formatDate value="${order.orderTime}" type="BOTH" /></span>
                                 <span style="width: 300px; display: flex; justify-content: space-between;">
 
 	                                <c:if test="${order.orderState==1}"><span>未接单</span></c:if> 
 	                                <c:if test="${order.orderState==2}"><span>等待外卖员接单</span></c:if>
 	                                <c:if test="${order.orderState==3}"><span>等待外卖员上门取餐</span></c:if>
 	                                <c:if test="${order.orderState==4}"><span>已送出</span></c:if>
-	                                <c:if test="${order.orderState==5}"><span>已完成</span></c:if>
-	                                <c:if test="${order.orderState==13}"><span>已退款</span></c:if>
+	                                <c:if test="${order.orderState==5 || order.orderState==6 || order.orderState==7}"><span>已完成</span></c:if>
+	                                <c:if test="${order.orderState==13 || order.orderState==12}"><span>已退款</span></c:if>
 	                                <c:if test="${order.orderState==1}">
 	                                	<a href="../sureOrder/${order.id}">确认接单</a>
 	                                	<a href="javascript:void(0)" onclick="refuseOrder('${order.id}','${order.storeId}');">拒单</a>

@@ -20,13 +20,20 @@ public class Store implements Comparable<Store>{
 	private Integer storeTypeId;
 	private String foundtime;
 	private int ordrenum;
+	private int registState;
+	private Audit audit;
+	public int getRegistState() {
+		return registState;
+	}
+	public void setRegistState(int registState) {
+		this.registState = registState;
+	}
 	public int getOrdrenum() {
 		return ordrenum;
 	}
 	public void setOrdrenum(int ordrenum) {
 		this.ordrenum = ordrenum;
 	}
-	private Audit audit;
 	public Audit getAudit() {
 		return audit;
 	}

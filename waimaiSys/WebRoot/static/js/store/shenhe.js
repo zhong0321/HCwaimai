@@ -19,6 +19,7 @@
 			success:function(data){
 				if(data==2){
 					$("#tsss").html("您的入驻申请失败请重新请求！");
+					$("#shenheResend").css("display","block");
 					$(".button").show();
 				}else{
 					$("#tsss").html("您的入驻申请已提交！请等待审核结果！<br/>工作人员会在1~3个工作日内对您的信息进行审核，请耐心等待。");

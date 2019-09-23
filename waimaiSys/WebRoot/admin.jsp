@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -132,7 +133,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <th>${list.id }</th>
                             <th>${list.storeName }</th>
                             <th><img src="static/images/${list.storeImg }" alt=""></th>
-                            <th>${list.audit.auditTime }</th>
+                            <th><fmt:formatDate value="${list.audit.auditTime}" type="BOTH" /></th>
                             <th><a href="findStoreExamine?storeId=${list.id }">查看</a></th>
                         </tr>
                     </c:forEach>

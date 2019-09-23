@@ -61,7 +61,7 @@
 	</update>
 	
 	<select id="findStorePhone" resultMap="Store-Audit">
-		SELECT * FROM store s INNER JOIN audit a ON s.id = a.storeid WHERE s.storephone=#{storePhone}
+		SELECT * FROM store s left JOIN audit a ON s.id = a.storeid WHERE s.storephone=#{storePhone}
 	</select>
 	
 	

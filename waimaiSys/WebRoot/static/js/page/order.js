@@ -23,6 +23,7 @@ $(function(){
 			$(dom).next().css("display","inline");
 		}
 	});
+	
 });
 
 //减
@@ -343,9 +344,7 @@ function labelClick(e){
 
 //确认下单
 function sureOrders(){
-	alert("dfdfdf");
 	var userAddressId=$(".checkout-address-list li label").find("input[name='userAddress']:checked").val();
-	alert(userAddressId);
 	var remarks=$(".checkout-select .checkout-info .checkout-input").val();
 	if(remarks==null || remarks==""){
 		remarks="无";
@@ -373,5 +372,7 @@ function deleteAddress(id,dom){
 function backToStore(){
 	history.back();
 }
+
+
 
 

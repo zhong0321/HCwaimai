@@ -1,19 +1,18 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
->>>>>>>=8dcc17aaf8fb0768a0d72fce24ee9fa786d671b6
+>>>>>>>=809ad917c907406bd233b3dbbc7d0d195833928d
 eclipse.preferences.version=1
-<<<<<<< HEAD
-=======
 encoding//WebRoot/adminIndex.jsp=UTF-8
 encoding//WebRoot/adminInfo.jsp=UTF-8
 encoding//WebRoot/dingwei.jsp=UTF-8
->>>>>>> 809ad917c907406bd233b3dbbc7d0d195833928d
 encoding//WebRoot/dmOrder.jsp=UTF-8
 encoding//WebRoot/dmOrderDetail.jsp=UTF-8
 encoding//WebRoot/dmRegist.jsp=UTF-8
 encoding//WebRoot/header.jsp=UTF-8
+encoding//WebRoot/static/css/login/reg.css=UTF-8
 encoding//WebRoot/static/css/module/order/list.css=UTF-8
 encoding//WebRoot/static/css/module/order/order_n.css=UTF-8
+encoding//WebRoot/static/css/module/restaurant/banner.css=UTF-8
 encoding//WebRoot/static/css/page/customer/order/list.css=UTF-8
 encoding//WebRoot/static/css/page/home.css=UTF-8
 encoding//WebRoot/static/css/page/restaurant.css=UTF-8

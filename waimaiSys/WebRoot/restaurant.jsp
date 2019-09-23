@@ -8,7 +8,6 @@
 %>
 <c:set var="cp" value="<%=basePath%>" />
 <!-- 获取项目访问路径http://localhost:8080/waimaiSys/ -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Stict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
 strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
@@ -96,9 +95,9 @@ strict.dtd">
 				<div class="cate-tab-area">
 					<div class="tab-link">
 					    <div class="tab-link-inner clearfix">
-					      <a href="restaurant/findAll/${store.id }" class="tab-item active">菜单</a>
-					      <a href="../../findStor/${store.id }" class="tab-item ">评价</a>
-					        <a href="../../findanqian/${store.id }" class="tab-item  ">食品安全档案</a>
+					      <a href="${cp}restaurant/findAll/${store.id }" class="tab-item active">菜单</a>
+					      <a href="${cp}findStor/${store.id }" class="tab-item ">评价</a>
+					        <%-- <a href="../../findanqian/${store.id }" class="tab-item  ">食品安全档案</a> --%>
 					    </div>
 					</div>
 

@@ -105,8 +105,10 @@
 	
 	<!-- 根据订单id查询订单 -->
 	<select id="findById" resultType="order" parameterType="Integer">
-		SELECT o.*,s.`storeName`,s.`storeAddress`,s.`coordinate` FROM `order` o
+		SELECT o.*,u.`userName`,s.`storeName`,s.`storeImg`,s.`storeAddress`,s.`coordinate`,s.`storePhone`,dm.`dmName` FROM `order` o 
+		INNER JOIN `user` u ON o.`userId`=u.`id`
 		INNER JOIN store s ON o.`storeId`=s.`id`
+		LEFT JOIN deliveryMan dm ON dm.`id`=o.`deliveryManId`
 		where o.id=#{id}
 	</select>
 	

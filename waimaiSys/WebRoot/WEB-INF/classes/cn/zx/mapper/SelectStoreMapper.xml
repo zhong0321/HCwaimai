@@ -8,11 +8,11 @@
     	<if test="vl!=null">
 		SELECT st.id,st.storeName,st.distributionMoney,st.coordinate,st.startMoney,AVG(co.commentlv)AS commentlv FROM `store` st
 		LEFT JOIN COMMENT co ON st.id=co.storeId
-		WHERE st.storeName LIKE CONCAT('%',#{vl},'%') GROUP BY st.storeName ORDER BY commentlv DESC
+		WHERE st.storeName LIKE CONCAT('%',#{vl},'%') and st.registState=1 GROUP BY st.storeName ORDER BY commentlv DESC
 		</if>
 		<if test="vl==null">
 			SELECT st.id,st.storeName,st.distributionMoney,st.coordinate,st.startMoney,AVG(co.commentlv)AS commentlv FROM `store` st
-		LEFT JOIN COMMENT co ON st.id=co.storeId
+		LEFT JOIN COMMENT co ON st.id=co.storeId WHERE st.registState=1
 		 GROUP BY st.storeName ORDER BY commentlv DESC
 		</if>
     </select>
@@ -45,7 +45,7 @@
     
     
     <select id="selectstores" resultType="Store_Comment" >
-    	    	SELECT st.storeImg,st.id,st.storeName,st.distributionMoney,st.coordinate,st.startMoney,AVG(co.commentlv)AS commentlv FROM `store` st
+    	    	SELECT st.storeImg,st.id,st.storeName,st.distributionMoney,st.coordinate,st.startMoney,st.storeAddress,AVG(co.commentlv)AS commentlv FROM `store` st
 			LEFT JOIN COMMENT co ON st.id=co.storeId
 				 WHERE st.id=#{id}
 		 GROUP BY st.storeName ORDER BY commentlv DESC

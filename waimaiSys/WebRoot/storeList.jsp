@@ -72,12 +72,12 @@ strict.dtd">
             <dl class="listAll">
                 <dt class="listTitle">
                     <img src="images/shezhi4646846545.png" alt="" width="20px;" height="20px;"/>
-                    <span>店铺设置</span>
+                    <span>订单管理</span>
                 </dt>
                 <dd class="listContext">
-                    <a href="">消息中心</a>
+                    <a href="../showStoreOrder/99">查看订单</a>
                 </dd>
-                <dd class="listContext">
+                <!-- <dd class="listContext">
                     <a href="">账号设置</a>
                 </dd>
                 <dd class="listContext">
@@ -85,7 +85,7 @@ strict.dtd">
                 </dd>
                 <dd class="listContext">
                     <a href="">门店管理</a>
-                </dd>
+                </dd> -->
             </dl>
             <dl class="listAll">
                 <dt class="listTitle">
@@ -93,9 +93,9 @@ strict.dtd">
                     <span>商品管理</span>
                 </dt>
                 <dd class="listContext">
-                    <a href="">消息中心</a>
+                    <a href="">所有菜品</a>
                 </dd>
-                <dd class="listContext">
+                <!-- <dd class="listContext">
                     <a href="">账号设置</a>
                 </dd>
                 <dd class="listContext">
@@ -103,17 +103,18 @@ strict.dtd">
                 </dd>
                 <dd class="listContext">
                     <a href="">门店管理</a>
-                </dd>
+                </dd> -->
             </dl>
+            
             <dl class="listAll">
                 <dt class="listTitle">
                     <img src="images/shezhi4646846545.png" alt="" width="20px;" height="20px;"/>
-                    <span>订单管理</span>
+                    <span>店铺设置</span>
                 </dt>
                 <dd class="listContext">
                     <a href="">消息中心</a>
                 </dd>
-                <dd class="listContext">
+                <!-- <dd class="listContext">
                     <a href="">账号设置</a>
                 </dd>
                 <dd class="listContext">
@@ -121,7 +122,7 @@ strict.dtd">
                 </dd>
                 <dd class="listContext">
                     <a href="">门店管理</a>
-                </dd>
+                </dd> -->
             </dl>
         </div>
     <!-- </div> -->

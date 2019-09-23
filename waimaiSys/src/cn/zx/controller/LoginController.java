@@ -146,20 +146,24 @@ public class LoginController {
     
 	@RequestMapping("/findstorePhone")
 	public String findstorePhone(String phone,HttpServletRequest request,Model model){
-		Store findStorePhone = userInfoService.findStorePhone(phone);
+		Store store = userInfoService.findStorePhone(phone);
 		List<StoreTypes> storeTypes = storeTypesService.findStoreTypes();
     	request.getSession().setAttribute("storeTypes", storeTypes);
-    	model.addAttribute("store", findStorePhone);
-    	switch (findStorePhone.getAudit().getAuditState()) {
-		case 0:
-			return "storeRegist1";
-		case 1:
-			return "storeRegist3";
-		case 2:
-			return "storeRegist3";
-		case 3:
-			return "redirect:storeOrder/showStoreOrder/99";
-		}
+    	model.addAttribute("store", store);
+    	if(store.getRegistState()==1){
+    		return "redirect:storeOrder/showStoreOrder/99";
+    	}else{
+    		switch (store.getAudit().getAuditState()) {
+    		case 0:
+    			return "storeRegist1";
+    		case 1:
+    			return "storeRegist3";
+    		case 2:
+    			return "storeRegist3";
+    		case 3:
+    			return "redirect:storeOrder/showStoreOrder/99";
+    		}
+    	}
 		return "";
 	}
     
@@ -172,6 +176,7 @@ public class LoginController {
     	model.addAttribute("store", findStorePhone);
 		return findStorePhone.getAudit().getAuditState();
 	}
+	
 	@RequestMapping("/deleteStoreinfo")
 	public String deleteStoreinfo(@RequestParam("storeId")Integer storeId,@RequestParam("registState")Integer registState){
 		if(registState!=null){

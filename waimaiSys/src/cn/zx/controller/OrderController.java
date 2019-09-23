@@ -72,8 +72,6 @@ public class OrderController {
 	public String showOrderDetails(@PathVariable("id") Integer id,Model model){
 		Order order = orderService.findById(id);
 		model.addAttribute("order", order);
-		Store store = storeService.findStoreById(order.getStoreId());
-		model.addAttribute("store", store);
 		OrderDetail orderDetail=new OrderDetail();
 		orderDetail.setOrderId(id);
 		List<OrderDetail> orderDetail2 = orderDetailService.findOrderDetail(orderDetail);//根据订单号查询订单明细
@@ -116,6 +114,10 @@ public class OrderController {
 		if(list.size()!=0){//未完成订单
 			Order order = list.get(0);
 			model.addAttribute("order", order);
+			OrderDetail orderDetail=new OrderDetail();
+			orderDetail.setOrderId(order.getId());
+			List<OrderDetail> orderDetail2 = orderDetailService.findOrderDetail(orderDetail);//根据订单号查询订单明细
+			model.addAttribute("orderDetail", orderDetail2);
 			model.addAttribute("now", 1);
 		}else{
 			Order order=new Order();

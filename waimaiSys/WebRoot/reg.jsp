@@ -52,13 +52,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <span class="tel-warn confirmpwd-err hide"><em></em><i class="icon-warn" style="margin-left: 5px"></i></span>
                     </p>
                 </form>
-                <div class="reg_checkboxline pos">
+                <!-- <div class="reg_checkboxline pos">
                     <p>点击注册表示已阅读并接受 <a href="#" target="_brack">《XXXX协议说明》</a></p>
-                </div>
+                </div> -->
                 <button class="lang-btn"><c:if test="${code!=2 }">注册</c:if><c:if test="${code==2 }">下一步</c:if></button>
-                <c:if test="${code!=2 }">
                 	<div class="bottom-info">已有账号，<a href="../gologin/${code}">马上登录</a></div>
-                </c:if>
+                
                 <p class="right">Powered by © 2018</p>
             </div>
         </div>

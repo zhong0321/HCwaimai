@@ -12,10 +12,17 @@
 .Nickname{
     font-size: 14px;
 }
-ul li a{
-    height: 60px;
-    font-size: 16px;
-    text-align: center ;
+
+.glh-title ul li a{
+	height: 60px;
+    line-height:30px;
+    
+}
+.glh-title ul li{
+	margin:0px 12px;
+}
+.glh-title ul li:hover{
+	border-bottom: 3px solid white;
 }
 .sidebar{
     position:fixed;
@@ -35,39 +42,47 @@ ul li a{
     padding: 0px 40px;
     margin-top: 10px;
     overflow-y:scroll;
-    height: 700px;
+    height: 90%;
 }
 .menu-lefts{
-    border: 1px red solid;
     height: 100%;
-    padding: 0;
-    background:#f5f5f5;
+    padding: 20px 0px;
+    background:white;
+    border-right: 4px solid #dddddd;
+}
+.menu-lefts ul li {
+	
+	background: white;
+}
+
+.menu-lefts ul li :hover{
+	color:black;
+}
+.menu-lefts ul li a{
+	text-align:center;
+	font-size: 20px;
+	color: gray;
 }
 .row .ziji li{
     font-size: 25px;
-    border-bottom: 1px red solid;
     padding: 15px;
     padding-left: 30px;
 }
 .row .ziji li:last-child{
     border-bottom: none;
 }
-.ziji .activ{
-    background-color: rgb(158, 233, 233);
-}
+
 h1{
     margin: 0;
     padding: 0;
 }
 .page-hader{
     padding:10px;
-    border-bottom: 1px red solid;
 }
 .placeholders{
     text-align: center;
 }
 .table{
-    border:1px red solid;
 }
 tbody{
     overflow-y:scroll;

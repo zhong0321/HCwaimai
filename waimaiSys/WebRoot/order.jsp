@@ -92,14 +92,14 @@
 								<div class="brief-intro-topconsole fr"></div>
 
 								<a href="" target="_blank" class="avatar fl" data-poi-id="144866890584905982" data-pv-flag="1"> 
-									<img class="scroll-loading" src="${cp}static/images/${store.storeImg}" data-max-height="70"> 
+									<img class="scroll-loading" src="${cp}static/images/${order.storeImg}" data-max-height="70"> 
 								</a>
 								<div class="content">
 									<div class="rest-name clearfix">
 										<a target="_blank" href="" class="ca-deepgrey j-poi-name" data-pv-flag="1"> 
-											<span class="poi-name">${store.storeName}</span> 
+											<span class="poi-name">${order.storeName}</span> 
 										</a> 
-										<span class="order-total">${store.storePhone}</span> 
+										<span class="order-total">${order.storePhone}</span> 
 										<span class="order-money-num">¥ ${order.totalMoney}</span>
 									</div>
 									<div class="rest-detail">
@@ -186,9 +186,6 @@
 											</c:if>
 										</div>
 										<div class="fl tips">
-<<<<<<< HEAD
-											
-=======
 											<c:if test="${order.orderState>=1 && order.orderState<=13}">
 												<div class="step-2">
 													<!-- <span class="fr t-2">2019-05-14 12:50</span> -->
@@ -245,7 +242,6 @@
 													<p class="bold">退款成功</p>
 												</div>
 											</c:if>
->>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 										</div>
 
 									</div>
@@ -255,7 +251,7 @@
 					</div>
 				
 				 
-					<div style="overflow: auto; height: 620px" class="orderListHistory" <c:if test="${now==1 || now==0}">style="display: none;"</c:if> >
+					<div style="overflow: auto; height: 620px; <c:if test="${now=='1' || now==0}">display: none;</c:if> " class="orderListHistory"  >
 						<ul>
 							<c:forEach items="${orderList}" var="order">
 							<li onclick="userOrderDetail('${order.id}');">

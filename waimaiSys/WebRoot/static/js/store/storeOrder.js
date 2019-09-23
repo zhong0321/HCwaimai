@@ -25,9 +25,6 @@ function closeOrderDetails(e){
    	$(e).parent().next().css({"display":"none"});
 }
 
-<<<<<<< HEAD
-
-=======
 //拒单事件
 function refuseOrder(id,storeId){
 	$.ajax({
@@ -39,11 +36,11 @@ function refuseOrder(id,storeId){
 			   	if(obj==null){
 			   		alert("对不起，每日只有5次拒单机会，您的次数已达上限");
 			   	}else{
+			   		alert("ok");
 			   		location.href="../../aliout/"+obj.orderNumber+"/"+obj.totalMoney+"/"+obj.id;
 			   	}
 		   }
 	});
->>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
 }
 
 

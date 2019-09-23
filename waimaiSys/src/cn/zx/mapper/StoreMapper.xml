@@ -113,6 +113,7 @@
 		<if test="storeTypeId!=0">
 			WHERE sst.storeTypeId=#{storeTypeId}
 		</if>
+		where st.registState=1
 		 GROUP BY st.storeName 
 		 <if test="sorttype==2"><!-- 排序类型  评分-->
 		 	<if test="sortorder==1"><!-- 排序方式 -->

@@ -1,6 +1,7 @@
 package cn.zx.filter;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.zx.entity.Admin;
+import cn.zx.entity.Car;
 import cn.zx.entity.DeliveryMan;
 import cn.zx.entity.Store;
 import cn.zx.entity.User;
@@ -44,6 +46,8 @@ public class SessionFilter implements Filter{
 		Admin admin = (Admin)request.getSession().getAttribute("admin");//判断是否登录
 		DeliveryMan deliveryMan = (DeliveryMan)request.getSession().getAttribute("deliveryMan");//判断是否登录
 		Store store = (Store)request.getSession().getAttribute("store");//判断是否登录
+		List<Car> carList = (List<Car>) request.getSession().getAttribute("carList");//判断购物车是否为空
+		
 
 		if(uri.indexOf("gologin/1")>0)
 		{
@@ -73,7 +77,6 @@ public class SessionFilter implements Filter{
 				uri.indexOf("car.jsp")>0||
 				uri.indexOf("order.jsp")>0||
 				uri.indexOf("ali")>0||
-				uri.indexOf("aliout")>0||
 				uri.indexOf("car")>0||
 				uri.indexOf("notify")>0||
 				uri.indexOf("order")>0||
@@ -81,9 +84,9 @@ public class SessionFilter implements Filter{
 				
 				)
 		{
-			if(user!=null)
+			if(user!=null || store!=null)
 			{
-				chain.doFilter(request, response);//放行
+					chain.doFilter(request, response);//放行
 			}else{
 				response.sendRedirect(request.getContextPath()+"/gologin/1");
 			}
@@ -105,6 +108,8 @@ public class SessionFilter implements Filter{
 		}else{
 			chain.doFilter(request, response);
 		}
+		
+		
 		
 		
 	}

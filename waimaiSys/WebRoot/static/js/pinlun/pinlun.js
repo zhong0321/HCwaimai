@@ -50,11 +50,11 @@ $(function (){
 		pinlun(a);
 	});
 	
-	$(".details").hover(function (){
+	/*$(".details").hover(function (){
 		$(this).addClass("over");
 		},function(){
 			$(this).removeClass("over");
-	});
+	});*/
 });
 
 
@@ -129,13 +129,13 @@ function pinlun(num){
 			//弹出选中单选按钮的值
 			switch (filter[i].value){
 			case "全部":
-				url="../select/"+id+"/"+num+"/"+nulls;
+				url="select/"+id+"/"+num+"/"+nulls;
 				break;
 			case "好评":
-				url="../selectFine/"+id+"/"+num+"/"+nulls;
+				url="selectFine/"+id+"/"+num+"/"+nulls;
 				break;
 			case "差评":
-				url="../selectBad/"+id+"/"+num+"/"+nulls;
+				url="selectBad/"+id+"/"+num+"/"+nulls;
 				break;
 			}
 		}

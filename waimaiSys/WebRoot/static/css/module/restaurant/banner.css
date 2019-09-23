@@ -1,5 +1,5 @@
 /**
- * 评论、餐厅页面公用头部
+ * 璇勮銆侀鍘呴〉闈㈠叕鐢ㄥご閮�
  *
  * @author tracyqiu(heyanqiu@meituan.com)
  * @date 2014-06-30
@@ -56,6 +56,7 @@
 
 .rest-info .details .list {
   float: left;
+  width:60%;
 }
 
 .rest-info .rest-info-down-wrap {

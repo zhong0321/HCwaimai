@@ -17,7 +17,7 @@ public class PageToPageController {
             model.addAttribute("code",2);
         }else if(loginType==3){
             //后台登录
-            model.addAttribute("title","后台登录");
+            model.addAttribute("title","平台管理员登录");
             model.addAttribute("code",3);
         }else{
             return "error";

@@ -145,15 +145,11 @@
 .order-v .order-total {
   font-size: 14px;
   color: #333;
-<<<<<<< HEAD
-
-=======
   margin-left: 30px;
 }
 .order-v .rest-name .order-total{
     display: inline-block;
     width: 180px;
->>>>>>> 06a94a2a1ec5338723fc0d245b60bc62a8612603
     line-height: 36px;
     font-size: 12px;
 }
@@ -1120,7 +1116,6 @@ a.s-btn-white span.s-btn-white{
   text-align: center;
 }
 
-/* 闁氨鏁ら惃鍕絿濞戝牆鑴婂锟�/
 .cancel-nomal-dialog .cancel-title {
   font-size: 16px;
   text-align: center;
@@ -1192,7 +1187,6 @@ a.s-btn-white span.s-btn-white{
   text-align: center;
 }
 
-/* cancel-order-dialog2鏉╂瑧顬岄崣鏍ㄧХ鐠併垹宕熼惃鍕剨濡楀棙鐗卞蹇撴嫲閸岊剙宕熷瑙勵攱缁鎶�敍灞藉従鐎瑰啫褰囧☉鍫ｎ吂閸楁洖鑴婂鍡氱箷濞岋紕绮烘稉锟�/
 .cancel-order-dialog2 .cancel-tip,
 .dialog-orderhurry .content-title {
   font-size: 16px;
@@ -1268,9 +1262,11 @@ a.s-btn-white span.s-btn-white{
 .order-header .oh-content{
   width: 480px;
   margin-left: 14px;
+  display: inline-block;
 }
 .order-header .oh-phone{
     width: 171px;
+    display: inline-block;
 }
 .order-header .oh-money{
   display: inline-block;

@@ -78,7 +78,7 @@
 				<div class="checkoutcart-container">
 					<div class="checkoutcart-title">
 						<h2>订单详情</h2>
-						<a href="backToStore();">&lt;返回商家修改</a>
+						<a href="javascript:void(0)" onclick="backToStore();">&lt;返回商家修改</a>
 					</div>
 					<div class="checkoutcart-tablerow tablehead">
 						<div class="cell itemname">商品</div>
