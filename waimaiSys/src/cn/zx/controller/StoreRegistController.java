@@ -58,6 +58,7 @@ public class StoreRegistController {
         File newFile=new File(path);
         //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
         file.transferTo(newFile);
+        
         //截取出行政区
       	String district=store.getStoreAddress().substring(store.getStoreAddress().indexOf("市")+1, store.getStoreAddress().indexOf("区")+1);
       	store.setArea(district);

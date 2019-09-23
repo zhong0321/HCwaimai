@@ -8,19 +8,19 @@ public class Food implements Serializable{
 	private Integer foodTypeId;
 	private String foodName;
 	private String foodImage;
-	private double price;
-	private int fsid;
-	private int salesvolume;
-	public int getFsid() {
+	private Double price;
+	private Integer fsid;
+	private Integer salesvolume;
+	public Integer getFsid() {
 		return fsid;
 	}
-	public void setFsid(int fsid) {
+	public void setFsid(Integer fsid) {
 		this.fsid = fsid;
 	}
-	public int getSalesvolume() {
+	public Integer getSalesvolume() {
 		return salesvolume;
 	}
-	public void setSalesvolume(int salesvolume) {
+	public void setSalesvolume(Integer salesvolume) {
 		this.salesvolume = salesvolume;
 	}
 	public Integer getId() {
@@ -53,10 +53,10 @@ public class Food implements Serializable{
 	public void setFoodImage(String foodImage) {
 		this.foodImage = foodImage;
 	}
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	@Override

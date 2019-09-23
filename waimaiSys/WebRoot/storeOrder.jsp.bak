@@ -26,7 +26,10 @@ strict.dtd">
         <div class="right"> 
 			<div class="order_nav">
                 <ul>
-
+<<<<<<< HEAD
+=======
+                
+>>>>>>> 2a080a0c577fe187e820cfa27cd0b8791f3f69e9
                     <li <c:if test="${empty now}">class="now"</c:if> ><a href="../showStoreOrder/99">全部订单</a></li>
                     <li <c:if test="${now==1}">class="now"</c:if>  ><a href="../showStoreOrder/1" >新订单</a></li>
                     <li <c:if test="${now==5}">class="now"</c:if> ><a href="../showStoreOrder/5" >已完成</a></li>
