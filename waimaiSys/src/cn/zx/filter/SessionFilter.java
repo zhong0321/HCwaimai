@@ -18,7 +18,7 @@ import cn.zx.entity.Car;
 import cn.zx.entity.DeliveryMan;
 import cn.zx.entity.Store;
 import cn.zx.entity.User;
-@WebFilter(value="/*")
+/*@WebFilter(value="/*")*/
 public class SessionFilter implements Filter{
 	
 	public FilterConfig config;
@@ -98,14 +98,23 @@ public class SessionFilter implements Filter{
 			}else{
 				response.sendRedirect(request.getContextPath()+"/gologin/2");
 			}
-		}else if(uri.indexOf("dmOrder.jsp")>0||uri.indexOf("dmOrderDetail.jsp")>0||uri.indexOf("dmOrder")>0){
+		}/*else if(uri.indexOf("dmOrder.jsp")>0||uri.indexOf("dmOrderDetail.jsp")>0||uri.indexOf("dmOrder")>0){
 			if(deliveryMan!=null)
 			{
 				chain.doFilter(request, response);//放行
 			}else{
 				response.sendRedirect(request.getContextPath()+"/dmLogin.jsp");
 			}
-		}else{
+		}else if(uri.indexOf("admin.jsp")>0||uri.indexOf("adminIndex.jsp")>0||uri.indexOf("adminInfo.jsp")>0
+				||uri.indexOf("admins")>0||uri.indexOf("findStoreExamine")>0||uri.indexOf("updateStoreRegistState")>0
+				){
+			if(admin!=null)
+			{
+				chain.doFilter(request, response);//放行
+			}else{
+				response.sendRedirect(request.getContextPath()+"/gologin/3");
+			}
+		}*/else{
 			chain.doFilter(request, response);
 		}
 		

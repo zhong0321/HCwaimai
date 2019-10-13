@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.zx.entity.Car;
+import cn.zx.entity.Food;
 import cn.zx.entity.Order;
 import cn.zx.entity.OrderDetail;
 import cn.zx.entity.Store;
 import cn.zx.entity.User;
 import cn.zx.entity.UserAddress;
+import cn.zx.service.FoodService;
 import cn.zx.service.OrderDetailService;
 import cn.zx.service.OrderService;
 import cn.zx.service.StoreService;
@@ -34,6 +36,9 @@ public class CarController {
 	private OrderService orderService;
 	@Resource
 	private OrderDetailService orderDetailService;
+	@Resource
+	private FoodService foodService;
+	
 	
 	/**
 	 * 添加地址
@@ -133,14 +138,38 @@ public class CarController {
 	}
 	
 	/**
+	 * 查询菜品是否在售中
+	 * @param storeId
+	 * @param request
+	 * @return 
+	 * Food  
+	 * @author ZX 
+	 * @date 2019-9-24上午11:12:32
+	 */
+	@RequestMapping("/findFoodState")
+	@ResponseBody
+	public Food findFoodState(Integer storeId,HttpServletRequest request){
+		List<Car> cars=(List<Car>)request.getSession().getAttribute("carList");
+		for (Car car : cars) {
+			if(car.getStoreId()==storeId){
+				Food food = foodService.findFoodById(car.getFoodId());
+				if(food.getFsid()!=1){
+					return food;//菜品已售罄或已下架
+				}
+			}
+		}
+		return null;
+	}
+	
+	/**
 	 * 确认下单
 	 * @return 
 	 * String  
 	 * @author ZX 
 	 * @date 2019-8-5上午10:39:30
 	 */
-	@RequestMapping("/sureOrders/{userAddressId}/{remarks}")
-	public String sureOrders(@PathVariable(value="userAddressId") Integer id,@PathVariable(value="remarks") String remarks,HttpServletRequest request){
+	@RequestMapping("/sureOrders/{userAddressId}/{remarks}/{storeId}")
+	public String sureOrders(@PathVariable(value="userAddressId") Integer id,@PathVariable(value="remarks") String remarks,@PathVariable(value="storeId") Integer storeId,HttpServletRequest request){
 		UserAddress userAddress = userAddressService.findById(id);//查询地址
 		String orderAddress="";
 		if(userAddress.getGender()==0){
@@ -154,15 +183,15 @@ public class CarController {
 		@SuppressWarnings("unchecked")
 		List<Car> cars=(List<Car>)request.getSession().getAttribute("carList");
 		double totalMoney=0;
-		Integer storeId=0;
 		for (Car car : cars) {
-			System.out.println(car);
-			totalMoney=totalMoney+(car.getPrice()*car.getCount());
-			storeId=car.getStoreId();
+			if(car.getStoreId()==storeId){
+				System.out.println(car);
+				totalMoney=totalMoney+(car.getPrice()*car.getCount());
+			}
 		}
 		Store store = storeService.findStoreById(storeId);
-		totalMoney=totalMoney+store.getDistributionMoney();
 		double disMoney=store.getDistributionMoney();
+		totalMoney=totalMoney+store.getDistributionMoney();
 		if(disMoney<5){
 			disMoney=5;
 		}
@@ -174,19 +203,23 @@ public class CarController {
 		order.setTotalMoney(totalMoney);
 		order.setStoreId(storeId);
 		order.setOrderRemarks(remarks);
+		order.setOrderState(0);
 		order.setDisMoney(disMoney);
 		orderService.addOrder(order);
 		Order order2 = orderService.findByOrderNumber(order);
 		//添加订单明细
 		OrderDetail orderDetail =new OrderDetail();
 		for (Car car : cars) {
-			orderDetail.setCost(car.getPrice()*car.getCount());
-			orderDetail.setCount(car.getCount());
-			orderDetail.setFoodId(car.getFoodId());
-			orderDetail.setOrderId(order2.getId());
-			orderDetailService.addOrderDetail(orderDetail);
+			if(car.getStoreId()==storeId){
+				orderDetail.setCost(car.getPrice()*car.getCount());
+				orderDetail.setCount(car.getCount());
+				orderDetail.setFoodId(car.getFoodId());
+				orderDetail.setOrderId(order2.getId());
+				orderDetailService.addOrderDetail(orderDetail);
+			}
 		}
+		request.getSession().setAttribute("orderID", order2.getId());
 		request.getSession().removeAttribute("carList");//清除购物车session
-		return "redirect:/ali/"+orderNumber+"/"+totalMoney;
+		return "redirect:/order/showOrder";
 	}
 }

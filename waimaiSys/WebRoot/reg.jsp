@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="wpn">
             <div class="form-data pos">
                 <span style="width:100px;display: block; font-size: 20px;margin: 10px auto">${title}</span>
-                <form>
+                <form >
                     <p class="p-input pos">
                         <label for="tel">手机号</label>
                         <input type="number" id="tel" autocomplete="off">

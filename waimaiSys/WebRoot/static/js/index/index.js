@@ -31,7 +31,7 @@ $(function (){
 	});
 	function sousuo(parameter){
 		$.ajax({
-			url:"storeRegist/findStoreComment",
+			url:"../storeRegist/findStoreComment",
 			type:"post",
 	        contentType : "application/json;charset=utf-8",
 			data: JSON.stringify(parameter),

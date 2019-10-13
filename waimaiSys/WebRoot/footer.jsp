@@ -1,17 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <base href="<%=basePath%>">
-    <title></title>
-  </head>
-  <body>
     <div class="csr-footer-container">
 		<div class="middle-line"></div>
 		<div class="csr-footer">
@@ -59,5 +47,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
-  </body>
-</html>
+

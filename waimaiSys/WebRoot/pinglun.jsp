@@ -135,19 +135,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="rank fr">
   <div class="title">总体评分</div>
   <div class="head clearfix">
-    <strong class="fl">4.8</strong>
+    <strong class="fl">${avg }</strong>
     <span class="star-ranking fl">
   	  <span class="star-score" style="width: 135px"></span>
   	</span>
   </div>
   <div class="detail">
-  <c:forEach items="${list}" var="li">
+  <c:forEach items="${list2}" var="li">
       <div class="field clearfix">
         <span class="fl score-num">
             ${li.commentlv }分
         </span>
-        <span class="fl bar"><i style="width: 90%;"></i></span>
-        <span class="fr percent">90%</span>
+        <span class="fl bar"><i style="width: ${li.avg*100}%;"></i></span>
+        <span class="fr percent">${li.avg*100}%</span>
       </div>
       </c:forEach>
   </div>

@@ -38,8 +38,8 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public void deleteOrder(Order order) {
-		orderMapper.deleteOrder(order);
+	public void deleteOrder(Integer orderId) {
+		orderMapper.deleteOrder(orderId);
 	}
 
 	@Override

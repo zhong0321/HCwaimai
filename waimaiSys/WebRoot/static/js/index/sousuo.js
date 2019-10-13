@@ -6,7 +6,7 @@ $(function (){
 		var username=$(".Verification").text();
 		if(add!=""){
 			if(con.trim()!=""){
-				window.location.href="./selects?add="+addnum+"&vl="+con;
+				window.location.href="/waimaiSys/selects?add="+addnum+"&vl="+con;
 			}
 		}else{
 			alert("请选择地址");

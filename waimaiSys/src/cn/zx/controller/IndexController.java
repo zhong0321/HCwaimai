@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import cn.zx.entity.Store;
 import cn.zx.entity.StoreTypes;
 import cn.zx.service.StoreService;
@@ -90,5 +92,30 @@ public class IndexController {
 		List<Store> storeByAddress = storeService.findStoreByAddress(store);
 		model.addAttribute("storeByAddress", storeByAddress);
 		return "index";
+	}
+	
+	/**
+	 * 注销
+	 * @param request
+	 * @return 
+	 * String  
+	 * @author ZX 
+	 * @date 2019-9-12上午10:08:21
+	 */
+	@RequestMapping("/zhuxiao/{type}")
+	public String zhuxiao(HttpServletRequest request,@PathVariable("type") Integer type){
+		String path = request.getContextPath();
+		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+		if(type==1){
+			request.getSession().removeAttribute("user");
+			return "redirect:"+basePath+"index/find";
+		}else if(type==2){
+			request.getSession().removeAttribute("store");
+			return "redirect:"+basePath+"gologin/2";
+		}else if(type==3){
+			request.getSession().removeAttribute("admin");
+			return "redirect:"+basePath+"gologin/3";
+		}
+		return "0";
 	}
 }

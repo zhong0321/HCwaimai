@@ -10,10 +10,10 @@
 				text-decoration: none;
 			}
 			.black_overlay{
-				width:100%; height:100%; background:url(./static/files/box_bg.png) repeat center top; display:none; position:fixed; top:0%; left:0%; z-index:900;
+				width:100%; height:100%; background:url(/waimaiSys/static/files/box_bg.png) repeat center top; display:none; position:fixed; top:0%; left:0%; z-index:900;
 			}
 			.white_content{	
-				background:url(./static/files/box.png) repeat center top;
+				background:url(/waimaiSys/static/files/box.png) repeat center top;
 				width:340px; 
 				height:auto !important; 
 				min-height:100px; 
@@ -38,7 +38,7 @@
 				width:300px; height:30px; line-height:30px; overflow:hidden; font-size:16px; font-family:"Microsoft YaHei"; margin:1px auto;
 			}
 			.notice_c{
-				width:320px; overflow:hidden; height: 80px;
+				width:320px; overflow:hidden; height: 80px;padding-left: 10px;
 			}
 			.notice_c #fm1{
 				text-align: center;
@@ -77,7 +77,7 @@
 	        <div class="white_d">
 	            <div class="notice_t">
 	                <span class="fr" style="margin-top:10px; cursor:pointer;" onclick="CloseDiv('MyDiv1','fade1')">
-	                <img style="float: right; margin-top: 10px;" src="./static/files/close.gif" /></span>
+	                <img style="float: right; margin-top: 10px;" src="/waimaiSys/static/files/close.gif" /></span>
 	            </div>
 	            <div class="notice_c">
 	                <table border="0" align="center" style="font-size:16px;" cellspacing="0" cellpadding="0">

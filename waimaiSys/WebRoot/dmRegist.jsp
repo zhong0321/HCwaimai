@@ -174,7 +174,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				   		state=obj;
 				   }
 			});
-			alert(state);
 			if(state==0){
 					return true;
 			}else if(state==1){
@@ -193,11 +192,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 	var yanzhengma=$("#yanzhengma").val();
 	 	var dmPassword=$("#dmPassword").val();
 	 	var commonlyAddress=$("#commonlyAddress").val();
-	 	if(dmName==null || dmName=="" ||yanzhengma==null || yanzhengma=="" ||dmPassword==null || dmPassword=="" ||commonlyAddress==null || commonlyAddress==""){
+	 	var dmPasswordAgain=$("#dmPasswordAgain").val();
+	 	if(dmName==null || dmName=="" ||yanzhengma==null || yanzhengma=="" ||dmPassword==null || dmPassword=="" ||commonlyAddress==null || commonlyAddress=="" ||dmPasswordAgain==null || dmPasswordAgain==""){
 	 		ShowDiv('MyDiv1','fade1','请完整填写信息！');
 	 		return false;
 	 	}else if(!reg.test(dmPassword)){
 	 		ShowDiv('MyDiv1','fade1','密码必须是8-20位的数字或字母！');
+	 		return false;
+	 	}else if(dmPassword!=dmPasswordAgain){
+	 		ShowDiv('MyDiv1','fade1','两次密码输入不一致！');
 	 		return false;
 	 	}else{
 	 		return true;
@@ -208,14 +211,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 //发送验证码
 	 function sendYanZhengMa(){
 	 	var dmPhone=$("#dmPhone").val();
-	 	var random = Math.floor(Math.random()*100000)+100000;
-	 	$("#maTrue").val("123456");
+	 	//var random = Math.floor(Math.random()*100000)+100000;
+	 	
 	 	$.ajax({
 			type: "POST",
 			url: "/waimaiSys/Obtain",
-			data: {"random":random,"phoneNumber":dmPhone},
+			data: {"phoneNumber":dmPhone},
 			async:false,
 			success: function(obj){
+				$("#maTrue").val(obj);
 			}
 		});
 	 }
@@ -282,9 +286,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <input type="hidden" id="maTrue" autocomplete="new-password" />
         </div>
         <div class="password">
-        <img src="${cp}static/files/xiaohongdiantishi51545.png" width="15px" height="15px"/>
+        	<img src="${cp}static/files/xiaohongdiantishi51545.png" width="15px" height="15px"/>
             <input type="password" placeholder="密码必须是8-20位的数字或字母" id="dmPassword" name="dmPassword" autocomplete="new-password"/>
-            <img id="showText" src="${cp}static/files/passwordNoLook.png" width="20px" height="10px" onclick="hideShowPsw()" style="margin-left: 70px;"/>
+            <%-- <img id="showText" src="${cp}static/files/passwordNoLook.png" width="20px" height="10px" onclick="hideShowPsw()" style="margin-left: 70px;"/> --%>
+        </div>
+        <div class="passwordAgain">
+        	<img src="${cp}static/files/xiaohongdiantishi51545.png" width="15px" height="15px"/>
+            <input type="password" placeholder="确认密码" id="dmPasswordAgain" autocomplete="new-password"/>
         </div>
         <div class="IDNum">
         <img src="${cp}static/files/xiaohongdiantishi51545.png" width="15px" height="15px"/>

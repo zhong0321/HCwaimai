@@ -101,5 +101,10 @@ public class StoreServiceImpl implements StoreService {
 		}
 		return list2;
 	}
+
+	@Override
+	public void updateStoreRegistState(Integer storeId) {
+		storeMapper.updateStoreRegistState(storeId);
+	}
 }
 

@@ -112,8 +112,11 @@
 		LEFT JOIN `order` AS `or` ON st.id=or.storeId
 		<if test="storeTypeId!=0">
 			WHERE sst.storeTypeId=#{storeTypeId}
+			and
 		</if>
-		where st.registState=1
+		<if test="storeTypeId==0">
+		where
+		</if>  st.registState=1
 		 GROUP BY st.storeName 
 		 <if test="sorttype==2"><!-- 排序类型  评分-->
 		 	<if test="sortorder==1"><!-- 排序方式 -->
@@ -148,5 +151,13 @@
 		 	</if>
 		 </if>
     </select> 
+
+	<update id="updateStoreRegistState">
+		UPDATE 
+		  `waimai`.`store` 
+		SET
+		  `registState` = '1'
+		WHERE `id` = #{id} ;
+	</update>
 
 </mapper>

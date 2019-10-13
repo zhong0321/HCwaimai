@@ -50,12 +50,12 @@ public interface OrderService {
 	public void updateOrderState(Order order);
 	/**
 	 * 删除订单（取消订单时）
-	 * @param order 
+	 * @param orderId 
 	 * void  
 	 * @author ZX 
 	 * @date 2019-8-5下午2:48:34
 	 */
-	public void deleteOrder(Order order);
+	public void deleteOrder(Integer orderId);
 	/**
 	 * 外卖员根据坐标查询待抢订单
 	 * @param district

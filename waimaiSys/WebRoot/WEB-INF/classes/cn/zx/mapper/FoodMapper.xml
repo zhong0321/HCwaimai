@@ -7,4 +7,9 @@
     <select id="findFood" parameterType="food" resultType="food" >
     	select * from food where storeId=#{storeId}
     </select>
+    
+    <!-- 根据id查询 -->
+    <select id="findFoodById" parameterType="Integer" resultType="food" >
+    	select * from food where id=#{id}
+    </select>
 </mapper>

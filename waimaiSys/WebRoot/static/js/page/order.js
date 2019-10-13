@@ -260,6 +260,7 @@ function saveAddress(){
 		var userId=$("#userId").val();
 		var contactAddress=$("#xiangxiAddress").val();
 		var contactPhone=$("#contactPhone").val();
+		var storeId=$("#getStoreIdssss").val();
 		var gender = $(".addressdialog-content .addressform .sexfield div").find("input[name='gender']:checked").val();
 		//alert("sex:"+gender);
 		$.ajax({
@@ -268,7 +269,8 @@ function saveAddress(){
 			   data: {"contactName":contactName,"userId":userId,"contactAddress":contactAddress,"contactPhone":contactPhone,"gender":gender},
 			   success: function(obj){
 				   closeDiv();
-				   $(".checkout-address-list li").remove();
+				   location.href="/waimaiSys/car/showCar/"+storeId;
+				   /*$(".checkout-address-list li").remove();
 				   for ( var i = 0; i < obj.length; i++) {
 					   $(".checkout-address-list").append("<li>  <label class='addressInfo' onclick='labelClick($(this));'> <input type='hidden' id='addressId' value='"+
 							   obj[i].id+"'/> <input type='hidden' class='isDefault' value='"+obj[i].isDefault+"'/>  <input type='radio' class='addressRadio' name='address'/> <span class='user-address'>	<span>"+
@@ -290,7 +292,7 @@ function saveAddress(){
 							$(dom).children(".default").css("display","none");
 							$(dom).children(".set-default").css("display","inline");
 						}
-					});
+					});*/
 			   }
 		});
 	}
@@ -311,8 +313,7 @@ function setDefault(e){
 						   obj[i].id+"'/> <input type='hidden' class='isDefault' value='"+obj[i].isDefault+"'/>  <input type='radio' class='addressRadio' name='address'/> <span class='user-address'>	<span>"+
 						   obj[i].contactName+"</span>	<em>"+
 						   obj[i].contactPhone+"</em> <span>"+
-						   obj[i].contactAddress+"</span></span>  <em class='default' style='color: #b6b6b4;'>默认地址</em>  <a href='javascript:void(0);' class='set-default' onclick='setDefault($(this));'>设为默认地址</a> <span class='tips' style='display: none;'>	<i class='success success-icon'><img alt='' width='14px;' height='14px;' src='waimaiSys/static/files/chenggong.png'></i>	<span class='success success-tip'>设置成功！</span></span> 	 </label> <a class='modify' href='javascript:void(0);' style='display: none;' onclick='updateAddress('"+
-						   obj[i].id+"');'>修改本地址</a></li>");
+						   obj[i].contactAddress+"</span></span>  <em class='default' style='color: #b6b6b4;'>默认地址</em>  <a href='javascript:void(0);' class='set-default' onclick='setDefault($(this));'>设为默认地址</a> <span class='tips' style='display: none;'>	<i class='success success-icon'><img alt='' width='14px;' height='14px;' src='waimaiSys/static/files/chenggong.png'></i>	<span class='success success-tip'>设置成功！</span></span> 	 </label> </li>");
 			   }
 			   $(".checkout-address-list li label").each(function(i,dom){
 					var isDefault=$(dom).children(".isDefault").val();
@@ -343,14 +344,26 @@ function labelClick(e){
 
 
 //确认下单
-function sureOrders(){
+function sureOrders(storeId){
 	var userAddressId=$(".checkout-address-list li label").find("input[name='userAddress']:checked").val();
 	var remarks=$(".checkout-select .checkout-info .checkout-input").val();
 	if(remarks==null || remarks==""){
 		remarks="无";
 	}
 	if(userAddressId!=null && userAddressId!=undefined){
-		location.href="/waimaiSys/car/sureOrders/"+userAddressId+"/"+remarks;
+		//查询所有商品看是否售罄或下架
+		$.ajax({
+			   type: "POST",
+			   url: "/waimaiSys/car/findFoodState",
+			   data: {"storeId":storeId},
+			   success: function(obj){
+				   if(obj==null || obj==""){
+					   location.href="/waimaiSys/car/sureOrders/"+userAddressId+"/"+remarks+"/"+storeId;
+				   }else{//有菜品售罄或下架
+					   alert(obj.foodName+"已售罄或下架");
+				   }
+			   }
+		});
 	}else{
 		alert("请添加或选择一个地址！");
 	}

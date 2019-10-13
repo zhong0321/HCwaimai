@@ -54,4 +54,6 @@ public interface StoreMapper {
 	 * @param auditComment
 	 */
 	public void updateAudit(@Param(value = "storeId")int storeId,@Param(value = "auditState")Integer auditState,@Param(value = "auditTime")String auditTime, @Param(value = "auditComment")String auditComment);
+
+	public void updateStoreRegistState(Integer storeId);
 }

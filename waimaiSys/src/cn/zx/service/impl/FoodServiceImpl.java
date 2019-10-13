@@ -20,4 +20,9 @@ public class FoodServiceImpl implements FoodService{
 		return foodMapper.findFood(food);
 	}
 
+	@Override
+	public Food findFoodById(Integer id) {
+		return foodMapper.findFoodById(id);
+	}
+
 }

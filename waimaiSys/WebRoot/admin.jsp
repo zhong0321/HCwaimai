@@ -5,6 +5,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<c:set var="cp" value="<%=basePath%>" />
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,25 +30,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="glh-title">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="#">
                             <img src="static/images/logo.png" class="nav-header-img" alt="logo">
-                            北大青鸟
+                            豪吃外卖
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="">
                             消息
-                            <span class="badge">42</span>
+                            <span class="badge">0</span>
                         </a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a href=""> ${admin.adminName}  </a>
                     </li>
                     <li class="nav-item">
-                        <a href="">
-                            shuaishuai
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="">退出登录</a>
+                        <a href="${cp}index/zhuxiao/3">退出登录</a>
                     </li>
                 </ul>
             </div>
@@ -56,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="row">
             <div class="col-sm-1 col-md-2 sidebar menu-lefts">
                 <ul class="nav  nav-sidebar ziji">
-                    <li><a href="">首页</a></li>
+                    <!-- <li><a href="">首页</a></li> -->
                     <li class="activ"><a href="admins">商家入驻审核</a></li>
                 </ul>
             </div>

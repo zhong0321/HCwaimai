@@ -15,9 +15,9 @@ strict.dtd">
 </head>
 <body>
 	<header>
-	<div class="storeName">一只羊</div>
-	<div class="storeInfo">sidufisjf</div>
-	</header>
+        <div class="storeName">${store.storeName} </div>
+        <div class="storeName"> <a href="${cp}index/zhuxiao/2">注销</a> </div>
+    </header>
 	<div class="bottom">
 		<%@include file="storeList.jsp"%>
 		<div class="right">
@@ -47,7 +47,7 @@ strict.dtd">
 							<li data-gao="${list.foodTypeId}"><a
 								href="../../${id }/${nums }/${list.foodTypeId}">${list.foodType
 									} <span id="foodtypenum">（${list.num }）</span> </a>
-									<a href="#" style="font-size: 12px;margin-right :20px; float:right; color:red;" onclick="deletefoodtype(${id },${list.foodTypeId},${list.num });return false;">删除</a>
+									<a href="#" style="font-size: 14px;margin-right :20px; float:right; color:#ff9c00;" onclick="deletefoodtype(${id },${list.foodTypeId},${list.num });return false;">删除</a>
 							</li>
 						</c:forEach>
 					</ul>
@@ -68,7 +68,7 @@ strict.dtd">
 											<button class="shouqing" onclick="shouqing(${list.id})">售罄</button>
 										</c:if>
 										<c:if test="${list.fsid==3 }">
-											<button class="shouqing" onclick="weishouqing(${list.id})">售罄</button>
+											<button class="shouqing" onclick="weishouqing(${list.id})">未售罄</button>
 										</c:if>
 									</span>
 								</div>

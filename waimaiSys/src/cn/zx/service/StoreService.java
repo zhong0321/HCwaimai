@@ -66,4 +66,12 @@ public interface StoreService {
 	 * @return List<Store_Comment>
 	 */
 	public List<Store_Comment> findStoreInfo(int storeTypeId,int sorttype,int sortorder,String add);
+	/**
+	 * 修改商家状态
+	 * void  
+	 * @author ZX 
+	 * @param storeId 
+	 * @date 2019-9-25上午11:49:14
+	 */
+	public void updateStoreRegistState(Integer storeId);
 }

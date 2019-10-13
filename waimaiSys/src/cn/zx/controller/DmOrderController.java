@@ -138,7 +138,7 @@ public class DmOrderController {
         ScheduledExecutorService scheduledExecutorService =
                 Executors.newScheduledThreadPool(1);
         System.out.println("3秒后开始执行计划线程池服务..." + new Date());
-        scheduledExecutorService.schedule(new MyThreadController(id,orderService,commentService), 3, TimeUnit.SECONDS);
+        scheduledExecutorService.schedule(new MyThreadController(id,orderService,commentService), 24, TimeUnit.HOURS);
 		
 		
 		return "1";

@@ -36,7 +36,6 @@ function refuseOrder(id,storeId){
 			   	if(obj==null){
 			   		alert("对不起，每日只有5次拒单机会，您的次数已达上限");
 			   	}else{
-			   		alert("ok");
 			   		location.href="../../aliout/"+obj.orderNumber+"/"+obj.totalMoney+"/"+obj.id;
 			   	}
 		   }

@@ -18,11 +18,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="../static/css/login/reg.css" type="text/css"></link>
 	<script type="text/javascript" src="../static/js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript">
+	 
 		document().getElementById("num").value="";
 		Document().getElementById("pass").value="";
 		Document().getElementById("num2").value="";
 		Document().getElementById("veri-code").value="";
 	</script>
+	
 </head>
 <body>
 <div class="wrap">
@@ -84,5 +86,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <script type="text/javascript" src="../static/js/login/login2.js"></script>
 <script type="text/javascript" src="../static/js/login/agree.js"></script>
+<script language="JavaScript"> 
+javascript:window.history.forward(1); 
+</script> 
+<script language="javascript">
+        //防止页面后退
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+    </script>
 </body>
 </html>

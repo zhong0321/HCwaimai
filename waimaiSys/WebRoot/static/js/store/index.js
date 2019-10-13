@@ -292,7 +292,6 @@ function foodNames(el,foodid) {
 	return is;
 }
 function deletefoodtype(sid,typeid,num){
-	if(num>0){
 		var r=confirm("这个分类下有"+num+"个商品是否全部删除?");
 		if(r){
 			$.ajax({
@@ -308,10 +307,6 @@ function deletefoodtype(sid,typeid,num){
 				}
 			})
 		}
-	}else{
-		
-	}
-	
 }
 
 function foodName(el) {

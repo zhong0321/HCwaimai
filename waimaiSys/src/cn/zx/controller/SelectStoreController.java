@@ -1,6 +1,7 @@
 package cn.zx.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -47,8 +48,10 @@ public class SelectStoreController {
 		if(add!=null&&vl!=null&&add!=""&&vl!=""){
 			List<Store_Comment> list2=selectStoreService.selectstoreByMs(vl, add);
 			List<Food> list1=selectStoreService.selectMs(vl);
-			model.addAttribute("list", list2);
-			model.addAttribute("list1", list1);
+			if(list1.size()>0){
+				model.addAttribute("list", list2);
+				model.addAttribute("list1", list1);
+			}
 			model.addAttribute("vl", vl);
 		}
 		return "selects";
@@ -67,11 +70,42 @@ public class SelectStoreController {
 		int bad=selectStoreService.findBadComment(id);
 		int fine=selectStoreService.findFineComment(id);
 		List<CommentLv> list=selectStoreService.findComment(id);
-		model.addAttribute("list", list);
 		model.addAttribute("store_comment", store_Comment);
 		model.addAttribute("bad", bad);
 		model.addAttribute("fine", fine);
 		model.addAttribute("all", bad+fine);
+		List<CommentLv> list2 = new ArrayList<CommentLv>();
+		CommentLv commentLv = null;
+		int allnum =0;
+		int allnum2 =0;
+		int alllv=0;
+		for (int i = 0; i < list.size(); i++) {
+			int num3= list.get(i).getCommentnum();
+			allnum2 += num3;
+		}
+		for (int i = 0; i < list.size(); i++) {
+			commentLv = new CommentLv();
+			int num2 = list.get(i).getCommentlv();
+			int num3= list.get(i).getCommentnum();
+			alllv +=num2*num3;
+			allnum += num3;
+			
+			int num=list.get(i).getCommentnum();
+
+			double avg2 = 0;
+			if(num!=0){
+				avg2 = Double.parseDouble(String.format("%.1f", (double)num/allnum2));
+			}
+			commentLv.setCommentlv(list.get(i).getCommentlv());
+			commentLv.setAvg(avg2);
+			list2.add(commentLv);
+		}
+		double avg=0;
+		if(alllv!=0){
+		avg=alllv/allnum;
+		}
+		model.addAttribute("list2", list2);
+		model.addAttribute("avg", avg);
 		return "pinglun";
 	}
 	

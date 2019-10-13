@@ -20,8 +20,9 @@
 	<link rel="stylesheet" href="${cp}static/css/module/order/vendor.css">
 	<script type="text/javascript" src="${cp}static/js/lib/jquery.js"></script>
 	<script type="text/javascript">
+	
 		function userOrderDetail(id){
-			location.href="order/showOrderDetails/"+id;
+			location.href="/waimaiSys/order/showOrderDetails/"+id;
 		}
 		
 		//保存评价
@@ -53,6 +54,59 @@
 		//关闭
 		function closeDiv(){
 			$("#addCommentDiv").css({"display":"none"});
+		}
+		
+		$(function(){
+			var orderTime=$("#getOrderTime").html();
+			var orderId=$("#getOrderId").val();
+			var sdate1 = new Date(orderTime);
+		    sdate1.setMinutes (sdate1.getMinutes () + 30);
+		    var endDateStr= sdate1.getHours()+":"+sdate1.getMinutes();
+			TimeDown("showTimer", sdate1,orderId);
+		});
+		
+		/*
+		时间倒计时插件
+		TimeDown.js
+		*/
+		function TimeDown(id, endDateStr,orderId) {
+		    //结束时间
+		    var endDate = new Date(endDateStr);
+		    //当前时间
+		    var nowDate = new Date();
+		    //相差的总秒数
+		    var totalSeconds = parseInt((endDate - nowDate) / 1000);
+		    if(totalSeconds>=0){
+			    //天数
+			    var days = Math.floor(totalSeconds / (60 * 60 * 24));
+			    //取模（余数）
+			    var modulo = totalSeconds % (60 * 60 * 24);
+			    //小时数
+			    var hours = Math.floor(modulo / (60 * 60));
+			    modulo = modulo % (60 * 60);
+			    //分钟
+			    var minutes = Math.floor(modulo / 60);
+			    //秒
+			    var seconds = modulo % 60;
+			    //输出到页面
+			    document.getElementById(id).innerHTML =  minutes + ":" + seconds;
+			    //延迟一秒执行自己
+			    setTimeout(function () {
+			        TimeDown(id, endDateStr);
+			    }, 1000);
+			    if(totalSeconds==0){
+			    	location.reload();
+			    }
+		    }else if(totalSeconds<0){
+		    	if(orderId!=null && orderId!="" && orderId!=undefined){
+		    		setTimeout(function () {
+				        $("#showTimer").html("您的订单已超时！");
+			    		$("#showTimer").prev().hide();
+				    	location.href="/waimaiSys/order/overTimeNoPay/"+orderId;
+				    }, 1000);
+		    		
+		    	}
+		    }
 		}
 	</script>
 </head>
@@ -141,9 +195,21 @@
 													class="fr delivery-cost">¥ ${order.disMoney}</span>
 											</div>
 										</div>
-										<div class="food-total-info">
-											实际支付：<i>¥</i><span>${order.totalMoney}</span>
-										</div>
+										<c:if test="${order.orderState==0}">
+											<div class="food-total-info" >
+												<span style="border: 1px solid #FFBD27; padding: 5px 10px; border-radius:20px;">
+												<a style="color:#FFBD27" href="${cp}ali/${order.orderNumber}/${order.totalMoney}">去支付</a>
+												<span id="showTimer"></span>
+												<input type="hidden" id="getOrderId" value="${order.id}"/>
+												<span id="getOrderTime" style="display: none;"><fmt:formatDate value="${order.orderTime}" type="BOTH" /></span>
+												</span>
+											</div>
+										</c:if>
+										<c:if test="${order.orderState>0}">
+											<div class="food-total-info">
+												实际支付：<i>¥</i><span>${order.totalMoney}</span>
+											</div>
+										</c:if>
 									</div>
 									<div class="contact">
 										<p>地址：${order.orderAddress}</p>
@@ -160,7 +226,7 @@
 									<div class="procedure">
 										<div class="pro-order-status">订单状态</div>
 										<div class="fl process-bar">
-											<c:if test="${order.orderState>=1 && order.orderState<=13}">
+											<c:if test="${order.orderState>=0 && order.orderState<=13}">
 												<i class="icon i-orderok"></i> 
 											</c:if>
 											<c:if test="${order.orderState>=2 && order.orderState<=7}">
@@ -186,6 +252,12 @@
 											</c:if>
 										</div>
 										<div class="fl tips">
+											<c:if test="${order.orderState==0}">
+												<div class="step-2">
+													<!-- <span class="fr t-2">2019-05-14 12:50</span> -->
+													<p class="bold">未支付</p>
+												</div>
+											</c:if>
 											<c:if test="${order.orderState>=1 && order.orderState<=13}">
 												<div class="step-2">
 													<!-- <span class="fr t-2">2019-05-14 12:50</span> -->
@@ -263,6 +335,8 @@
 	                            		<div class="top">
 	                            			<a href="${cp}/restaurant/findAll/${order.storeId}" style="font-size: 17px;width: 30%">${order.storeName}  > </a>
 	                            			<span style="color: black;width: 30%">总价：￥${order.totalMoney}</span>
+	                            			<c:if test="${order.orderState==0}"><span>未支付</span></c:if>
+	                            			<c:if test="${order.orderState>0 && order.orderState<5}"><span>未完成</span></c:if>
 	                            			<c:if test="${order.orderState==5}"><span>已完成</span></c:if>
 	                            			<c:if test="${order.orderState==6}"><span>已评价</span></c:if>
 	                            			<c:if test="${order.orderState==7}"><span>已自动评价</span></c:if>

@@ -20,6 +20,7 @@ strict.dtd">
 <body>
     <header>
         <div class="storeName">${store.storeName} </div>
+        <div class="storeName"> <a href="/waimaiSys/index/zhuxiao/2">注销</a> </div>
     </header>
     <div class="bottom">
         <%@include file="storeList.jsp" %>

@@ -35,7 +35,7 @@ header .storeName,header .storeInfo{
     width: 12%;
     float: left;
     margin: 5px;
-    overflow: auto;
+    /* overflow: auto; */
     font-size: 14px;
 }
 .right{
@@ -43,7 +43,7 @@ header .storeName,header .storeInfo{
     width: 87%;
     float: right;
     margin: 5px;
-    overflow: auto;
+    /* overflow: auto; */
 }
 .left .listAll .listTitle{
     display: flex;
@@ -81,6 +81,7 @@ header .storeName,header .storeInfo{
 .right .foodInfoDiv h3{
     margin: 20px 0px;
 }
+
 .right .foodInfoDiv table tr td{
     padding: 20px 0px;
     font-size: 15px;

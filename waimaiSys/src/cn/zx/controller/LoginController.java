@@ -169,12 +169,12 @@ public class LoginController {
     
 	@RequestMapping("/findstorebyPhone")
 	@ResponseBody
-	public int findstoreByPhone(String phone,HttpServletRequest request,Model model){
+	public Store findstoreByPhone(String phone,HttpServletRequest request,Model model){
 		Store findStorePhone = userInfoService.findStorePhone(phone);
 		List<StoreTypes> storeTypes = storeTypesService.findStoreTypes();
     	request.getSession().setAttribute("storeTypes", storeTypes);
     	model.addAttribute("store", findStorePhone);
-		return findStorePhone.getAudit().getAuditState();
+		return findStorePhone;
 	}
 	
 	@RequestMapping("/deleteStoreinfo")
@@ -187,4 +187,6 @@ public class LoginController {
 		}
 		return "storeRegist1";
 	}
+	
+	
 }

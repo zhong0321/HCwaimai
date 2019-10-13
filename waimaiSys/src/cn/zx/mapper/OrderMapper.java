@@ -10,7 +10,7 @@ public interface OrderMapper {
 	public Order findById(Integer id);
 	public Order findByOrderNumber(Order order);
 	public void updateOrderState(Order order);
-	public void deleteOrder(Order order);
+	public void deleteOrder(Integer orderId);
 	public List<Order> findOrderByStoreAddress(String district);
 	public Order findDmOrderDis(Integer id, String district);
 	public void updateOrder(Order order);

@@ -44,6 +44,12 @@
         .amap_lib_placeSearch .poibox {
 		    padding: 3px 0 3px 0px;
 		}
+		.checkout-content a{
+			color:#ff9c00;
+		}
+		.checkout-content .addressInfo span,a,em{
+			margin-left: 10px;
+		}
     </style>
 </head>
 <body style="position: relative;" class="hidesidebar">
@@ -73,7 +79,7 @@
 	</div>
 	<div class="ng-scope">
 		
-		<div class="container clearfix ng-scope">
+		<div class="container clearfix ng-scope" style="margin-top: 70px;">
 			<div class="checkout-cart ng-scope ng-isolate-scope">
 				<div class="checkoutcart-container">
 					<div class="checkoutcart-title">
@@ -87,7 +93,8 @@
 					</div>
 					<dl class="checkoutcart-group ng-scope">
 					<c:forEach items="${carList}" var="car">
-						<dd class="ng-scope">
+						<c:if test="${store.id == car.storeId}">
+						<dd class="ng-scope"  >
 							<div class="checkoutcart-tablerow">
 								<div class="cell itemname ng-binding" title="${car.foodName}">${car.foodName}</div>
 								<input type="hidden" class="foodId" value="${car.foodId}"/>
@@ -100,9 +107,11 @@
 								<div class="cell itemtotal ng-binding">¥<span>${car.price*car.count}</span></div>
 							</div>
 						</dd>
+						</c:if>
 					</c:forEach>
 					</dl>
-					<div class="checkoutcart-distributionMoney">
+					<div class="checkoutcart-distributionMoney" style="margin: 25px 0px 0px 25px">
+					<input type="hidden" id="getStoreIdssss" value="${store.id}"/>
 						配送费&nbsp;&nbsp;¥<span class="distributionMoney">${store.distributionMoney}</span>
 					</div>
 					<div class="checkoutcart-total color-stress">
@@ -147,7 +156,7 @@
 										<span class="success success-tip">设置成功！</span>
 									</span>
 								</label>
-								<a class="modify" href="javascript:void(0);" style="display: none;" onclick="deleteAddress('${address.id}',$(this));">删除本地址</a>
+								<a class="modify" href="javascript:void(0);" style="display: none;font-size: 12px;" onclick="deleteAddress('${address.id}',$(this));">删除本地址</a>
 							</li>
 						</c:forEach>
 					</ul>
@@ -178,7 +187,7 @@
 					</div>
 				</div>
 				<div>
-					<button class="btn-stress btn-lg ng-binding ng-isolate-scope" onclick="sureOrders();">确认下单</button>
+					<button class="btn-stress btn-lg ng-binding ng-isolate-scope" onclick="sureOrders('${store.id}');">确认下单</button>
 				</div>
 			</div>
 		</div>

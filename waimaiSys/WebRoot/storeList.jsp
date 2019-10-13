@@ -36,6 +36,8 @@ strict.dtd">
     }
 
     websocket.onmessage = function (event) {//event为storeId
+    /* alert("event"+JSON.stringify(event));
+    alert("storeId"+storeId); */
         if(storeId==event){
 	        document.getElementById('notice').play();
      		alert("您有新订单了！");
@@ -71,42 +73,26 @@ strict.dtd">
         <div class="left">
             <dl class="listAll">
                 <dt class="listTitle">
-                    <img src="images/shezhi4646846545.png" alt="" width="20px;" height="20px;"/>
+                    <img src="${cp}static/files/dingdan545d5f4d5f5d4f5d.png" alt="" width="20px;" height="20px;"/>
                     <span>订单管理</span>
                 </dt>
                 <dd class="listContext">
-                    <a href="../showStoreOrder/99">查看订单</a>
+                    <a href="${cp}storeOrder/showStoreOrder/99">查看订单</a>
                 </dd>
-                <!-- <dd class="listContext">
-                    <a href="">账号设置</a>
-                </dd>
-                <dd class="listContext">
-                    <a href="">系统设置</a>
-                </dd>
-                <dd class="listContext">
-                    <a href="">门店管理</a>
-                </dd> -->
+                
             </dl>
             <dl class="listAll">
                 <dt class="listTitle">
-                    <img src="images/shezhi4646846545.png" alt="" width="20px;" height="20px;"/>
+                    <img src="${cp}static/files/caipin5346415f1d654f5d4f.png" alt="" width="20px;" height="20px;"/>
                     <span>商品管理</span>
                 </dt>
                 <dd class="listContext">
-                    <a href="">所有菜品</a>
+                    <a href="${cp}findfoodtype/${store.id}/0/0">所有菜品</a>
                 </dd>
-                <!-- <dd class="listContext">
-                    <a href="">账号设置</a>
-                </dd>
-                <dd class="listContext">
-                    <a href="">系统设置</a>
-                </dd>
-                <dd class="listContext">
-                    <a href="">门店管理</a>
-                </dd> -->
+                
             </dl>
             
-            <dl class="listAll">
+            <!-- <dl class="listAll">
                 <dt class="listTitle">
                     <img src="images/shezhi4646846545.png" alt="" width="20px;" height="20px;"/>
                     <span>店铺设置</span>
@@ -114,16 +100,7 @@ strict.dtd">
                 <dd class="listContext">
                     <a href="">消息中心</a>
                 </dd>
-                <!-- <dd class="listContext">
-                    <a href="">账号设置</a>
-                </dd>
-                <dd class="listContext">
-                    <a href="">系统设置</a>
-                </dd>
-                <dd class="listContext">
-                    <a href="">门店管理</a>
-                </dd> -->
-            </dl>
+            </dl> -->
         </div>
     <!-- </div> -->
 </body>

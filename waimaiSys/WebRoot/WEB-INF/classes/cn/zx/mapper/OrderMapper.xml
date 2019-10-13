@@ -12,7 +12,6 @@
 		  `orderAddress`,
 		  `totalMoney`,
 		  `orderState`,
-		  `isComment`,
 		  `orderRemarks`,
 		  `disMoney`
 		) 
@@ -25,7 +24,6 @@
 		    #{orderAddress},
 		    #{totalMoney},
 		    #{orderState},
-		    #{isComment},
 		    #{orderRemarks},
 		    #{disMoney}
 		  ) ;
@@ -52,7 +50,6 @@
 		  `orderAddress` = #{orderAddress},
 		  `totalMoney` = #{totalMoney},
 		  `orderState` = #{orderState},
-		  `isComment` = #{isComment},
 		  `orderRemarks` = #{orderRemarks},
 		  `deliveryManId` = #{deliveryManId},
 		  `disMoney` = #{disMoney}
@@ -73,8 +70,13 @@
     		and o.`userId`=#{userId}
     	</if>
 		<if test="orderState!=null">
-    		and o.`orderState`=#{orderState}
-    	</if>
+		<if test="orderState==5">
+		 and o.`orderState`in(5,6,7)
+		 </if>
+		 <if test="orderState!=5" >
+		 and o.`orderState`=#{orderState}
+		 </if>
+		 </if>
     	<if test="deliveryManId!=null">
     		and o.`deliveryManId`=#{deliveryManId}
     	</if>
@@ -114,7 +116,7 @@
 	
 	<!-- 删除订单 -->
 	<delete id="deleteOrder">
-	
+		delete from `order` where id=#{id}
 	</delete>
 	
 	<!-- 查询订单是否在配送区域内 -->

@@ -48,8 +48,8 @@ public class OrderController {
 		Integer orderID = (Integer)request.getSession().getAttribute("orderID");
 		Order order = orderService.findById(orderID);
 		model.addAttribute("order", order);
-		Store store = storeService.findStoreById(order.getStoreId());
-		model.addAttribute("store", store);
+		/*Store store = storeService.findStoreById(order.getStoreId());
+		model.addAttribute("store", store);*/
 		OrderDetail orderDetail=new OrderDetail();
 		orderDetail.setOrderId(orderID);
 		List<OrderDetail> orderDetail2 = orderDetailService.findOrderDetail(orderDetail);//根据订单号查询订单明细
@@ -148,8 +148,32 @@ public class OrderController {
         }else{
         	return "0";
         }
-		
-		
+	}
+	
+	/**
+	 * 超时未支付，删除订单
+	 * @param orderId
+	 * @return 
+	 * String  
+	 * @author ZX 
+	 * @date 2019-9-25上午8:04:57
+	 */
+	@RequestMapping("/overTimeNoPay/{orderId}")
+	public String overTimeNoPay(@PathVariable("orderId") Integer orderId,HttpServletRequest request){
+		String path = request.getContextPath();
+		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+		System.out.println(basePath);
+		Order order = orderService.findById(orderId);
+		if(order!=null){
+			if(order.getOrderState()==0){
+				orderService.deleteOrder(orderId);
+				return "redirect:"+basePath+"order/historyOrders";
+			}else{
+				return "redirect:"+basePath+"order/showOrder";
+			}
+		}else{
+			return "redirect:"+basePath+"order/historyOrders";
+		}
 	}
 	
 }

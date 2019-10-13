@@ -114,7 +114,7 @@
 	        	<img src="${cp}static/files/xiaohongdiantishi51545.png" width="15px" height="15px"/>
 	           <input id="yanzhengma" name="yanzhengma" type="text" placeholder="验证码" autocomplete="new-password"/>
 	           <button style="margin-left: 20px;" type="button" class="checkNumBtn" onclick="sendYanZhengMa();">获取验证码</button>
-            	<input type="hidden" id="maTrue" autocomplete="new-password" />
+            	<input type="text" id="maTrue" autocomplete="new-password" />
 	        </div>
 	    	<button class="loginBtn" type="button" onclick="phoneLogin();">登录</button>
 	    </div>
@@ -123,15 +123,11 @@
 </body>
 <script type="text/javascript">
 	function changePhoneLogin(){
-		/* $(".div11").css("display","none");
-		$(".div22").css("display","block"); */
 		 $(".div11").hide();
 		 $(".div22").show();
 	}
 	
 	function changePassLogin(){
-		/* $(".div22").css("display","none");
-		$(".div11").css("display","block"); */
 		$(".div22").hide();
 		$(".div11").show();
 	}
@@ -143,8 +139,7 @@
 	 	if(!reg.test(dmPhone)){
 	 			ShowDiv('MyDiv1','fade1','手机号格式有误！');
 	 	}else{
-		 	var random = Math.floor(Math.random()*100000)+100000;
-		 	$("#maTrue").val("123456");
+		 	
 		 	$.ajax({
 			   type: "POST",
 			   url: "/waimaiSys/dmLogin/checkPhone",
@@ -155,11 +150,14 @@
 			   			$.ajax({
 							type: "POST",
 							url: "/waimaiSys/Obtain",
-							data: {"random":random,"phoneNumber":dmPhone},
+							data: {"phoneNumber":dmPhone},
 							async:false,
-							success: function(obj){
+							success: function(data){
+								$("#maTrue").val(data);
 							}
 						});
+						
+						
 			   		}else{
 			   			ShowDiv('MyDiv1','fade1','账号不存在！请先注册!');
 			   		}

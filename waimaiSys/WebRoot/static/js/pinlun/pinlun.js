@@ -129,13 +129,13 @@ function pinlun(num){
 			//弹出选中单选按钮的值
 			switch (filter[i].value){
 			case "全部":
-				url="select/"+id+"/"+num+"/"+nulls;
+				url="/waimaiSys/select/"+id+"/"+num+"/"+nulls;
 				break;
 			case "好评":
-				url="selectFine/"+id+"/"+num+"/"+nulls;
+				url="/waimaiSys/selectFine/"+id+"/"+num+"/"+nulls;
 				break;
 			case "差评":
-				url="selectBad/"+id+"/"+num+"/"+nulls;
+				url="/waimaiSys/selectBad/"+id+"/"+num+"/"+nulls;
 				break;
 			}
 		}
@@ -168,7 +168,7 @@ function pinlun(num){
 			}else{
 				con="好评";
 			}
-			var pl='<li class="reply-field"> <div class="reply-user-avatar"> <img class="user-avatar-img" src="static/images/'+aa.image+'"> </div> <div class="info clearfix"> <span class="fr time">'+aa.commentTime+'</span> <span class="name">'+aa.userName+'</span>  <span class="star-ranking">	<span class="star-score" style="width: 75px"></span>   </span>      <span class="feel">'+con+'</span> 	</div> <div class="user-reply-empty ct-lightgrey">'+description+'</div>  </li>';
+			var pl='<li class="reply-field"> <div class="reply-user-avatar"> <img class="user-avatar-img" src="/waimaiSys/static/files/'+aa.image+'"> </div> <div class="info clearfix"> <span class="fr time">'+aa.commentTime+'</span> <span class="name">'+aa.userName+'</span>  <span class="star-ranking">	<span class="star-score" style="width: 75px"></span>   </span>      <span class="feel">'+con+'</span> 	</div> <div class="user-reply-empty ct-lightgrey">'+description+'</div>  </li>';
 			ul.html(uls+pl);
            }
         }

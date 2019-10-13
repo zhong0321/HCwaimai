@@ -227,12 +227,11 @@ $(function(){
 		            url: '../Obtain',
 		            type: 'post',
 		            dataType: 'json',
-		            async: true,
+		            async: false,
 		            data: {"phoneNumber":phone},
 		            success:function(data){
-		            	alert(data);
 		                if (data) {
-		                     
+		                    
 		                } else {
 		                    
 		                }

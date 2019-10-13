@@ -20,12 +20,16 @@ import org.springframework.web.multipart.MultipartFile;
 import cn.zx.entity.Food;
 import cn.zx.entity.FoodStatus;
 import cn.zx.entity.FoodTypeInfo;
+import cn.zx.entity.Store;
 import cn.zx.service.StoreFoodTypesService;
+import cn.zx.service.StoreService;
 
 @Controller
 public class StoreShowFoodController {
 	@Resource
 	private StoreFoodTypesService foodTypesService;
+	@Resource
+	private StoreService storeService;
 
 	@RequestMapping("/findfoodtype/{id}/{num}/{state}")
 	public String findfoodtype(Model model, @PathVariable("id") int id,
@@ -94,6 +98,10 @@ public class StoreShowFoodController {
 			double jiage) {
 		 int a=foodTypesService.addFood(storeId, foodName, foodtypeid, jiage,
 				imgName);
+		 Store store = storeService.findStoreById(storeId);
+		 if(store.getRegistState()==0){
+			 storeService.updateStoreRegistState(storeId);
+		 }
 		 imgName="";
 		 return a;
 	}

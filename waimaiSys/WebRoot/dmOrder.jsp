@@ -23,6 +23,7 @@ strict.dtd">
     <audio id="notice" loop="loop">
 	    <source src="${cp}static/mp3/newOrder.mp3" type="audio/mpeg" />
 	</audio>
+	
 	<script type="text/javascript">
 		<%-- /*webSocket-------开始*/
 		var websocket = null;
@@ -167,10 +168,10 @@ strict.dtd">
 				   data: {"id":id},
 				   success: function(obj){
 					   	if(obj==1){
-					   		alert("您真棒，这单是您的了！");
+					   		ShowDiv('MyDiv1','fade1','您真棒，这单是您的了！');
 					   		
 					   	}else{
-					   		alert("哎呀，手慢了，订单被别人抢走了");
+					   		ShowDiv('MyDiv1','fade1','哎呀，手慢了，订单被别人抢走了！');
 					   	}
 				   }
 			});
@@ -196,7 +197,7 @@ strict.dtd">
 				   url: "../sureGetFood",
 				   data: {"id":id,"orderState":5,"disMoney":disMoney},
 				   success: function(obj){
-					   	alert("恭喜您，订单完成啦！");
+					   //	alert("恭喜您，订单完成啦！");
 					   	/* $(".noOrders").css("display", "block"); */
 				   }
 			});
@@ -217,6 +218,16 @@ strict.dtd">
 				   }
 			});
 		}
+		
+		//通用单选弹框
+		function ShowDiv(show_div,bg_div,str){
+			document.getElementById(show_div).style.display='block';
+			document.getElementById(bg_div).style.display='block' ;
+			document.getElementById("fm1").innerHTML = str;
+			var bgdiv = document.getElementById(bg_div);
+			bgdiv.style.width = document.body.scrollWidth;
+			$("#"+bg_div).height($(document).height());
+		};
 	</script>
 	<style type="text/css">
 		.now{
@@ -399,7 +410,7 @@ strict.dtd">
     </c:if>
     
     </div>
-    
+    <%@include file="tyAlert.jsp" %>
 </body>
 	
 </html>

@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			            <img alt="" src="${cp}static/files/weizhi4584151.png" style="height: 20px;width: 20px;">
 			            <span class="current-county">${address}</span>
 			            <span style="color: #ccc;">|</span>
-			            <a href="getAddress.jsp" id="change-position" class="change-position">订餐地址</a>
+			            <a href="${cp}getAddress.jsp" id="change-position" class="change-position">订餐地址</a>
 			            <input type="hidden" id="lnglat" value="${lnglat}"/>
 			        </div>
 			        <%-- <div class="fr" style="position: relative;">
@@ -173,6 +173,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    Rohr_Opt.Flag = 100007;
 		    Rohr_Opt.LogVal = 'rohrdata';
 		</script>
-	<script type="text/javascript" src="static/js/index/index.js"></script>
+	<script type="text/javascript" src="${cp}static/js/index/index.js"></script>
 </body>
 </html>

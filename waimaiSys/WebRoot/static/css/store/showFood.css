@@ -97,10 +97,14 @@ a {
 }
 
 .right .bottomAllFood .rightFoodInfo {
-	width: 76%;
+	width: 78%;
 	float: left;
+	height: 588px;
+	overflow: auto;
 }
-
+.right .bottomAllFood .rightFoodInfo ul{
+	width: 972px;
+}
 .right .bottomAllFood .leftFoodType div {
 	height: 70px;
 	line-height: 70px;

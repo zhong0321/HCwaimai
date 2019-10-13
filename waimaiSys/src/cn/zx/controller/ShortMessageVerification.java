@@ -5,6 +5,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.sun.org.apache.bcel.internal.classfile.PMGClass;
+
 import cn.glh.rest.client.AbsRestClient;
 import cn.glh.rest.client.JsonReqClient;
 
@@ -33,24 +37,19 @@ public class ShortMessageVerification {
 	
 	@RequestMapping("/Obtain")
 	@ResponseBody
-	public String getOk(String random,String phoneNumber){
-		if(/*null!=random && phoneNumber!=null && ""!=random && phoneNumber!=""*/false){
+	public String getOk(String phoneNumber){
+		String random = Integer.toString((int) ((Math.random()*9+1)*100000));
+		if(phoneNumber!=null&& phoneNumber!=""){
 			String sid = "eec6cf06def8cf261e06f4544d1422a5";
 			String token = "660744f5b331d00e61b24ff493aa8aac";
 			String appid = "fba8417543f54d058fb802f1ce3b2b89";
 			String templateid = "477404";
-			String param = random;
 			String mobile = phoneNumber;
 			String uid = "";
-			return testSendSms(sid, token, appid, templateid, param, mobile, uid);
+			testSendSms(sid, token, appid, templateid, random, mobile, uid);
+			return random;
 		}else{
-			return "hh()";
+			return "000000";
 		}
-	}
-	@CrossOrigin(origins = "*", maxAge = 3600)
-	@RequestMapping("/test")
-	@ResponseBody
-	public String test(){
-	return "{'message':[{'id':1,'name':'奥迪','ctime':'2012-12-12'},{'id':2,'name':'奔驰','ctime':'2012-12-12'},{'id':3,'name':'宝马','ctime':'2012-12-12'},{'id':4,'name':'兰博基尼','ctime':'2012-12-12'}]}";
 	}
 }

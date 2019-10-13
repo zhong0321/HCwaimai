@@ -82,12 +82,12 @@ strict.dtd">
 						</div>
 					</div>
 				</div>
-				<div class="save-up-wrapper">
+				<!-- <div class="save-up-wrapper">
 					<a href="javascript:;" class="save-up j-save-up " data-poiid="144737917011987255">
 						<p class="ct-black">收藏本店</p> <i class="icon i-heart-22"></i> 
 					</a>
 					<p class="cc-lightred-new j-save-up-people"></p>
-				</div>
+				</div> -->
 			</div>
 
 
@@ -102,7 +102,7 @@ strict.dtd">
 					</div>
 
 					<!-- 菜品分类 -->
-					<div class="ori-foodtype-nav clearfix">
+					<%-- <div class="ori-foodtype-nav clearfix">
 						<ul class="clearfix">
 							<c:forEach items="${storeFoodTypes}" var="storeFoodTypes">
 								<li class="active">
@@ -112,7 +112,7 @@ strict.dtd">
 								</li>
 							</c:forEach>
 						</ul>
-					</div>
+					</div> --%>
 
 				</div>
 
@@ -129,7 +129,7 @@ strict.dtd">
 							</h3>
 							<div class="pic-food-cont clearfix">
 								<c:forEach items="${food}" var="food">
-									<div class="j-pic-food pic-food" id="1336169296"  <c:if test="${food.foodTypeId!=storeFoodTypes.foodTypeId}">style="display: none;"</c:if> >
+									<div class="j-pic-food pic-food" id="1336169296"  <c:if test="${food.foodTypeId!=storeFoodTypes.foodTypeId || food.fsid==2}">style="display: none;"</c:if> >
 										<div class="avatar" id="gao${food.id}" name="gao${food.id}">
 											<img src="${cp}static/images/${food.foodImage}" class="food-shape scroll-loading">
 											<div class="description"></div>
@@ -142,10 +142,15 @@ strict.dtd">
 										</div>
 
 										<div class="labels clearfix">
-											<a onclick="addFood($(this),'${food.id}','${food.foodName}','${food.storeId}','${food.price}');" class="add fr icon i-addcart j-addcart" <c:if test="${empty user}">style="display: none;"</c:if> >
-												<img src="${cp}static/files/tianjiafood.png" style="height: 24px;width: 24px;" /> 
-											</a> 
-											<a href="javascript:if(confirm('您还未登录，请先登录！'))location='${cp}gologin/1'" class="add fr icon i-addcart j-addcart" <c:if test="${!empty user}">style="display: none;"</c:if> ><img src="${cp}static/files/tianjiahui86415.png" style="height: 24px;width: 24px;" /> </a>
+											<c:if test="${food.fsid==3}">
+												<span class="add fr icon i-addcart j-addcart" style="color: gray;">售罄</span>
+											</c:if>
+											<c:if test="${food.fsid==1}">
+												<a onclick="addFood($(this),'${food.id}','${food.foodName}','${food.storeId}','${food.price}');" class="add fr icon i-addcart j-addcart" <c:if test="${empty user}">style="display: none;"</c:if> >
+													<img src="${cp}static/files/tianjiafood.png" style="height: 24px;width: 24px;" /> 
+												</a> 
+												<a href="javascript:if(confirm('您还未登录，请先登录！'))location='${cp}gologin/1'" class="add fr icon i-addcart j-addcart" <c:if test="${!empty user}">style="display: none;"</c:if> ><img src="${cp}static/files/tianjiahui86415.png" style="height: 24px;width: 24px;" /> </a>
+											</c:if>
 											<span id="food1336169296-cart-num" class="pic-food-cart-num fr" style="display:none;">0</span>
 											<div class="price fl">
 												<div class="only">¥${food.price}</div>

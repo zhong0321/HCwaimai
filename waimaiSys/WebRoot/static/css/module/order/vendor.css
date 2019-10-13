@@ -455,7 +455,7 @@ sub {
  bottom:-.25em
 }
 a {
- color:#ff9c00
+ color:#0089dc
 }
 a.inherit {
  color:inherit
@@ -658,7 +658,7 @@ select {
 @font-face {
  font-family:eleme;
  src:url(//shadow.elemecdn.com/faas/desktop/media/font/eleme.6f8da4.eot);
- src:local('鈽猴笌'),
+ src:local('☺︎'),
  url(//shadow.elemecdn.com/faas/desktop/media/font/eleme.a61c32.woff) format('woff'),
  url(//shadow.elemecdn.com/faas/desktop/media/font/eleme.8e5aeb.ttf) format('truetype'),
  url(//shadow.elemecdn.com/faas/desktop/media/font/eleme.94ccdd.svg#eleme) format('svg');
@@ -1027,7 +1027,7 @@ body.hidesidebar {
 }
 .container {
  font-size:14px;
- width:1300px;
+ width:960px;
  margin:0 auto
 }
 @media (min-width:1260px) {
@@ -1038,16 +1038,6 @@ body.hidesidebar {
  body.smallbody .container {
   width:960px
  }
-}
-#headerDiv{
-	width: 97%;
-}
-#right {
-	
-    margin-left: 220px;
-    display: flex;
-    justify-content: space-around;
-
 }
 .color-normal {
  color:#333
@@ -1371,8 +1361,7 @@ a.badge:hover {
 .addressdialog {
  position:fixed;
  background:#fff;
- padding:0;
- 
+ padding:0
 }
 .addressdialog-close {
  display:inline-block;
@@ -1558,48 +1547,7 @@ a.badge:hover {
  color:#9f9f9f;
  height:42px;
  border-radius:2px;
- cursor:pointer;
- border:1px solid #0089dc;
- background-color:#0089dc;
- color:#fff;
- width:160px;
-}
-.addressformfield-hint-span{
-	margin:10px;
-	color:#b5b5b5;
-}
-
-.addressInfo{
-	font-size: 12px;
-}
-.modify{
-	float: right;
-	margin-right: 20px;
-}
-.checkout-address-list li:hover{
-	background: #fff0e8;
-	
-}
-.checkout-address-list li:hover .set-default{
-	display: inline;
-}
-.checkout-address-list li{
-	padding: 4px 7px 2px 3px;
-	margin:5px 0px;
-	font-size: 12px;
-}
-.checkoutcart-distributionMoney{
-	margin: 30px 0px 0px 30px;
-	font-size: 16px;
-	color: #929190;
-}
-.checkoutcart-distributionMoney .distributionMoney{
-	color: #f74342;
-	margin-left: 10px;
-	font-weight: bolder;
-}
-.user-address span,.addressInfo>a{
-	padding:0px 10px;
+ cursor:pointer
 }
 .addressform-buttons button:first-child {
  margin-right:10px;
@@ -1665,11 +1613,11 @@ a.badge:hover {
  color:#fff
 }
 .addressfield>img {
-position: absolute;
-top: 12px;
-left: 91px;
-width: 20px;
-height: 20px;
+ position:absolute;
+ top:12px;
+ left:95px;
+ width:12px;
+ height:16px
 }
 .addressfield>input,
 .addressfield>input[type=text] {
@@ -2826,7 +2774,7 @@ height: 20px;
  font-size:12px;
  line-height:1.2;
  text-align:center;
- content:'娴�;
+ content:'浇';
  background:#3199e8;
  color:#fff;
  border-radius:2px;
@@ -2884,7 +2832,7 @@ height: 20px;
  border-left:none
 }
 .sidebarcart-price .sidebarcart-total {
- content:"楼";
+ content:"¥";
  margin-right:1px;
  font-size:inherit;
  line-height:inherit
@@ -3220,25 +3168,9 @@ height: 20px;
 }
 .carttopbar {
  display:block;
- background-color:white;
- color:black;
- height: 70px;
- box-shadow: 0 3px 10px 0 rgba(0,0,0,0.06);
-}
-.carttopbar ul{
-	display: flex;
-	height: 70px;
-	justify-content: center;
-	align-items: flex-start;
-	font-size: 16px;
-	line-height: 70px;
-}
-.carttopbar ul li {
-    height: 67px;
-    margin-left: 40px;
-    box-sizing: content-box;
-    top: 0;
-    cursor: pointer;
+ background-color:#0089dc;
+ border-bottom:1px solid #027ecb;
+ color:#fff
 }
 .carttopbar .container,
 .carttopbar .topbar-profilebox-username {
@@ -3259,16 +3191,13 @@ height: 20px;
  font-size:16px
 }
 .carttopbar-nav {
- line-height:30px;
- width: 1300px;
+ line-height:30px
 }
 .carttopbar-nav a {
  color:inherit
 }
 .carttopbar-nav-path {
- float:left;
- margin-left: 60px;
- margin-top: 20px;
+ float:left
 }
 .carttopbar-nav-path i {
  vertical-align:middle;
@@ -3421,8 +3350,7 @@ height: 20px;
 }
 .topbar-profilebox {
  float:right;
- color:black;
- line-height: 70px;
+ color:#fff
 }
 .topbar-profilebox>span>a {
  color:#fff

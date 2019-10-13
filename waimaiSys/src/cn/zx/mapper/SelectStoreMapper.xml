@@ -28,6 +28,7 @@
 		foodImage
 	FROM 
 		waimai.food 
+		where fsid != 2
     </if>
     <if test="vl!=null">
     SELECT 	id, 
@@ -38,7 +39,7 @@
 		foodImage
 	FROM 
 		waimai.food 
-	WHERE foodName  LIKE CONCAT('%',#{vl},'%')
+	WHERE foodName  LIKE CONCAT('%',#{vl},'%') AND fsid != 2
     </if>
 	
     </select>

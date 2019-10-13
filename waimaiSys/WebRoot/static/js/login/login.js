@@ -140,15 +140,14 @@ $(function (){
 		$(".form-data").delegate(".send","click",function () {
 			var phone = $.trim($('#tel').val());
 			if (checkPhone(phone)) {
-				alert(phone);
 					$.ajax({
 			            url: '../Obtain',
 			            type: 'post',
 			            data: {"phoneNumber":phone},
 			            success:function(data){
-			                if (data=="false") {
+			                if (data=="000000") {
 			                     alert("系统异常!");
-			                } else if(data.length==6){
+			                } else{
 			                	yanzhengma=data;
 			                }
 			            }
